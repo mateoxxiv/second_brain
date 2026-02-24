@@ -43,7 +43,10 @@ second_brain/
 │   ├── fine-tuning/
 │   ├── rag/
 │   ├── prompt-engineering/
-│   └── agent-frameworks/
+│   ├── agent-frameworks/
+│   ├── apis-and-services/       # OpenAI, Anthropic, Gemini, Mistral, Cohere, Replicate APIs
+│   ├── tooling-ecosystem/       # Vector DBs, eval frameworks, observability, orchestration tools
+│   └── integration-patterns/    # Multi-model routing, fallbacks, cost optimization, API design
 ├── 05-mlops/
 │   ├── deployment/
 │   ├── monitoring/
