@@ -1,0 +1,24 @@
+# Obsidian local state
+.obsidian/workspace.json
+.obsidian/workspace-v2.json
+.obsidian/workspace.bak
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
