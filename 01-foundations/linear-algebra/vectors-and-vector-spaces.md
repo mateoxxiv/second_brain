@@ -1,12 +1,9 @@
-**Related**: [[Matrix Operations and Properties]], [[Linear Transformations]]
+**Related**: [[vector-operations]], [[basis-and-dimension]], [[linear-independence]]
 **Tags**: #status/seed
 
 ## Core Idea
 
-A vector is an element of a vector space — an object that can be added to other
-vectors and multiplied by scalars. In ML, vectors are the fundamental data
-representation: every data point, every embedding, every row of weights is a
-vector in $\mathbb{R}^n$.
+A vector is an element of a vector space — an abstract object that can be added to other vectors and scaled by numbers. In ML, we work primarily in $\mathbb{R}^n$: ordered tuples of real numbers that represent data points, embeddings, weights, and gradients.
 
 ## Details
 
@@ -16,69 +13,81 @@ An ordered tuple of $n$ real numbers:
 
 $$\mathbf{v} = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix} \in \mathbb{R}^n$$
 
-### Core Operations
+Examples in ML:
+- A data point with 4 features (age, income, height, weight) → vector in $\mathbb{R}^4$
+- A flattened 28x28 image → vector in $\mathbb{R}^{784}$
+- A GPT embedding → vector in $\mathbb{R}^{1536}$ or higher
 
-| Operation | Formula | ML Use |
-|-----------|---------|--------|
-| Addition | $\mathbf{u} + \mathbf{v} = [u_i + v_i]$ | Gradient accumulation, residual connections |
-| Scalar mult. | $c\mathbf{v} = [cv_i]$ | Learning rate scaling, feature normalization |
-| Dot product | $\mathbf{u} \cdot \mathbf{v} = \sum u_i v_i$ | Similarity, attention scores, linear layers |
-| Norm (L2) | $\|\mathbf{v}\| = \sqrt{\sum v_i^2}$ | Regularization, distance metrics |
+### What is a Vector Space?
 
-### The Dot Product Identity
+A **vector space** $V$ over $\mathbb{R}$ is a set of objects closed under two operations:
 
-$$\mathbf{u} \cdot \mathbf{v} = \|\mathbf{u}\| \|\mathbf{v}\| \cos\theta$$
+1. **Addition**: $\mathbf{u}, \mathbf{v} \in V \implies \mathbf{u} + \mathbf{v} \in V$
+2. **Scalar multiplication**: $\mathbf{v} \in V, c \in \mathbb{R} \implies c\mathbf{v} \in V$
 
-This is why cosine similarity works: normalizing by norms isolates the angle
-$\theta$, which captures directional similarity regardless of magnitude.
+### The 8 Axioms
 
-### Vector Space Axioms
+These ensure everything "behaves well":
 
-A vector space $V$ over $\mathbb{R}$ must satisfy closure under addition and scalar
-multiplication, plus: commutativity, associativity, distributivity, and existence
-of zero vector and additive inverses.
+| # | Axiom | Meaning |
+|---|-------|---------|
+| 1 | $\mathbf{u} + \mathbf{v} = \mathbf{v} + \mathbf{u}$ | Commutativity |
+| 2 | $(\mathbf{u} + \mathbf{v}) + \mathbf{w} = \mathbf{u} + (\mathbf{v} + \mathbf{w})$ | Associativity of addition |
+| 3 | $\exists \mathbf{0}: \mathbf{v} + \mathbf{0} = \mathbf{v}$ | Zero vector exists |
+| 4 | $\exists (-\mathbf{v}): \mathbf{v} + (-\mathbf{v}) = \mathbf{0}$ | Additive inverse exists |
+| 5 | $c(d\mathbf{v}) = (cd)\mathbf{v}$ | Associativity of scalar mult |
+| 6 | $1 \cdot \mathbf{v} = \mathbf{v}$ | Multiplicative identity |
+| 7 | $c(\mathbf{u} + \mathbf{v}) = c\mathbf{u} + c\mathbf{v}$ | Distributivity over vector add |
+| 8 | $(c + d)\mathbf{v} = c\mathbf{v} + d\mathbf{v}$ | Distributivity over scalar add |
 
-### Key Concepts
+### Why This Abstraction Matters
 
-- **Linear independence**: No vector in the set can be expressed as a linear
-  combination of others. ML analogy: non-redundant features.
-- **Basis**: Minimal spanning set of linearly independent vectors.
-- **Dimension**: Number of basis vectors needed. $\dim(\mathbb{R}^n) = n$.
-- **Span**: All possible linear combinations of a set of vectors.
-- **Subspace**: A subset that is itself a vector space (must contain the origin).
+Once you prove something for *any* vector space, it works for ALL of these:
+- $\mathbb{R}^n$ — the vectors you're used to
+- Matrices — a matrix is a vector in a higher-dimensional space
+- Functions — functions form a vector space (key for kernel methods in ML)
+- Polynomials — polynomial regression lives here
+
+### Subspaces
+
+A **subspace** is a subset of a vector space that is itself a vector space. It must:
+- Contain the zero vector $\mathbf{0}$
+- Be closed under addition and scalar multiplication
+
+Example: A plane through the origin in $\mathbb{R}^3$ is a 2D subspace. Your dataset might live in a low-dimensional subspace of a high-dimensional space — this is the core insight behind [[PCA]] and dimensionality reduction.
 
 ## Code Example
 
 ```python
 import numpy as np
 
-u = np.array([1, 2, 3])
-v = np.array([4, 5, 6])
+# R^3 is a vector space — verify closure
+u = np.array([1.0, 2.0, 3.0])
+v = np.array([4.0, 5.0, 6.0])
 
-# Dot product — the core operation behind attention and similarity
-dot = np.dot(u, v)  # 32
+# Closure under addition: result is still in R^3
+print(u + v)  # [5. 7. 9.]
 
-# Cosine similarity — used in RAG, embeddings, recommendation systems
-cos_sim = dot / (np.linalg.norm(u) * np.linalg.norm(v))  # 0.974
+# Closure under scalar multiplication: result is still in R^3
+print(3.5 * u)  # [3.5 7. 10.5]
 
-# Check linear independence via rank
-vectors = np.array([[1, 0, 0], [0, 1, 0], [0, 0, 1]])
-rank = np.linalg.matrix_rank(vectors)  # 3 = independent
+# Zero vector exists
+zero = np.zeros(3)
+print(u + zero)  # [1. 2. 3.] — identity holds
 ```
 
 > For runnable implementation, see: [[code/foundations/vectors_and_spaces.py]]
 
 ## Connections
 
-- The dot product is the foundation of [[Matrix Operations and Properties]] — matrix
-  multiplication is just organized dot products
-- [[Linear Transformations]] map vectors between spaces — neural network layers
-  are linear transformations
-- Vector norms lead to [[Regularization (L1/L2)]] in ML — penalizing weight magnitude
-- Basis and dimension connect directly to [[PCA]] — finding the optimal low-dimensional basis for data
+- Vector spaces enable [[vector-operations]] — the computational building blocks
+- [[basis-and-dimension]] defines the "coordinate system" of a vector space
+- [[linear-independence]] determines whether vectors are redundant in a space
+- Subspaces connect directly to [[PCA]] — finding optimal low-dimensional representations
+- [[Linear Transformations]] are functions between vector spaces — neural network layers
 
 ## Sources
 
 - [3Blue1Brown — Essence of Linear Algebra (Chapter 1)](https://www.youtube.com/watch?v=fNk_zzaMoSs)
 - [MIT 18.06 — Gilbert Strang, Lecture 1](https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/)
-- [Mathematics for Machine Learning — Chapter 2](https://mml-book.github.io/book/mml-book.pdf)
+- [Mathematics for Machine Learning — Chapter 2.1-2.4](https://mml-book.github.io/book/mml-book.pdf)
