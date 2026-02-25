@@ -149,6 +149,26 @@ LLMs: transformers (HuggingFace), langchain/langgraph, openai/anthropic SDKs
   - `reorganize foundations folder structure`
 - **Never commit**: `.obsidian/workspace.json`, `.obsidian/workspace-v2.json` (these are local UI state).
 
+## Learning Depth
+
+This vault follows a **deep-first approach**. We don't skim — we master.
+
+### What "deep" means
+- **Derive, don't memorize**. Understand where formulas come from. If you can't derive it, you don't own it.
+- **Implement from scratch**. Build algorithms with raw Python/NumPy before using libraries. This reveals what the abstractions hide.
+- **Prove intuition**. Mathematical intuition must be backed by working through the math yourself. Include proofs and derivations in notes when they build understanding.
+- **Progressive exercises**. Every concept needs multiple exercises at increasing difficulty:
+  - **Basic**: Apply the formula / definition directly
+  - **Intermediate**: Combine concepts, solve non-trivial problems
+  - **Advanced**: Edge cases, proofs, "why does this break when..."
+- **Connect across domains**. Every math concept should link forward to its ML/DL application. Every ML concept should link back to its mathematical foundation.
+
+### Exercise Philosophy
+- Exercises are NOT optional — they're how understanding is tested and solidified
+- Code exercises should include expected outputs so correctness is verifiable
+- When stuck on an exercise, Claude should guide via hints (Socratic), not give the answer immediately
+- Each code file should include a `exercises()` section with progressive challenges
+
 ## Content Creation
 
 When creating notes or content:
@@ -156,6 +176,8 @@ When creating notes or content:
 - Include mathematical notation using LaTeX (`$inline$` and `$$block$$`) when relevant
 - Use diagrams described in text or Mermaid blocks when visual explanation helps
 - After explaining a concept, always connect it back to the bigger picture (why does this matter for building AI systems?)
+- Include derivations and proofs when they build intuition — don't just state results
+- Always suggest additional resources: textbooks, lectures, papers, blog posts, videos
 
 ## Monitoring and News
 

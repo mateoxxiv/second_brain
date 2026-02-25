@@ -4,19 +4,28 @@ Follow these steps:
 
 1. **Research**: Search the vault for existing related notes using Glob and Grep. Understand what already exists to avoid duplication and to find linking opportunities.
 
-2. **Write the note**: Use the permanent note template from `templates/permanent-note.md`. Follow these rules:
-   - One concept only — if the topic is too broad, tell the user and suggest how to split it
+2. **Scope check**: Ensure the topic is truly atomic (one concept). If it's too broad, tell the user and suggest how to split it. Examples of good splits:
+   - "Vectors" is too broad → split into: "Vectors and Vector Spaces" (theory), "Vector Operations" (operations + worked examples), "Vectors in ML" (applications)
+   - "Gradient Descent" is okay — one concept
+   - "Optimization" is too broad → split into: "Gradient Descent", "Learning Rate", "Convexity", etc.
+
+3. **Write the note**: Use the permanent note template from `templates/permanent-note.md`. Follow these rules:
+   - No H1 title — the filename IS the title in Obsidian
+   - One concept only
    - Write the Core Idea section as a clear, concise explanation in your own words
-   - Include mathematical notation ($LaTeX$) where relevant
+   - Include mathematical notation ($LaTeX$) with derivations where they build understanding — don't just state formulas, show where they come from
+   - Add worked examples: step-by-step mathematical calculations showing the concept in action
    - Add a short inline code example if applicable
    - Link to existing vault notes using [[wikilinks]]
    - Tag as #status/seed
    - Place in the correct subfolder based on the topic
 
-3. **Code file**: If the concept benefits from a runnable implementation, create a `.py` file in the corresponding `code/` subfolder and link it from the note.
+4. **Code file**: If the concept benefits from a runnable implementation, create a `.py` file in the corresponding `code/` subfolder with progressive exercises (basic → intermediate → advanced). Link it from the note.
 
-4. **Show the note**: Display the full note content to the user for review. Do NOT commit yet.
+5. **Show the note**: Display the full note content to the user for review. Do NOT commit yet.
 
-5. **Wait for feedback**: Only commit after the user approves or requests changes.
+6. **Wait for feedback**: Only commit after the user approves or requests changes.
 
-6. **Recommend**: After the note is finalized, suggest 2-3 related topics that would make good follow-up notes and relevant learning resources (papers, blogs, videos).
+7. **Recommend**: After the note is finalized, suggest:
+   - 2-3 related topics that would make good follow-up notes
+   - Learning resources: textbooks, lectures, papers, blog posts, videos

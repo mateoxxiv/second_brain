@@ -2,41 +2,50 @@ Start a focused study session on: $ARGUMENTS
 
 If no topic is given, check the roadmap at `07-resources/study-roadmap.md` and suggest the next logical topic.
 
-A study session combines multiple workflows into one guided flow:
+A study session combines multiple workflows into one guided flow. This vault follows a DEEP-FIRST approach — we derive, prove, implement from scratch, and exercise until mastery.
 
 1. **Introduction** (2 min read):
    - Briefly explain what the topic is and why it matters in the AI/ML landscape
    - State prerequisites — check if those notes exist in the vault, warn if gaps
    - Outline what we'll cover in this session
 
-2. **Concept explanation**:
+2. **Concept explanation** (deep, not surface):
    - Explain the core concept clearly, building from first principles
-   - Use mathematical notation where needed
+   - Include mathematical derivations — don't just state formulas, show where they come from
+   - Use LaTeX notation for all math
    - Include diagrams (Mermaid) when visual explanation helps
    - Connect to concepts the user already has notes on
+   - Explain the intuition AND the rigor
 
 3. **Create permanent note**:
-   - Draft an atomic note following the Zettelkasten format
+   - Draft an atomic note following the Zettelkasten format (no H1 title — filename is the title)
+   - Include derivations and proofs in the Details section when they build understanding
    - Show it to the user for review before saving
 
 4. **Code implementation**:
-   - Build a from-scratch implementation to solidify understanding
+   - Build a from-scratch implementation (raw Python/NumPy first, no library shortcuts)
    - Walk through the code step by step, explaining design decisions
+   - Include an `exercises()` function with progressive challenges:
+     - Basic: direct application of the concept
+     - Intermediate: combine concepts, non-trivial problems
+     - Advanced: edge cases, optimizations, "prove this property in code"
    - Show the code for review before saving
 
-5. **Knowledge check** (3-5 questions):
-   - Quiz the user on what we just covered
-   - Adapt based on answers (Socratic method)
-   - Identify any remaining gaps
+5. **Knowledge check** (5-7 questions, adaptive):
+   - Start with a warm-up question
+   - Increase difficulty based on answers
+   - Mix types: conceptual, mathematical derivation, code-based, "what would happen if...", debugging
+   - Use Socratic method — don't give answers, guide with hints
+   - If the user struggles, break it down further before moving on
 
 6. **Wrap up**:
    - Summarize what was learned
+   - Identify any remaining gaps honestly
    - Update the roadmap if it exists
-   - Recommend 2-3 resources for deeper study (papers, blogs, videos)
    - Suggest the next topic for the following session
    - Commit all approved files
 
 7. **Resource recommendations**: Always end with at least:
    - 1 foundational resource (textbook chapter or lecture)
-   - 1 practical resource (blog post or tutorial)
-   - 1 advanced resource (paper or advanced talk)
+   - 1 practical resource (blog post or tutorial with exercises)
+   - 1 advanced resource (paper or proof-heavy reference)
