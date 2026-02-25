@@ -1,5 +1,3 @@
-# {{title}}
-
 **Source**: [Title](url)
 **Type**: paper | blog | video | course | documentation
 **Date read**: {{date}}

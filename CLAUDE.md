@@ -83,8 +83,6 @@ second_brain/
 ### Note Template (Permanent Notes)
 
 ```markdown
-# {{title}}
-
 **Related**: [[note1]], [[note2]]
 **Tags**: #status/seed
 

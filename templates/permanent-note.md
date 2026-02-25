@@ -1,5 +1,3 @@
-# {{title}}
-
 **Related**: [[]]
 **Tags**: #status/seed
 

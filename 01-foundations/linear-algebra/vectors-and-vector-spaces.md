@@ -1,5 +1,3 @@
-# Vectors and Vector Spaces
-
 **Related**: [[Matrix Operations and Properties]], [[Linear Transformations]]
 **Tags**: #status/seed
 

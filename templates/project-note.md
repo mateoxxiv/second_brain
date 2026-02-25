@@ -1,5 +1,3 @@
-# {{title}}
-
 **Status**: planning | in-progress | completed | paused
 **Tags**: #status/seed
 **Started**: {{date}}
