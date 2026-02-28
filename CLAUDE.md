@@ -154,6 +154,7 @@ LLMs: transformers (HuggingFace), langchain/langgraph, openai/anthropic SDKs
 This vault follows a **deep-first approach**. We don't skim — we master.
 
 ### What "deep" means
+- **Intuition before formulas**. Every concept needs an intuitive framing first: what question does it answer? Why should you care? What's the analogy? Only then introduce the math. If you can explain it to a non-expert, you understand it.
 - **Derive, don't memorize**. Understand where formulas come from. If you can't derive it, you don't own it.
 - **Implement from scratch**. Build algorithms with raw Python/NumPy before using libraries. This reveals what the abstractions hide.
 - **Prove intuition**. Mathematical intuition must be backed by working through the math yourself. Include proofs and derivations in notes when they build understanding.
