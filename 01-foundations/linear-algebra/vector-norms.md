@@ -7,6 +7,23 @@ A norm measures the "size" or "magnitude" of a vector. Different norms measure s
 
 ## Details
 
+### Intuition: Three Questions About the Same Vector
+
+Each norm answers a different question about a vector's "size":
+
+| Norm | Question it answers | Analogy |
+|------|-------------------|---------|
+| L2 | How far is this from zero? | Fly in a straight line to the point |
+| L1 | How much total activity is in this vector? | Walk along city streets — every component costs something |
+| Linf | What's the single biggest component? | Only the worst offender matters |
+
+**Why not just use L2?** Consider a model weight vector $\mathbf{w} = [0.5, 0.001, 3.2, 0.0003]$:
+- **L2** penalizes overall magnitude. All weights shrink, but none reach exactly zero. The tiny $0.001$ survives.
+- **L1** charges a cost for every non-zero weight, no matter how small. Pressure pushes $0.001$ and $0.0003$ to exactly zero → **automatic feature selection**.
+- **Linf** only cares about $3.2$ (the max). Useful when you need to bound the worst case, not the average.
+
+The choice of norm defines what "small" means to your model, and that changes everything.
+
 ### General Definition
 
 A function $\|\cdot\|: \mathbb{R}^n \to \mathbb{R}$ is a norm if it satisfies:
