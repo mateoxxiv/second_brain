@@ -1,4 +1,4 @@
-**Related**: [[vectors-and-vector-spaces]], [[basis-and-dimension]], [[Matrix Operations and Properties]]
+**Related**: [[vectors-and-vector-spaces]], [[vector-operations]], [[basis-and-dimension]], [[Matrix Operations and Properties]]
 **Tags**: #status/seed
 
 ## Core Idea
@@ -36,6 +36,21 @@ If you CAN find non-zero coefficients that produce zero, at least one vector is 
 combination of the others — they're **dependent**.
 
 ### Geometric Intuition
+
+```
+DEPENDENT (2D)                    INDEPENDENT (2D)
+
+      v2 = [2,1]                       v2 = [0,1]
+       *                                |  *
+      /                                 | /
+     /   v1 = [4,2]                     |/
+    /     (same line!)                  *------>
+   *                                   origin   v1 = [1,0]
+
+v2 = 0.5 × v1 → redundant         v1 and v2 span the whole plane
+Can only reach points on           Can reach ANY point in 2D
+one line
+```
 
 - **2 vectors in 2D**: Independent if they don't lie on the same line. Two arrows
   pointing along the same line (even at different scales) are dependent — one is
@@ -88,6 +103,22 @@ Why does this work? Row reduction (Gaussian elimination) systematically
 eliminates dependent rows by subtracting combinations. What survives is
 the independent core. The count of surviving rows is the rank.
 
+### Alternative Test: Determinant
+
+For square matrices (same number of vectors as dimensions), the **determinant**
+is a faster test:
+
+- $\det(A) \neq 0$ → independent
+- $\det(A) = 0$ → dependent
+
+$$A = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 1 & 1 & 0 \end{bmatrix} \implies \det(A) = 0 \quad \text{(dependent — v3 = v1 + v2)}$$
+
+$$A = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix} \implies \det(A) = 1 \quad \text{(independent)}$$
+
+The determinant measures how much a transformation "stretches" space. If it's
+zero, the transformation collapses at least one dimension — meaning some vector
+was redundant. We'll explore this deeply in [[Matrix Operations and Properties]].
+
 ### Connection to Rank
 
 The rank of a matrix tells you several equivalent things:
@@ -123,16 +154,34 @@ both gives the model infinite ways to split the weight between them. Drop one.
 ```python
 import numpy as np
 
-# Independent: standard basis
+# --- Method 1: Rank (works for any shape) ---
 v1 = np.array([1, 0, 0])
 v2 = np.array([0, 1, 0])
 v3 = np.array([0, 0, 1])
-rank = np.linalg.matrix_rank(np.array([v1, v2, v3]))  # 3 — independent
+A = np.array([v1, v2, v3])
+print(np.linalg.matrix_rank(A))  # 3 — independent
 
-# Dependent: v3 = v1 + v2
-v3_dep = np.array([1, 1, 0])
-rank_dep = np.linalg.matrix_rank(np.array([v1, v2, v3_dep]))  # 2 — dependent
-# One vector is redundant: only 2 independent directions
+v3_dep = np.array([1, 1, 0])     # v3 = v1 + v2
+A_dep = np.array([v1, v2, v3_dep])
+print(np.linalg.matrix_rank(A_dep))  # 2 — dependent
+
+# --- Method 2: Determinant (only for square matrices) ---
+print(np.linalg.det(A))      # 1.0 — nonzero → independent
+print(np.linalg.det(A_dep))  # 0.0 — zero → dependent
+
+# --- Method 3: From scratch — try to solve c1*v1 + c2*v2 + c3*v3 = 0 ---
+# If only the trivial solution exists, they're independent
+# Use the null space: if it's empty (rank = n), independent
+from numpy.linalg import svd
+def is_independent(vectors):
+    """Check independence via SVD null space."""
+    A = np.array(vectors, dtype=float)
+    _, s, _ = svd(A)
+    # Count non-zero singular values (tolerance for float)
+    return np.sum(s > 1e-10) == len(vectors)
+
+print(is_independent([v1, v2, v3]))      # True
+print(is_independent([v1, v2, v3_dep]))  # False
 ```
 
 > For runnable implementation, see: [[code/foundations/vectors_and_spaces.py]]
