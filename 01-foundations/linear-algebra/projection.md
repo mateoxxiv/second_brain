@@ -1,9 +1,9 @@
-**Related**: [[vector-operations]], [[cosine-similarity]], [[basis-and-dimension]]
+**Related**: [[vector-operations]], [[cosine-similarity]], [[basis-and-dimension]], [[projection-onto-subspaces]]
 **Tags**: #status/seed
 
 ## Core Idea
 
-Projection is the operation of finding the "shadow" of one vector onto another — the closest point on a line or subspace. It's the geometric foundation behind least squares regression (project data onto the column space), PCA (project onto principal components), and Gram-Schmidt orthogonalization.
+Projection is the operation of finding the "shadow" of one vector onto another — the closest point on a line. It's the geometric foundation behind least squares regression, PCA, and Gram-Schmidt orthogonalization. This note covers projection onto a single vector. For projection onto planes and higher-dimensional subspaces, see [[projection-onto-subspaces]].
 
 ## Details
 
@@ -90,33 +90,6 @@ Step by step:
 Verify orthogonality:
 $(3.654)(-0.654) + (0.731)(3.269) = -2.390 + 2.390 = 0$ ✓
 
-### Projection onto a Subspace
-
-When projecting onto a subspace spanned by multiple vectors (columns of matrix $A$):
-
-$$\mathbf{p} = A(A^TA)^{-1}A^T\mathbf{u}$$
-
-The matrix $P = A(A^TA)^{-1}A^T$ is the **projection matrix**. It satisfies:
-- $P^2 = P$ (projecting twice = projecting once, idempotent)
-- $P^T = P$ (symmetric)
-
-### Why Projection Matters in ML
-
-| Application | How projection appears |
-|-------------|----------------------|
-| **Least squares regression** | Find $\hat{\mathbf{y}} = X\hat{\boldsymbol{\beta}}$ by projecting $\mathbf{y}$ onto the column space of $X$ |
-| **PCA** | Project data onto the top-$k$ principal components (eigenvectors of covariance matrix) |
-| **Gram-Schmidt** | Build an orthogonal basis by subtracting projections: $\mathbf{u}_2 = \mathbf{v}_2 - \text{proj}_{\mathbf{u}_1}\mathbf{v}_2$ |
-| **Residuals** | In regression, the residual $\mathbf{e} = \mathbf{y} - \hat{\mathbf{y}}$ is the component orthogonal to the model |
-
-### Least Squares as Projection (Preview)
-
-In linear regression, you want to solve $X\boldsymbol{\beta} = \mathbf{y}$, but $\mathbf{y}$ doesn't live in the column space of $X$ (no exact solution). The best you can do is project $\mathbf{y}$ onto the column space:
-
-$$X^TX\hat{\boldsymbol{\beta}} = X^T\mathbf{y} \implies \hat{\boldsymbol{\beta}} = (X^TX)^{-1}X^T\mathbf{y}$$
-
-This is the **normal equation** — derived directly from projection. The key insight: $X^T(\mathbf{y} - X\hat{\boldsymbol{\beta}}) = \mathbf{0}$ says the residual is orthogonal to the column space.
-
 ## Code Example
 
 ```python
@@ -141,7 +114,7 @@ print(np.dot(proj, residual))  # ≈ 0 (floating point)
 - Projection uses the [[vector-operations|dot product]] and [[vector-norms|norm]]
 - [[cosine-similarity]] is the normalized scalar projection
 - [[basis-and-dimension|Change of basis]] and projection are complementary: basis change rotates the space, projection reduces dimensions
-- Subspace projection leads directly to [[Linear Regression]] (normal equation)
+- Generalizes to [[projection-onto-subspaces]] — projecting onto planes and higher-dimensional spaces
 - Gram-Schmidt orthogonalization builds orthogonal bases from projection → connects to [[Eigenvalues and Eigenvectors]]
 
 ## Sources
