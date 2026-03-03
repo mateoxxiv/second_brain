@@ -41,11 +41,40 @@ $$\boxed{\text{proj}_{\mathbf{v}} \mathbf{u} = \frac{\mathbf{u} \cdot \mathbf{v}
 
 ### Orthogonal Decomposition
 
-Any vector can be decomposed into two orthogonal parts:
+Any vector can be split into two perpendicular pieces — like splitting a force into horizontal and vertical components.
 
 $$\mathbf{u} = \underbrace{\text{proj}_{\mathbf{v}} \mathbf{u}}_{\text{parallel to } \mathbf{v}} + \underbrace{(\mathbf{u} - \text{proj}_{\mathbf{v}} \mathbf{u})}_{\text{perpendicular to } \mathbf{v}}$$
 
-You can verify: the dot product of these two components is always zero.
+Visually, with $\mathbf{u} = [3, 4]$ and $\mathbf{v} = [5, 0]$:
+
+```
+         u = [3, 4]
+           *
+          /|
+         / |
+        /  |  ← residual: [0, 4] (perpendicular piece)
+       /   |
+      /    |
+     *-----*
+  origin  [3, 0] ← projection (parallel piece)
+```
+
+The split: $[3, 4] = [3, 0] + [0, 4]$, and these two pieces are orthogonal: $[3,0] \cdot [0,4] = 0$.
+
+### Why is the residual always perpendicular?
+
+This is not a coincidence — it's guaranteed by the projection formula. The scaling factor $c = \frac{\mathbf{u} \cdot \mathbf{v}}{\mathbf{v} \cdot \mathbf{v}}$ was chosen specifically to make the residual orthogonal to $\mathbf{v}$:
+
+$$\text{residual} \cdot \mathbf{v} = (\mathbf{u} - c\mathbf{v}) \cdot \mathbf{v} = \mathbf{u} \cdot \mathbf{v} - c(\mathbf{v} \cdot \mathbf{v}) = \mathbf{u} \cdot \mathbf{v} - \frac{\mathbf{u} \cdot \mathbf{v}}{\mathbf{v} \cdot \mathbf{v}}(\mathbf{v} \cdot \mathbf{v}) = \mathbf{u} \cdot \mathbf{v} - \mathbf{u} \cdot \mathbf{v} = 0$$
+
+We **built** the formula to guarantee orthogonality. $\blacksquare$
+
+### Why perpendicular = best approximation
+
+Perpendicular error is the **smallest possible error**. Any other split would produce a longer residual (by the Pythagorean theorem). This is why "best fit" in linear algebra always means "the one where the error is perpendicular":
+
+- **Linear regression**: $\mathbf{y} = \text{prediction} + \text{residual}$. The prediction is the projection of $\mathbf{y}$ onto the column space of $X$. The residual is perpendicular to that space. Minimizing error = making the residual orthogonal.
+- **PCA**: Data = kept components + discarded components. You project onto the top-$k$ directions. What you discard is orthogonal to what you keep.
 
 ### Worked Example
 
