@@ -1,4 +1,4 @@
-**Related**: [[vectors-and-vector-spaces]], [[vector-norms]], [[cosine-similarity]], [[projection]], [[basis-and-dimension]], [[linear-independence]]
+**Related**: [[vectors-and-vector-spaces]], [[vector-norms]], [[cosine-similarity]], [[projection]], [[basis-and-dimension]], [[linear-independence]], [[linear-combination]]
 **Tags**: #status/seed
 
 ## Core Idea
@@ -115,39 +115,12 @@ $$c \cdot \mathbf{v} = -2 \begin{bmatrix} 2 \\ -3 \\ 1 \end{bmatrix} = \begin{bm
 The result is twice as long and points in the opposite direction. Every
 component flipped sign and doubled.
 
-### Linear Combination: "The Most Important Operation in ML"
+### Linear Combination
 
-A **linear combination** mixes vectors using scalar multiplication and addition:
-
-$$c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + \cdots + c_k\mathbf{v}_k$$
-
-This is the master operation — addition and scalar multiplication are just
-special cases of it. And it shows up EVERYWHERE:
-
-**Why is this so fundamental?** Because it says: "given a set of building blocks
-(vectors), what can I construct by scaling and adding them?"
-
-**Example**: Express $\begin{bmatrix}3\\1\end{bmatrix}$ using the standard basis:
-
-$$\begin{bmatrix}3\\1\end{bmatrix} = 3\begin{bmatrix}1\\0\end{bmatrix} + 1\begin{bmatrix}0\\1\end{bmatrix} = 3\mathbf{e}_1 + 1\mathbf{e}_2$$
-
-The coefficients [3, 1] ARE the coordinates. Every time you write a vector's
-components, you're implicitly writing a linear combination of basis vectors.
-This connects directly to [[basis-and-dimension|change of basis]] — different
-basis = different coefficients for the same point.
-
-**Where it appears**:
-
-| Context | The linear combination |
-|---------|----------------------|
-| Neural network neuron | $z = w_1 x_1 + w_2 x_2 + \cdots + w_n x_n + b$ (weights × inputs) |
-| Matrix-vector multiply | Each output component is a linear combination of input components |
-| Gradient descent | $\mathbf{w}_{\text{new}} = 1 \cdot \mathbf{w} + (-\alpha) \cdot \nabla L$ |
-| PCA reconstruction | $\hat{\mathbf{x}} = c_1 \mathbf{p}_1 + c_2 \mathbf{p}_2 + \cdots$ (principal components) |
-| Embeddings | A word embedding is a learned linear combination of features |
-
-The set of everything you can reach via linear combinations is the **span** —
-see [[basis-and-dimension]] for details.
+Addition and scalar multiplication combine into the most important operation in
+ML: the **[[linear-combination]]**. Scale some vectors, add them up — that's it.
+Every neuron, every gradient update, every regression prediction is a linear
+combination. See the dedicated note for worked examples, span, and ML applications.
 
 ### Dot Product: "How much do two vectors agree?"
 
