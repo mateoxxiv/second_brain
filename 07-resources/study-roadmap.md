@@ -1,8 +1,31 @@
 # Study Roadmap
 
 **Created**: 2026-02-24
-**Last updated**: 2026-02-24
+**Last updated**: 2026-03-04
 **Goal**: Become an expert AI architect and engineer — design, implement, and orchestrate intelligent systems end-to-end.
+
+---
+
+## Dual-Track Approach
+
+Two parallel tracks that reinforce each other:
+
+```
+THEORY TRACK (left)              BUILDER TRACK (right)
+Deep understanding               Real tools, real projects
+
+Linear Algebra ──────────────── → Embeddings & Vector Search use vectors
+Calculus ─────────────────────── → Gradient Descent in practice
+Probability ──────────────────── → Evaluation metrics, A/B testing
+Supervised ML ────────────────── → Scikit-learn pipelines, Kaggle
+Neural Networks ──────────────── → PyTorch, HuggingFace models
+Transformers ─────────────────── → LLM APIs (OpenAI, Anthropic, Gemini)
+Attention Mechanism ──────────── → RAG, prompt engineering, agents
+
+Theory explains WHY things work.
+Building shows HOW they work in practice.
+Both together = architect.
+```
 
 ---
 
@@ -10,34 +33,74 @@
 
 | Area | Notes | Code | Status |
 |------|-------|------|--------|
-| 01-foundations | 0 | 0 | Not started |
+| 01-foundations/linear-algebra | 11 | 1 | In progress (vectors through determinants done) |
+| 01-foundations/calculus | 0 | 0 | Not started |
+| 01-foundations/probability | 0 | 0 | Not started |
+| 01-foundations/algorithms | 0 | 0 | Not started |
+| 01-foundations/databases | 0 | 0 | Not started |
 | 02-machine-learning | 0 | 0 | Not started |
 | 03-deep-learning | 0 | 0 | Not started |
 | 04-llms-and-agents | 0 | 0 | Not started |
 | 05-mlops | 0 | 0 | Not started |
 | 06-projects | 0 | 0 | Not started |
 
----
+### Linear Algebra Notes Completed
 
-## Phase 1: Foundations (Weeks 1-6)
-
-The bedrock everything else builds on. You have intermediate knowledge here, so this is deep review, not learning from zero. Move fast but fill gaps.
-
-### 1.1 Linear Algebra (Week 1-2)
-> *Why*: Every ML algorithm is a matrix operation. You can't understand neural nets, PCA, or embeddings without this.
-
-- [ ] Vectors and Vector Spaces
+- [x] Vectors and Vector Spaces
+- [x] Vector Operations
+- [x] Vector Norms
+- [x] Cosine Similarity
+- [x] Linear Combination
+- [x] Linear Independence
+- [x] Basis and Dimension
+- [x] Projection
+- [x] Projection onto Subspaces
+- [x] Gaussian Elimination
+- [x] Determinant
 - [ ] Matrix Operations and Properties
+- [ ] Linear Transformations
 - [ ] Eigenvalues and Eigenvectors
 - [ ] Singular Value Decomposition (SVD)
 - [ ] Matrix Calculus (Jacobians, Hessians)
-- [ ] Linear Transformations
-- [ ] **Code**: Matrix operations from scratch with NumPy
+- [ ] Orthonormal Basis and Gram-Schmidt
+
+---
+
+## THEORY TRACK
+
+Deep understanding. Derive, don't memorize. Implement from scratch.
+
+### T1: Linear Algebra (Weeks 1-3) — IN PROGRESS
+
+> *Why*: Every ML algorithm is a matrix operation. You can't understand neural nets, PCA, or embeddings without this.
+
+**Done:**
+- [x] Vectors and Vector Spaces
+- [x] Vector Operations
+- [x] Vector Norms
+- [x] Cosine Similarity
+- [x] Linear Combination
+- [x] Linear Independence
+- [x] Basis and Dimension
+- [x] Projection (single vector)
+- [x] Projection onto Subspaces
+- [x] Gaussian Elimination
+- [x] Determinant
+
+**Remaining:**
+- [ ] Orthonormal Basis and Gram-Schmidt
+- [ ] Matrix Operations and Properties (multiply, inverse, transpose)
+- [ ] Linear Transformations (what matrices DO geometrically)
+- [ ] Eigenvalues and Eigenvectors
+- [ ] Singular Value Decomposition (SVD)
+- [ ] Matrix Calculus (Jacobians, Hessians)
+- [ ] **Code**: Matrix operations from scratch
 - [ ] **Code**: SVD for image compression
 
-**Estimated**: ~6 notes, 2 code files
+**Estimated remaining**: ~6 notes, 2 code files
 
-### 1.2 Calculus (Week 2-3)
+### T2: Calculus (Weeks 3-4)
+
 > *Why*: Optimization IS calculus. Gradient descent, backpropagation, loss functions — all calculus.
 
 - [ ] Derivatives and Partial Derivatives
@@ -49,8 +112,9 @@ The bedrock everything else builds on. You have intermediate knowledge here, so 
 
 **Estimated**: ~5 notes, 1 code file
 
-### 1.3 Probability and Statistics (Week 3-5)
-> *Why*: ML is applied statistics. Bayesian thinking, distributions, hypothesis testing — you'll use this daily.
+### T3: Probability and Statistics (Weeks 5-7)
+
+> *Why*: ML is applied statistics. Bayesian thinking, distributions, hypothesis testing.
 
 - [ ] Probability Fundamentals (Bayes' Theorem, conditional probability)
 - [ ] Probability Distributions (Normal, Bernoulli, Poisson, Uniform)
@@ -64,39 +128,9 @@ The bedrock everything else builds on. You have intermediate knowledge here, so 
 
 **Estimated**: ~8 notes, 2 code files
 
-### 1.4 Algorithms and Data Structures (Week 5-6)
-> *Why*: Efficient data handling, complexity analysis, and graph algorithms matter for ML pipelines and agent systems.
+### T4: Supervised ML (Weeks 7-10)
 
-- [ ] Big-O Notation and Complexity Analysis
-- [ ] Hash Tables and Their Role in ML
-- [ ] Trees and Graphs (for decision trees, GNNs, knowledge graphs)
-- [ ] Dynamic Programming (for sequence models, Viterbi)
-- [ ] Search Algorithms (for beam search in NLP)
-- [ ] **Code**: Implement a basic search algorithm
-
-**Estimated**: ~5 notes, 1 code file
-
-### 1.5 Databases (Week 6)
-> *Why*: Data storage, retrieval, and vector search are core to RAG and production ML systems.
-
-- [ ] Relational Databases and SQL Fundamentals
-- [ ] NoSQL Concepts (document, key-value, graph)
-- [ ] Vector Databases (Pinecone, Chroma, Weaviate)
-- [ ] Data Modeling for ML Pipelines
-- [ ] **Code**: Vector similarity search from scratch
-
-**Estimated**: ~4 notes, 1 code file
-
-### Phase 1 Total: ~28 notes, 7 code files
-
----
-
-## Phase 2: Machine Learning (Weeks 7-14)
-
-Classical ML from theory to implementation. Build everything from scratch, then use scikit-learn.
-
-### 2.1 Supervised Learning (Week 7-10)
-> *Why*: The core of predictive modeling. Master this and you can solve 80% of business ML problems.
+> *Why*: The core of predictive modeling. Build from scratch before using libraries.
 
 - [ ] Linear Regression (closed-form + gradient descent)
 - [ ] Logistic Regression
@@ -109,120 +143,67 @@ Classical ML from theory to implementation. Build everything from scratch, then 
 - [ ] **Code**: Linear regression from scratch
 - [ ] **Code**: Logistic regression from scratch
 - [ ] **Code**: Decision tree from scratch
-- [ ] **Code**: Full supervised pipeline with scikit-learn
 
-**Estimated**: ~8 notes, 4 code files
+**Estimated**: ~8 notes, 3 code files
 
-### 2.2 Unsupervised Learning (Week 10-11)
-> *Why*: Clustering, dimensionality reduction, and anomaly detection — critical for data exploration and feature creation.
+### T5: Unsupervised ML (Weeks 10-12)
+
+> *Why*: Clustering, dimensionality reduction, anomaly detection.
 
 - [ ] K-Means Clustering
-- [ ] Hierarchical Clustering
-- [ ] DBSCAN
+- [ ] Hierarchical Clustering and DBSCAN
 - [ ] Principal Component Analysis (PCA)
 - [ ] t-SNE and UMAP
 - [ ] Anomaly Detection
 - [ ] **Code**: K-Means from scratch
 - [ ] **Code**: PCA from scratch + visualization
 
-**Estimated**: ~6 notes, 2 code files
+**Estimated**: ~5 notes, 2 code files
 
-### 2.3 Ensemble Methods (Week 12)
-> *Why*: Random forests, gradient boosting, XGBoost — these dominate tabular data competitions and production systems.
+### T6: Ensemble Methods (Weeks 12-13)
 
-- [ ] Bagging and Bootstrap
-- [ ] Random Forests
+> *Why*: Random forests, XGBoost — dominate tabular data.
+
+- [ ] Bagging, Bootstrap, Random Forests
 - [ ] Boosting (AdaBoost, Gradient Boosting)
 - [ ] XGBoost / LightGBM / CatBoost
 - [ ] Stacking and Blending
 - [ ] **Code**: Random forest from scratch
-- [ ] **Code**: XGBoost pipeline on real dataset
 
-**Estimated**: ~5 notes, 2 code files
+**Estimated**: ~4 notes, 1 code file
 
-### 2.4 Feature Engineering (Week 13)
-> *Why*: "Garbage in, garbage out." Feature engineering is often the difference between a mediocre and great model.
+### T7: Deep Learning Fundamentals (Weeks 14-17)
 
-- [ ] Feature Scaling (normalization, standardization)
-- [ ] Encoding Categorical Variables
-- [ ] Feature Selection Methods
-- [ ] Handling Missing Data
-- [ ] Feature Extraction and Creation
-- [ ] **Code**: End-to-end feature engineering pipeline
-
-**Estimated**: ~5 notes, 1 code file
-
-### 2.5 Evaluation (Week 14)
-> *Why*: If you can't measure it, you can't improve it. Know which metric matters for which problem.
-
-- [ ] Classification Metrics (accuracy, precision, recall, F1, AUC-ROC)
-- [ ] Regression Metrics (MSE, RMSE, MAE, R-squared)
-- [ ] Cross-Validation Strategies
-- [ ] Confusion Matrix Deep Dive
-- [ ] Overfitting and Underfitting Detection
-- [ ] **Code**: Custom evaluation framework
-
-**Estimated**: ~5 notes, 1 code file
-
-### Phase 2 Total: ~29 notes, 10 code files
-
----
-
-## Phase 3: Deep Learning (Weeks 15-24)
-
-Build neural networks from scratch, then transition to PyTorch.
-
-### 3.1 Fundamentals (Week 15-17)
-> *Why*: You need to truly understand what happens inside a neural network before using frameworks.
+> *Why*: Build neural networks from scratch before using frameworks.
 
 - [ ] Perceptron and Multilayer Perceptron
-- [ ] Activation Functions (ReLU, Sigmoid, Tanh, GELU, Swish)
-- [ ] Forward Propagation
-- [ ] Backpropagation and Computational Graphs
+- [ ] Activation Functions (ReLU, Sigmoid, Tanh, GELU)
+- [ ] Forward and Backpropagation
 - [ ] Loss Functions (MSE, Cross-Entropy, Focal Loss)
-- [ ] Universal Approximation Theorem
+- [ ] Gradient Descent Variants and Optimizers (SGD, Adam)
+- [ ] Batch Normalization, Dropout, Weight Init
+- [ ] Vanishing/Exploding Gradients
 - [ ] **Code**: Neural network from scratch (NumPy only)
 - [ ] **Code**: Same network in PyTorch
 
-**Estimated**: ~6 notes, 2 code files
+**Estimated**: ~7 notes, 2 code files
 
-### 3.2 Training Techniques (Week 17-19)
-> *Why*: The difference between a model that converges and one that doesn't.
+### T8: CNNs and RNNs (Weeks 17-20)
 
-- [ ] Gradient Descent Variants (SGD, Mini-batch, Momentum)
-- [ ] Adaptive Optimizers (Adam, AdaGrad, RMSprop)
-- [ ] Learning Rate Scheduling
-- [ ] Batch Normalization
-- [ ] Dropout and Regularization
-- [ ] Weight Initialization Strategies
-- [ ] Vanishing/Exploding Gradients
-- [ ] **Code**: Optimizer comparison on same dataset
+> *Why*: Vision and sequences. Understanding these makes transformers click.
 
-**Estimated**: ~7 notes, 1 code file
-
-### 3.3 CNNs (Week 19-20)
-> *Why*: Foundation of computer vision. Convolutions are also used in time series and NLP.
-
-- [ ] Convolution Operation
-- [ ] Pooling Layers
-- [ ] CNN Architectures (LeNet, AlexNet, VGG, ResNet)
-- [ ] Transfer Learning with Pretrained CNNs
-- [ ] **Code**: CNN image classifier in PyTorch
-
-**Estimated**: ~4 notes, 1 code file
-
-### 3.4 RNNs (Week 21-22)
-> *Why*: Sequential data processing — time series, text. Understanding RNNs makes transformers click.
-
-- [ ] Vanilla RNN and its limitations
-- [ ] LSTM (Long Short-Term Memory)
-- [ ] GRU (Gated Recurrent Unit)
+- [ ] Convolution Operation and Pooling
+- [ ] CNN Architectures (LeNet → ResNet)
+- [ ] Transfer Learning
+- [ ] Vanilla RNN, LSTM, GRU
 - [ ] Sequence-to-Sequence Models
-- [ ] **Code**: LSTM text generator in PyTorch
+- [ ] **Code**: CNN image classifier (PyTorch)
+- [ ] **Code**: LSTM text generator (PyTorch)
 
-**Estimated**: ~4 notes, 1 code file
+**Estimated**: ~5 notes, 2 code files
 
-### 3.5 Transformers (Week 22-24)
+### T9: Transformers and Attention (Weeks 20-23)
+
 > *Why*: THE architecture behind modern AI. Everything leads here.
 
 - [ ] Attention Mechanism (Scaled Dot-Product)
@@ -231,189 +212,222 @@ Build neural networks from scratch, then transition to PyTorch.
 - [ ] Transformer Architecture (Encoder-Decoder)
 - [ ] BERT, GPT, and the Encoder/Decoder Split
 - [ ] Vision Transformers (ViT)
-- [ ] **Code**: Attention mechanism from scratch
+- [ ] **Code**: Attention from scratch
 - [ ] **Code**: Minimal transformer in PyTorch
 
 **Estimated**: ~6 notes, 2 code files
 
-### Phase 3 Total: ~27 notes, 7 code files
+### T10: LLM Internals (Weeks 23-25)
 
----
-
-## Phase 4: LLMs, Agents & AI Tools (Weeks 25-34)
-
-From understanding LLMs to building production agent systems.
-
-### 4.1 LLM Architectures (Week 25-26)
-> *Why*: Understand what's inside GPT, Claude, LLaMA, Mistral — not just how to call them.
+> *Why*: Understand what's inside GPT, Claude, LLaMA — not just how to call them.
 
 - [ ] Language Modeling (autoregressive vs masked)
 - [ ] Tokenization (BPE, WordPiece, SentencePiece)
 - [ ] Scaling Laws
-- [ ] Key LLM Families (GPT, LLaMA, Mistral, Claude architecture insights)
 - [ ] Context Windows and KV-Cache
+- [ ] RLHF and DPO (alignment)
+- [ ] Fine-Tuning: Full vs LoRA/QLoRA
 - [ ] **Code**: BPE tokenizer from scratch
-
-**Estimated**: ~5 notes, 1 code file
-
-### 4.2 Fine-Tuning (Week 27-28)
-> *Why*: Adapt pre-trained models to your specific domain and tasks.
-
-- [ ] Transfer Learning for NLP
-- [ ] Full Fine-Tuning vs Parameter-Efficient (LoRA, QLoRA)
-- [ ] RLHF and DPO (alignment techniques)
-- [ ] Dataset Preparation for Fine-Tuning
-- [ ] Evaluation of Fine-Tuned Models
 - [ ] **Code**: LoRA fine-tuning with HuggingFace
-
-**Estimated**: ~5 notes, 1 code file
-
-### 4.3 RAG (Week 29-30)
-> *Why*: The most common production pattern for LLM applications today.
-
-- [ ] RAG Architecture Overview
-- [ ] Embedding Models and Vector Search
-- [ ] Chunking Strategies
-- [ ] Retrieval Techniques (dense, sparse, hybrid)
-- [ ] Reranking
-- [ ] RAG Evaluation (faithfulness, relevance, recall)
-- [ ] **Code**: RAG pipeline from scratch
-- [ ] **Code**: Advanced RAG with reranking
 
 **Estimated**: ~6 notes, 2 code files
 
-### 4.4 Prompt Engineering (Week 30-31)
-> *Why*: The interface between humans and LLMs. Critical for building reliable AI systems.
+---
 
-- [ ] Prompt Design Principles
-- [ ] Few-Shot and Chain-of-Thought
+## BUILDER TRACK
+
+Learn by doing. Use real tools. Ship things. Runs in parallel with Theory.
+
+### B1: Environment & First API Calls (Start: Week 1)
+
+> *Start here on day 1.* You can call an API without understanding transformers.
+> **Theory link**: None needed yet — just get your hands dirty.
+
+- [ ] Python Development Setup (venv, pip, project structure)
+- [ ] LLM API Basics: Anthropic Claude API
+- [ ] LLM API Basics: OpenAI API
+- [ ] API Key Management and .env Best Practices
+- [ ] **Project**: Simple chatbot CLI that calls Claude API
+
+**Estimated**: ~3 notes, 1 project
+
+### B2: Prompt Engineering in Practice (Start: Week 2)
+
+> Build reliable AI outputs through prompt design.
+> **Theory link**: None needed yet — learn patterns by experimentation.
+
+- [ ] Prompt Design Patterns (zero-shot, few-shot, chain-of-thought)
 - [ ] Structured Output (JSON mode, function calling)
 - [ ] System Prompts and Guardrails
-- [ ] Prompt Testing and Evaluation
-- [ ] **Code**: Prompt evaluation framework
+- [ ] Prompt Testing and Iteration
+- [ ] **Project**: Structured data extractor (PDF/text → JSON)
 
-**Estimated**: ~5 notes, 1 code file
+**Estimated**: ~4 notes, 1 project
 
-### 4.5 Agent Frameworks (Week 31-32)
-> *Why*: Autonomous AI systems that reason, plan, and use tools — the frontier.
+### B3: LLM Providers Landscape (Start: Week 3)
 
-- [ ] Agent Architecture Patterns (ReAct, Plan-and-Execute)
-- [ ] Tool Use and Function Calling
+> Know the playing field. Each provider has different strengths, pricing, and features.
+> **Theory link**: None needed — this is practical market knowledge.
+
+- [ ] Provider Comparison: Claude vs GPT vs Gemini vs DeepSeek vs Mistral vs Llama
+- [ ] Key Features by Provider (tool use, vision, code gen, context window, structured output, streaming, batch)
+- [ ] Pricing Models and Cost Optimization (tokens, caching, batching, model tiers)
+- [ ] Open-Source vs Closed-Source Tradeoffs (control, cost, latency, privacy)
+- [ ] Model Selection Framework (when to pick which model for which task)
+- [ ] Multi-Provider Strategy (fallbacks, routing by task type, cost/quality balance)
+- [ ] **Project**: Multi-provider CLI tool that routes prompts to the best model per task
+
+**Estimated**: ~5 notes, 1 project
+
+### B4: Embeddings & Vector Search (Start: Week 4-5)
+
+> Your first real connection between theory and practice.
+> **Theory link**: [[cosine-similarity]], [[vector-norms]], [[vectors-and-vector-spaces]] — NOW you see why vectors matter.
+
+- [ ] Embedding Models (OpenAI, Cohere, open-source)
+- [ ] What Embeddings Actually Represent (connecting to vector theory)
+- [ ] Vector Databases: Chroma (local, simple)
+- [ ] Vector Databases: Pinecone / Qdrant (cloud, production)
+- [ ] Similarity Search in Practice
+- [ ] **Project**: Semantic search over your own documents
+
+**Estimated**: ~4 notes, 1 project
+
+### B5: Build a RAG Pipeline (Start: Week 6-7)
+
+> The most common production LLM pattern.
+> **Theory link**: [[projection]] (finding closest match), cosine similarity, embeddings.
+
+- [ ] RAG Architecture Overview
+- [ ] Chunking Strategies (size, overlap, semantic)
+- [ ] Retrieval Techniques (dense, sparse, hybrid)
+- [ ] Reranking
+- [ ] RAG Evaluation (faithfulness, relevance, recall)
+- [ ] **Project**: RAG chatbot over a knowledge base (your vault!)
+
+**Estimated**: ~5 notes, 1 project
+
+### B6: Tool Use & Function Calling (Start: Week 8-9)
+
+> Give LLMs the ability to take actions.
+> **Theory link**: Connects to agent architectures later.
+
+- [ ] Function Calling (OpenAI, Anthropic tool use)
+- [ ] Designing Good Tool Schemas
+- [ ] Error Handling and Retries
+- [ ] **Project**: AI assistant that can search the web, read files, run code
+
+**Estimated**: ~3 notes, 1 project
+
+### B7: Agent Frameworks (Start: Week 10-12)
+
+> Autonomous AI systems that reason, plan, and act.
+> **Theory link**: T9 (attention/transformers) helps understand WHY agents work.
+
+- [ ] Agent Patterns (ReAct, Plan-and-Execute)
 - [ ] Memory Systems (short-term, long-term, episodic)
-- [ ] Multi-Agent Systems
 - [ ] LangChain / LangGraph Deep Dive
-- [ ] **Code**: Custom agent with tool use
-- [ ] **Code**: Multi-agent system
-
-**Estimated**: ~5 notes, 2 code files
-
-### 4.6 APIs and Services (Week 33)
-> *Why*: An architect must know how to evaluate, integrate, and switch between providers.
-
-- [ ] OpenAI API (models, endpoints, best practices)
-- [ ] Anthropic API (Claude, Messages API, tool use)
-- [ ] Open-Source Model Serving (vLLM, Ollama, TGI)
-- [ ] Model Selection and Cost-Performance Tradeoffs
-- [ ] **Code**: Multi-provider abstraction layer
-
-**Estimated**: ~4 notes, 1 code file
-
-### 4.7 Tooling Ecosystem (Week 33-34)
-> *Why*: Know the landscape of tools available before building everything from scratch.
-
-- [ ] Vector Databases Comparison (Pinecone, Chroma, Weaviate, Qdrant)
-- [ ] Evaluation Frameworks (RAGAS, DeepEval, LangSmith)
-- [ ] Observability (LangFuse, Weights & Biases, Phoenix)
+- [ ] Multi-Agent Systems
 - [ ] Orchestration Tools (CrewAI, AutoGen, OpenAI Swarm)
-- [ ] **Code**: Tool integration examples
+- [ ] **Project**: Multi-agent system for a real task
 
-**Estimated**: ~4 notes, 1 code file
+**Estimated**: ~5 notes, 1 project
 
-### 4.8 Integration Patterns (Week 34)
-> *Why*: Production AI systems need reliability, cost control, and graceful degradation.
+### B8: Evaluation & Observability (Start: Week 13-14)
+
+> Measure and monitor your AI systems.
+> **Theory link**: T5 evaluation metrics (precision, recall) apply here too.
+
+- [ ] LLM Evaluation Frameworks (RAGAS, DeepEval)
+- [ ] Observability Platforms (LangFuse, LangSmith)
+- [ ] Cost Tracking and Optimization
+- [ ] Logging, Tracing, and Debugging LLM Apps
+- [ ] **Project**: Add evaluation + monitoring to your RAG app
+
+**Estimated**: ~4 notes, 1 project
+
+### B9: Production Patterns (Start: Week 15-17)
+
+> Make your AI systems reliable, fast, and cost-efficient.
+> **Theory link**: MLOps concepts from T10+.
 
 - [ ] Multi-Model Routing and Fallbacks
-- [ ] Cost Optimization Strategies
-- [ ] Rate Limiting and Caching
-- [ ] API Gateway Design for AI Services
-- [ ] **Code**: Resilient multi-model client
-
-**Estimated**: ~4 notes, 1 code file
-
-### Phase 4 Total: ~38 notes, 10 code files
-
----
-
-## Phase 5: MLOps (Weeks 35-40)
-
-Taking models from notebook to production.
-
-### 5.1 Deployment (Week 35-36)
-- [ ] Model Serialization (pickle, ONNX, TorchScript)
-- [ ] REST API Serving (FastAPI, Flask)
+- [ ] Caching Strategies for LLM Calls
+- [ ] Rate Limiting and API Gateway Design
+- [ ] Open-Source Model Serving (Ollama, vLLM, TGI)
 - [ ] Containerization with Docker
-- [ ] Serverless Deployment
-- [ ] **Code**: FastAPI model serving endpoint
+- [ ] REST API Serving (FastAPI)
+- [ ] **Project**: Production-grade AI API with fallbacks, caching, monitoring
 
-**Estimated**: ~4 notes, 1 code file
+**Estimated**: ~6 notes, 1 project
 
-### 5.2 Monitoring (Week 37-38)
-- [ ] Data Drift Detection
-- [ ] Model Performance Monitoring
-- [ ] Logging and Alerting
-- [ ] A/B Testing for Models
-- [ ] **Code**: Drift detection pipeline
+### B10: MLOps & Infrastructure (Start: Week 18-21)
 
-**Estimated**: ~4 notes, 1 code file
+> Taking models from notebook to production at scale.
+> **Theory link**: Everything comes together.
 
-### 5.3 CI/CD for ML (Week 39)
 - [ ] ML Pipeline Orchestration (Airflow, Prefect)
 - [ ] Experiment Tracking (MLflow, W&B)
-- [ ] Model Versioning (DVC, MLflow Model Registry)
-- [ ] Automated Testing for ML
-- [ ] **Code**: MLflow experiment tracking setup
+- [ ] Model Versioning (DVC, MLflow Registry)
+- [ ] Data Drift Detection
+- [ ] Cloud ML Services Overview (AWS, GCP, Azure)
+- [ ] **Project**: End-to-end ML pipeline with tracking, versioning, deployment
 
-**Estimated**: ~4 notes, 1 code file
-
-### 5.4 Infrastructure (Week 40)
-- [ ] Cloud ML Services (AWS SageMaker, GCP Vertex, Azure ML)
-- [ ] GPU/TPU Management
-- [ ] Distributed Training Basics
-- [ ] Cost Management for ML Workloads
-
-**Estimated**: ~4 notes, 0 code files
-
-### Phase 5 Total: ~16 notes, 3 code files
+**Estimated**: ~5 notes, 1 project
 
 ---
 
-## Phase 6: Capstone Projects (Weeks 41+)
+## CAPSTONE PROJECTS (Weeks 20+)
 
-Apply everything. Each project should combine multiple phases.
+Combine both tracks into ambitious projects:
 
-### Project Ideas
-- [ ] **ML Pipeline**: End-to-end classification system with feature engineering, model selection, evaluation, and deployment
-- [ ] **Custom Neural Network Library**: Build a mini PyTorch from scratch (tensors, autograd, layers)
-- [ ] **RAG Application**: Production-quality RAG system with evaluation, monitoring, and multi-source retrieval
-- [ ] **Multi-Agent System**: Autonomous agents that collaborate to solve complex tasks
-- [ ] **MLOps Platform**: Full ML lifecycle — training, versioning, deployment, monitoring
+- [ ] **Full-Stack RAG Application**: Production RAG with evaluation, monitoring, multi-source retrieval, and a web UI
+- [ ] **Custom Neural Network Library**: Mini PyTorch from scratch (tensors, autograd, layers)
+- [ ] **AI Agent Platform**: Multi-agent system with memory, tools, evaluation, and observability
+- [ ] **ML Pipeline Platform**: Full lifecycle — data ingestion, training, versioning, deployment, monitoring
+- [ ] **Open-Source Contribution**: Contribute to a real AI/ML project (LangChain, HuggingFace, etc.)
+
+---
+
+## Parallel Schedule Overview
+
+```
+Week  | THEORY                    | BUILDER
+------+---------------------------+---------------------------
+1-2   | Linear Algebra (finish)   | B1: API setup + first calls
+3     | Calculus                  | B2: Prompt engineering + B3: LLM Providers
+4-5   | Calculus + Probability    | B4: Embeddings + vector DBs
+6-7   | Probability               | B5: RAG pipeline
+8-9   | Supervised ML             | B6: Tool use + function calling
+10-12 | Unsupervised + Ensemble   | B7: Agent frameworks
+13-14 | DL Fundamentals           | B8: Evaluation + observability
+15-17 | CNNs + RNNs               | B9: Production patterns
+18-20 | Transformers              | B10: MLOps + infrastructure
+21-23 | LLM Internals             | Capstone projects
+24+   | Advanced topics           | Capstone projects
+```
+
+**Rhythm**: Alternate between tracks during each week. Example day:
+- Morning: Theory session (study, derive, implement from scratch)
+- Afternoon: Builder session (use real tools, build real things)
+
+Or alternate days: Mon/Wed/Fri = Theory, Tue/Thu = Builder.
 
 ---
 
 ## Summary
 
-| Phase | Topics | Notes | Code | Weeks |
-|-------|--------|-------|------|-------|
-| 1. Foundations | Math, CS, Databases | ~28 | 7 | 1-6 |
-| 2. Machine Learning | Supervised, Unsupervised, Ensembles | ~29 | 10 | 7-14 |
-| 3. Deep Learning | NNs, CNNs, RNNs, Transformers | ~27 | 7 | 15-24 |
-| 4. LLMs & Agents | LLMs, RAG, Agents, APIs, Tools | ~38 | 10 | 25-34 |
-| 5. MLOps | Deploy, Monitor, CI/CD, Infra | ~16 | 3 | 35-40 |
-| 6. Projects | Capstone implementations | ~5 | 5+ | 41+ |
-| **Total** | | **~143** | **42+** | **~40+** |
+| Track | Topics | Notes | Code/Projects | Weeks |
+|-------|--------|-------|---------------|-------|
+| Theory (T1-T10) | Math → ML → DL → LLMs | ~60 | 17 code files | 1-25 |
+| Builder (B1-B10) | APIs → Providers → RAG → Agents → Prod | ~44 | 10 projects | 1-21 |
+| Capstone | Full-stack projects | ~5 | 5 projects | 20+ |
+| **Total** | | **~104** | **31+** | **~25** |
 
 ---
 
-## Next Session
+## What to Do Right Now
 
-**Recommended start**: `/session linear algebra` — the foundation for everything that follows.
+**Theory**: Continue linear algebra — next topics: orthonormal basis, matrix operations, linear transformations.
+
+**Builder**: Start B1 — set up your Python environment, make your first Claude API call, build a simple chatbot. You can do this TODAY.
