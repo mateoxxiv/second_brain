@@ -40,7 +40,7 @@ Both together = architect.
 | 01-foundations/databases | 0 | 0 | Not started |
 | 02-machine-learning | 0 | 0 | Not started |
 | 03-deep-learning | 0 | 0 | Not started |
-| 04-llms-and-agents | 0 | 0 | Not started |
+| 04-llms-and-agents | 5 | 1 | In progress (Anthropic ecosystem done) |
 | 05-mlops | 0 | 0 | Not started |
 | 06-projects | 0 | 0 | Not started |
 
@@ -244,12 +244,21 @@ Learn by doing. Use real tools. Ship things. Runs in parallel with Theory.
 > **Theory link**: None needed yet — just get your hands dirty.
 
 - [ ] Python Development Setup (venv, pip, project structure)
-- [ ] LLM API Basics: Anthropic Claude API
+- [x] LLM API Basics: Anthropic Claude API
 - [ ] LLM API Basics: OpenAI API
 - [ ] API Key Management and .env Best Practices
 - [ ] **Project**: Simple chatbot CLI that calls Claude API
 
 **Estimated**: ~3 notes, 1 project
+
+### Anthropic Ecosystem Notes Completed
+
+- [x] Anthropic Claude API (`04-llms-and-agents/apis-and-services/`)
+- [x] Claude Code — full feature docs (`04-llms-and-agents/tooling-ecosystem/`)
+- [x] Claude Code Agent Teams (`04-llms-and-agents/tooling-ecosystem/`)
+- [x] Model Context Protocol (`04-llms-and-agents/integration-patterns/`)
+- [x] Claude Agent SDK (`04-llms-and-agents/agent-frameworks/`)
+- [x] `code/llms/anthropic_api.py` — 8 demos + 9 exercises
 
 ### B2: Prompt Engineering in Practice (Start: Week 2)
 
@@ -430,4 +439,4 @@ Or alternate days: Mon/Wed/Fri = Theory, Tue/Thu = Builder.
 
 **Theory**: Continue linear algebra — next topics: orthonormal basis, matrix operations, linear transformations.
 
-**Builder**: Start B1 — set up your Python environment, make your first Claude API call, build a simple chatbot. You can do this TODAY.
+**Builder**: Continue B1 — Anthropic ecosystem documented. Next: OpenAI API note, then Provider Comparison (B3). Also pending: Python setup note, API key management note, chatbot project.
