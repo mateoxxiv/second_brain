@@ -1,41 +1,84 @@
-**Related**: [[vectors-and-vector-spaces]], [[vector-operations]], [[basis-and-dimension]], [[Matrix Operations and Properties]]
-**Tags**: #status/seed
+**Related**: [[vectors-and-vector-spaces]], [[vector-operations]], [[linear-combination]], [[basis-and-dimension]], [[cosine-similarity]], [[projection-onto-subspaces]], [[Matrix Operations and Properties]]
+**Tags**: #status/growing
 
 ## Core Idea
 
-Linear independence asks: "does every vector in this set bring something new
-to the table?" If one vector can be built from the others, it's redundant —
-it carries no new information. In ML, redundant features waste parameters,
-cause numerical instability, and make your model harder to interpret.
+Linear independence asks one question: **"does every vector in this set bring
+something new to the table?"**
+
+If one vector can be built as a [[linear-combination]] of the others, it's
+redundant — like hiring someone whose skills your team already covers. In ML,
+redundant features waste parameters, cause numerical instability, and make your
+model harder to interpret.
 
 ## Details
 
-### Intuition: The Team Analogy
+### The Team Analogy
 
-Think of a team of workers. Each person has a skill:
+You're building a team:
 - Person A: can build walls
 - Person B: can do plumbing
-- Person C: can build walls AND do plumbing (but nothing new)
+- Person C: can build walls AND do plumbing (but nothing A and B can't already do)
 
-Person C is **linearly dependent** on A and B. Hiring C adds no new capability.
-You're paying for redundancy.
+Person C is **dependent** — hiring them adds no new capability.
 
-Now replace "workers" with "vectors" and "skills" with "directions in space":
-- If a vector points in a direction you can already reach by combining others,
-  it's dependent — it adds nothing.
-- If a vector points in a genuinely new direction, it's independent — it
-  expands what you can reach.
+Vectors work the same way. Each vector is a "direction." If a vector points
+somewhere you can already reach by combining the others, it's redundant.
 
-### Formal Definition
+### How to Spot It: The Scaling Test
 
-Vectors $\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_k$ are **linearly independent** if the only way to combine them and get zero is the boring way (all coefficients = 0):
+**Two vectors** — the simplest case. Just ask: is one a scaled copy of the other?
+
+```
+DEPENDENT                          INDEPENDENT
+
+v1 = [1, 2]                       v1 = [1, 0]
+v2 = [3, 6]  ← that's 3 × v1!    v2 = [0, 1]  ← no scaling works
+
+v2 →→→→→→                            v2 ↑
+v1 →→                                   |
+  Same line. Redundant.                  *--→ v1
+                                     Different directions. Both essential.
+```
+
+For v1 = [1, 2] and v2 = [3, 6]: can you find `c` where `c * v1 = v2`?
+
+```
+c * [1, 2] = [3, 6]
+c * 1 = 3  →  c = 3
+c * 2 = 6  →  c = 3  ✓  Same c works → DEPENDENT
+```
+
+For v1 = [1, 0] and v2 = [0, 1]:
+
+```
+c * [1, 0] = [0, 1]
+c * 1 = 0  →  c = 0
+c * 0 = 1  →  0 = 1  ✗  Impossible → INDEPENDENT
+```
+
+### The Formal Definition (and Why It's Written That Way)
+
+Vectors $\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_k$ are **linearly
+independent** if:
 
 $$c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + \cdots + c_k\mathbf{v}_k = \mathbf{0} \implies c_1 = c_2 = \cdots = c_k = 0$$
 
-If you CAN find non-zero coefficients that produce zero, at least one vector is a
-combination of the others — they're **dependent**.
+In plain English: the ONLY [[linear-combination]] that produces the zero vector
+is the boring one where all coefficients are zero.
 
-### Geometric Intuition
+**Why this definition?** Because if non-zero coefficients exist, you can
+rearrange and express one vector in terms of the others:
+
+```
+Suppose:   2*v1 + (-1)*v2 = 0
+Rearrange: 2*v1 = v2
+So:        v2 = 2*v1  ← v2 is redundant!
+```
+
+Finding non-zero coefficients = finding a redundancy.
+
+### Geometric Picture
 
 ```
 DEPENDENT (2D)                    INDEPENDENT (2D)
@@ -44,143 +87,216 @@ DEPENDENT (2D)                    INDEPENDENT (2D)
        *                                |  *
       /                                 | /
      /   v1 = [4,2]                     |/
-    /     (same line!)                  *------>
-   *                                   origin   v1 = [1,0]
+    /     (same line!)                  *------→
+   *                                  origin   v1 = [1,0]
 
-v2 = 0.5 × v1 → redundant         v1 and v2 span the whole plane
-Can only reach points on           Can reach ANY point in 2D
-one line
+All on one line.                  Span the whole plane.
+Span = just a line.               Span = all of R^2.
 ```
 
-- **2 vectors in 2D**: Independent if they don't lie on the same line. Two arrows
-  pointing along the same line (even at different scales) are dependent — one is
-  just a stretched version of the other.
-- **3 vectors in 3D**: Independent if they don't all lie on the same plane. If
-  all three are on a plane, you can't reach "above" or "below" it.
-- **Key rule**: You can never have more than $n$ independent vectors in
-  $\mathbb{R}^n$. In $\mathbb{R}^3$, a 4th vector is ALWAYS dependent — there
-  are only 3 directions to go.
+Rules of thumb:
+- **2 vectors in 2D**: dependent if they lie on the same line
+- **3 vectors in 3D**: dependent if they all lie on the same plane
+- **You can never have more than n independent vectors in R^n** — in R^3,
+  a 4th vector is ALWAYS dependent. There are only 3 directions to go.
 
-### Worked Example: Testing Independence
+### Worked Example: 3 Vectors
 
-$$\mathbf{v}_1 = \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}, \quad \mathbf{v}_2 = \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}, \quad \mathbf{v}_3 = \begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix}$$
+```
+v1 = [1, 0, 0]
+v2 = [0, 1, 0]
+v3 = [1, 1, 0]
+```
 
-**Question**: Can we build $\mathbf{v}_3$ from $\mathbf{v}_1$ and $\mathbf{v}_2$?
+Can v3 be built from v1 and v2?
 
-Set up $c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + c_3\mathbf{v}_3 = \mathbf{0}$:
+```
+c1 * [1,0,0] + c2 * [0,1,0] = [1,1,0]
 
-$$\begin{bmatrix} c_1 + c_3 \\ c_2 + c_3 \\ 0 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}$$
+Component 1: c1 = 1
+Component 2: c2 = 1
+Component 3: 0 = 0  ✓
 
-Row 1: $c_1 = -c_3$
-Row 2: $c_2 = -c_3$
+Solution: c1 = 1, c2 = 1
+```
 
-Pick $c_3 = 1$: then $c_1 = -1$, $c_2 = -1$. Non-zero solution exists!
+Check: 1 * [1,0,0] + 1 * [0,1,0] = [1,1,0] = v3 ✓
 
-This means: $\mathbf{v}_3 = \mathbf{v}_1 + \mathbf{v}_2$. Vector 3 is just the
-sum of vectors 1 and 2 — it's redundant. **Dependent.**
+v3 is just v1 + v2 — **dependent**. The third vector doesn't add a new direction.
 
-Now try with $\mathbf{v}_3 = \begin{bmatrix}0\\0\\1\end{bmatrix}$ instead:
+Now replace v3 with [0, 0, 1]:
 
-$$c_1 + 0 = 0 \implies c_1 = 0$$
-$$c_2 + 0 = 0 \implies c_2 = 0$$
-$$c_3 = 0$$
+```
+c1 * [1,0,0] + c2 * [0,1,0] = [0,0,1]
 
-Only the trivial solution. No vector can be built from the others. **Independent.**
+Component 1: c1 = 0
+Component 2: c2 = 0
+Component 3: 0 = 1  ✗  IMPOSSIBLE
+```
 
-### How to Test: Matrix Rank
+No combination of v1 and v2 can produce [0,0,1]. It points "up" — a direction
+they can't reach. **Independent.**
 
-Solving the system by hand is tedious. The shortcut: stack your vectors as rows
-of a matrix and check the **rank**.
+### Three Methods to Test Independence
 
-$$A = \begin{bmatrix} — \mathbf{v}_1^T — \\ — \mathbf{v}_2^T — \\ \vdots \\ — \mathbf{v}_k^T — \end{bmatrix}$$
+#### Method 1: Determinant (quick, only for square matrices)
 
-**Rank** = the number of genuinely independent rows (after eliminating redundancies).
+Put vectors as columns, compute the determinant:
 
-- $\text{rank}(A) = k$ (equals number of vectors) → all independent
-- $\text{rank}(A) < k$ → at least one vector is redundant
+For v1 = [1, 2], v2 = [3, 6]:
 
-Why does this work? Row reduction (Gaussian elimination) systematically
-eliminates dependent rows by subtracting combinations. What survives is
-the independent core. The count of surviving rows is the rank.
+```
+         | 1  3 |
+det =    | 2  6 |  = (1)(6) - (3)(2) = 6 - 6 = 0  → DEPENDENT
+```
 
-### Alternative Test: Determinant
+For v1 = [1, 0], v2 = [0, 1]:
 
-For square matrices (same number of vectors as dimensions), the **determinant**
-is a faster test:
+```
+         | 1  0 |
+det =    | 0  1 |  = (1)(1) - (0)(0) = 1  → INDEPENDENT
+```
 
-- $\det(A) \neq 0$ → independent
-- $\det(A) = 0$ → dependent
+**2x2 determinant formula**: for matrix [[a, b], [c, d]], det = a*d - b*c.
 
-$$A = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 1 & 1 & 0 \end{bmatrix} \implies \det(A) = 0 \quad \text{(dependent — v3 = v1 + v2)}$$
+**3x3 determinant step-by-step** (using v1=[1,0,0], v2=[0,1,0], v3=[1,1,0]):
 
-$$A = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix} \implies \det(A) = 1 \quad \text{(independent)}$$
+```
+| 1  0  1 |
+| 0  1  1 |
+| 0  0  0 |
 
-The determinant measures how much a transformation "stretches" space. If it's
-zero, the transformation collapses at least one dimension — meaning some vector
-was redundant. We'll explore this deeply in [[Matrix Operations and Properties]].
+Expand along the first row:
 
-### Connection to Rank
+det = 1 * det|1  1| - 0 * det|0  1| + 1 * det|0  1|
+             |0  0|          |0  0|          |0  0|
 
-The rank of a matrix tells you several equivalent things:
+    = 1 * (1*0 - 1*0) - 0 + 1 * (0*0 - 1*0)
+    = 1 * 0 - 0 + 1 * 0
+    = 0  → DEPENDENT
+```
 
-| Rank equals... | Meaning |
-|---------------|---------|
+The rule:
+
+```
+det ≠ 0  →  INDEPENDENT (full space is covered)
+det = 0  →  DEPENDENT (some dimension is collapsed)
+```
+
+**What does the determinant measure?** It tells you how much a transformation
+stretches or squishes space. If det = 0, the transformation squishes everything
+into a lower dimension — at least one vector was redundant.
+
+#### Method 2: Rank (works for any shape)
+
+Stack vectors as rows, count how many are genuinely independent:
+
+```
+rank = number of vectors  →  all independent
+rank < number of vectors  →  some are redundant
+```
+
+| Rank equals... | What it means |
+|---------------|---------------|
 | Number of independent rows | How many non-redundant data points |
 | Number of independent columns | How many non-redundant features |
 | Dimension of the column space | How many dimensions the data actually spans |
 
-A matrix is **full rank** if $\text{rank}(A) = \min(m, n)$ — no redundancy at all.
-**Rank-deficient** means something is redundant.
+A matrix is **full rank** = no redundancy. **Rank-deficient** = something is redundant.
 
-### Why It Matters in ML
+#### Method 3: SVD null space (most robust, handles floating point)
 
-**The core problem**: If features are dependent, your model is trying to solve
-an equation that has infinite solutions — like asking "what two numbers add to 10?"
-There's no unique answer.
+```python
+from numpy.linalg import svd
+_, s, _ = svd(matrix)
+# Count non-zero singular values
+rank = np.sum(s > 1e-10)
+```
 
-| Situation | What happens | Real consequence |
-|-----------|-------------|-----------------|
-| Dependent features in regression | $X^TX$ is singular, can't invert | No unique solution, training crashes |
+This is what NumPy uses internally for `matrix_rank`. It handles near-zero
+values better than determinant (which can be numerically unstable).
+
+### Independence vs Orthogonality
+
+These are related but NOT the same:
+
+```
+Orthogonal:          Independent but         Dependent:
+                     NOT orthogonal:
+
+  u ↑                  b /                   a →→→
+    |                   /                    b →→→→→→
+    |                  / 45°                 (same line)
+    *---→ v           *---→ a
+   90° apart         not 90°, but           one is just a
+   dot product = 0   can't build            scaled copy
+                     one from other
+```
+
+- **Orthogonal → always independent.** If two vectors are perpendicular
+  (dot product = 0, [[cosine-similarity]] = 0), neither can be built from the
+  other. Perpendicular directions are always unique.
+
+- **Independent → NOT always orthogonal.** [1, 0] and [1, 1] are independent
+  (can't scale one to get the other) but their dot product = 1, not zero.
+
+Orthogonality is a **stronger** condition. Think of it as:
+
+```
+All orthogonal sets are independent.
+But most independent sets are NOT orthogonal.
+Orthogonal ⊂ Independent
+```
+
+### Why This Matters in ML
+
+Redundant features cause real problems:
+
+| Situation | What happens | Consequence |
+|-----------|-------------|-------------|
+| Dependent features in regression | $X^TX$ is singular, can't invert | Training crashes — no unique solution |
 | Multicollinearity (near-dependence) | $X^TX$ is almost singular | Weights swing wildly between runs |
 | Redundant neurons | Multiple neurons learn the same thing | Wasted compute, slower training |
 | High-quality embeddings | Each dimension captures something unique | Rich, compact representations |
 
-**Example**: A dataset with features "temperature in Celsius" and "temperature
-in Fahrenheit" has a perfect linear dependency ($F = 1.8C + 32$). Including
-both gives the model infinite ways to split the weight between them. Drop one.
+**Concrete example**: a dataset with "temperature in Celsius" and "temperature
+in Fahrenheit" has a perfect linear dependency ($F = 1.8C + 32$). The model has
+infinite ways to split weight between them — is the coefficient 3.0 on Celsius
+or 1.67 on Fahrenheit? Both give the same prediction. This ambiguity = instability.
+
+**Fix**: drop one feature, or use [[Regularization (L1/L2)]] which handles
+near-dependence by adding a penalty, or use [[PCA]] which creates new
+independent features from the correlated ones.
 
 ## Code Example
 
 ```python
 import numpy as np
 
-# --- Method 1: Rank (works for any shape) ---
+# --- Method 1: Determinant (square matrices only) ---
+A = np.array([[1, 0], [0, 1]])       # independent
+B = np.array([[1, 3], [2, 6]])       # dependent (row2 = 2 * row1)
+print(np.linalg.det(A))   # 1.0 → independent
+print(np.linalg.det(B))   # 0.0 → dependent
+
+# --- Method 2: Rank (any shape) ---
 v1 = np.array([1, 0, 0])
 v2 = np.array([0, 1, 0])
-v3 = np.array([0, 0, 1])
-A = np.array([v1, v2, v3])
-print(np.linalg.matrix_rank(A))  # 3 — independent
+v3_dep = np.array([1, 1, 0])        # v1 + v2
+v3_ind = np.array([0, 0, 1])        # new direction
 
-v3_dep = np.array([1, 1, 0])     # v3 = v1 + v2
-A_dep = np.array([v1, v2, v3_dep])
-print(np.linalg.matrix_rank(A_dep))  # 2 — dependent
+print(np.linalg.matrix_rank([v1, v2, v3_dep]))  # 2 → dependent
+print(np.linalg.matrix_rank([v1, v2, v3_ind]))  # 3 → independent
 
-# --- Method 2: Determinant (only for square matrices) ---
-print(np.linalg.det(A))      # 1.0 — nonzero → independent
-print(np.linalg.det(A_dep))  # 0.0 — zero → dependent
-
-# --- Method 3: From scratch — try to solve c1*v1 + c2*v2 + c3*v3 = 0 ---
-# If only the trivial solution exists, they're independent
-# Use the null space: if it's empty (rank = n), independent
+# --- Method 3: SVD null space (most robust) ---
 from numpy.linalg import svd
 def is_independent(vectors):
-    """Check independence via SVD null space."""
+    """Check independence via singular values."""
     A = np.array(vectors, dtype=float)
     _, s, _ = svd(A)
-    # Count non-zero singular values (tolerance for float)
     return np.sum(s > 1e-10) == len(vectors)
 
-print(is_independent([v1, v2, v3]))      # True
+print(is_independent([v1, v2, v3_ind]))  # True
 print(is_independent([v1, v2, v3_dep]))  # False
 ```
 
@@ -188,7 +304,9 @@ print(is_independent([v1, v2, v3_dep]))  # False
 
 ## Connections
 
+- Independence is tested via [[linear-combination]] — can you combine others to reproduce a vector?
 - Independence determines [[basis-and-dimension]] — a basis is a maximal independent set
+- Orthogonal vectors ([[cosine-similarity]] = 0) are always independent, but not vice versa
 - Rank connects to [[Matrix Operations and Properties]] — rank-deficient matrices can't be inverted
 - Multicollinearity (near-dependence) motivates [[Regularization (L1/L2)]] and [[PCA]]
 - In [[vectors-and-vector-spaces]], independence determines how many dimensions a subspace has
