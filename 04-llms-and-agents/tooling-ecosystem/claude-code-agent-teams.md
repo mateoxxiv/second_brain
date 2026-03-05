@@ -19,15 +19,16 @@ of the problem, but they stay in sync.
 
 ### Subagents vs Agent Teams
 
-| Feature | Subagents | Agent Teams |
-|---------|-----------|-------------|
-| Communication | Report to parent only | Peer-to-peer via mailbox |
-| Coordination | Parent assigns work | Shared task list with dependencies |
-| Task claiming | Assigned by parent | File locking prevents race conditions |
-| Dependencies | None | Blocked tasks auto-unblock when deps complete |
-| Context | Own context, limited | Own context + shared CLAUDE.md |
-| Scope | Single focused task | Complex multi-step projects |
-| Mental model | "Do this subtask and report back" | "You're a team member, coordinate with others" |
+| Feature       | Subagents                         | Agent Teams                                    |
+| ------------- | --------------------------------- | ---------------------------------------------- |
+| Communication | Report to parent only             | Peer-to-peer via mailbox                       |
+| Coordination  | Parent assigns work               | Shared task list with dependencies             |
+| Task claiming | Assigned by parent                | File locking prevents race conditions          |
+| Dependencies  | None                              | Blocked tasks auto-unblock when deps complete  |
+| Context       | Own context, limited              | Own context + shared CLAUDE.md                 |
+| Scope         | Single focused task               | Complex multi-step projects                    |
+| Mental model  | "Do this subtask and report back" | "You're a team member, coordinate with others" |
+
 
 ### Architecture
 
@@ -63,10 +64,19 @@ Files at: ~/.claude/tasks/{team-name}/
 
 #### 1. Enable the Feature
 
-Agent Teams is disabled by default. Enable it in settings:
+Agent Teams is disabled by default. You need to enable it in your
+**global** Claude settings file (NOT in your project — this is a user-level
+config):
+
+```
+File location: ~/.claude/settings.json
+  Windows: C:\Users\<your-user>\.claude\settings.json
+  Mac/Linux: /home/<your-user>/.claude/settings.json
+```
+
+Add this content:
 
 ```json
-// ~/.claude/settings.json
 {
   "env": {
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
@@ -74,11 +84,17 @@ Agent Teams is disabled by default. Enable it in settings:
 }
 ```
 
-Or as an environment variable:
+If the file already has content, merge the `env` key into the existing JSON.
+
+**Alternative**: set it as an environment variable (per session, not persistent):
 
 ```bash
 export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1
 ```
+
+**Important**: This is NOT configured in your project's `.claude/` folder or
+`CLAUDE.md`. It's a global user setting because it enables an experimental
+feature across all projects.
 
 #### 2. Requirements
 
