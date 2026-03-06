@@ -40,7 +40,7 @@ Both together = architect.
 | 01-foundations/databases | 0 | 0 | Not started |
 | 02-machine-learning | 0 | 0 | Not started |
 | 03-deep-learning | 0 | 0 | Not started |
-| 04-llms-and-agents | 5 | 1 | In progress (Anthropic ecosystem done) |
+| 04-llms-and-agents | 8 | 2 | In progress (Anthropic + OpenAI ecosystems done) |
 | 05-mlops | 0 | 0 | Not started |
 | 06-projects | 0 | 0 | Not started |
 
@@ -245,7 +245,7 @@ Learn by doing. Use real tools. Ship things. Runs in parallel with Theory.
 
 - [ ] Python Development Setup (venv, pip, project structure)
 - [x] LLM API Basics: Anthropic Claude API
-- [ ] LLM API Basics: OpenAI API
+- [x] LLM API Basics: OpenAI API
 - [ ] API Key Management and .env Best Practices
 - [ ] **Project**: Simple chatbot CLI that calls Claude API
 
@@ -259,6 +259,13 @@ Learn by doing. Use real tools. Ship things. Runs in parallel with Theory.
 - [x] Model Context Protocol (`04-llms-and-agents/integration-patterns/`)
 - [x] Claude Agent SDK (`04-llms-and-agents/agent-frameworks/`)
 - [x] `code/llms/anthropic_api.py` — 8 demos + 9 exercises
+
+### OpenAI Ecosystem Notes Completed
+
+- [x] OpenAI API (`04-llms-and-agents/apis-and-services/`)
+- [x] OpenAI Codex (`04-llms-and-agents/tooling-ecosystem/`)
+- [x] OpenAI Agents SDK (`04-llms-and-agents/agent-frameworks/`)
+- [x] `code/llms/openai_api.py` — 8 demos + 9 exercises
 
 ### B2: Prompt Engineering in Practice (Start: Week 2)
 
@@ -439,4 +446,4 @@ Or alternate days: Mon/Wed/Fri = Theory, Tue/Thu = Builder.
 
 **Theory**: Continue linear algebra — next topics: orthonormal basis, matrix operations, linear transformations.
 
-**Builder**: Continue B1 — Anthropic ecosystem documented. Next: OpenAI API note, then Provider Comparison (B3). Also pending: Python setup note, API key management note, chatbot project.
+**Builder**: Continue B1 — Anthropic + OpenAI ecosystems documented. Next: API key management note, Python setup note, chatbot project. Then B3: Provider Comparison (Claude vs GPT vs Gemini vs DeepSeek vs Mistral).
