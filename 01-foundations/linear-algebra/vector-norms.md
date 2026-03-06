@@ -1,5 +1,5 @@
 **Related**: [[vector-operations]], [[vectors-and-vector-spaces]], [[cosine-similarity]], [[projection]], [[Regularization (L1/L2)]]
-**Tags**: #status/seed
+**Tags**: #status/growing
 
 ## Core Idea
 

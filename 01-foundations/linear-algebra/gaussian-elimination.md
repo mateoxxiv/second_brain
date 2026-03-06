@@ -1,5 +1,5 @@
 **Related**: [[linear-independence]], [[linear-combination]], [[basis-and-dimension]], [[determinant]], [[Matrix Operations and Properties]]
-**Tags**: #status/seed
+**Tags**: #status/growing
 
 ## Core Idea
 

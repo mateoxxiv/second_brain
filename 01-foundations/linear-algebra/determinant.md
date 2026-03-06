@@ -1,5 +1,5 @@
 **Related**: [[linear-independence]], [[gaussian-elimination]], [[basis-and-dimension]], [[Matrix Operations and Properties]]
-**Tags**: #status/seed
+**Tags**: #status/growing
 
 ## Core Idea
 

@@ -1,5 +1,5 @@
 **Related**: [[vector-operations]], [[vector-norms]], [[projection]], [[linear-independence]], [[Attention Mechanism]]
-**Tags**: #status/seed
+**Tags**: #status/growing
 
 ## Core Idea
 

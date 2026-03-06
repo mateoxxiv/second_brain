@@ -1,5 +1,5 @@
 **Related**: [[vector-operations]], [[basis-and-dimension]], [[linear-independence]], [[vectors-and-vector-spaces]], [[projection-onto-subspaces]]
-**Tags**: #status/seed
+**Tags**: #status/growing
 
 ## Core Idea
 

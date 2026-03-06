@@ -1,5 +1,5 @@
 **Related**: [[projection]], [[basis-and-dimension]], [[linear-independence]], [[Matrix Operations and Properties]]
-**Tags**: #status/seed
+**Tags**: #status/growing
 
 ## Core Idea
 

@@ -1,5 +1,5 @@
 **Related**: [[vectors-and-vector-spaces]], [[vector-norms]], [[cosine-similarity]], [[projection]], [[basis-and-dimension]], [[linear-independence]], [[linear-combination]]
-**Tags**: #status/seed
+**Tags**: #status/growing
 
 ## Core Idea
 
