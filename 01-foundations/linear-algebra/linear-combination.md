@@ -106,14 +106,60 @@ you can't already reach.
 
 ### When Coefficients Are Unique (and When They're Not)
 
-If your vectors form a [[basis-and-dimension|basis]] (independent + span the
-space), then every point has **exactly one** set of coefficients. There's one
-unique recipe for each result.
+If your vectors are [[linear-independence|independent]] (they form a
+[[basis-and-dimension|basis]]), then every point has **exactly one** recipe.
+One c1, one c2. No ambiguity.
 
-If your vectors are [[linear-independence|dependent]], some points have
-**infinitely many** coefficient sets. Multiple recipes produce the same result.
-This is exactly the problem in ML when features are correlated — the model has
-infinite ways to assign weights, causing instability.
+**Independent example** — unique recipe:
+
+```
+v1 = [1, 1],  v2 = [2, -1]      ← independent (not scalar multiples)
+
+Write w = [5, 3] as c1*v1 + c2*v2:
+
+  c1 + 2*c2 = 5
+  c1 -   c2 = 3
+
+  Subtract: 3*c2 = 2 → c2 = 2/3
+  Back-substitute: c1 = 3 + 2/3 = 11/3
+
+  Only ONE solution. No other recipe works.
+```
+
+**Dependent example** — infinite recipes:
+
+If your vectors are [[linear-independence|dependent]], the same point has
+**infinitely many** recipes. Concrete example:
+
+```
+v1 = [1, 2],  v2 = [2, 4]      ← v2 = 2 * v1 (dependent!)
+
+Write w = [3, 6] as c1*v1 + c2*v2:
+
+  c1=3, c2=0  →  3*[1,2] + 0*[2,4]  = [3,6]  ✓
+  c1=1, c2=1  →  1*[1,2] + 1*[2,4]  = [3,6]  ✓
+  c1=-1, c2=2 → -1*[1,2] + 2*[2,4]  = [3,6]  ✓
+```
+
+You have two ingredients but **they're the same flavor** — you can trade freely
+between them. Infinite recipes for the same result.
+
+**Why this breaks ML**: Imagine a house price model with two features:
+
+```
+price = c1 * bedrooms + c2 * bedrooms_doubled
+
+If bedrooms_doubled = 2 * bedrooms:
+  c1=100, c2=0   →  price = 100 * bedrooms
+  c1=0,   c2=50  →  price = 50 * (2*bedrooms) = 100 * bedrooms
+  c1=50,  c2=25  →  same prediction, different weights
+```
+
+The **prediction is identical** but the weights are wildly different. The model
+can't decide which weight to assign. Small data changes make the weights flip
+dramatically — that's **instability**. The fix? Remove redundant features
+(dependent vectors) so coefficients become unique. The [[determinant]] being
+zero is one quick way to detect this problem.
 
 ### Where Linear Combinations Appear in ML
 
