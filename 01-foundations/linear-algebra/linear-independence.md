@@ -25,7 +25,40 @@ Person C is **dependent** — hiring them adds no new capability.
 Vectors work the same way. Each vector is a "direction." If a vector points
 somewhere you can already reach by combining the others, it's redundant.
 
-### How to Spot It: The Scaling Test
+### Quick Guide: How to Check Independence
+
+```
+Given a set of vectors, ask:
+
+  2 vectors?
+    → Is one a scalar multiple of the other?
+    → Or compute 2x2 determinant: det ≠ 0 → independent
+
+  3 vectors in R3?  (square matrix)
+    → Compute 3x3 determinant: det ≠ 0 → independent
+    → Or: can you build any one from the other two?
+
+  More vectors than dimensions?  (e.g., 4 vectors in R3)
+    → ALWAYS dependent. You can't have more independent
+      vectors than dimensions.
+
+  Non-square?  (e.g., 3 vectors in R5)
+    → Use rank: stack as rows, reduce with Gaussian elimination
+    → rank = number of vectors → independent
+    → rank < number of vectors → dependent
+
+  Quick summary:
+    ┌─────────────────────┬──────────────────────────┐
+    │ Method              │ When to use              │
+    ├─────────────────────┼──────────────────────────┤
+    │ Scaling test        │ 2 vectors (by eye)       │
+    │ Determinant         │ Square matrices (fast)   │
+    │ Gaussian elimination│ Any size (by hand)       │
+    │ Rank / SVD          │ Any size (with computer) │
+    └─────────────────────┴──────────────────────────┘
+```
+
+### The Scaling Test (2 Vectors)
 
 **Two vectors** — the simplest case. Just ask: is one a scaled copy of the other?
 
@@ -187,18 +220,42 @@ det = 0  →  DEPENDENT (some dimension is collapsed)
 stretches or squishes space. If det = 0, the transformation squishes everything
 into a lower dimension — at least one vector was redundant.
 
-#### Method 2: Rank (works for any shape)
+#### Method 2: Rank via Gaussian Elimination (works for any shape)
 
-Stack vectors as rows, count how many are genuinely independent:
+Stack vectors as rows and apply [[gaussian-elimination]]. The rank = number of
+pivots (non-zero rows after reduction). Then:
 
 ```
 rank = number of vectors  →  all independent
 rank < number of vectors  →  some are redundant
 ```
 
+**Worked example**: are v1 = [1, 2, 0], v2 = [0, 1, 1], v3 = [1, 4, 2] independent?
+
+```
+Stack as rows:
+| 1  2  0 |
+| 0  1  1 |
+| 1  4  2 |
+
+R3 = R3 - R1:
+| 1  2  0 |
+| 0  1  1 |
+| 0  2  2 |
+
+R3 = R3 - 2*R2:
+| 1  2  0 |
+| 0  1  1 |
+| 0  0  0 |  ← zero row!
+
+2 pivots, but 3 vectors → rank < count → DEPENDENT
+```
+
+The zero row tells you v3 was a combination of v1 and v2. Indeed: v3 = v1 + 2·v2.
+
 | Rank equals... | What it means |
 |---------------|---------------|
-| Number of independent rows | How many non-redundant data points |
+| Number of pivots after elimination | How many genuinely independent vectors |
 | Number of independent columns | How many non-redundant features |
 | Dimension of the column space | How many dimensions the data actually spans |
 
