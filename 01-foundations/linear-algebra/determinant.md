@@ -1,4 +1,4 @@
-**Related**: [[linear-independence]], [[gaussian-elimination]], [[basis-and-dimension]], [[Matrix Operations and Properties]]
+**Related**: [[linear-independence]], [[gaussian-elimination]], [[basis-and-dimension]], [[matrix-operations]]
 **Tags**: #status/growing
 
 ## Core Idea
@@ -304,7 +304,7 @@ print(f"rank = {np.linalg.matrix_rank(C)}")         # 2 (< 3)
 - [[basis-and-dimension]] — determinant confirms whether a set of vectors forms a basis
 - det appears in the normalization of Gaussian distributions → [[Probability Distributions]]
 - Invertibility (det ≠ 0) is required for [[projection-onto-subspaces]] to have a unique solution
-- [[Matrix Operations and Properties]] — determinant is one of the key matrix properties alongside rank, trace, eigenvalues
+- [[matrix-operations]] — determinant is one of the key matrix properties alongside rank, trace, eigenvalues
 
 ## Sources
 

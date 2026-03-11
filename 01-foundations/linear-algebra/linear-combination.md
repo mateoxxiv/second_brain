@@ -208,7 +208,7 @@ z = np.dot(weights, inputs)  # 0.5 - 0.6 + 0.4 = 0.3
 - The set of all linear combinations = **span**, explored in [[basis-and-dimension]]
 - If coefficients are unique, the vectors form a [[basis-and-dimension|basis]]; if not, they're [[linear-independence|dependent]]
 - [[projection-onto-subspaces]] finds the best linear combination of column vectors to approximate a target
-- Matrix multiplication is organized sets of linear combinations → [[Matrix Operations and Properties]]
+- Matrix multiplication is organized sets of linear combinations → [[matrix-operations]]
 - Neural network layers compute linear combinations before applying activation → [[Neural Network Fundamentals]]
 - [[Linear Regression]] is "find the linear combination of features that best predicts the target"
 

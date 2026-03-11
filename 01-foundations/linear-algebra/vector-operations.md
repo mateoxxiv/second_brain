@@ -269,7 +269,7 @@ print(np.dot(a, b))  # 0.0 — orthogonal
 - The dot product directly enables [[projection]] — finding the "shadow" of one vector onto another
 - Linear combinations connect to [[basis-and-dimension]] — coordinates are coefficients in a basis
 - Linear combinations lead to [[linear-independence]] — can one vector be "reached" from others?
-- Matrix multiplication is organized dot products → [[Matrix Operations and Properties]]
+- Matrix multiplication is organized dot products → [[matrix-operations]]
 - In neural networks, each neuron computes $\mathbf{w} \cdot \mathbf{x} + b$ — a dot product + bias
 
 ## Sources

@@ -1,4 +1,4 @@
-**Related**: [[vectors-and-vector-spaces]], [[vector-operations]], [[linear-combination]], [[basis-and-dimension]], [[cosine-similarity]], [[projection-onto-subspaces]], [[gaussian-elimination]], [[determinant]], [[Matrix Operations and Properties]]
+**Related**: [[vectors-and-vector-spaces]], [[vector-operations]], [[linear-combination]], [[basis-and-dimension]], [[cosine-similarity]], [[projection-onto-subspaces]], [[gaussian-elimination]], [[determinant]], [[matrix-operations]]
 **Tags**: #status/growing
 
 ## Core Idea
@@ -370,7 +370,7 @@ print(is_independent([v1, v2, v3_dep]))  # False
 - Independence is tested via [[linear-combination]] — can you combine others to reproduce a vector?
 - Independence determines [[basis-and-dimension]] — a basis is a maximal independent set
 - Orthogonal vectors ([[cosine-similarity]] = 0) are always independent, but not vice versa
-- Rank connects to [[Matrix Operations and Properties]] — rank-deficient matrices can't be inverted
+- Rank connects to [[matrix-operations]] — rank-deficient matrices can't be inverted
 - Multicollinearity (near-dependence) motivates [[Regularization (L1/L2)]] and [[PCA]]
 - In [[vectors-and-vector-spaces]], independence determines how many dimensions a subspace has
 - [[projection-onto-subspaces]] requires independent columns for $(A^TA)^{-1}$ to exist

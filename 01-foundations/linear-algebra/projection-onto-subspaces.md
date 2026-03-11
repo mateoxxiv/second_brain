@@ -1,4 +1,4 @@
-**Related**: [[projection]], [[basis-and-dimension]], [[linear-independence]], [[Matrix Operations and Properties]]
+**Related**: [[projection]], [[basis-and-dimension]], [[linear-independence]], [[matrix-operations]]
 **Tags**: #status/growing
 
 ## Core Idea

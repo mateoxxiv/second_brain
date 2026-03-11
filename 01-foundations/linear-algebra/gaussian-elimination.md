@@ -1,4 +1,4 @@
-**Related**: [[linear-independence]], [[linear-combination]], [[basis-and-dimension]], [[determinant]], [[Matrix Operations and Properties]]
+**Related**: [[linear-independence]], [[linear-combination]], [[basis-and-dimension]], [[determinant]], [[matrix-operations]]
 **Tags**: #status/growing
 
 ## Core Idea
@@ -311,7 +311,7 @@ print(reduced)
 - The [[determinant]] can be computed via Gaussian elimination (product of pivots)
 - When no exact solution exists, we use [[projection-onto-subspaces]] (least squares) to find the closest one
 - [[Linear Regression]] uses this algorithm (or variations of it) to solve for weights
-- [[Matrix Operations and Properties]] — invertibility requires full rank (unique solution exists)
+- [[matrix-operations]] — invertibility requires full rank (unique solution exists)
 
 ## Sources
 
