@@ -290,9 +290,15 @@ Orthogonal:          Independent but         Dependent:
                      one from other
 ```
 
-- **Orthogonal → always independent.** If two vectors are perpendicular
-  (dot product = 0, [[cosine-similarity]] = 0), neither can be built from the
-  other. Perpendicular directions are always unique.
+- **Orthogonal → always independent (if non-zero).** If two non-zero vectors are
+  perpendicular (dot product = 0, [[cosine-similarity]] = 0), neither can be built
+  from the other. Perpendicular directions are always unique.
+
+  **Edge case**: the zero vector **0** is orthogonal to everything (0 · v = 0 for
+  any v), but it makes ANY set dependent — because c₁·**0** + 0·v = **0** has a
+  non-trivial solution (any c₁ works). The zero vector carries no direction, no
+  information. In ML, a feature column of all zeros is "orthogonal" to every other
+  feature but completely useless — you'd drop it immediately.
 
 - **Independent → NOT always orthogonal.** [1, 0] and [1, 1] are independent
   (can't scale one to get the other) but their dot product = 1, not zero.
