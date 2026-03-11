@@ -42,6 +42,44 @@ components as coefficients:
 
 $$A\mathbf{v} = v_1 \cdot \text{(column 1)} + v_2 \cdot \text{(column 2)} + \cdots$$
 
+### How a Matrix Transforms a Vector (Step by Step)
+
+Take $\mathbf{v} = [3, 2]$ and $A = \begin{bmatrix} 1 & 0 \\ 0 & 2 \end{bmatrix}$:
+
+**Step 1** — Break v into its basic directions:
+
+$$\mathbf{v} = 3 \cdot [1,0] + 2 \cdot [0,1] \quad \text{(3 right + 2 up)}$$
+
+**Step 2** — Read the new rules from A's columns:
+
+$$\text{new "right"} = [1, 0] \quad \text{(unchanged)} \qquad \text{new "up"} = [0, 2] \quad \text{(twice as tall)}$$
+
+**Step 3** — Apply the same recipe with new directions:
+
+$$A\mathbf{v} = 3 \cdot [1,0] + 2 \cdot [0,2] = [3,0] + [0,4] = [3, 4]$$
+
+The vector moved from (3, 2) to (3, 4). The x stayed, the y doubled. The
+matrix **stretched space vertically**.
+
+```
+Before:          After:
+    y                y
+    |                |    * (3,4)
+    |  * (3,2)       |
+    |                |
+    *----x           *----x
+```
+
+**Common transformations**:
+
+| Matrix | What it does |
+|--------|-------------|
+| $\begin{bmatrix} 2 & 0 \\ 0 & 2 \end{bmatrix}$ | Uniform scaling (expand everything ×2) |
+| $\begin{bmatrix} 1 & 0 \\ 0 & 2 \end{bmatrix}$ | Vertical stretch only |
+| $\begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}$ | 90° rotation counterclockwise |
+| $\begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}$ | Reflection over x-axis |
+| $\begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}$ | Collapse onto x-axis ($\det = 0$, not invertible) |
+
 **As data**: In ML, an $m \times n$ matrix stores $m$ samples with $n$
 features. Your entire training set is a matrix.
 
