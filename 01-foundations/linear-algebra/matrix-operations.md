@@ -1,5 +1,5 @@
-**Related**: [[vectors-and-vector-spaces]], [[vector-operations]], [[determinant]], [[linear-independence]], [[gaussian-elimination]], [[basis-and-dimension]], [[projection]], [[projection-onto-subspaces]], [[linear-combination]]
-**Tags**: #status/seed
+**Related**: [[vectors-and-vector-spaces]], [[vector-operations]], [[vector-norms]], [[cosine-similarity]], [[determinant]], [[linear-independence]], [[gaussian-elimination]], [[basis-and-dimension]], [[projection]], [[projection-onto-subspaces]], [[linear-combination]]
+**Tags**: #status/growing
 
 ## Core Idea
 
@@ -49,6 +49,12 @@ If $A \in \mathbb{R}^{m \times n}$, then $A^T \in \mathbb{R}^{n \times m}$.
 **Worked example**:
 
 $$A = \begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{bmatrix} \implies A^T = \begin{bmatrix} 1 & 4 \\ 2 & 5 \\ 3 & 6 \end{bmatrix}$$
+
+**Properties**:
+- $(A^T)^T = A$ — transpose twice = back to original
+- $(A + B)^T = A^T + B^T$ — transpose distributes over addition
+- $(cA)^T = cA^T$ — scalars pass through
+- $(AB)^T = B^TA^T$ — "socks and shoes" reversal (see Key Properties below)
 
 **Key insight**: The [[vector-operations|dot product]] is transpose-then-multiply:
 
@@ -116,6 +122,11 @@ If matrix $A$ transforms space, then $A^{-1}$ **undoes** that transformation.
 It only exists when $A$ doesn't collapse any dimension ($\det(A) \neq 0$).
 
 $$AA^{-1} = A^{-1}A = I$$
+
+**Geometric intuition**: When $\det(A) = 0$, the transformation **collapses a
+dimension** — it squishes 2D space onto a line, or 3D space onto a plane.
+Information is destroyed (multiple inputs map to the same output), so you can't
+reverse it. It's like trying to "un-blend" a smoothie back into separate fruits.
 
 #### 2×2 Formula
 
