@@ -190,6 +190,21 @@ $$A^{-1} = \frac{1}{10}\begin{bmatrix} 6 & -7 \\ -2 & 4 \end{bmatrix} = \begin{b
 
 Verify: $AA^{-1} = I$ ✓
 
+#### Inverse of Larger Matrices (via Gaussian Elimination)
+
+For matrices bigger than 2×2, use [[gaussian-elimination]]: place A and the
+identity matrix side by side, then row-reduce A to I. Whatever operations you
+apply to I produce A⁻¹.
+
+```
+Start:     [A | I]
+Reduce:    [I | A⁻¹]
+```
+
+Same row operations you already know — just applied to a wider augmented matrix.
+If at any point a row of A becomes all zeros, det = 0 and no inverse exists.
+This is what `np.linalg.inv()` does internally.
+
 #### Solving Ax = b
 
 If $A$ is invertible: $A\mathbf{x} = \mathbf{b} \implies \mathbf{x} = A^{-1}\mathbf{b}$
