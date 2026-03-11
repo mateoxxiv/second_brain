@@ -1,5 +1,5 @@
 **Related**: [[vector-operations]], [[vector-norms]], [[basis-and-dimension]], [[linear-independence]], [[projection]]
-**Tags**: #status/growing
+**Tags**: #status/evergreen
 
 ## Core Idea
 
