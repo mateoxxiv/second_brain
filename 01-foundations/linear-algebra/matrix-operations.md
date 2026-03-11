@@ -18,24 +18,34 @@ arithmetic.
 column vectors, each in $\mathbb{R}^m$. The columns of a weight matrix are
 the "directions" the model can combine.
 
-**As a transformation**: Multiplying $A\mathbf{x}$ transforms vector
-$\mathbf{x}$ — rotating, scaling, shearing, projecting. The columns of $A$
-tell you where the standard basis vectors $\hat{e}_1, \hat{e}_2, \ldots$ land
-after the transformation.
+**As a transformation**: A matrix **redefines where the basic directions
+point**. Normally "right" = [1,0] and "up" = [0,1]. A matrix changes those
+rules. Every vector that says "3 steps right + 2 steps up" follows along
+with the new directions.
+
+```
+Example: A = [[2, 0],
+              [0, 3]]
+
+Before (standard):   "right" = [1,0]     "up" = [0,1]
+After (transformed): "right" = [2,0]     "up" = [0,3]
+
+v = [3, 2] = 3·"right" + 2·"up"
+
+Standard: 3·[1,0] + 2·[0,1] = [3, 2]
+After A:  3·[2,0] + 2·[0,3] = [6, 6]
+```
+
+Column 1 = the new "right". Column 2 = the new "up". That's it. Matrix-vector
+multiplication is a [[linear-combination]] of the columns using the vector's
+components as coefficients:
+
+$$A\mathbf{v} = v_1 \cdot \text{(column 1)} + v_2 \cdot \text{(column 2)} + \cdots$$
 
 **As data**: In ML, an $m \times n$ matrix stores $m$ samples with $n$
 features. Your entire training set is a matrix.
 
 $$A = \begin{bmatrix} a_{11} & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \cdots & a_{mn} \end{bmatrix} \in \mathbb{R}^{m \times n}$$
-
-```
-Transformation view (2D):
-
-A = [[2, 1],     i-hat [1,0] → [2,0]  (stretched)
-     [0, 1]]     j-hat [0,1] → [1,1]  (sheared)
-
-The columns of A ARE where the basis vectors land.
-```
 
 ### Matrix Transpose
 
