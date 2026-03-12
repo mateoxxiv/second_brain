@@ -1,7 +1,7 @@
 # Study Roadmap
 
 **Created**: 2026-02-24
-**Last updated**: 2026-03-04
+**Last updated**: 2026-03-11
 **Goal**: Become an expert AI architect and engineer — design, implement, and orchestrate intelligent systems end-to-end.
 
 ---
@@ -33,7 +33,7 @@ Both together = architect.
 
 | Area | Notes | Code | Status |
 |------|-------|------|--------|
-| 01-foundations/linear-algebra | 11 | 1 | In progress (vectors through determinants done) |
+| 01-foundations/linear-algebra | 12 | 2 | In progress (vectors through matrix ops done, 3 evergreen) |
 | 01-foundations/calculus | 0 | 0 | Not started |
 | 01-foundations/probability | 0 | 0 | Not started |
 | 01-foundations/algorithms | 0 | 0 | Not started |
@@ -57,12 +57,12 @@ Both together = architect.
 - [x] Projection onto Subspaces
 - [x] Gaussian Elimination
 - [x] Determinant
-- [ ] Matrix Operations and Properties
-- [ ] Linear Transformations
+- [x] Matrix Operations (transpose, multiply, inverse, special matrices)
 - [ ] Eigenvalues and Eigenvectors
 - [ ] Singular Value Decomposition (SVD)
-- [ ] Matrix Calculus (Jacobians, Hessians)
 - [ ] Orthonormal Basis and Gram-Schmidt
+- [ ] Linear Transformations
+- [ ] Matrix Calculus (Jacobians, Hessians)
 
 ---
 
@@ -87,17 +87,20 @@ Deep understanding. Derive, don't memorize. Implement from scratch.
 - [x] Gaussian Elimination
 - [x] Determinant
 
+**Recently completed:**
+- [x] Matrix Operations (transpose, multiply, inverse, special matrices) — #status/growing
+- [x] **Code**: matrix_operations.py — 7 demos + 18 exercises (31 checks)
+- [x] Promoted vectors-and-vector-spaces, vector-operations, vector-norms to #status/evergreen
+
 **Remaining:**
-- [ ] Orthonormal Basis and Gram-Schmidt
-- [ ] Matrix Operations and Properties (multiply, inverse, transpose)
-- [ ] Linear Transformations (what matrices DO geometrically)
 - [ ] Eigenvalues and Eigenvectors
 - [ ] Singular Value Decomposition (SVD)
+- [ ] Orthonormal Basis and Gram-Schmidt
+- [ ] Linear Transformations
 - [ ] Matrix Calculus (Jacobians, Hessians)
-- [ ] **Code**: Matrix operations from scratch
 - [ ] **Code**: SVD for image compression
 
-**Estimated remaining**: ~6 notes, 2 code files
+**Estimated remaining**: ~5 notes, 1 code file
 
 ### T2: Calculus (Weeks 3-4)
 
@@ -444,6 +447,9 @@ Or alternate days: Mon/Wed/Fri = Theory, Tue/Thu = Builder.
 
 ## What to Do Right Now
 
-**Theory**: Continue linear algebra — next topics: orthonormal basis, matrix operations, linear transformations.
+**Theory (priority order)**:
+1. **Eigenvalues & Eigenvectors** — next linear algebra topic. Unlocks PCA, stability analysis, and understanding neural network training. Depends on: matrix operations (done).
+2. **Start Calculus** — derivatives → chain rule → gradient descent. The bridge from math to ML optimization. Can run in parallel with remaining linear algebra.
+3. **SVD** — after eigenvalues. Unlocks dimensionality reduction, recommender systems, and connects all matrix decompositions.
 
-**Builder**: Continue B1 — Anthropic + OpenAI ecosystems documented. Next: API key management note, Python setup note, chatbot project. Then B3: Provider Comparison (Claude vs GPT vs Gemini vs DeepSeek vs Mistral).
+**Builder**: Continue B1 — Anthropic + OpenAI ecosystems documented. Next: API key management note, Python setup note, chatbot project. Then B3: Provider Comparison.
