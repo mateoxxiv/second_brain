@@ -1,5 +1,5 @@
 """
-Eigenvalues and Eigenvectors — from scratch and with NumPy.
+Eigenvalues and Eigenvectors --from scratch and with NumPy.
 
 Demonstrates:
 - What eigenvalues/eigenvectors are geometrically
@@ -22,7 +22,7 @@ import math
 
 
 # ─────────────────────────────────────────────
-# 1. CHARACTERISTIC EQUATION — 2x2 by hand
+# 1. CHARACTERISTIC EQUATION --2x2 by hand
 # ─────────────────────────────────────────────
 
 def characteristic_polynomial_2x2(A: np.ndarray) -> tuple[float, float, float]:
@@ -45,7 +45,7 @@ def eigenvalues_2x2(A: np.ndarray) -> tuple[float, float]:
     # λ² + bλ + c = 0  →  λ = (-b ± √(b²-4c)) / 2
     discriminant = b**2 - 4 * c
     if discriminant < 0:
-        raise ValueError("Complex eigenvalues — matrix has no real eigenvalues.")
+        raise ValueError("Complex eigenvalues --matrix has no real eigenvalues.")
     sqrt_d = math.sqrt(discriminant)
     lam1 = (-b + sqrt_d) / 2
     lam2 = (-b - sqrt_d) / 2
@@ -76,24 +76,24 @@ def demo_characteristic_equation() -> None:
                   [1.0, 2.0]])
 
     print("=" * 55)
-    print("CHARACTERISTIC EQUATION — A = [[2,1],[1,2]]")
+    print("CHARACTERISTIC EQUATION --A = [[2,1],[1,2]]")
     print("=" * 55)
     print(f"A =\n{A}\n")
 
     lam1, lam2 = eigenvalues_2x2(A)
-    print(f"Characteristic polynomial: λ² - {np.trace(A):.0f}λ + {la.det(A):.0f} = 0")
-    print(f"Eigenvalues: λ₁ = {lam1:.4f}, λ₂ = {lam2:.4f}\n")
+    print(f"Characteristic polynomial: L^2 - {np.trace(A):.0f}L + {la.det(A):.0f} = 0")
+    print(f"Eigenvalues: L1 = {lam1:.4f}, L2 = {lam2:.4f}\n")
 
     v1 = eigenvector_2x2(A, lam1)
     v2 = eigenvector_2x2(A, lam2)
 
-    print(f"Eigenvector for λ₁={lam1:.0f}:  v₁ = {v1}")
-    print(f"  Verify Av₁ = λ₁v₁: {np.allclose(A @ v1, lam1 * v1)}")
-    print(f"Eigenvector for λ₂={lam2:.0f}:  v₂ = {v2}")
-    print(f"  Verify Av₂ = λ₂v₂: {np.allclose(A @ v2, lam2 * v2)}")
-    print(f"\nOrthogonality check (v₁·v₂): {np.dot(v1, v2):.6f}  (≈0 for symmetric A)")
-    print(f"Trace check: tr(A)={np.trace(A):.0f} = λ₁+λ₂ = {lam1+lam2:.0f}")
-    print(f"Det check:   det(A)={la.det(A):.0f} = λ₁×λ₂ = {lam1*lam2:.0f}\n")
+    print(f"Eigenvector for L1={lam1:.0f}:  v1 = {v1}")
+    print(f"  Verify A@v1 = L1*v1: {np.allclose(A @ v1, lam1 * v1)}")
+    print(f"Eigenvector for L2={lam2:.0f}:  v2 = {v2}")
+    print(f"  Verify A@v2 = L2*v2: {np.allclose(A @ v2, lam2 * v2)}")
+    print(f"\nOrthogonality check (v1.v2): {np.dot(v1, v2):.6f}  (=0 for symmetric A)")
+    print(f"Trace check: tr(A)={np.trace(A):.0f} = L1+L2 = {lam1+lam2:.0f}")
+    print(f"Det check:   det(A)={la.det(A):.0f} = L1*L2 = {lam1*lam2:.0f}\n")
 
 
 # ─────────────────────────────────────────────
@@ -104,7 +104,7 @@ def spectral_decomposition(A: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
     """
     Decompose symmetric A into Q and Λ such that A = Q Λ Qᵀ.
     Uses np.linalg.eigh (numerically stable for symmetric matrices).
-    Returns (Q, eigenvalues) — columns of Q are eigenvectors sorted ascending.
+    Returns (Q, eigenvalues) --columns of Q are eigenvectors sorted ascending.
     """
     eigenvalues, Q = la.eigh(A)   # already returns sorted eigenvalues
     return Q, eigenvalues
@@ -116,23 +116,23 @@ def demo_spectral_decomposition() -> None:
     Q, lams = spectral_decomposition(A)
 
     print("=" * 55)
-    print("SPECTRAL DECOMPOSITION  A = Q Λ Qᵀ")
+    print("SPECTRAL DECOMPOSITION  A = Q L Q^T")
     print("=" * 55)
     Lambda = np.diag(lams)
     A_reconstructed = Q @ Lambda @ Q.T
     print(f"Q (eigenvectors as columns):\n{Q}\n")
-    print(f"Λ (diagonal of eigenvalues):\n{Lambda}\n")
-    print(f"Q Λ Qᵀ =\n{A_reconstructed}")
+    print(f"L (diagonal of eigenvalues):\n{Lambda}\n")
+    print(f"Q L Q^T =\n{A_reconstructed}")
     print(f"Reconstruction matches A: {np.allclose(A_reconstructed, A)}\n")
 
     # Rank-1 outer product representation
-    print("Spectral sum: A = Σ λᵢ qᵢ qᵢᵀ")
+    print("Spectral sum: A = sum( Li * qi @ qi^T )")
     A_sum = sum(lam * np.outer(q, q) for lam, q in zip(lams, Q.T))
     print(f"Sum matches A: {np.allclose(A_sum, A)}\n")
 
 
 # ─────────────────────────────────────────────
-# 3. POWER ITERATION — dominant eigenvector
+# 3. POWER ITERATION --dominant eigenvector
 # ─────────────────────────────────────────────
 
 def power_iteration(
@@ -170,16 +170,16 @@ def demo_power_iteration() -> None:
                   [2.0, 3.0]])
 
     print("=" * 55)
-    print("POWER ITERATION — dominant eigenvector")
+    print("POWER ITERATION --dominant eigenvector")
     print("=" * 55)
     lam_dom, v_dom = power_iteration(A)
     lams_true, vecs_true = la.eig(A)
     idx = np.argmax(np.abs(lams_true))
 
     print(f"A =\n{A}")
-    print(f"Power iteration → λ = {lam_dom:.6f},  v = {v_dom}")
-    print(f"NumPy (true)    → λ = {lams_true[idx]:.6f}")
-    print(f"Verify Av ≈ λv: {np.allclose(A @ v_dom, lam_dom * v_dom, atol=1e-6)}\n")
+    print(f"Power iteration -> L = {lam_dom:.6f},  v = {v_dom}")
+    print(f"NumPy (true)    -> L = {lams_true[idx]:.6f}")
+    print(f"Verify A@v = L*v: {np.allclose(A @ v_dom, lam_dom * v_dom, atol=1e-6)}\n")
 
 
 # ─────────────────────────────────────────────
@@ -195,9 +195,9 @@ def pca_eigen(X: np.ndarray, k: int) -> tuple[np.ndarray, np.ndarray, np.ndarray
         k: number of principal components to keep.
 
     Returns:
-        components:   (k, n_features) — top-k eigenvectors (principal axes)
-        eigenvalues:  (k,) — variance explained per component
-        X_projected:  (n_samples, k) — data in the new basis
+        components:   (k, n_features) --top-k eigenvectors (principal axes)
+        eigenvalues:  (k,) --variance explained per component
+        X_projected:  (n_samples, k) --data in the new basis
     """
     n = X.shape[0]
     cov = (X.T @ X) / (n - 1)           # covariance matrix (n_features × n_features)
@@ -231,8 +231,8 @@ def demo_pca() -> None:
     print("PCA VIA EIGENDECOMPOSITION")
     print("=" * 55)
     print(f"Covariance matrix:\n{(X.T @ X) / (n - 1)}\n")
-    print(f"PC1 direction: {components[0]}  (λ = {eigenvalues[0]:.4f})")
-    print(f"PC2 direction: {components[1]}  (λ = {eigenvalues[1]:.4f})")
+    print(f"PC1 direction: {components[0]}  (L = {eigenvalues[0]:.4f})")
+    print(f"PC2 direction: {components[1]}  (L = {eigenvalues[1]:.4f})")
     print(f"Variance explained: PC1 = {eigenvalues[0]/total_var:.1%},  "
           f"PC2 = {eigenvalues[1]/total_var:.1%}\n")
 
@@ -274,10 +274,10 @@ def demo_stability() -> None:
     print("=" * 55)
 
     cases = {
-        "Converging (λ < 1)":  np.array([[0.5, 0.0], [0.0, 0.3]]),
-        "Stable (λ = 1)":      np.eye(2),
-        "Diverging (λ > 1)":   np.array([[2.0, 0.0], [0.0, 1.5]]),
-        "Oscillating (λ < 0)": np.array([[-0.8, 0.0], [0.0, -0.6]]),
+        "Converging (L < 1)":  np.array([[0.5, 0.0], [0.0, 0.3]]),
+        "Stable (L = 1)":      np.eye(2),
+        "Diverging (L > 1)":   np.array([[2.0, 0.0], [0.0, 1.5]]),
+        "Oscillating (L < 0)": np.array([[-0.8, 0.0], [0.0, -0.6]]),
     }
 
     v0 = np.array([1.0, 1.0])
@@ -312,9 +312,9 @@ def exercises() -> None:
 
     # Exercise 1
     # Compute eigenvalues of A = [[3, 0], [0, 5]] by hand
-    # (diagonal matrix — eigenvalues are the diagonal entries).
+    # (diagonal matrix --eigenvalues are the diagonal entries).
     # Expected: λ₁ = 3, λ₂ = 5
-    print("Exercise 1 — diagonal matrix [[3,0],[0,5]]")
+    print("Exercise 1 --diagonal matrix [[3,0],[0,5]]")
     A1 = np.array([[3.0, 0.0], [0.0, 5.0]])
     lams1 = la.eigvalsh(A1)
     print(f"  Eigenvalues: {sorted(lams1)}  (expected [3.0, 5.0])\n")
@@ -323,11 +323,11 @@ def exercises() -> None:
     # Verify that for A = [[0, -1],[1, 0]] (a 90° rotation),
     # no real eigenvectors exist (the characteristic polynomial has no real roots).
     # Expected: discriminant < 0
-    print("Exercise 2 — rotation matrix [[0,-1],[1,0]]")
+    print("Exercise 2 --rotation matrix [[0,-1],[1,0]]")
     A2 = np.array([[0.0, -1.0], [1.0, 0.0]])
     _, b, c = characteristic_polynomial_2x2(A2)
     disc = b**2 - 4 * c
-    print(f"  Discriminant = {disc}  (expected -4 < 0 → no real eigenvalues)\n")
+    print(f"  Discriminant = {disc}  (expected -4 < 0 -> no real eigenvalues)\n")
 
     # ── INTERMEDIATE ───────────────────────────────────────
 
@@ -335,21 +335,21 @@ def exercises() -> None:
     # For A = [[1, 2],[2, 1]], compute eigenvalues and eigenvectors by hand,
     # then verify with NumPy. Check that eigenvectors are orthogonal.
     # Expected eigenvalues: -1 and 3
-    print("Exercise 3 — [[1,2],[2,1]]")
+    print("Exercise 3 --[[1,2],[2,1]]")
     A3 = np.array([[1.0, 2.0], [2.0, 1.0]])
     lam3a, lam3b = eigenvalues_2x2(A3)
     v3a = eigenvector_2x2(A3, lam3a)
     v3b = eigenvector_2x2(A3, lam3b)
-    print(f"  λ₁ = {lam3a:.4f}, v₁ = {v3a}")
-    print(f"  λ₂ = {lam3b:.4f}, v₂ = {v3b}")
-    print(f"  v₁·v₂ = {np.dot(v3a, v3b):.6f}  (expected ≈0)")
+    print(f"  L1 = {lam3a:.4f}, v1 = {v3a}")
+    print(f"  L2 = {lam3b:.4f}, v2 = {v3b}")
+    print(f"  v1.v2 = {np.dot(v3a, v3b):.6f}  (expected ~0)")
     print(f"  (expected eigenvalues: 3.0 and -1.0)\n")
 
     # Exercise 4
     # Reconstruct A = [[4,2],[1,3]] from its eigendecomposition.
-    # (Not symmetric — use np.linalg.eig, not eigh.)
+    # (Not symmetric --use np.linalg.eig, not eigh.)
     # Hint: A = V diag(λ) V⁻¹
-    print("Exercise 4 — reconstruct [[4,2],[1,3]] from eigendecomposition")
+    print("Exercise 4 --reconstruct [[4,2],[1,3]] from eigendecomposition")
     A4 = np.array([[4.0, 2.0], [1.0, 3.0]])
     lams4, V4 = la.eig(A4)
     A4_reconstructed = V4 @ np.diag(lams4) @ la.inv(V4)
@@ -362,7 +362,7 @@ def exercises() -> None:
     # Exercise 5
     # Power iteration vs numpy: for A = [[3,1],[1,3]], run 50 iterations
     # of power iteration starting from [1,0]. Check convergence to dominant eigenvector.
-    print("Exercise 5 — power iteration convergence for [[3,1],[1,3]]")
+    print("Exercise 5 --power iteration convergence for [[3,1],[1,3]]")
     A5 = np.array([[3.0, 1.0], [1.0, 3.0]])
     lam5_power, v5_power = power_iteration(A5, n_iterations=50)
     lams5_true, vecs5_true = la.eigh(A5)
@@ -370,26 +370,26 @@ def exercises() -> None:
     v5_true = vecs5_true[:, idx5]
     # Eigenvectors match up to sign
     aligned = np.allclose(np.abs(v5_power), np.abs(v5_true), atol=1e-6)
-    print(f"  Power iter λ = {lam5_power:.6f}   (true: {lams5_true[idx5]:.6f})")
+    print(f"  Power iter L = {lam5_power:.6f}   (true: {lams5_true[idx5]:.6f})")
     print(f"  Directions match (up to sign): {aligned}\n")
 
     # Exercise 6 (proof / derivation challenge)
     # Show that if λ is an eigenvalue of A, then λ² is an eigenvalue of A².
     # Hint: start from Av = λv and apply A again.
-    print("Exercise 6 — A² shares eigenvectors with A (eigenvalue squared)")
+    print("Exercise 6 -- A^2 shares eigenvectors with A (eigenvalue squared)")
     A6 = np.array([[2.0, 1.0], [1.0, 2.0]])
     lams6, V6 = la.eigh(A6)
     lams6_sq = la.eigvalsh(A6 @ A6)
-    print(f"  Eigenvalues of A:   {sorted(lams6)}")
-    print(f"  Squared:            {sorted(lams6**2)}")
-    print(f"  Eigenvalues of A²:  {sorted(lams6_sq)}")
+    print(f"  Eigenvalues of A:    {sorted(lams6)}")
+    print(f"  Squared:             {sorted(lams6**2)}")
+    print(f"  Eigenvalues of A^2:  {sorted(lams6_sq)}")
     print(f"  Match: {np.allclose(sorted(lams6**2), sorted(lams6_sq))}\n")
 
     # Exercise 7 (open-ended)
     # Generate a random 3×3 positive definite matrix, compute its eigendecomposition,
     # project a random vector onto its top-1 eigenvector (power-iteration style),
     # and verify ||proj|| ≤ ||v||.
-    print("Exercise 7 — random 3x3 PSD, project onto top eigenvector")
+    print("Exercise 7 --random 3x3 PSD, project onto top eigenvector")
     rng = np.random.default_rng(7)
     B = rng.normal(size=(3, 3))
     A7 = B.T @ B + np.eye(3)  # positive definite

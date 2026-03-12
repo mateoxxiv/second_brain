@@ -75,9 +75,14 @@ the identity matrix changes nothing):
 
 Now read this sentence: "the matrix (A - lambda * I) sends vector v to zero."
 
-We already know from [[linear-independence]] that a matrix sends a non-zero
-vector to zero **only when its columns are dependent** — which means its
-[[determinant]] is zero:
+Why does this require det = 0? Remember from [[determinant]] and
+[[gaussian-elimination]]:
+
+- **det != 0** → the system has exactly ONE solution → that's v = [0,0] → useless
+- **det = 0** → the system has INFINITE solutions → non-zero v exists → eigenvectors!
+
+We NEED the matrix to be singular (det = 0) because we need it to collapse
+some direction — the vectors along that collapsed direction are the eigenvectors.
 
 ```
 det(A - lambda * I) = 0
@@ -85,7 +90,10 @@ det(A - lambda * I) = 0
 
 This is the **characteristic equation**. It's a polynomial in lambda — solve it
 to find the eigenvalues. Then for each eigenvalue, plug it back and solve for v
-using [[gaussian-elimination]]:
+using [[gaussian-elimination]].
+
+**Verification step**: after finding each lambda, compute det(A - lambda * I).
+If it's 0, you have a real eigenvalue. If not, you made an algebra mistake.
 
 ```
 Step 1: Solve det(A - lambda * I) = 0  →  gives you the eigenvalues

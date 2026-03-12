@@ -85,6 +85,33 @@ features. Your entire training set is a matrix.
 
 $$A = \begin{bmatrix} a_{11} & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \cdots & a_{mn} \end{bmatrix} \in \mathbb{R}^{m \times n}$$
 
+### Matrix Addition and Subtraction
+
+Add or subtract matrices **element by element**. Both matrices must have the
+same dimensions — you can't add a 2x3 to a 3x2.
+
+```
+A = [[1, 2],    B = [[5, 6],
+     [3, 4]]         [7, 8]]
+
+A + B = [[1+5, 2+6],   = [[6,  8],
+         [3+7, 4+8]]      [10, 12]]
+
+A - B = [[1-5, 2-6],   = [[-4, -4],
+         [3-7, 4-8]]      [-4, -4]]
+```
+
+**Scalar multiplication** works the same way — multiply every element:
+
+```
+3 * A = [[3, 6],
+         [9, 12]]
+```
+
+**Where it shows up**: In [[eigenvalues-and-eigenvectors]], the characteristic
+equation requires A - lambda * I — that's matrix subtraction between A and a
+scaled identity matrix.
+
 ### Matrix Transpose
 
 Flip the matrix over its main diagonal — rows become columns, columns become
