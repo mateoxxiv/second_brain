@@ -1,4 +1,4 @@
-**Related**: [[vectors-and-vector-spaces]], [[vector-operations]], [[vector-norms]], [[cosine-similarity]], [[determinant]], [[linear-independence]], [[gaussian-elimination]], [[basis-and-dimension]], [[projection]], [[projection-onto-subspaces]], [[linear-combination]]
+**Related**: [[vectors-and-vector-spaces]], [[vector-operations]], [[vector-norms]], [[cosine-similarity]], [[determinant]], [[linear-independence]], [[gaussian-elimination]], [[basis-and-dimension]], [[projection]], [[projection-onto-subspaces]], [[linear-combination]], [[matrix-inverse]], [[special-matrices]]
 **Tags**: #status/evergreen
 
 ## Core Idea
@@ -199,60 +199,13 @@ Ridge regularization adds $\lambda I$ to $X^TX$ to ensure invertibility.
 
 ### Matrix Inverse
 
-If matrix $A$ transforms space, then $A^{-1}$ **undoes** that transformation.
-It only exists when $A$ doesn't collapse any dimension ($\det(A) \neq 0$).
+See [[matrix-inverse]] for the full note. Key points:
 
-$$AA^{-1} = A^{-1}A = I$$
-
-**Geometric intuition**: When $\det(A) = 0$, the transformation **collapses a
-dimension** — it squishes 2D space onto a line, or 3D space onto a plane.
-Information is destroyed (multiple inputs map to the same output), so you can't
-reverse it. It's like trying to "un-blend" a smoothie back into separate fruits.
-
-#### 2×2 Formula
-
-$$A = \begin{bmatrix} a & b \\ c & d \end{bmatrix} \implies A^{-1} = \frac{1}{ad - bc} \begin{bmatrix} d & -b \\ -c & a \end{bmatrix}$$
-
-The $ad - bc$ is the [[determinant]]. If it's zero, no inverse exists.
-
-#### Worked Example
-
-$$A = \begin{bmatrix} 4 & 7 \\ 2 & 6 \end{bmatrix}, \quad \det(A) = 24 - 14 = 10$$
-
-$$A^{-1} = \frac{1}{10}\begin{bmatrix} 6 & -7 \\ -2 & 4 \end{bmatrix} = \begin{bmatrix} 0.6 & -0.7 \\ -0.2 & 0.4 \end{bmatrix}$$
-
-Verify: $AA^{-1} = I$ ✓
-
-#### Inverse of Larger Matrices (via Gaussian Elimination)
-
-For matrices bigger than 2×2, use [[gaussian-elimination]]: place A and the
-identity matrix side by side, then row-reduce A to I. Whatever operations you
-apply to I produce $A^{-1}$.
-
-```
-Start:     [A | I]
-Reduce:    [I | $A^{-1}$]
-```
-
-Same row operations you already know — just applied to a wider augmented matrix.
-If at any point a row of A becomes all zeros, det = 0 and no inverse exists.
-This is what `np.linalg.inv()` does internally.
-
-#### Solving Ax = b
-
-If $A$ is invertible: $A\mathbf{x} = \mathbf{b} \implies \mathbf{x} = A^{-1}\mathbf{b}$
-
-#### "Don't Invert That Matrix"
-
-In practice, **almost never compute the inverse directly**:
-
-1. **Numerical instability** — floating-point errors amplify through inversion
-2. **Computational cost** — solving $Ax = b$ via LU decomposition is faster
-   and more stable
-3. **Memory** — a sparse matrix's inverse is typically dense
-
-**Use instead**: `np.linalg.solve(A, b)` which uses [[gaussian-elimination]]
-(LU decomposition) internally. For least squares: `np.linalg.lstsq()`.
+- $A^{-1}$ undoes the transformation: $AA^{-1} = I$
+- Only exists when $\det(A) \neq 0$
+- 2x2 formula: swap diagonal, negate off-diagonal, divide by det
+- Larger matrices: [[gaussian-elimination]] on $[A | I] \to [I | A^{-1}]$
+- **In practice**: use `np.linalg.solve(A, b)` instead of computing the inverse
 
 ### Key Properties
 
@@ -271,18 +224,16 @@ order.
 
 ### Special Matrices
 
-| Type | Definition | Key property | ML use |
-|------|-----------|-------------|--------|
-| **Symmetric** | $A = A^T$ | [[eigenvalues-and-eigenvectors|Eigenvalues]] always real, eigenvectors orthogonal | Covariance matrix $\Sigma = \frac{1}{n-1}X^TX$, PCA |
-| **Diagonal** | $a_{ij} = 0$ for $i \neq j$ | Inverse = invert each diagonal entry | SVD ($\Sigma$), batch norm scaling |
-| **Triangular** | Zeros above (lower) or below (upper) diagonal | det = product of diagonal | LU decomposition, `np.linalg.solve` |
-| **Orthogonal** | $Q^TQ = I$, so $Q^{-1} = Q^T$ | Preserves lengths and angles | Orthogonal weight init, QR decomposition, PCA eigenvectors |
+See [[special-matrices]] for the full note. Quick reference:
 
-**Orthogonal matrices** deserve special attention: their inverse is just the
-transpose (free computation), and they preserve norms
-($\|Q\mathbf{x}\| = \|\mathbf{x}\|$). In deep learning, orthogonal weight
-initialization prevents vanishing/exploding gradients because all eigenvalues
-have absolute value 1.
+| Type | Definition | Key property |
+|------|-----------|-------------|
+| **Symmetric** | $A = A^T$ | Real eigenvalues, orthogonal eigenvectors |
+| **Diagonal** | zeros off-diagonal | Eigenvalues = diagonal entries |
+| **Triangular** | zeros above or below diagonal | det = product of diagonal |
+| **Orthogonal** | $Q^TQ = I$ | Preserves lengths, $Q^{-1} = Q^T$ |
+| **Singular** | $\det = 0$ | Not invertible |
+| **Positive definite** | $\mathbf{x}^TA\mathbf{x} > 0$ | All eigenvalues positive |
 
 ## Code Example
 
@@ -292,30 +243,21 @@ import numpy as np
 A = np.array([[1, 2], [3, 4]])
 B = np.array([[5, 6], [7, 8]])
 
+# --- Addition / Subtraction ---
+print(A + B)         # [[6, 8], [10, 12]]
+print(A - B)         # [[-4, -4], [-4, -4]]
+print(3 * A)         # [[3, 6], [9, 12]]
+
 # --- Transpose ---
 print(A.T)           # [[1, 3], [2, 4]]
 
 # --- Dot product = transpose multiply ---
 x, y = np.array([1, 2, 3]), np.array([4, 5, 6])
 print(x @ y)         # 32 (dot product)
-print(x.T @ y)       # 32 (same thing)
 
-# --- Matrix multiplication ---
+# --- Matrix multiplication (not commutative!) ---
 print(A @ B)         # [[19, 22], [43, 50]]
 print(B @ A)         # [[23, 34], [31, 46]] — different!
-
-# --- Inverse (but prefer solve!) ---
-A = np.array([[4, 7], [2, 6]])
-b = np.array([1, 2])
-x_solve = np.linalg.solve(A, b)     # ✓ use this
-x_inv = np.linalg.inv(A) @ b        # ✗ avoid this
-
-# --- Orthogonal matrix (rotation by 45°) ---
-theta = np.pi / 4
-Q = np.array([[np.cos(theta), -np.sin(theta)],
-              [np.sin(theta),  np.cos(theta)]])
-print(Q.T @ Q)                       # ≈ identity
-print(np.linalg.norm(Q @ [1, 0]))    # 1.0 (norm preserved)
 ```
 
 > For runnable implementation, see: [[code/foundations/matrix_operations.py]]
@@ -327,10 +269,11 @@ print(np.linalg.norm(Q @ [1, 0]))    # 1.0 (norm preserved)
 - [[determinant]] tells you whether a matrix is invertible and how it scales area/volume
 - [[linear-independence]] of columns ↔ matrix is invertible ↔ $\det \neq 0$
 - [[gaussian-elimination]] is the practical way to solve $Ax = b$ (LU decomposition)
-- [[projection]] formula $A(A^TA)^{-1}A^T\mathbf{b}$ uses transpose and inverse
-- The normal equations for linear regression come directly from [[projection-onto-subspaces]]
+- [[matrix-inverse]] — undoing transformations, solving systems
+- [[special-matrices]] — symmetric, orthogonal, diagonal, singular, positive definite
+- [[projection-onto-subspaces]] — normal equations use transpose and inverse
 - [[eigenvalues-and-eigenvectors]] — special vectors that only get scaled by $A$
-- Forward link: [[SVD]] — every matrix = orthogonal × diagonal × orthogonal
+- Forward link: [[SVD]] — every matrix = orthogonal x diagonal x orthogonal
 
 ## Sources
 
