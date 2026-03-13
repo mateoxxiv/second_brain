@@ -1,5 +1,5 @@
 **Related**: [[vectors-and-vector-spaces]], [[vector-operations]], [[vector-norms]], [[cosine-similarity]], [[determinant]], [[linear-independence]], [[gaussian-elimination]], [[basis-and-dimension]], [[projection]], [[projection-onto-subspaces]], [[linear-combination]]
-**Tags**: #status/growing
+**Tags**: #status/evergreen
 
 ## Core Idea
 
@@ -107,6 +107,12 @@ A - B = [[1-5, 2-6],   = [[-4, -4],
 3 * A = [[3, 6],
          [9, 12]]
 ```
+
+**Properties**:
+- $A + B = B + A$ — commutative (order doesn't matter, unlike multiplication!)
+- $(A + B) + C = A + (B + C)$ — associative
+- $A + 0 = A$ — the zero matrix is the identity element
+- $c(A + B) = cA + cB$ — scalar distributes over addition
 
 **Where it shows up**: In [[eigenvalues-and-eigenvectors]], the characteristic
 equation requires A - lambda * I — that's matrix subtraction between A and a
@@ -221,11 +227,11 @@ Verify: $AA^{-1} = I$ ✓
 
 For matrices bigger than 2×2, use [[gaussian-elimination]]: place A and the
 identity matrix side by side, then row-reduce A to I. Whatever operations you
-apply to I produce A⁻¹.
+apply to I produce $A^{-1}$.
 
 ```
 Start:     [A | I]
-Reduce:    [I | A⁻¹]
+Reduce:    [I | $A^{-1}$]
 ```
 
 Same row operations you already know — just applied to a wider augmented matrix.
@@ -267,7 +273,7 @@ order.
 
 | Type | Definition | Key property | ML use |
 |------|-----------|-------------|--------|
-| **Symmetric** | $A = A^T$ | Eigenvalues always real, eigenvectors orthogonal | Covariance matrix $\Sigma = \frac{1}{n-1}X^TX$, PCA |
+| **Symmetric** | $A = A^T$ | [[eigenvalues-and-eigenvectors|Eigenvalues]] always real, eigenvectors orthogonal | Covariance matrix $\Sigma = \frac{1}{n-1}X^TX$, PCA |
 | **Diagonal** | $a_{ij} = 0$ for $i \neq j$ | Inverse = invert each diagonal entry | SVD ($\Sigma$), batch norm scaling |
 | **Triangular** | Zeros above (lower) or below (upper) diagonal | det = product of diagonal | LU decomposition, `np.linalg.solve` |
 | **Orthogonal** | $Q^TQ = I$, so $Q^{-1} = Q^T$ | Preserves lengths and angles | Orthogonal weight init, QR decomposition, PCA eigenvectors |
@@ -323,7 +329,7 @@ print(np.linalg.norm(Q @ [1, 0]))    # 1.0 (norm preserved)
 - [[gaussian-elimination]] is the practical way to solve $Ax = b$ (LU decomposition)
 - [[projection]] formula $A(A^TA)^{-1}A^T\mathbf{b}$ uses transpose and inverse
 - The normal equations for linear regression come directly from [[projection-onto-subspaces]]
-- Forward link: [[Eigenvalues and Eigenvectors]] — special vectors that only get scaled by $A$
+- [[eigenvalues-and-eigenvectors]] — special vectors that only get scaled by $A$
 - Forward link: [[SVD]] — every matrix = orthogonal × diagonal × orthogonal
 
 ## Sources

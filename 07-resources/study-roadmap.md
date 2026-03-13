@@ -1,7 +1,7 @@
 # Study Roadmap
 
 **Created**: 2026-02-24
-**Last updated**: 2026-03-11
+**Last updated**: 2026-03-12
 **Goal**: Become an expert AI architect and engineer — design, implement, and orchestrate intelligent systems end-to-end.
 
 ---
@@ -33,7 +33,7 @@ Both together = architect.
 
 | Area | Notes | Code | Status |
 |------|-------|------|--------|
-| 01-foundations/linear-algebra | 12 | 2 | In progress (vectors through matrix ops done, 3 evergreen) |
+| 01-foundations/linear-algebra | 13 | 3 | In progress (vectors through eigenvalues done, 3 evergreen) |
 | 01-foundations/calculus | 0 | 0 | Not started |
 | 01-foundations/probability | 0 | 0 | Not started |
 | 01-foundations/algorithms | 0 | 0 | Not started |
@@ -58,7 +58,7 @@ Both together = architect.
 - [x] Gaussian Elimination
 - [x] Determinant
 - [x] Matrix Operations (transpose, multiply, inverse, special matrices)
-- [ ] Eigenvalues and Eigenvectors
+- [x] Eigenvalues and Eigenvectors
 - [ ] Singular Value Decomposition (SVD)
 - [ ] Orthonormal Basis and Gram-Schmidt
 - [ ] Linear Transformations
@@ -88,12 +88,12 @@ Deep understanding. Derive, don't memorize. Implement from scratch.
 - [x] Determinant
 
 **Recently completed:**
-- [x] Matrix Operations (transpose, multiply, inverse, special matrices) — #status/growing
-- [x] **Code**: matrix_operations.py — 7 demos + 18 exercises (31 checks)
-- [x] Promoted vectors-and-vector-spaces, vector-operations, vector-norms to #status/evergreen
+- [x] Eigenvalues and Eigenvectors — #status/growing, session done (core idea, characteristic eq, spectral theorem intro)
+- [x] **Code**: eigenvalues_and_eigenvectors.py — 5 demos + 7 exercises
+- [x] Matrix Operations — #status/growing (added addition/subtraction section)
 
 **Remaining:**
-- [ ] Eigenvalues and Eigenvectors
+- [ ] Spectral Decomposition (hands-on A = Q L Q^T, needed for PCA)
 - [ ] Singular Value Decomposition (SVD)
 - [ ] Orthonormal Basis and Gram-Schmidt
 - [ ] Linear Transformations
@@ -448,8 +448,12 @@ Or alternate days: Mon/Wed/Fri = Theory, Tue/Thu = Builder.
 ## What to Do Right Now
 
 **Theory (priority order)**:
-1. **Eigenvalues & Eigenvectors** — next linear algebra topic. Unlocks PCA, stability analysis, and understanding neural network training. Depends on: matrix operations (done).
-2. **Start Calculus** — derivatives → chain rule → gradient descent. The bridge from math to ML optimization. Can run in parallel with remaining linear algebra.
-3. **SVD** — after eigenvalues. Unlocks dimensionality reduction, recommender systems, and connects all matrix decompositions.
+1. **Spectral Decomposition** (hands-on) — we introduced it but didn't work through it. Needed before PCA. Quick session.
+2. **SVD** — after spectral decomposition. Unlocks dimensionality reduction, recommender systems, image compression.
+3. **Start Calculus** — derivatives → chain rule → gradient descent. The bridge from math to ML optimization. Can run in parallel with remaining linear algebra.
+
+**Gaps to close:**
+- Promote cosine-similarity, determinant, linear-independence to evergreen (they're comprehensive)
+- Complex eigenvalues (rotation matrices) — brief addition to eigenvalues note
 
 **Builder**: Continue B1 — Anthropic + OpenAI ecosystems documented. Next: API key management note, Python setup note, chatbot project. Then B3: Provider Comparison.
