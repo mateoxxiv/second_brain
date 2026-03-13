@@ -165,7 +165,7 @@ print(np.linalg.det(S))             # 0.0 — singular!
 - [[determinant]] — det distinguishes invertible from singular, and equals eigenvalue product
 - [[eigenvalues-and-eigenvectors]] — symmetric → real eigenvalues; orthogonal → $|\lambda|=1$; singular → $\lambda=0$
 - [[linear-independence]] — singular matrices have dependent columns
-- Forward link: spectral decomposition uses symmetric + diagonal + orthogonal together
+- [[spectral-decomposition]] — uses symmetric + diagonal + orthogonal together ($A = Q\Lambda Q^T$)
 - Forward link: SVD decomposes ANY matrix into orthogonal x diagonal x orthogonal
 
 ## Sources

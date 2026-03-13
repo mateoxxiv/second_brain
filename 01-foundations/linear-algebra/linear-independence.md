@@ -1,5 +1,5 @@
 **Related**: [[vectors-and-vector-spaces]], [[vector-operations]], [[linear-combination]], [[basis-and-dimension]], [[cosine-similarity]], [[projection-onto-subspaces]], [[gaussian-elimination]], [[determinant]], [[matrix-operations]]
-**Tags**: #status/growing
+**Tags**: #status/evergreen
 
 ## Core Idea
 

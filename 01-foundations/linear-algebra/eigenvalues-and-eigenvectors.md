@@ -309,6 +309,10 @@ how fast.
   project onto in PCA.
 - [[matrix-operations]] — eigendecomposition $A = Q\Lambda Q^T$ is one of the
   most important matrix factorizations.
+- [[spectral-decomposition]] — breaks symmetric matrices into eigenvalue-weighted
+  pieces: $A = Q\Lambda Q^T$.
+- [[special-matrices]] — symmetric matrices guarantee real eigenvalues and
+  orthogonal eigenvectors (Spectral Theorem).
 
 ## Sources
 
