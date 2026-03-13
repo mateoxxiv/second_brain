@@ -1,7 +1,7 @@
 # Study Roadmap
 
 **Created**: 2026-02-24
-**Last updated**: 2026-03-12
+**Last updated**: 2026-03-13
 **Goal**: Become an expert AI architect and engineer — design, implement, and orchestrate intelligent systems end-to-end.
 
 ---
@@ -33,7 +33,7 @@ Both together = architect.
 
 | Area | Notes | Code | Status |
 |------|-------|------|--------|
-| 01-foundations/linear-algebra | 13 | 3 | In progress (vectors through eigenvalues done, 3 evergreen) |
+| 01-foundations/linear-algebra | 16 | 3 | In progress (vectors through spectral decomp, 7 evergreen) |
 | 01-foundations/calculus | 0 | 0 | Not started |
 | 01-foundations/probability | 0 | 0 | Not started |
 | 01-foundations/algorithms | 0 | 0 | Not started |
@@ -57,8 +57,11 @@ Both together = architect.
 - [x] Projection onto Subspaces
 - [x] Gaussian Elimination
 - [x] Determinant
-- [x] Matrix Operations (transpose, multiply, inverse, special matrices)
+- [x] Matrix Operations (transpose, multiply, identity)
+- [x] Matrix Inverse
+- [x] Special Matrices (symmetric, orthogonal, diagonal, singular, positive definite)
 - [x] Eigenvalues and Eigenvectors
+- [x] Spectral Decomposition
 - [ ] Singular Value Decomposition (SVD)
 - [ ] Orthonormal Basis and Gram-Schmidt
 - [ ] Linear Transformations
@@ -88,19 +91,20 @@ Deep understanding. Derive, don't memorize. Implement from scratch.
 - [x] Determinant
 
 **Recently completed:**
-- [x] Eigenvalues and Eigenvectors — #status/growing, session done (core idea, characteristic eq, spectral theorem intro)
+- [x] Spectral Decomposition — #status/seed, session in progress (intuition done, derivation pending)
+- [x] Matrix Inverse — split from matrix-operations into own note, #status/growing
+- [x] Special Matrices — split from matrix-operations into own note, #status/growing
+- [x] Promoted cosine-similarity, determinant, linear-independence to #status/evergreen (7 total)
 - [x] **Code**: eigenvalues_and_eigenvectors.py — 5 demos + 7 exercises
-- [x] Matrix Operations — #status/growing (added addition/subtraction section)
 
 **Remaining:**
-- [ ] Spectral Decomposition (hands-on A = Q L Q^T, needed for PCA)
 - [ ] Singular Value Decomposition (SVD)
 - [ ] Orthonormal Basis and Gram-Schmidt
 - [ ] Linear Transformations
 - [ ] Matrix Calculus (Jacobians, Hessians)
 - [ ] **Code**: SVD for image compression
 
-**Estimated remaining**: ~5 notes, 1 code file
+**Estimated remaining**: ~4 notes, 1 code file
 
 ### T2: Calculus (Weeks 3-4)
 
@@ -448,12 +452,13 @@ Or alternate days: Mon/Wed/Fri = Theory, Tue/Thu = Builder.
 ## What to Do Right Now
 
 **Theory (priority order)**:
-1. **Spectral Decomposition** (hands-on) — we introduced it but didn't work through it. Needed before PCA. Quick session.
-2. **SVD** — after spectral decomposition. Unlocks dimensionality reduction, recommender systems, image compression.
+1. **Finish Spectral Decomposition** — promote from seed to growing (finish knowledge check, add derivation clarity). Quick session.
+2. **SVD** — after spectral. Generalizes spectral decomposition to non-symmetric matrices. Unlocks dimensionality reduction, recommender systems, image compression.
 3. **Start Calculus** — derivatives → chain rule → gradient descent. The bridge from math to ML optimization. Can run in parallel with remaining linear algebra.
 
 **Gaps to close:**
-- Promote cosine-similarity, determinant, linear-independence to evergreen (they're comprehensive)
+- Promote spectral-decomposition from seed to growing (finish session)
+- Promote eigenvalues-and-eigenvectors to evergreen (session done, comprehensive)
 - Complex eigenvalues (rotation matrices) — brief addition to eigenvalues note
 
 **Builder**: Continue B1 — Anthropic + OpenAI ecosystems documented. Next: API key management note, Python setup note, chatbot project. Then B3: Provider Comparison.
