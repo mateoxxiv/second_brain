@@ -1,5 +1,5 @@
 **Related**: [[eigenvalues-and-eigenvectors]], [[matrix-operations]], [[special-matrices]], [[matrix-inverse]], [[projection]], [[linear-combination]]
-**Tags**: #status/seed
+**Tags**: #status/growing
 
 ## Core Idea
 
