@@ -33,7 +33,7 @@ Both together = architect.
 
 | Area | Notes | Code | Status |
 |------|-------|------|--------|
-| 01-foundations/linear-algebra | 17 | 3 | Near complete (8 evergreen, 8 growing, 1 seed — only 3 topics remain) |
+| 01-foundations/linear-algebra | 19 | 3 | Near complete (8 evergreen, 9 growing, 2 seed — only matrix calculus remains) |
 | 01-foundations/calculus | 0 | 0 | Not started |
 | 01-foundations/probability | 0 | 0 | Not started |
 | 01-foundations/algorithms | 0 | 0 | Not started |
@@ -63,8 +63,8 @@ Both together = architect.
 - [x] Eigenvalues and Eigenvectors
 - [x] Spectral Decomposition
 - [x] Singular Value Decomposition (SVD)
-- [ ] Orthonormal Basis and Gram-Schmidt
-- [ ] Linear Transformations
+- [x] Orthonormal Basis and Gram-Schmidt
+- [x] Linear Transformations
 - [ ] Matrix Calculus (Jacobians, Hessians)
 
 ---
@@ -73,7 +73,7 @@ Both together = architect.
 
 Deep understanding. Derive, don't memorize. Implement from scratch.
 
-### T1: Linear Algebra (Weeks 1-3) — IN PROGRESS
+### T1: Linear Algebra (Weeks 1-3) — NEAR COMPLETE
 
 > *Why*: Every ML algorithm is a matrix operation. You can't understand neural nets, PCA, or embeddings without this.
 
@@ -91,19 +91,17 @@ Deep understanding. Derive, don't memorize. Implement from scratch.
 - [x] Determinant
 
 **Recently completed:**
+- [x] Gram-Schmidt — #status/growing, session done (projection connection, worked examples)
+- [x] Linear Transformations — #status/growing, session done (kernel, image, rank-nullity)
 - [x] SVD — #status/seed, session done (recipe, worked example, low-rank approx)
-- [x] Spectral Decomposition — promoted to #status/growing (knowledge check done)
-- [x] Eigenvalues and Eigenvectors — promoted to #status/evergreen (8 total)
-- [x] Matrix Inverse + Special Matrices — split from matrix-operations into own notes
-- [x] **Code**: eigenvalues_and_eigenvectors.py — 5 demos + 7 exercises
+- [x] Spectral Decomposition — #status/growing (knowledge check done)
+- [x] Eigenvalues and Eigenvectors — #status/evergreen (8 total)
 
 **Remaining:**
-- [ ] Orthonormal Basis and Gram-Schmidt
-- [ ] Linear Transformations
-- [ ] Matrix Calculus (Jacobians, Hessians)
+- [ ] Matrix Calculus (Jacobians, Hessians) — needs calculus track first
 - [ ] **Code**: SVD for image compression
 
-**Estimated remaining**: ~3 notes, 1 code file
+**Estimated remaining**: ~1 note (after calculus), 1 code file
 
 ### T2: Calculus (Weeks 3-4)
 
@@ -452,14 +450,14 @@ Or alternate days: Mon/Wed/Fri = Theory, Tue/Thu = Builder.
 ## What to Do Right Now
 
 **Theory (priority order)**:
-1. **Start Calculus** — derivatives → chain rule → gradient descent. The bridge from math to ML optimization. Linear algebra is near complete — don't wait to finish every topic before moving forward.
-2. **Gram-Schmidt** — quick topic, needed for QR decomposition. Can fit in between calculus sessions.
-3. **Matrix Calculus** — Jacobians, Hessians. Bridges linear algebra and calculus. Do after both tracks have some coverage.
+1. **Start Calculus** — derivatives → chain rule → gradient descent. The bridge from math to ML optimization. Linear algebra is 95% done.
+2. **Matrix Calculus** — Jacobians, Hessians. Do after calculus fundamentals are covered.
 
 **Gaps to close:**
 - Promote SVD from seed to growing (add code file, do exercises)
 - Promote spectral-decomposition to evergreen (comprehensive, session done)
+- Promote gram-schmidt and linear-transformations after review
 - Complex eigenvalues (rotation matrices) — brief addition to eigenvalues note
 - Create SVD code file with image compression demo
 
-**Builder**: Continue B1 — Anthropic + OpenAI ecosystems documented. Next: API key management note, Python setup note, chatbot project. Then B3: Provider Comparison.
+**Builder**: Continue B1 — complete Anthropic Skilljar courses (MUST). Then: API key management note, Python setup note, chatbot project. Then B3: Provider Comparison.
