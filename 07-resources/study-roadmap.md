@@ -150,7 +150,25 @@ Deep understanding. Derive, don't memorize. Implement from scratch.
 
 **Estimated**: ~8 notes, 3 code files
 
-### T5: Unsupervised ML (Weeks 10-12)
+### T5: Time Series Analysis and Forecasting (Weeks 10-12) — HIGH PRIORITY
+
+> *Why*: Time-dependent data is everywhere — stock prices, sensor data, demand forecasting, user behavior. Most real-world production ML involves time series. This is a critical skill gap.
+
+- [ ] Time Series Fundamentals (trend, seasonality, stationarity, autocorrelation)
+- [ ] Decomposition (additive vs multiplicative, STL decomposition)
+- [ ] Classical Methods (ARIMA, SARIMA, exponential smoothing)
+- [ ] Feature Engineering for Time Series (lags, rolling stats, calendar features)
+- [ ] Evaluation (walk-forward validation, MAPE, RMSE, time-aware splits)
+- [ ] ML for Time Series (XGBoost on time features, Prophet)
+- [ ] Deep Learning for Time Series (LSTM, Temporal Fusion Transformer, N-BEATS)
+- [ ] Multivariate Time Series and Forecasting at Scale
+- [ ] **Code**: ARIMA from scratch
+- [ ] **Code**: LSTM forecaster in PyTorch
+- [ ] **Code**: Feature engineering pipeline for time series
+
+**Estimated**: ~8 notes, 3 code files
+
+### T6: Unsupervised ML (Weeks 12-14)
 
 > *Why*: Clustering, dimensionality reduction, anomaly detection.
 
@@ -164,7 +182,7 @@ Deep understanding. Derive, don't memorize. Implement from scratch.
 
 **Estimated**: ~5 notes, 2 code files
 
-### T6: Ensemble Methods (Weeks 12-13)
+### T7: Ensemble Methods (Weeks 14-15)
 
 > *Why*: Random forests, XGBoost — dominate tabular data.
 
@@ -176,7 +194,7 @@ Deep understanding. Derive, don't memorize. Implement from scratch.
 
 **Estimated**: ~4 notes, 1 code file
 
-### T7: Deep Learning Fundamentals (Weeks 14-17)
+### T8: Deep Learning Fundamentals (Weeks 16-19)
 
 > *Why*: Build neural networks from scratch before using frameworks.
 
@@ -192,7 +210,7 @@ Deep understanding. Derive, don't memorize. Implement from scratch.
 
 **Estimated**: ~7 notes, 2 code files
 
-### T8: CNNs and RNNs (Weeks 17-20)
+### T9: CNNs and RNNs (Weeks 19-22)
 
 > *Why*: Vision and sequences. Understanding these makes transformers click.
 
@@ -206,7 +224,7 @@ Deep understanding. Derive, don't memorize. Implement from scratch.
 
 **Estimated**: ~5 notes, 2 code files
 
-### T9: Transformers and Attention (Weeks 20-23)
+### T10: Transformers and Attention (Weeks 22-25)
 
 > *Why*: THE architecture behind modern AI. Everything leads here.
 
@@ -221,7 +239,7 @@ Deep understanding. Derive, don't memorize. Implement from scratch.
 
 **Estimated**: ~6 notes, 2 code files
 
-### T10: LLM Internals (Weeks 23-25)
+### T11: LLM Internals (Weeks 25-27)
 
 > *Why*: Understand what's inside GPT, Claude, LLaMA — not just how to call them.
 
