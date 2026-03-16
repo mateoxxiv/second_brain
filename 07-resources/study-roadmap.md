@@ -1,7 +1,7 @@
 # Study Roadmap
 
 **Created**: 2026-02-24
-**Last updated**: 2026-03-13
+**Last updated**: 2026-03-15
 **Goal**: Become an expert AI architect and engineer — design, implement, and orchestrate intelligent systems end-to-end.
 
 ---
@@ -33,7 +33,7 @@ Both together = architect.
 
 | Area | Notes | Code | Status |
 |------|-------|------|--------|
-| 01-foundations/linear-algebra | 16 | 3 | In progress (vectors through spectral decomp, 7 evergreen) |
+| 01-foundations/linear-algebra | 17 | 3 | Near complete (8 evergreen, 8 growing, 1 seed — only 3 topics remain) |
 | 01-foundations/calculus | 0 | 0 | Not started |
 | 01-foundations/probability | 0 | 0 | Not started |
 | 01-foundations/algorithms | 0 | 0 | Not started |
@@ -62,7 +62,7 @@ Both together = architect.
 - [x] Special Matrices (symmetric, orthogonal, diagonal, singular, positive definite)
 - [x] Eigenvalues and Eigenvectors
 - [x] Spectral Decomposition
-- [ ] Singular Value Decomposition (SVD)
+- [x] Singular Value Decomposition (SVD)
 - [ ] Orthonormal Basis and Gram-Schmidt
 - [ ] Linear Transformations
 - [ ] Matrix Calculus (Jacobians, Hessians)
@@ -91,20 +91,19 @@ Deep understanding. Derive, don't memorize. Implement from scratch.
 - [x] Determinant
 
 **Recently completed:**
-- [x] Spectral Decomposition — #status/seed, session in progress (intuition done, derivation pending)
-- [x] Matrix Inverse — split from matrix-operations into own note, #status/growing
-- [x] Special Matrices — split from matrix-operations into own note, #status/growing
-- [x] Promoted cosine-similarity, determinant, linear-independence to #status/evergreen (7 total)
+- [x] SVD — #status/seed, session done (recipe, worked example, low-rank approx)
+- [x] Spectral Decomposition — promoted to #status/growing (knowledge check done)
+- [x] Eigenvalues and Eigenvectors — promoted to #status/evergreen (8 total)
+- [x] Matrix Inverse + Special Matrices — split from matrix-operations into own notes
 - [x] **Code**: eigenvalues_and_eigenvectors.py — 5 demos + 7 exercises
 
 **Remaining:**
-- [ ] Singular Value Decomposition (SVD)
 - [ ] Orthonormal Basis and Gram-Schmidt
 - [ ] Linear Transformations
 - [ ] Matrix Calculus (Jacobians, Hessians)
 - [ ] **Code**: SVD for image compression
 
-**Estimated remaining**: ~4 notes, 1 code file
+**Estimated remaining**: ~3 notes, 1 code file
 
 ### T2: Calculus (Weeks 3-4)
 
@@ -254,6 +253,7 @@ Learn by doing. Use real tools. Ship things. Runs in parallel with Theory.
 - [x] LLM API Basics: Anthropic Claude API
 - [x] LLM API Basics: OpenAI API
 - [ ] API Key Management and .env Best Practices
+- [ ] **MUST: [Anthropic Courses (Skilljar)](https://anthropic.skilljar.com/)** — official guided courses on Claude API, prompt engineering, and AI development. Complete before moving to B2.
 - [ ] **Project**: Simple chatbot CLI that calls Claude API
 
 **Estimated**: ~3 notes, 1 project
@@ -452,13 +452,14 @@ Or alternate days: Mon/Wed/Fri = Theory, Tue/Thu = Builder.
 ## What to Do Right Now
 
 **Theory (priority order)**:
-1. **Finish Spectral Decomposition** — promote from seed to growing (finish knowledge check, add derivation clarity). Quick session.
-2. **SVD** — after spectral. Generalizes spectral decomposition to non-symmetric matrices. Unlocks dimensionality reduction, recommender systems, image compression.
-3. **Start Calculus** — derivatives → chain rule → gradient descent. The bridge from math to ML optimization. Can run in parallel with remaining linear algebra.
+1. **Start Calculus** — derivatives → chain rule → gradient descent. The bridge from math to ML optimization. Linear algebra is near complete — don't wait to finish every topic before moving forward.
+2. **Gram-Schmidt** — quick topic, needed for QR decomposition. Can fit in between calculus sessions.
+3. **Matrix Calculus** — Jacobians, Hessians. Bridges linear algebra and calculus. Do after both tracks have some coverage.
 
 **Gaps to close:**
-- Promote spectral-decomposition from seed to growing (finish session)
-- Promote eigenvalues-and-eigenvectors to evergreen (session done, comprehensive)
+- Promote SVD from seed to growing (add code file, do exercises)
+- Promote spectral-decomposition to evergreen (comprehensive, session done)
 - Complex eigenvalues (rotation matrices) — brief addition to eigenvalues note
+- Create SVD code file with image compression demo
 
 **Builder**: Continue B1 — Anthropic + OpenAI ecosystems documented. Next: API key management note, Python setup note, chatbot project. Then B3: Provider Comparison.
