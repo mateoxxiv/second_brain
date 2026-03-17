@@ -34,7 +34,7 @@ Both together = architect.
 | Area | Notes | Code | Status |
 |------|-------|------|--------|
 | 01-foundations/linear-algebra | 19 | 3 | Near complete (8 evergreen, 9 growing, 2 seed — only matrix calculus remains) |
-| 01-foundations/calculus | 0 | 0 | Not started |
+| 01-foundations/calculus | 6 | 0 | In progress (core done — derivatives, chain rule, gradient descent, optimization) |
 | 01-foundations/probability | 0 | 0 | Not started |
 | 01-foundations/algorithms | 0 | 0 | Not started |
 | 01-foundations/databases | 0 | 0 | Not started |
@@ -103,18 +103,25 @@ Deep understanding. Derive, don't memorize. Implement from scratch.
 
 **Estimated remaining**: ~1 note (after calculus), 1 code file
 
-### T2: Calculus (Weeks 3-4)
+### T2: Calculus (Weeks 3-4) — CORE COMPLETE
 
 > *Why*: Optimization IS calculus. Gradient descent, backpropagation, loss functions — all calculus.
 
-- [ ] Derivatives and Partial Derivatives
-- [ ] Chain Rule (critical for backprop)
-- [ ] Gradient and Directional Derivatives
-- [ ] Optimization: Minima, Maxima, Saddle Points
-- [ ] Multivariable Calculus for ML
+**Done:**
+- [x] Derivatives and Partial Derivatives
+- [x] Derivative Rules (power, product, quotient, exponential, logarithm)
+- [x] Chain Rule (critical for backprop)
+- [x] Polynomial Factorization (quadratic formula, inspection, special patterns)
+- [x] Gradient Descent (algorithm, learning rate, batch/stochastic/mini-batch)
+- [x] Optimization (minima, maxima, saddle points, convexity, second derivative test)
+
+**Remaining (do later — not blocking):**
+- [ ] Multivariable Calculus for ML (Jacobians, Hessians)
+- [ ] Matrix Calculus (derivatives of matrix expressions)
+- [ ] Integration Basics (needed for probability distributions)
 - [ ] **Code**: Gradient descent from scratch
 
-**Estimated**: ~5 notes, 1 code file
+**Estimated remaining**: ~3 notes, 1 code file
 
 ### T3: Probability and Statistics (Weeks 5-7)
 
@@ -468,14 +475,15 @@ Or alternate days: Mon/Wed/Fri = Theory, Tue/Thu = Builder.
 ## What to Do Right Now
 
 **Theory (priority order)**:
-1. **Start Calculus** — derivatives → chain rule → gradient descent. The bridge from math to ML optimization. Linear algebra is 95% done.
-2. **Matrix Calculus** — Jacobians, Hessians. Do after calculus fundamentals are covered.
+1. **Probability Fundamentals** — distributions, Bayes, stationarity. Last prerequisite before time series.
+2. **Regression Basics** — linear regression as baseline model. Bridges math → ML.
+3. **Time Series** (HIGH PRIORITY) — ARIMA, Prophet, feature engineering. Work need.
 
 **Gaps to close:**
 - Promote SVD from seed to growing (add code file, do exercises)
 - Promote spectral-decomposition to evergreen (comprehensive, session done)
 - Promote gram-schmidt and linear-transformations after review
-- Complex eigenvalues (rotation matrices) — brief addition to eigenvalues note
 - Create SVD code file with image compression demo
+- Create gradient descent code file with exercises
 
 **Builder**: Continue B1 — complete Anthropic Skilljar courses (MUST). Then: API key management note, Python setup note, chatbot project. Then B3: Provider Comparison.
