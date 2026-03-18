@@ -115,6 +115,24 @@ HARD direction:   P(class | data)    ← this is prediction!
 Bayes:            turns easy into hard
 ```
 
+### Law of Total Probability
+
+To get the total probability of A, combine conditionals across ALL groups:
+
+```
+P(A) = P(A|B1)*P(B1) + P(A|B2)*P(B2) + ... + P(A|Bn)*P(Bn)
+```
+
+```
+P(above 5k) = P(above 5k | eng)*P(eng) + P(above 5k | sales)*P(sales)
+            = 0.70 * 0.5 + 0.20 * 0.5
+            = 0.35 + 0.10
+            = 0.45  ✓
+```
+
+This is the **denominator in Bayes' theorem** — when you can't compute P(B)
+directly, build it by summing conditionals across all groups.
+
 ### Bayes Worked Example
 
 ```
