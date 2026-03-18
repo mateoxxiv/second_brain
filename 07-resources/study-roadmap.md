@@ -101,9 +101,10 @@ Deep understanding. Derive, don't memorize. Implement from scratch.
 - [ ] Matrix Calculus (Jacobians, Hessians) — needs calculus track first
 - [ ] Pseudoinverse (Moore-Penrose) — via SVD, for least-squares regression
 - [ ] Matrix Norms and Condition Number — numerical stability, gradient health
+- [ ] Tensor Operations — 3D+ arrays for deep learning (batches of matrices)
 - [ ] **Code**: SVD for image compression
 
-**Estimated remaining**: ~3 notes, 1 code file
+**Estimated remaining**: ~4 notes, 1 code file
 
 ### T2: Calculus (Weeks 3-4) — CORE COMPLETE
 
@@ -132,10 +133,11 @@ Deep understanding. Derive, don't memorize. Implement from scratch.
 **Done:**
 - [x] Probability Fundamentals (Bayes, conditional, independence, total probability)
 
-**Remaining (critical — needed for ML):**
+**Remaining (critical — every major source lists these):**
 - [ ] Probability Distributions (Normal, Bernoulli, Poisson, Uniform)
 - [ ] Random Variables, Expectation, Variance, Covariance
 - [ ] Joint, Marginal, and Conditional Distributions
+- [ ] Multivariate Normal Distribution (used everywhere in ML)
 - [ ] Maximum Likelihood Estimation (MLE)
 - [ ] Cross-Entropy and Information Theory (Entropy, KL Divergence)
 - [ ] **Code**: Distribution visualization and sampling
@@ -144,7 +146,8 @@ Deep understanding. Derive, don't memorize. Implement from scratch.
 **Remaining (important — can defer):**
 - [ ] Maximum A Posteriori (MAP)
 - [ ] Hypothesis Testing and p-values
-- [ ] Sampling and Bootstrapping
+- [ ] Sampling, Bootstrapping, Monte Carlo
+- [ ] Density Estimation
 - [ ] Quantiles and Robust Statistics
 
 **Estimated**: ~8 notes, 2 code files
