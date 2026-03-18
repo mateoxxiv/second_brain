@@ -87,7 +87,35 @@ Flips the conditional around. The most important formula in ML.
 P(A|B) = P(B|A) * P(A) / P(B)
 ```
 
-**What it does:** you observe B (data) and want to know A (the cause).
+### Conditional vs Bayes — What's the Difference?
+
+They answer **opposite** questions:
+
+```
+Conditional:  I KNOW the group   → what's P(outcome)?
+Bayes:        I KNOW the outcome → what's P(group)?
+```
+
+```
+Conditional:  "This person is in engineering. P(above 5k)?"
+              → Easy. Look at engineering, count: 70/100 = 0.70
+
+Bayes:        "This person earns above 5k. P(engineering)?"
+              → Harder. Need info from ALL groups to figure out.
+```
+
+In ML:
+- You CAN compute P(data | class) — just count things in each group (easy)
+- You WANT P(class | data) — this is prediction (hard)
+- Bayes flips easy → hard
+
+```
+EASY direction:   P(data | class)    ← count things in each group
+HARD direction:   P(class | data)    ← this is prediction!
+Bayes:            turns easy into hard
+```
+
+### Bayes Worked Example
 
 ```
 Observe: employee earns above $5000
