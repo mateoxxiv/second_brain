@@ -99,9 +99,11 @@ Deep understanding. Derive, don't memorize. Implement from scratch.
 
 **Remaining:**
 - [ ] Matrix Calculus (Jacobians, Hessians) — needs calculus track first
+- [ ] Pseudoinverse (Moore-Penrose) — via SVD, for least-squares regression
+- [ ] Matrix Norms and Condition Number — numerical stability, gradient health
 - [ ] **Code**: SVD for image compression
 
-**Estimated remaining**: ~1 note (after calculus), 1 code file
+**Estimated remaining**: ~3 notes, 1 code file
 
 ### T2: Calculus (Weeks 3-4) — CORE COMPLETE
 
@@ -115,27 +117,35 @@ Deep understanding. Derive, don't memorize. Implement from scratch.
 - [x] Gradient Descent (algorithm, learning rate, batch/stochastic/mini-batch)
 - [x] Optimization (minima, maxima, saddle points, convexity, second derivative test)
 
-**Remaining (do later — not blocking):**
-- [ ] Multivariable Calculus for ML (Jacobians, Hessians)
-- [ ] Matrix Calculus (derivatives of matrix expressions)
-- [ ] Integration Basics (needed for probability distributions)
+**Remaining (do later — not blocking time series):**
+- [ ] Matrix Calculus (Jacobians, Hessians, dL/dW) — CRITICAL for backprop
+- [ ] Integration Basics — needed for probability distributions
+- [ ] Taylor Series and Approximations — explains why gradient descent works
 - [ ] **Code**: Gradient descent from scratch
 
 **Estimated remaining**: ~3 notes, 1 code file
 
-### T3: Probability and Statistics (Weeks 5-7)
+### T3: Probability and Statistics (Weeks 5-7) — IN PROGRESS
 
 > *Why*: ML is applied statistics. Bayesian thinking, distributions, hypothesis testing.
 
-- [ ] Probability Fundamentals (Bayes' Theorem, conditional probability)
+**Done:**
+- [x] Probability Fundamentals (Bayes, conditional, independence, total probability)
+
+**Remaining (critical — needed for ML):**
 - [ ] Probability Distributions (Normal, Bernoulli, Poisson, Uniform)
-- [ ] Expectation, Variance, Covariance
+- [ ] Random Variables, Expectation, Variance, Covariance
+- [ ] Joint, Marginal, and Conditional Distributions
 - [ ] Maximum Likelihood Estimation (MLE)
-- [ ] Maximum A Posteriori (MAP)
-- [ ] Hypothesis Testing and p-values
-- [ ] Information Theory Basics (Entropy, KL Divergence, Cross-Entropy)
+- [ ] Cross-Entropy and Information Theory (Entropy, KL Divergence)
 - [ ] **Code**: Distribution visualization and sampling
 - [ ] **Code**: MLE from scratch
+
+**Remaining (important — can defer):**
+- [ ] Maximum A Posteriori (MAP)
+- [ ] Hypothesis Testing and p-values
+- [ ] Sampling and Bootstrapping
+- [ ] Quantiles and Robust Statistics
 
 **Estimated**: ~8 notes, 2 code files
 
@@ -475,15 +485,19 @@ Or alternate days: Mon/Wed/Fri = Theory, Tue/Thu = Builder.
 ## What to Do Right Now
 
 **Theory (priority order)**:
-1. **Probability Fundamentals** — distributions, Bayes, stationarity. Last prerequisite before time series.
+1. **Finish Probability** — distributions, expectation/variance, MLE. Fundamentals done, 6+ notes remaining.
 2. **Regression Basics** — linear regression as baseline model. Bridges math → ML.
 3. **Time Series** (HIGH PRIORITY) — ARIMA, Prophet, feature engineering. Work need.
 
+**Deferred but important:**
+- Matrix calculus (Jacobians, Hessians) — CRITICAL for deep learning, do before T8
+- Integration basics — needed for probability PDFs
+- Taylor series — explains gradient descent convergence
+- Pseudoinverse, matrix norms — complete linear algebra
+
 **Gaps to close:**
 - Promote SVD from seed to growing (add code file, do exercises)
-- Promote spectral-decomposition to evergreen (comprehensive, session done)
-- Promote gram-schmidt and linear-transformations after review
-- Create SVD code file with image compression demo
-- Create gradient descent code file with exercises
+- Promote spectral-decomposition to evergreen
+- Create SVD, gradient descent code files with exercises
 
 **Builder**: Continue B1 — complete Anthropic Skilljar courses (MUST). Then: API key management note, Python setup note, chatbot project. Then B3: Provider Comparison.
