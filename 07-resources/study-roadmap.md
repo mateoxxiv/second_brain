@@ -135,13 +135,13 @@ Deep understanding. Derive, don't memorize. Implement from scratch.
 - [x] Probability Distributions (overview note — expectation, variance, all distributions mapped)
 
 **Distributions — atomic notes needed (Tier 1, do first):**
-- [ ] Normal Distribution — CLT, standardization, MSE derivation
-- [ ] Bernoulli Distribution — binary outcomes, cross-entropy connection
-- [ ] Binomial Distribution — n Bernoulli trials
-- [ ] Poisson Distribution — count data, NLP word frequencies
-- [ ] Exponential Distribution — queues, inter-arrival times, memoryless property
-- [ ] Beta Distribution — conjugate prior for Bernoulli, Bayesian A/B testing
-- [ ] Dirichlet Distribution — LDA topic models, multinomial prior
+- [x] Normal Distribution — CLT, standardization, MSE derivation
+- [x] Bernoulli Distribution — binary outcomes, cross-entropy connection
+- [x] Binomial Distribution — n Bernoulli trials
+- [x] Poisson Distribution — count data, NLP word frequencies
+- [x] Exponential Distribution — queues, inter-arrival times, memoryless property
+- [x] Beta Distribution — conjugate prior for Bernoulli, Bayesian A/B testing
+- [x] Dirichlet Distribution — LDA topic models, multinomial prior
 
 **Distributions — atomic notes needed (Tier 2, defer until Bayesian section):**
 - [ ] Gamma Distribution — conjugate prior for Poisson/Exponential
