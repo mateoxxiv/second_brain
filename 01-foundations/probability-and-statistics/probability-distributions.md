@@ -112,13 +112,49 @@ and computational methods that avoid strong distributional assumptions.
 
 See: [[empirical-distributions]]
 
+### Other Key Distributions
+
+**Tier 1 — Essential for ML:**
+
+| Distribution | Parameters | $E[X]$ | $\text{Var}(X)$ | Key Use |
+|---|---|---|---|---|
+| [[binomial-distribution\|Binomial]] | $n, p$ | $np$ | $np(1-p)$ | n Bernoulli trials, cross-entropy |
+| [[exponential-distribution\|Exponential]] | $\lambda$ | $1/\lambda$ | $1/\lambda^2$ | Queue inter-arrival times, memoryless |
+| [[beta-distribution\|Beta]] | $\alpha, \beta$ | $\frac{\alpha}{\alpha+\beta}$ | complex | Conjugate prior for Bernoulli, A/B testing |
+| [[dirichlet-distribution\|Dirichlet]] | $\boldsymbol{\alpha}$ | $\alpha_i / \sum\alpha_j$ | complex | LDA topic models, multinomial prior |
+
+**Tier 2 — Important:**
+
+| Distribution | Parameters | $E[X]$ | $\text{Var}(X)$ | Key Use |
+|---|---|---|---|---|
+| [[gamma-distribution\|Gamma]] | $\alpha, \theta$ | $\alpha\theta$ | $\alpha\theta^2$ | Conjugate prior for Poisson |
+| [[chi-squared-distribution\|Chi-Squared]] | $k$ | $k$ | $2k$ | Hypothesis testing, feature selection |
+| [[students-t-distribution\|Student's t]] | $\nu$ | $0$ | $\nu/(\nu-2)$ | Small-sample inference, heavy tails |
+| [[log-normal-distribution\|Log-Normal]] | $\mu, \sigma$ | $e^{\mu+\sigma^2/2}$ | complex | Stock prices, right-skewed positive data |
+
+**Conjugate prior relationships** (critical for Bayesian ML):
+```
+Binomial likelihood  ->  Beta prior     ->  Beta posterior
+Poisson likelihood   ->  Gamma prior    ->  Gamma posterior
+Multinomial          ->  Dirichlet      ->  Dirichlet posterior
+Normal (known var)   ->  Normal prior   ->  Normal posterior
+```
+
 ### Summary Table
 
 | Distribution | Parameters | $E[X]$ | $\text{Var}(X)$ | Use in ML |
 |-------------|-----------|--------|-----------------|-----------|
 | Bernoulli | $p$ | $p$ | $p(1-p)$ | Binary classification |
+| Binomial | $n, p$ | $np$ | $np(1-p)$ | n trials, cross-entropy |
 | Normal | $\mu, \sigma^2$ | $\mu$ | $\sigma^2$ | Noise, weight init, MSE |
 | Poisson | $\lambda$ | $\lambda$ | $\lambda$ | Count prediction, NLP |
+| Exponential | $\lambda$ | $1/\lambda$ | $1/\lambda^2$ | Queues, inter-arrival times |
+| Beta | $\alpha, \beta$ | $\alpha/(\alpha+\beta)$ | complex | Bayesian A/B testing |
+| Dirichlet | $\boldsymbol{\alpha}$ | $\alpha_i/\sum\alpha_j$ | complex | Topic models, multinomial prior |
+| Gamma | $\alpha, \theta$ | $\alpha\theta$ | $\alpha\theta^2$ | Bayesian priors, waiting times |
+| Chi-Squared | $k$ | $k$ | $2k$ | Hypothesis tests |
+| Student's t | $\nu$ | $0$ | $\nu/(\nu-2)$ | Small samples, outliers |
+| Log-Normal | $\mu, \sigma$ | $e^{\mu+\sigma^2/2}$ | complex | Finance, right-skewed data |
 | Empirical | none | sample mean | sample variance | Bootstrap, permutation tests |
 
 ## Code Example
@@ -156,12 +192,18 @@ print(f"Bootstrap 95% CI for mean: [{ci_low:.3f}, {ci_high:.3f}]")
 
 - [[probability-fundamentals]] — distributions are built on top of basic probability rules
 - [[bernoulli-distribution]] — binary outcomes, logistic regression
+- [[binomial-distribution]] — n Bernoulli trials, cross-entropy loss foundation
 - [[normal-distribution]] — Gaussian, CLT, MSE loss derivation
 - [[poisson-distribution]] — count data, NLP word frequencies
+- [[exponential-distribution]] — queues, memoryless waiting times
+- [[beta-distribution]] — conjugate prior for Bernoulli, Bayesian A/B testing
+- [[dirichlet-distribution]] — topic models, multinomial conjugate prior
+- [[gamma-distribution]] — conjugate prior for Poisson and Exponential
 - [[empirical-distributions]] — bootstrap, permutation tests, no-assumption inference
 - Forward link: MLE — fitting distribution parameters to data
 - Forward link: Naive Bayes — Gaussian Naive Bayes assumes Normal features
 - Forward link: VAEs — encoder outputs mu and sigma of a Normal distribution
+- Forward link: LDA — uses Dirichlet prior over topic distributions
 
 ## Sources
 

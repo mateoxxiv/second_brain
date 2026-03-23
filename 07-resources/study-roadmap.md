@@ -132,10 +132,25 @@ Deep understanding. Derive, don't memorize. Implement from scratch.
 
 **Done:**
 - [x] Probability Fundamentals (Bayes, conditional, independence, total probability)
+- [x] Probability Distributions (overview note — expectation, variance, all distributions mapped)
 
-**Remaining (critical — every major source lists these):**
-- [ ] Probability Distributions (Normal, Bernoulli, Poisson, Uniform)
-- [ ] Random Variables, Expectation, Variance, Covariance
+**Distributions — atomic notes needed (Tier 1, do first):**
+- [ ] Normal Distribution — CLT, standardization, MSE derivation
+- [ ] Bernoulli Distribution — binary outcomes, cross-entropy connection
+- [ ] Binomial Distribution — n Bernoulli trials
+- [ ] Poisson Distribution — count data, NLP word frequencies
+- [ ] Exponential Distribution — queues, inter-arrival times, memoryless property
+- [ ] Beta Distribution — conjugate prior for Bernoulli, Bayesian A/B testing
+- [ ] Dirichlet Distribution — LDA topic models, multinomial prior
+
+**Distributions — atomic notes needed (Tier 2, defer until Bayesian section):**
+- [ ] Gamma Distribution — conjugate prior for Poisson/Exponential
+- [ ] Chi-Squared Distribution — hypothesis testing, feature selection
+- [ ] Student's t Distribution — small-sample inference
+- [ ] Log-Normal Distribution — finance, right-skewed positive data
+- [ ] Empirical Distributions — bootstrap, permutation tests
+
+**Remaining critical topics:**
 - [ ] Joint, Marginal, and Conditional Distributions
 - [ ] Multivariate Normal Distribution (used everywhere in ML)
 - [ ] Maximum Likelihood Estimation (MLE)
@@ -150,7 +165,7 @@ Deep understanding. Derive, don't memorize. Implement from scratch.
 - [ ] Density Estimation
 - [ ] Quantiles and Robust Statistics
 
-**Estimated**: ~8 notes, 2 code files
+**Estimated**: ~18 notes, 2 code files
 
 ### T4: Supervised ML (Weeks 7-10)
 
