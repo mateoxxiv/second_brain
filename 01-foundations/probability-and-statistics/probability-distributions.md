@@ -205,6 +205,36 @@ print(f"Bootstrap 95% CI for mean: [{ci_low:.3f}, {ci_high:.3f}]")
 - Forward link: VAEs — encoder outputs mu and sigma of a Normal distribution
 - Forward link: LDA — uses Dirichlet prior over topic distributions
 
+## Distribution Selection Guide
+
+Use this decision tree to identify the right distribution for your data:
+
+```
+Count data (how many events)?
+  → mean ≈ variance?          Poisson(lambda)
+  → variance < mean?          Binomial(n, p)
+  → variance >> mean?         Negative Binomial
+
+Waiting time / duration?      Exponential(lambda)
+
+Binary outcome?
+  → single trial?             Bernoulli(p)
+  → n trials?                 Binomial(n, p)
+
+Continuous measurement?       Normal(mu, sigma²)
+
+Uncertainty about p itself?
+  → 2 categories?             Beta(alpha, beta)
+  → k categories?             Dirichlet([alpha_1, ..., alpha_k])
+```
+
+**Quick diagnostic:**
+- Mean = variance → Poisson
+- Variance < mean → Binomial
+- Variance >> mean → Negative Binomial (overdispersed counts)
+- Outcome in [0,1] → Beta or Dirichlet
+- Outcome is a wait time → Exponential
+
 ## Sources
 
 - [3Blue1Brown — But what is the Central Limit Theorem?](https://www.youtube.com/watch?v=zeJD6dqJ5lo)
