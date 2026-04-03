@@ -1,7 +1,7 @@
 # Study Roadmap
 
 **Created**: 2026-02-24
-**Last updated**: 2026-03-15
+**Last updated**: 2026-04-02
 **Goal**: Become an expert AI architect and engineer — design, implement, and orchestrate intelligent systems end-to-end.
 
 ---
@@ -33,9 +33,9 @@ Both together = architect.
 
 | Area | Notes | Code | Status |
 |------|-------|------|--------|
-| 01-foundations/linear-algebra | 19 | 3 | Near complete (8 evergreen, 9 growing, 2 seed — only matrix calculus remains) |
-| 01-foundations/calculus | 6 | 0 | In progress (core done — derivatives, chain rule, gradient descent, optimization) |
-| 01-foundations/probability | 0 | 0 | Not started |
+| 01-foundations/linear-algebra | 19 | 3 | Near complete (8 evergreen, 9 growing, 2 seed) |
+| 01-foundations/calculus | 6 | 0 | Core complete — matrix calculus remaining |
+| 01-foundations/probability | 11 | 0 | Strong progress — distributions done, MLE/entropy next |
 | 01-foundations/algorithms | 0 | 0 | Not started |
 | 01-foundations/databases | 0 | 0 | Not started |
 | 02-machine-learning | 0 | 0 | Not started |
@@ -132,7 +132,15 @@ Deep understanding. Derive, don't memorize. Implement from scratch.
 
 **Done:**
 - [x] Probability Fundamentals (Bayes, conditional, independence, total probability)
-- [x] Probability Distributions (overview note — expectation, variance, all distributions mapped)
+- [x] Probability Distributions (overview + selection guide)
+- [x] Normal Distribution (CLT, standardization, MSE derivation)
+- [x] Bernoulli Distribution (binary outcomes, cross-entropy from MLE)
+- [x] Binomial Distribution (PMF from scratch, CLT connection)
+- [x] Poisson Distribution (derived from Binomial, overdispersion check)
+- [x] Exponential Distribution (memoryless property, queue simulation)
+- [x] Beta Distribution (conjugate prior, Bayesian A/B testing)
+- [x] Dirichlet Distribution (LDA connection, concentration parameter)
+- [x] CDF and Quantile Function (inverse transform sampling, confidence intervals)
 
 **Distributions — atomic notes needed (Tier 1, do first):**
 - [x] Normal Distribution — CLT, standardization, MSE derivation
@@ -503,9 +511,28 @@ Or alternate days: Mon/Wed/Fri = Theory, Tue/Thu = Builder.
 ## What to Do Right Now
 
 **Theory (priority order)**:
-1. **Finish Probability** — distributions, expectation/variance, MLE. Fundamentals done, 6+ notes remaining.
-2. **Regression Basics** — linear regression as baseline model. Bridges math → ML.
-3. **Time Series** (HIGH PRIORITY) — ARIMA, Prophet, feature engineering. Work need.
+1. **Finish Probability** — MLE, cross-entropy/KL divergence, joint/marginal distributions. 3-4 notes remaining to close the core.
+2. **Regression Basics** — linear regression as first ML model. Bridges all math → ML.
+3. **Time Series** (HIGH PRIORITY) — ARIMA, Prophet, feature engineering. Work priority.
+
+**Probability gaps still open:**
+- [ ] Joint, Marginal, and Conditional Distributions
+- [ ] Maximum Likelihood Estimation (MLE) — derives loss functions from distributions
+- [ ] Cross-Entropy and KL Divergence — information theory, connects to all classification losses
+- [ ] Multivariate Normal Distribution — used in Gaussian processes, VAEs
+- [ ] Sampling and Bootstrap (empirical distributions)
+- [ ] Hypothesis Testing and p-values
+- [ ] Tier 2 distributions: Gamma, Chi-Squared, Student's t, Log-Normal (defer to Bayesian section)
+
+**Code files missing (high value):**
+- [ ] Gradient descent from scratch
+- [ ] SVD image compression
+- [ ] Distribution visualization and sampling
+- [ ] MLE from scratch
+
+**Quality gaps to close:**
+- Promote SVD from seed to growing (add code file)
+- Promote spectral-decomposition to evergreen
 
 **Deferred but important:**
 - Matrix calculus (Jacobians, Hessians) — CRITICAL for deep learning, do before T8
@@ -513,9 +540,4 @@ Or alternate days: Mon/Wed/Fri = Theory, Tue/Thu = Builder.
 - Taylor series — explains gradient descent convergence
 - Pseudoinverse, matrix norms — complete linear algebra
 
-**Gaps to close:**
-- Promote SVD from seed to growing (add code file, do exercises)
-- Promote spectral-decomposition to evergreen
-- Create SVD, gradient descent code files with exercises
-
-**Builder**: Continue B1 — complete Anthropic Skilljar courses (MUST). Then: API key management note, Python setup note, chatbot project. Then B3: Provider Comparison.
+**Builder**: Continue B1 — complete Anthropic Skilljar courses (MUST). Then: API key management note, chatbot project. Then B3: Provider Comparison.
