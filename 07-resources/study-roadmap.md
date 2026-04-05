@@ -533,6 +533,7 @@ Or alternate days: Mon/Wed/Fri = Theory, Tue/Thu = Builder.
 **Quality gaps to close:**
 - Promote SVD from seed to growing (add code file)
 - Promote spectral-decomposition to evergreen
+- [ ] Elementary matrix — formalizes row operations as matrix multiplications; supports gaussian-elimination and matrix-inverse notes (Tier 2, not urgent)
 
 **Deferred but important:**
 - Matrix calculus (Jacobians, Hessians) — CRITICAL for deep learning, do before T8
