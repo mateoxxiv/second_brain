@@ -517,12 +517,15 @@ Or alternate days: Mon/Wed/Fri = Theory, Tue/Thu = Builder.
 
 **Probability gaps still open:**
 - [ ] Joint, Marginal, and Conditional Distributions
-- [ ] Maximum Likelihood Estimation (MLE) — derives loss functions from distributions
+- [ ] Maximum Likelihood Estimation (MLE) — derives loss functions from distributions ← NEXT
 - [ ] Cross-Entropy and KL Divergence — information theory, connects to all classification losses
 - [ ] Multivariate Normal Distribution — used in Gaussian processes, VAEs
-- [ ] Sampling and Bootstrap (empirical distributions)
+- [ ] Bootstrap and Empirical Distributions — resampling, confidence intervals without assumptions
 - [ ] Hypothesis Testing and p-values
 - [ ] Tier 2 distributions: Gamma, Chi-Squared, Student's t, Log-Normal (defer to Bayesian section)
+
+**Distribution notes — exercises still missing:**
+- [ ] Add exercises section to each distribution note (Bernoulli, Binomial, Poisson, Exponential, Beta, Dirichlet, Normal) — do after MLE session so exercises can include MLE derivations
 
 **Code files missing (high value):**
 - [ ] Gradient descent from scratch
