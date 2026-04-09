@@ -1,7 +1,7 @@
 # Study Roadmap
 
 **Created**: 2026-02-24
-**Last updated**: 2026-04-02
+**Last updated**: 2026-04-08
 **Goal**: Become an expert AI architect and engineer — design, implement, and orchestrate intelligent systems end-to-end.
 
 ---
@@ -35,7 +35,7 @@ Both together = architect.
 |------|-------|------|--------|
 | 01-foundations/linear-algebra | 19 | 3 | Near complete (8 evergreen, 9 growing, 2 seed) |
 | 01-foundations/calculus | 6 | 0 | Core complete — matrix calculus remaining |
-| 01-foundations/probability | 11 | 0 | Strong progress — distributions done, MLE/entropy next |
+| 01-foundations/probability | 10 | 1 | Strong progress — distributions done, MLE/entropy next (9 growing, 1 seed) |
 | 01-foundations/algorithms | 0 | 0 | Not started |
 | 01-foundations/databases | 0 | 0 | Not started |
 | 02-machine-learning | 0 | 0 | Not started |
@@ -163,7 +163,7 @@ Deep understanding. Derive, don't memorize. Implement from scratch.
 - [ ] Multivariate Normal Distribution (used everywhere in ML)
 - [ ] Maximum Likelihood Estimation (MLE)
 - [ ] Cross-Entropy and Information Theory (Entropy, KL Divergence)
-- [ ] **Code**: Distribution visualization and sampling
+- [x] **Code**: Distribution sampling, diagnostics, MLE→loss connection (`code/foundations/probability_distributions.py`)
 - [ ] **Code**: MLE from scratch
 
 **Remaining (important — can defer):**
@@ -527,7 +527,7 @@ Or alternate days: Mon/Wed/Fri = Theory, Tue/Thu = Builder.
 **Code files missing (high value):**
 - [ ] Gradient descent from scratch
 - [ ] SVD image compression
-- [ ] Distribution visualization and sampling
+- [x] Distribution sampling and diagnostics — done (`probability_distributions.py`)
 - [ ] MLE from scratch
 
 **Quality gaps to close:**
