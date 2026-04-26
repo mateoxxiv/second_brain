@@ -1,127 +1,45 @@
-**Related**: [[matrix-operations]], [[determinant]], [[gaussian-elimination]], [[linear-independence]], [[eigenvalues-and-eigenvectors]], [[projection-onto-subspaces]]
-**Tags**: #status/growing
+---
+tags:
+  - status/growing
+  - linear-algebra
+related:
+  - "[[determinant]]"
+  - "[[gaussian-elimination]]"
+  - "[[linear-independence]]"
+  - "[[eigenvalues-and-eigenvectors]]"
+  - "[[special-matrices]]"
+domain: linear-algebra
+sources:
+  - "https://www.youtube.com/watch?v=uQhTuRlWMxw"
+  - "https://gregorygundersen.com/blog/2020/12/09/matrix-inversion/"
+---
 
-## Core Idea
+> **TL;DR** — $A^{-1}$ undoes what $A$ does. It exists only when $A$ doesn't collapse any dimension ($\det A \neq 0$). In practice: never compute the inverse explicitly — use `np.linalg.solve` instead.
 
-If matrix $A$ transforms space, then $A^{-1}$ **undoes** that transformation.
-It only exists when $A$ doesn't collapse any dimension ($\det(A) \neq 0$).
+---
 
-$$AA^{-1} = A^{-1}A = I$$
+## Intuition
 
-**Geometric intuition**: When $\det(A) = 0$, the transformation **collapses a
-dimension** — it squishes 2D space onto a line, or 3D space onto a plane.
-Information is destroyed (multiple inputs map to the same output), so you can't
-reverse it. It's like trying to "un-blend" a smoothie back into separate fruits.
+If $A$ stretches space, $A^{-1}$ un-stretches it. The key insight: when $\det(A) = 0$, the transformation destroys information — multiple inputs map to the same output. You can't reverse it. It's like trying to un-blend a smoothie back into separate fruits.
 
-## Details
+The six equivalent conditions for invertibility all say the same thing: no information is lost.
 
-### 2x2 Formula
+## Mechanics
 
-$$A = \begin{bmatrix} a & b \\ c & d \end{bmatrix} \implies A^{-1} = \frac{1}{ad - bc} \begin{bmatrix} d & -b \\ -c & a \end{bmatrix}$$
+**2×2 formula:** swap diagonal, negate off-diagonal, divide by det:
 
-The $ad - bc$ is the [[determinant]]. If it's zero, no inverse exists.
+$$A = \begin{bmatrix}a&b\\c&d\end{bmatrix} \implies A^{-1} = \frac{1}{ad-bc}\begin{bmatrix}d&-b\\-c&a\end{bmatrix}$$
 
-**Recipe**: swap the diagonal, negate the off-diagonal, divide by det.
+**Larger matrices:** apply [[gaussian-elimination]] on the augmented matrix $[A\mid I] \to [I\mid A^{-1}]$.
 
-### Worked Example
+| Equivalent statements | All mean: $A$ is invertible |
+|-----------------------|----------------------------|
+| $\det(A) \neq 0$ | No dimension collapses |
+| Columns are independent | No redundant directions |
+| Full rank | No information lost |
+| No zero [[eigenvalues-and-eigenvectors\|eigenvalues]] | No "null" directions |
 
-$$A = \begin{bmatrix} 4 & 7 \\ 2 & 6 \end{bmatrix}, \quad \det(A) = 24 - 14 = 10$$
-
-$$A^{-1} = \frac{1}{10}\begin{bmatrix} 6 & -7 \\ -2 & 4 \end{bmatrix} = \begin{bmatrix} 0.6 & -0.7 \\ -0.2 & 0.4 \end{bmatrix}$$
-
-Verify: $AA^{-1} = I$ ✓
-
-### Inverse of Larger Matrices (via Gaussian Elimination)
-
-For matrices bigger than 2x2, use [[gaussian-elimination]]: place A and the
-identity matrix side by side, then row-reduce A to I. Whatever operations you
-apply to I produce $A^{-1}$.
-
-```
-Start:     [A | I]
-Reduce:    [I | A^{-1}]
-```
-
-Same row operations you already know — just applied to a wider augmented matrix.
-If at any point a row of A becomes all zeros, det = 0 and no inverse exists.
-
-**3x3 Worked Example**:
-
-$$A = \begin{bmatrix} 1 & 0 & 1 \\ 0 & 2 & 1 \\ 1 & 1 & 1 \end{bmatrix}$$
-
-```
-[1 0 1 | 1 0 0]
-[0 2 1 | 0 1 0]
-[1 1 1 | 0 0 1]
-
-R3 = R3 - R1:
-[1 0 1 | 1  0  0]
-[0 2 1 | 0  1  0]
-[0 1 0 | -1 0  1]
-
-Swap R2, R3:
-[1 0 1 | 1  0  0]
-[0 1 0 | -1 0  1]
-[0 2 1 | 0  1  0]
-
-R3 = R3 - 2*R2:
-[1 0 1 | 1  0  0]
-[0 1 0 | -1 0  1]
-[0 0 1 | 2  1  -2]
-
-R1 = R1 - R3:
-[1 0 0 | -1 -1  2]
-[0 1 0 | -1  0  1]
-[0 0 1 | 2   1  -2]
-```
-
-$$A^{-1} = \begin{bmatrix} -1 & -1 & 2 \\ -1 & 0 & 1 \\ 2 & 1 & -2 \end{bmatrix}$$
-
-### Solving Ax = b
-
-The whole point of the inverse in practice: solving systems of equations.
-
-$$A\mathbf{x} = \mathbf{b} \implies \mathbf{x} = A^{-1}\mathbf{b}$$
-
-Where $A$ = coefficient matrix, $\mathbf{x}$ = unknowns, $\mathbf{b}$ = right-hand side.
-
-### "Don't Invert That Matrix"
-
-In practice, **almost never compute the inverse directly**:
-
-1. **Numerical instability** — floating-point errors amplify through inversion
-2. **Computational cost** — solving $Ax = b$ via LU decomposition is faster
-   and more stable
-3. **Memory** — a sparse matrix's inverse is typically dense
-
-**Use instead**: `np.linalg.solve(A, b)` — think of it as "division for
-matrices." It uses [[gaussian-elimination]] (LU decomposition) internally.
-For least squares: `np.linalg.lstsq()`.
-
-### Key Properties
-
-| Property | Rule | Intuition |
-|----------|------|-----------|
-| Self-inverse | $(A^{-1})^{-1} = A$ | Undo the undo = original |
-| Inverse of product | $(AB)^{-1} = B^{-1}A^{-1}$ | Undo last step first ("socks and shoes") |
-| Transpose of inverse | $(A^T)^{-1} = (A^{-1})^T$ | Transpose and inverse commute |
-| Inverse of scalar multiple | $(cA)^{-1} = \frac{1}{c}A^{-1}$ | Undo the scaling too |
-| Determinant of inverse | $\det(A^{-1}) = \frac{1}{\det(A)}$ | Inverse reverses the volume scaling |
-
-### When Does the Inverse Exist?
-
-All of these are equivalent — they all say the same thing:
-
-- $\det(A) \neq 0$
-- $A$ has no zero [[eigenvalues-and-eigenvectors|eigenvalues]]
-- Columns of $A$ are [[linear-independence|linearly independent]]
-- $A$ has full rank (rank = number of rows/columns)
-- $A\mathbf{x} = \mathbf{0}$ has only the trivial solution
-- $A\mathbf{x} = \mathbf{b}$ has exactly one solution for every $\mathbf{b}$
-
-When $A$ is NOT invertible, it's called **singular**.
-
-## Code Example
+**Key properties:** $(AB)^{-1} = B^{-1}A^{-1}$ (socks-and-shoes), $(A^T)^{-1} = (A^{-1})^T$, $(A^{-1})^{-1} = A$.
 
 ```python
 import numpy as np
@@ -129,35 +47,29 @@ import numpy as np
 A = np.array([[4, 7], [2, 6]])
 b = np.array([1, 2])
 
-# Preferred: solve directly (faster, more stable)
-x = np.linalg.solve(A, b)        # [0.8, -0.2]
+# Always prefer solve over inv — faster and more numerically stable
+x = np.linalg.solve(A, b)      # [0.8, -0.2]
 
-# Avoid: computing inverse explicitly
-x_bad = np.linalg.inv(A) @ b     # same answer, worse numerics
+# Never do this in production:
+# x = np.linalg.inv(A) @ b
 
-# Check if matrix is invertible
-det = np.linalg.det(A)            # 10.0 (non-zero = invertible)
-
-# Verify inverse
-A_inv = np.linalg.inv(A)
-print(A @ A_inv)                  # identity matrix
+print(A @ np.linalg.inv(A))    # identity (verify)
 ```
 
-> For runnable implementation with exercises, see: [[code/foundations/matrix_operations.py]]
+> Runnable: [[code/foundations/matrix_operations.py]]
 
-## Connections
+## In ML
 
-- [[determinant]] — det = 0 means no inverse exists; det tells you how much A scales area/volume
-- [[gaussian-elimination]] — the practical algorithm for computing inverses and solving Ax = b
-- [[linear-independence]] — columns independent ↔ matrix invertible
-- [[eigenvalues-and-eigenvectors]] — eigenvalue = 0 ↔ matrix singular (not invertible)
-- [[projection-onto-subspaces]] — projection formula uses $(A^TA)^{-1}$
-- [[special-matrices]] — orthogonal matrices have $Q^{-1} = Q^T$ (free inverse!)
-- Forward link: regularization adds $\lambda I$ to ensure invertibility
+**Normal equations** — closed-form linear regression solution: $\hat{\boldsymbol{\beta}} = (X^TX)^{-1}X^T\mathbf{y}$. Requires $X^TX$ to be invertible — breaks when features are dependent or the system is underdetermined.
 
-## Sources
+**"Don't invert that matrix"** — `np.linalg.inv` accumulates floating-point errors and is slower than solving the system directly. `np.linalg.solve(A, b)` uses LU decomposition internally. For least squares: `np.linalg.lstsq`.
 
-- [3Blue1Brown — Inverse Matrices](https://www.youtube.com/watch?v=uQhTuRlWMxw)
-- [Gregory Gundersen — "Don't Invert That Matrix"](https://gregorygundersen.com/blog/2020/12/09/matrix-inversion/)
-- [MIT 18.06 — Gilbert Strang, Lecture 3: Multiplication and Inverse Matrices](https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/)
-- [Mathematics for Machine Learning — Chapter 2.2](https://mml-book.github.io/book/mml-book.pdf)
+**[[special-matrices|Orthogonal matrices]]** have a free inverse: $Q^{-1} = Q^T$. No computation needed — just transpose.
+
+## Exercises
+
+**Basic** — Compute $A^{-1}$ by hand for $A = \begin{bmatrix}2&1\\5&3\end{bmatrix}$. Verify $AA^{-1} = I$.
+
+**Intermediate** — Use the augmented matrix method $[A\mid I]$ to find the inverse of $\begin{bmatrix}1&2\\3&7\end{bmatrix}$. Show every row operation step.
+
+**Advanced** — Why is computing $(X^TX)^{-1}X^T\mathbf{y}$ numerically dangerous for large $X$? What does `np.linalg.lstsq` do differently? (Hint: look up SVD-based least squares.)

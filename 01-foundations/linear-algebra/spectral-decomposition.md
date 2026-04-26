@@ -1,223 +1,88 @@
-**Related**: [[eigenvalues-and-eigenvectors]], [[matrix-operations]], [[special-matrices]], [[matrix-inverse]], [[projection]], [[linear-combination]]
-**Tags**: #status/growing
+---
+tags:
+  - status/growing
+  - linear-algebra
+related:
+  - "[[eigenvalues-and-eigenvectors]]"
+  - "[[special-matrices]]"
+  - "[[projection]]"
+  - "[[singular-value-decomposition]]"
+  - "[[matrix-inverse]]"
+domain: linear-algebra
+sources:
+  - "https://www.youtube.com/watch?v=PFDu9oVAE-g"
+  - "https://mml-book.github.io/book/mml-book.pdf"
+---
 
-## Core Idea
+> **TL;DR** — Break a symmetric matrix into an ingredient list: $A = Q\Lambda Q^T$. Each ingredient is one eigenvalue × one rank-1 projection matrix. Matrix powers and inverses become trivial.
 
-Spectral decomposition breaks a symmetric matrix into its **ingredient list**:
-each ingredient is an eigenvalue (the strength) times a direction piece (built
-from one eigenvector).
+---
 
-```
-A = lambda1 * (q1 @ q1^T) + lambda2 * (q2 @ q2^T) + ...
-```
+## Intuition
 
-Each piece q_i @ q_i^T is a [[projection]] matrix onto that eigenvector's
-direction. The eigenvalue tells you how much weight that direction carries.
-
-Written compactly: $A = Q \Lambda Q^T$, where Q packs the eigenvectors as
-columns and Lambda is the diagonal matrix of eigenvalues.
-
-## Details
-
-### Building It From Eigenvalues
-
-Start with A = [[2,1],[1,2]]. We already know from [[eigenvalues-and-eigenvectors]]:
-
-```
-lambda = 1  ->  eigenvector [1,-1]  ->  normalized: q1 = [0.707, -0.707]
-lambda = 3  ->  eigenvector [1, 1]  ->  normalized: q2 = [0.707,  0.707]
-```
-
-Build the "direction piece" for each eigenvector using the outer product
-(column times row = matrix):
+Every symmetric matrix can be seen as a **weighted sum of simple projections**:
 
 ```
-q1 @ q1^T = [0.707]  @ [0.707, -0.707] = [[ 0.5, -0.5],
-            [-0.707]                       [-0.5,  0.5]]
-
-q2 @ q2^T = [0.707] @ [0.707, 0.707] = [[0.5, 0.5],
-            [0.707]                      [0.5, 0.5]]
+A = λ₁·(q₁qᵀ₁) + λ₂·(q₂qᵀ₂) + ...
 ```
 
-Each of these is a projection matrix — it takes any vector and returns only
-the part pointing along that eigenvector.
+Each $q_i q_i^T$ projects onto one eigenvector direction. The eigenvalue $\lambda_i$ is the weight of that direction. To compute $A^{10}$, raise each weight to the 10th power — the directions $Q$ stay the same.
 
-Now rebuild A by weighting each piece by its eigenvalue:
+This only works for symmetric matrices because the Spectral Theorem guarantees real eigenvalues and orthogonal eigenvectors ($Q^T = Q^{-1}$, the free inverse).
 
-```
-A = 1 * [[ 0.5, -0.5],   +   3 * [[0.5, 0.5],
-         [-0.5,  0.5]]            [0.5, 0.5]]
+## Mechanics
 
-  = [[ 0.5, -0.5],       +   [[1.5, 1.5],
-     [-0.5,  0.5]]             [1.5, 1.5]]
+$$A = Q\Lambda Q^T$$
 
-  = [[2, 1],
-     [1, 2]]   <- that's A!
-```
+- $Q$ = orthogonal matrix (eigenvectors as columns)
+- $\Lambda$ = diagonal matrix (eigenvalues on diagonal)
 
-### The Compact Formula: A = Q Lambda Q^T
+**Key operations become trivial:**
 
-**How to build each piece** (no computation — just packing values):
-
-```
-Step 1: Find eigenvalues and eigenvectors (you already know how)
-   lambda1 = 1,  q1 = [0.707, -0.707]
-   lambda2 = 3,  q2 = [0.707,  0.707]
-
-Step 2: Pack eigenvectors as COLUMNS into Q
-   Q = [q1 | q2] = [[0.707,  0.707],     <- first column is q1
-                     [-0.707, 0.707]]     <- second column is q2
-
-Step 3: Put eigenvalues on the diagonal of Lambda
-   Lambda = [[1, 0],     <- lambda1
-             [0, 3]]     <- lambda2
-
-Step 4: Q^T is just Q transposed (flip rows and columns)
-   Q^T = [[ 0.707, -0.707],
-          [ 0.707,  0.707]]
-```
-
-Now multiply Q @ Lambda @ Q^T to verify it equals A:
-
-Compute step by step:
-
-**Step 1 — Q @ Lambda** (scales each column by its eigenvalue):
-
-```
-[[0.707*1,  0.707*3],    = [[0.707,  2.121],
- [-0.707*1, 0.707*3]]       [-0.707, 2.121]]
-```
-
-**Step 2 — result @ Q^T**:
-
-```
-[[0.707,  2.121],  @  [[0.707, -0.707],
- [-0.707, 2.121]]      [0.707,  0.707]]
-
-= [[0.5+1.5,  -0.5+1.5],   = [[2, 1],
-   [-0.5+1.5,  0.5+1.5]]      [1, 2]]   <- A!
-```
-
-### Why This Only Works for Symmetric Matrices
-
-The Spectral Theorem (from [[special-matrices]]) guarantees that symmetric
-matrices have:
-
-1. **Real eigenvalues** — so Lambda has real numbers
-2. **Orthogonal eigenvectors** — so $Q^T = Q^{-1}$ (free inverse)
-
-Without orthogonal eigenvectors, $Q^{-1} \neq Q^T$ and you'd need the more
-general form $A = V \Lambda V^{-1}$ (which requires computing an actual
-inverse — more expensive and less stable).
-
-### Killer Application: Matrix Powers
-
-Without spectral decomposition:
-
-```
-A^10 = A @ A @ A @ A @ A @ A @ A @ A @ A @ A    (9 matrix multiplications)
-```
-
-With spectral decomposition:
-
-```
-A^10 = Q Lambda^10 Q^T
-```
-
-And Lambda^10 is trivial — just raise each diagonal entry to the 10th power:
-
-```
-Lambda^10 = [[1^10,  0   ],    = [[1,     0    ],
-              [0,    3^10]]       [0, 59049]]
-```
-
-This works because the Q^T and Q in the middle cancel:
-
-```
-A^2 = (Q L Q^T)(Q L Q^T) = Q L (Q^T @ Q) L Q^T = Q L I L Q^T = Q L^2 Q^T
-```
-
-### Killer Application: Low-Rank Approximation
-
-The ingredient list formula lets you **approximate** a matrix by keeping only
-the most important pieces:
-
-```
-Full:    A = 3 * (piece from q2) + 1 * (piece from q1)
-Approx:  A_approx = 3 * (piece from q2)    <- drop the small eigenvalue
-```
-
-```
-A_approx = 3 * [[0.5, 0.5],    = [[1.5, 1.5],
-                [0.5, 0.5]]       [1.5, 1.5]]
-```
-
-Not perfect, but captures 75% of the "energy" (3 out of 3+1 = 4).
-
-This is exactly what **PCA** does:
-- Data has a covariance matrix (symmetric)
-- Decompose it into eigenvalue-weighted directions
-- Keep only the top-k eigenvalues
-- You compressed the data while keeping the most important variation
-
-Variance explained by keeping top-k: $\frac{\sum_{i=1}^{k} \lambda_i}{\sum_{i=1}^{n} \lambda_i}$
-
-### Key Properties
-
-| Property | Formula | Why it helps |
-|----------|---------|-------------|
-| Matrix powers | $A^k = Q\Lambda^k Q^T$ | Raise diagonal entries to power k |
+| Operation | Formula | Why cheap |
+|---|---|---|
+| Powers | $A^k = Q\Lambda^k Q^T$ | Raise diagonal entries to $k$ |
 | Inverse | $A^{-1} = Q\Lambda^{-1}Q^T$ | Invert diagonal entries |
 | Trace | $\text{tr}(A) = \sum \lambda_i$ | Sum of eigenvalues |
 | Determinant | $\det(A) = \prod \lambda_i$ | Product of eigenvalues |
-| Rank | rank = number of non-zero eigenvalues | Count the ingredients |
-| Positive definite | All $\lambda_i > 0$ | Check the diagonal |
 
-## Code Example
+**Low-rank approximation:** keep only the top-$k$ largest eigenvalue terms:
+$$A \approx \sum_{i=1}^k \lambda_i q_i q_i^T$$
+
+Variance explained: $\frac{\sum_{i=1}^k \lambda_i}{\sum_{i=1}^n \lambda_i}$
 
 ```python
 import numpy as np
 
-A = np.array([[2, 1], [1, 2]], dtype=float)
-
-# Decompose
-eigenvalues, Q = np.linalg.eigh(A)  # eigh for symmetric
+A = np.array([[2,1],[1,2]], dtype=float)
+eigenvalues, Q = np.linalg.eigh(A)   # eigh for symmetric
 Lambda = np.diag(eigenvalues)
 
-# Rebuild: A = Q @ Lambda @ Q^T
-A_rebuilt = Q @ Lambda @ Q.T
-print(np.allclose(A, A_rebuilt))     # True
+print(np.allclose(A, Q @ Lambda @ Q.T))  # True — rebuilt A
 
 # Matrix power the easy way
 k = 10
-A_power = Q @ np.diag(eigenvalues**k) @ Q.T
+A_k = Q @ np.diag(eigenvalues**k) @ Q.T
 
-# Low-rank approximation (keep top-1 eigenvalue)
+# Low-rank (keep top-1 component)
 top = np.argmax(eigenvalues)
-q_top = Q[:, top:top+1]
-A_approx = eigenvalues[top] * (q_top @ q_top.T)
-
-# Ingredient list form
-A_sum = sum(lam * np.outer(q, q)
-            for lam, q in zip(eigenvalues, Q.T))
-print(np.allclose(A, A_sum))         # True
+A_approx = eigenvalues[top] * np.outer(Q[:,top], Q[:,top])
 ```
 
-> For runnable implementation with exercises, see: [[code/foundations/eigenvalues_and_eigenvectors.py]]
+> Runnable: [[code/foundations/eigenvalues_and_eigenvectors.py]]
 
-## Connections
+## In ML
 
-- [[eigenvalues-and-eigenvectors]] — the ingredients (eigenvalues + eigenvectors) that this decomposition uses
-- [[special-matrices]] — only works for symmetric matrices (Spectral Theorem)
-- [[projection]] — each $q_i q_i^T$ is a projection onto the eigenvector direction
-- [[linear-combination]] — A is a linear combination of rank-1 projection matrices
-- [[matrix-inverse]] — inverse is trivial: just invert the diagonal eigenvalues
-- Forward link: PCA — spectral decomposition of the covariance matrix
-- Forward link: SVD — generalizes this to non-symmetric and non-square matrices
+**PCA** is spectral decomposition of the covariance matrix. Each ingredient $\lambda_i q_i q_i^T$ is one principal component. Keeping the top-$k$ components is low-rank approximation of the data.
 
-## Sources
+**Kernel methods (SVMs, Gaussian processes)** — the kernel matrix is symmetric positive semi-definite. Spectral decomposition reveals its structure and enables efficient computation.
 
-- [3Blue1Brown — Eigenvectors and Eigenvalues](https://www.3blue1brown.com/lessons/eigenvalues) — visual decomposition intuition
-- [MIT 18.06 — Strang, Lecture 22: Diagonalization](https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/)
-- [Hadrienj — Eigendecomposition](https://hadrienj.github.io/posts/Deep-Learning-Book-Series-2.7-Eigendecomposition/) — Python examples
-- [Mathematics for Machine Learning — Chapter 4.2](https://mml-book.github.io/book/mml-book.pdf) — spectral theorem + PCA connection
+**Quadratic forms** — in optimization, $\mathbf{x}^T A \mathbf{x}$ evaluated in the eigenbasis becomes $\sum \lambda_i z_i^2$. Positive eigenvalues → bowl (convex); negative → saddle point.
+
+## Exercises
+
+**Basic** — For $A = \begin{bmatrix}3&1\\1&3\end{bmatrix}$: find eigenvalues and eigenvectors, build $Q$ and $\Lambda$, verify $Q\Lambda Q^T = A$.
+
+**Intermediate** — Compute $A^5$ for the same matrix using $Q\Lambda^5 Q^T$. Verify against direct multiplication.
+
+**Advanced** — The low-rank approximation $A_k = \sum_{i=1}^k \lambda_i q_i q_i^T$ minimizes the Frobenius norm $\|A - A_k\|_F$. Why? (Hint: what is $\|A - A_k\|_F^2$ in terms of eigenvalues?)

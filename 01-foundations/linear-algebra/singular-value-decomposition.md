@@ -1,203 +1,79 @@
-**Related**: [[spectral-decomposition]], [[eigenvalues-and-eigenvectors]], [[matrix-operations]], [[special-matrices]], [[matrix-inverse]], [[projection]]
-**Tags**: #status/seed
+---
+tags:
+  - status/seed
+  - linear-algebra
+related:
+  - "[[spectral-decomposition]]"
+  - "[[eigenvalues-and-eigenvectors]]"
+  - "[[special-matrices]]"
+  - "[[projection]]"
+  - "[[gram-schmidt]]"
+domain: linear-algebra
+sources:
+  - "https://www.youtube.com/watch?v=nbBvuuNVfco"
+  - "https://mml-book.github.io/book/mml-book.pdf"
+---
 
-## Core Idea
+> **TL;DR** — SVD decomposes ANY matrix (non-symmetric, non-square, anything) into $A = U\Sigma V^T$: a rotation, a stretch, another rotation. Every matrix does exactly these three things.
 
-SVD breaks **any** matrix into an ingredient list — same idea as
-[[spectral-decomposition]], but works on every matrix (non-symmetric,
-non-square, anything).
+---
 
-```
-Spectral: A = Q L Q^T     (only symmetric matrices)
-SVD:      A = U S V^T     (ANY matrix)
-```
+## Intuition
 
-Each ingredient is a singular value (the strength) times a piece built from
-two vectors (one for each side):
-
-```
-A = sigma1 * (u1 @ v1^T) + sigma2 * (u2 @ v2^T) + ...
-```
-
-The sigmas are called **singular values** — always positive, and they tell you
-how important each piece is. Bigger sigma = more important direction.
-
-## Details
-
-### Why We Need SVD
-
-[[spectral-decomposition]] requires A = A^T (symmetric) and square. But most
-real data isn't:
-- Training data: 1000 samples x 50 features (not square)
-- Images: pixel matrices (not symmetric)
-- Any transformation between different-sized spaces
-
-SVD says: give me any matrix, any shape, I'll decompose it.
-
-### The Formula
-
-$$A = U \Sigma V^T$$
-
-For $A \in \mathbb{R}^{m \times n}$:
-- $U \in \mathbb{R}^{m \times m}$ — orthogonal (columns are "left singular vectors")
-- $\Sigma \in \mathbb{R}^{m \times n}$ — diagonal (singular values on diagonal, rest zeros)
-- $V \in \mathbb{R}^{n \times n}$ — orthogonal (columns are "right singular vectors")
-
-### Where Singular Values Come From
-
-A might not be symmetric, but $A^T A$ is **always** symmetric:
+[[spectral-decomposition]] requires symmetric square matrices. Most real data matrices are neither. SVD generalizes it:
 
 ```
-(A^T A)^T = A^T (A^T)^T = A^T A    <- always equals itself
+Spectral: A = Q  Λ  Qᵀ   (symmetric only — same basis on both sides)
+SVD:      A = U  Σ  Vᵀ   (any matrix — different bases on each side)
 ```
 
-So we can apply eigendecomposition to $A^T A$:
+**Geometric interpretation:** $A$ transforms a ball into an ellipse. $V^T$ rotates the input, $\Sigma$ stretches each axis, $U$ rotates the result. Any linear transformation = rotate → stretch → rotate.
 
-```
-Step 1: Compute A^T @ A              (always symmetric, always works)
-Step 2: Find eigenvalues of A^T @ A  (characteristic equation)
-Step 3: Singular values = sqrt(eigenvalues)
-Step 4: V = eigenvectors of A^T @ A
-Step 5: U = A @ V / singular values  (one column at a time)
-```
+The singular values $\sigma_i$ (diagonal of $\Sigma$) are always positive and sorted large to small. They measure how much each "direction pair" contributes.
 
-### Worked Example
+## Mechanics
 
-$$A = \begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}$$
+$$A = U\Sigma V^T$$
 
-**Step 1 — Compute A^T @ A:**
+- $U \in \mathbb{R}^{m\times m}$: orthogonal, left singular vectors (output directions)
+- $\Sigma \in \mathbb{R}^{m\times n}$: diagonal, singular values $\sigma_1 \geq \sigma_2 \geq \cdots \geq 0$
+- $V \in \mathbb{R}^{n\times n}$: orthogonal, right singular vectors (input directions)
 
-```
-A^T @ A = [[1,0],  @  [[1,1],  = [[1, 1],
-            [1,1]]     [0,1]]     [1, 2]]
-```
+**Ingredient form:** $A = \sum_i \sigma_i \mathbf{u}_i \mathbf{v}_i^T$
 
-**Step 2 — Eigenvalues of A^T @ A:**
+**Connection to eigenvalues:**
+$$A^TA = V\Sigma^T U^T \cdot U\Sigma V^T = V\Sigma^2 V^T$$
 
-```
-det([[1-L, 1], [1, 2-L]]) = 0
-(1-L)(2-L) - 1 = 0
-L^2 - 3L + 1 = 0
-
-L = (3 +- sqrt(5)) / 2
-L1 = 2.618,  L2 = 0.382
-```
-
-**Step 3 — Singular values:**
-
-```
-sigma1 = sqrt(2.618) = 1.618
-sigma2 = sqrt(0.382) = 0.618
-```
-
-**Step 4 — V (eigenvectors of A^T @ A):**
-
-For L1 = 2.618: solve (A^T A - 2.618 I) v = 0
-For L2 = 0.382: solve (A^T A - 0.382 I) v = 0
-
-(Normalize each to unit length)
-
-**Step 5 — U (computed from A, V, and sigmas):**
-
-```
-u1 = A @ v1 / sigma1
-u2 = A @ v2 / sigma2
-```
-
-### Connection to Spectral Decomposition
-
-For symmetric matrices, SVD and spectral decomposition give the same result:
-- U = V = Q (the eigenvectors)
-- Singular values = absolute values of eigenvalues
-
-SVD is strictly more general — it works where spectral decomposition can't.
-
-### Killer Application: Low-Rank Approximation
-
-Same idea as spectral decomposition, but now for ANY matrix. Sort singular
-values from largest to smallest, keep only the top k:
-
-```
-Full:   A = sigma1*(u1@v1^T) + sigma2*(u2@v2^T) + ... + sigmaR*(uR@vR^T)
-Rank-k: A_k = sigma1*(u1@v1^T) + ... + sigmak*(uk@vk^T)
-```
-
-The **Eckart-Young theorem** guarantees: this is the BEST possible rank-k
-approximation. No other rank-k matrix gets closer to A.
-
-**Image compression example:**
-- A 1000x1000 image = 1,000,000 numbers
-- Keep top 50 singular values: 50*(1000+1000+1) = ~100,050 numbers
-- 10x compression with minimal visual loss
-
-**Variance captured** by keeping top k:
-
-$$\frac{\sum_{i=1}^{k} \sigma_i^2}{\sum_{i=1}^{r} \sigma_i^2}$$
-
-### Key Applications in ML
-
-| Application | How SVD is used |
-|-------------|----------------|
-| PCA | SVD of centered data matrix (numerically stable way to compute PCA) |
-| Image compression | Keep top-k singular values, reconstruct |
-| Recommender systems | Factor user-item matrix into preferences x features |
-| Pseudoinverse | $A^+ = V \Sigma^+ U^T$ (solve Ax=b even when A isn't invertible) |
-| Noise reduction | Small singular values = noise, drop them |
-| Latent Semantic Analysis | SVD of term-document matrix reveals topics |
-
-### Key Properties
-
-| Property | Formula |
-|----------|---------|
-| Singular values are non-negative | $\sigma_i \geq 0$ always |
-| Number of non-zero sigmas = rank | rank(A) = count of $\sigma_i > 0$ |
-| Frobenius norm | $\|A\|_F = \sqrt{\sum \sigma_i^2}$ |
-| Condition number | $\kappa(A) = \sigma_{max} / \sigma_{min}$ (how "ill-conditioned") |
-| Pseudoinverse | $A^+ = V \Sigma^+ U^T$ where $\Sigma^+$ inverts non-zero sigmas |
-
-## Code Example
+So singular values of $A$ = $\sqrt{\text{eigenvalues of } A^TA}$. The SVD of $A$ is the spectral decomposition of $A^TA$.
 
 ```python
 import numpy as np
 
-A = np.array([[1, 1],
-              [0, 1]], dtype=float)
+A = np.array([[1,2],[3,4],[5,6]], dtype=float)  # 3×2, not square
+U, s, Vt = np.linalg.svd(A, full_matrices=False)
 
-# NumPy SVD
-U, sigmas, Vt = np.linalg.svd(A)
-# sigmas = [1.618, 0.618]
+print(s)                              # singular values
+print(np.allclose(U @ np.diag(s) @ Vt, A))  # True
 
-# Rebuild A from SVD
-S = np.zeros_like(A)
-np.fill_diagonal(S, sigmas)
-A_rebuilt = U @ S @ Vt
-print(np.allclose(A, A_rebuilt))  # True
-
-# Low-rank approximation (keep top 1)
+# Rank-k approximation
 k = 1
-A_approx = sigmas[0] * np.outer(U[:, 0], Vt[0, :])
-
-# Verify: singular values come from eigenvalues of A^T @ A
-eigvals = np.linalg.eigvalsh(A.T @ A)
-print(np.allclose(sorted(sigmas**2), sorted(eigvals)))  # True
+A_approx = s[0] * np.outer(U[:,0], Vt[0,:])
 ```
 
-> For runnable implementation with exercises, see: [[code/foundations/svd.py]]
+> Runnable: [[code/foundations/eigenvalues_and_eigenvectors.py]]
 
-## Connections
+## In ML
 
-- [[spectral-decomposition]] — SVD generalizes this to non-symmetric/non-square matrices
-- [[eigenvalues-and-eigenvectors]] — singular values = sqrt(eigenvalues of A^T A)
-- [[special-matrices]] — U and V are orthogonal, S is diagonal
-- [[matrix-inverse]] — pseudoinverse via SVD works even for singular/non-square matrices
-- [[projection]] — low-rank approximation projects data onto the top singular directions
-- Forward link: PCA — computed via SVD of the centered data matrix
-- Forward link: recommender systems — matrix factorization
+**Dimensionality reduction (PCA via SVD)** — for data matrix $X$, the SVD gives principal components directly: $X = U\Sigma V^T$. The columns of $V$ are the principal directions; $\sigma_i^2 / n$ are the variances. More numerically stable than computing the covariance matrix eigendecomposition.
 
-## Sources
+**Low-rank approximation** — keep only top-$k$ singular values: $A \approx U_k\Sigma_k V_k^T$. Used in recommendation systems (matrix factorization), image compression, and NLP (LSA).
 
-- [3Blue1Brown — SVD (if available)](https://www.3blue1brown.com/) — visual intuition
-- [MIT 18.06 — Strang, Lecture 29: Singular Value Decomposition](https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/)
-- [Steve Brunton — SVD YouTube series](https://www.youtube.com/watch?v=gXbThCXjZFM) — excellent visual + applied
-- [Mathematics for Machine Learning — Chapter 4.5](https://mml-book.github.io/book/mml-book.pdf)
-- [Gregory Gundersen — SVD as Change of Basis](https://gregorygundersen.com/blog/2018/12/10/svd/)
+**Pseudoinverse** — for non-square or rank-deficient matrices, $A^+ = V\Sigma^+U^T$ where $\Sigma^+$ inverts only non-zero singular values. Gives the least-squares solution to $A\mathbf{x} = \mathbf{b}$.
+
+## Exercises
+
+**Basic** — Compute the SVD of $A = \begin{bmatrix}1&1\\0&1\\1&0\end{bmatrix}$ using NumPy. List the singular values. What is the rank?
+
+**Intermediate** — Build a rank-1 approximation of a $3\times3$ matrix and compute the fraction of variance explained.
+
+**Advanced** — Show algebraically that the singular values of $A$ are the square roots of the eigenvalues of $A^TA$. Why are all eigenvalues of $A^TA$ non-negative?

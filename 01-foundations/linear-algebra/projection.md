@@ -1,190 +1,67 @@
-**Related**: [[vector-operations]], [[vector-norms]], [[cosine-similarity]], [[linear-combination]], [[basis-and-dimension]], [[linear-independence]], [[projection-onto-subspaces]], [[gaussian-elimination]]
-**Tags**: #status/growing
+---
+tags:
+  - status/growing
+  - linear-algebra
+related:
+  - "[[vector-operations]]"
+  - "[[vector-norms]]"
+  - "[[cosine-similarity]]"
+  - "[[projection-onto-subspaces]]"
+  - "[[gram-schmidt]]"
+domain: linear-algebra
+sources:
+  - "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/"
+  - "https://mml-book.github.io/book/mml-book.pdf"
+---
 
-## Core Idea
+> **TL;DR** — Projection finds the closest point on a line to a given vector. The shadow is the projection; the gap between the vector and its shadow (the residual) is always perpendicular to the line.
 
-Projection answers: **"what's the closest point on a line to me?"** Imagine a
-flashlight shining straight down onto a clothesline. The shadow of a ball on
-that line is the projection. The string from the ball down to its shadow is the
-residual — and it's always perpendicular to the line.
+---
 
-This decomposes any vector into two pieces: a **parallel part** (the shadow on
-the line) and a **perpendicular part** (the error). The perpendicular error is
-the smallest possible — any other split would produce a longer residual. This
-"perpendicular = minimum error" principle is the geometric engine behind least
-squares regression, PCA, and Gram-Schmidt orthogonalization.
+## Intuition
 
-This note covers projection onto a **single vector** (a line). For projection
-onto planes and higher-dimensional subspaces, see [[projection-onto-subspaces]].
+A flashlight shines straight down onto a clothesline. The shadow of a ball on that line is the **projection**. The string from the ball to its shadow is the **residual** — and it's always perpendicular to the line.
 
-## Details
+The residual is the *minimum possible* distance from the vector to the line. Any other point on the line would produce a longer string. This "perpendicular = minimum error" principle is the geometric engine behind least squares regression.
 
-### Scalar Projection
+This note covers projection onto a **single vector** (a line). For projection onto planes and higher spaces, see [[projection-onto-subspaces]].
 
-The **scalar projection** of $\mathbf{u}$ onto $\mathbf{v}$ gives the signed length of the shadow:
+## Mechanics
 
-$$\text{comp}_{\mathbf{v}} \mathbf{u} = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{v}\|}$$
+**Scalar projection** (the signed length of the shadow):
+$$\text{comp}_\mathbf{a}\mathbf{b} = \frac{\mathbf{b}\cdot\mathbf{a}}{\|\mathbf{a}\|}$$
 
-### Vector Projection
+**Vector projection** (the actual shadow vector):
+$$\text{proj}_\mathbf{a}\mathbf{b} = \frac{\mathbf{b}\cdot\mathbf{a}}{\mathbf{a}\cdot\mathbf{a}}\,\mathbf{a} = \frac{\mathbf{b}\cdot\mathbf{a}}{\|\mathbf{a}\|^2}\,\mathbf{a}$$
 
-The **vector projection** gives the actual shadow vector:
-
-$$\text{proj}_{\mathbf{v}} \mathbf{u} = \frac{\mathbf{u} \cdot \mathbf{v}}{\mathbf{v} \cdot \mathbf{v}} \mathbf{v} = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{v}\|^2} \mathbf{v}$$
-
-### Derivation
-
-We want to find the vector $\mathbf{p}$ on the line spanned by $\mathbf{v}$ that is closest to $\mathbf{u}$.
-
-Since $\mathbf{p}$ is on the line: $\mathbf{p} = c\mathbf{v}$ for some scalar $c$.
-
-The error (residual) is $\mathbf{e} = \mathbf{u} - \mathbf{p} = \mathbf{u} - c\mathbf{v}$.
-
-For $\mathbf{p}$ to be the **closest** point, the error must be **orthogonal** to $\mathbf{v}$:
-
-$$\mathbf{e} \cdot \mathbf{v} = 0$$
-
-$$(\mathbf{u} - c\mathbf{v}) \cdot \mathbf{v} = 0$$
-
-$$\mathbf{u} \cdot \mathbf{v} - c(\mathbf{v} \cdot \mathbf{v}) = 0$$
-
-$$c = \frac{\mathbf{u} \cdot \mathbf{v}}{\mathbf{v} \cdot \mathbf{v}}$$
-
-$$\boxed{\text{proj}_{\mathbf{v}} \mathbf{u} = \frac{\mathbf{u} \cdot \mathbf{v}}{\mathbf{v} \cdot \mathbf{v}} \mathbf{v}} \quad \blacksquare$$
-
-### What Does the Coefficient $c$ Mean?
-
-The projection coefficient $c = \frac{\mathbf{u} \cdot \mathbf{v}}{\mathbf{v} \cdot \mathbf{v}}$ tells you **how many "v-lengths" the shadow extends**. It connects to everything:
-
-| If $c$ is... | The shadow... | Meaning |
-|--------------|-------------|---------|
-| $c = 1$ | Equals $\mathbf{v}$ exactly | $\mathbf{u}$ reaches exactly as far as $\mathbf{v}$ in that direction |
-| $c > 1$ | Longer than $\mathbf{v}$ | $\mathbf{u}$ overshoots $\mathbf{v}$ in that direction |
-| $0 < c < 1$ | Shorter than $\mathbf{v}$ | $\mathbf{u}$ doesn't reach as far as $\mathbf{v}$ |
-| $c = 0$ | Is the zero vector | $\mathbf{u}$ is perpendicular to $\mathbf{v}$ — no shadow at all |
-| $c < 0$ | Points opposite to $\mathbf{v}$ | $\mathbf{u}$ points away from $\mathbf{v}$ |
-
-Notice: this is just the [[cosine-similarity|cosine similarity]] scaled by the
-ratio of norms. In fact:
-
-$$c = \frac{\mathbf{u} \cdot \mathbf{v}}{\mathbf{v} \cdot \mathbf{v}} = \frac{\|\mathbf{u}\|}{\|\mathbf{v}\|} \cos\theta$$
-
-So projection = **cosine similarity** (how aligned?) × **magnitude ratio** (how long?).
-
-### Orthogonal Decomposition
-
-Any vector can be split into two perpendicular pieces — like splitting a force into horizontal and vertical components.
-
-$$\mathbf{u} = \underbrace{\text{proj}_{\mathbf{v}} \mathbf{u}}_{\text{parallel to } \mathbf{v}} + \underbrace{(\mathbf{u} - \text{proj}_{\mathbf{v}} \mathbf{u})}_{\text{perpendicular to } \mathbf{v}}$$
-
-Visually, with $\mathbf{u} = [3, 4]$ and $\mathbf{v} = [5, 0]$:
-
-```
-         u = [3, 4]
-           *
-          /|
-         / |
-        /  |  ← residual: [0, 4] (perpendicular piece)
-       /   |
-      /    |
-     *-----*
-  origin  [3, 0] ← projection (parallel piece)
-```
-
-The split: $[3, 4] = [3, 0] + [0, 4]$, and these two pieces are orthogonal: $[3,0] \cdot [0,4] = 0$.
-
-### Why is the residual always perpendicular?
-
-This is not a coincidence — it's guaranteed by the projection formula. The scaling factor $c = \frac{\mathbf{u} \cdot \mathbf{v}}{\mathbf{v} \cdot \mathbf{v}}$ was chosen specifically to make the residual orthogonal to $\mathbf{v}$:
-
-$$\text{residual} \cdot \mathbf{v} = (\mathbf{u} - c\mathbf{v}) \cdot \mathbf{v} = \mathbf{u} \cdot \mathbf{v} - c(\mathbf{v} \cdot \mathbf{v}) = \mathbf{u} \cdot \mathbf{v} - \frac{\mathbf{u} \cdot \mathbf{v}}{\mathbf{v} \cdot \mathbf{v}}(\mathbf{v} \cdot \mathbf{v}) = \mathbf{u} \cdot \mathbf{v} - \mathbf{u} \cdot \mathbf{v} = 0$$
-
-We **built** the formula to guarantee orthogonality. $\blacksquare$
-
-### Why Perpendicular = Best Approximation (Proof)
-
-Perpendicular error is the **smallest possible error**. Here's why:
-
-Consider any other point $\mathbf{q} = t\mathbf{v}$ on the line (with $t \neq c$).
-The distance from $\mathbf{u}$ to $\mathbf{q}$ is:
-
-$$\|\mathbf{u} - \mathbf{q}\|^2 = \|\mathbf{u} - t\mathbf{v}\|^2$$
-
-Rewrite by inserting the projection $\mathbf{p} = c\mathbf{v}$:
-
-$$= \|(\mathbf{u} - \mathbf{p}) + (\mathbf{p} - t\mathbf{v})\|^2$$
-
-The first term $(\mathbf{u} - \mathbf{p})$ is the residual — perpendicular to
-$\mathbf{v}$. The second term $(\mathbf{p} - t\mathbf{v}) = (c-t)\mathbf{v}$ is
-parallel to $\mathbf{v}$. These are orthogonal, so by the **Pythagorean theorem**:
-
-$$= \|\mathbf{u} - \mathbf{p}\|^2 + \|(c-t)\mathbf{v}\|^2$$
-
-The second term is always $\geq 0$, and equals 0 only when $t = c$ (i.e., when
-$\mathbf{q}$ is the projection itself). So:
-
-$$\|\mathbf{u} - \mathbf{q}\|^2 \geq \|\mathbf{u} - \mathbf{p}\|^2 \quad \blacksquare$$
-
-**The projection is the closest point on the line.** No other point on the line
-is closer. This is why "best fit" in linear algebra always means "the error is
-perpendicular":
-
-- **Linear regression**: $\mathbf{y} = \text{prediction} + \text{residual}$. The
-  prediction is the projection of $\mathbf{y}$ onto the column space of $X$.
-  The residual is perpendicular to that space. Minimizing error = making the
-  residual orthogonal.
-- **PCA**: Data = kept components + discarded components. You project onto the
-  top-$k$ directions. What you discard is orthogonal to what you keep.
-- **Gram-Schmidt**: To make vectors orthogonal, subtract projections. The
-  subtracted piece is parallel, what remains is perpendicular — building an
-  orthogonal basis one vector at a time.
-
-### Worked Example
-
-$$\mathbf{u} = \begin{bmatrix} 3 \\ 4 \end{bmatrix}, \quad \mathbf{v} = \begin{bmatrix} 5 \\ 1 \end{bmatrix}$$
-
-Step by step:
-1. $\mathbf{u} \cdot \mathbf{v} = (3)(5) + (4)(1) = 19$
-2. $\mathbf{v} \cdot \mathbf{v} = 25 + 1 = 26$
-3. $c = \frac{19}{26} \approx 0.731$
-4. $\text{proj}_{\mathbf{v}} \mathbf{u} = \frac{19}{26}\begin{bmatrix}5\\1\end{bmatrix} = \begin{bmatrix}3.654\\0.731\end{bmatrix}$
-5. Residual: $\mathbf{u} - \text{proj} = \begin{bmatrix}3 - 3.654\\4 - 0.731\end{bmatrix} = \begin{bmatrix}-0.654\\3.269\end{bmatrix}$
-
-Verify orthogonality:
-$(3.654)(-0.654) + (0.731)(3.269) = -2.390 + 2.390 = 0$ ✓
-
-## Code Example
+**Residual** (the perpendicular gap): $\mathbf{e} = \mathbf{b} - \text{proj}_\mathbf{a}\mathbf{b}$, always satisfies $\mathbf{e}\cdot\mathbf{a} = 0$.
 
 ```python
 import numpy as np
 
-u = np.array([3.0, 4.0])
-v = np.array([5.0, 1.0])
+a = np.array([2.0, 1.0])   # line direction
+b = np.array([3.0, 3.0])   # vector to project
 
-# Projection of u onto v
-scalar = np.dot(u, v) / np.dot(v, v)  # 19/26
-proj = scalar * v                      # [3.654, 0.731]
-residual = u - proj                    # [-0.654, 3.269]
+proj = (np.dot(b, a) / np.dot(a, a)) * a   # [3.6, 1.8]
+residual = b - proj                          # [-0.6, 1.2]
 
-# Verify orthogonality
-print(np.dot(proj, residual))  # ≈ 0 (floating point)
+print(np.dot(residual, a))  # ≈ 0.0 — perpendicular ✓
 ```
 
-> For runnable implementation, see: [[code/foundations/vectors_and_spaces.py]]
+> Runnable: [[code/foundations/vectors_and_spaces.py]]
 
-## Connections
+## In ML
 
-- Projection uses the [[vector-operations|dot product]] and [[vector-norms|L2 norm]]
-- The projection coefficient $c$ is [[cosine-similarity]] scaled by the magnitude ratio
-- The projection IS a [[linear-combination]] — specifically $c \cdot \mathbf{v}$ (one vector, one coefficient)
-- [[basis-and-dimension|Change of basis]] and projection are complementary: basis change rotates the space, projection reduces dimensions
-- Generalizes to [[projection-onto-subspaces]] — projecting onto planes and higher-dimensional spaces (using the normal equation $A^TA\hat{x} = A^Tb$)
-- [[linear-independence]]: if $\mathbf{u}$ is already on the line of $\mathbf{v}$, the residual is zero — $\mathbf{u}$ is dependent on $\mathbf{v}$
-- Gram-Schmidt orthogonalization subtracts projections to build orthogonal bases → [[Orthonormal Basis and Gram-Schmidt]]
-- [[gaussian-elimination]] solves the system that arises in [[projection-onto-subspaces]]
-- [[Linear Regression]] is projection: $\hat{y} = X(X^TX)^{-1}X^T y$ — the prediction is the projection of $y$ onto column space of $X$
+**Least squares** — when $A\mathbf{x} = \mathbf{b}$ has no exact solution (noisy data), we find the closest solution: project $\mathbf{b}$ onto the column space of $A$. The residual $\mathbf{e}$ is perpendicular to that space.
 
-## Sources
+**[[gram-schmidt|Gram-Schmidt orthogonalization]]** — builds orthonormal bases by repeatedly projecting and subtracting the projection (removing the "shadow" component to extract the perpendicular part).
 
-- [3Blue1Brown — Dot products and duality](https://www.youtube.com/watch?v=LyGKycYT2v0)
-- [MIT 18.06 — Strang, Lecture 15: Projections onto Subspaces](https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/)
-- [Mathematics for Machine Learning — Chapter 3.8](https://mml-book.github.io/book/mml-book.pdf)
+**Attention mechanism** — query-key dot products measure how much each query "projects" onto each key direction. High projection = high attention weight.
+
+## Exercises
+
+**Basic** — Project $\mathbf{b} = [4, 3]$ onto $\mathbf{a} = [2, 0]$. Compute both the scalar and vector projection. Verify the residual is perpendicular to $\mathbf{a}$.
+
+**Intermediate** — Project $\mathbf{b} = [1, 2, 3]$ onto $\mathbf{a} = [1, 1, 0]$. Show that $\mathbf{b} = \text{proj} + \text{residual}$.
+
+**Advanced** — Prove that the projection minimizes distance: show that $\|\mathbf{b} - c\mathbf{a}\|^2$ is minimized at $c = \frac{\mathbf{b}\cdot\mathbf{a}}{\mathbf{a}\cdot\mathbf{a}}$ by completing the square or taking the derivative.
