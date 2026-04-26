@@ -1,7 +1,13 @@
-**Source**: [Title](url)
-**Type**: paper | blog | video | course | documentation
-**Date read**: {{date}}
-**Tags**: #status/seed
+---
+tags:
+  - status/seed
+  - literature
+type: paper | blog | video | course | documentation
+domain: <linear-algebra | calculus | probability | ml | deep-learning | llms | mlops>
+sources:
+  - ""
+date_read: ""
+---
 
 ## Summary
 

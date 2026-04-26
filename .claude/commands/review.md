@@ -6,9 +6,9 @@ Evaluate the note on these criteria:
 
 1. **Atomicity**: Does it cover exactly one concept? If it covers multiple, suggest how to split it.
 
-2. **Clarity**: Is the Core Idea section understandable on its own? Would someone with foundational knowledge grasp it?
+2. **Clarity**: Is the TL;DR one sentence and accurate? Is the Intuition section understandable without formulas? Would someone with foundational knowledge grasp it?
 
-3. **Depth**: Is the Details section thorough enough? Are there gaps in the explanation? Is the math correct?
+3. **Depth**: Is the Mechanics section thorough enough? Are derivations shown (not just stated)? Is the math correct? Does In ML connect to real algorithms?
 
 4. **Code quality**: If there's a code example, is it correct, clear, and illustrative?
 
