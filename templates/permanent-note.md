@@ -1,27 +1,48 @@
-**Related**: [[]]
-**Tags**: #status/seed
+---
+tags:
+  - status/seed
+  - <domain>
+related:
+  - "[[]]"
+domain: <linear-algebra | calculus | probability | ml | deep-learning | llms>
+sources:
+  - ""
+---
 
-## Core Idea
+> **TL;DR** — One sentence. The one thing to remember about this concept.
 
+---
 
+## Intuition
 
-## Details
+Plain English. Analogy first. No formulas yet. Answer: what question does this concept answer, and why should you care?
 
+## Mechanics
 
+The actual math or formal definition. Derivations where they build understanding — don't just state, show where formulas come from.
 
-## Code Example
+| Property | Formula | Why it matters |
+|----------|---------|---------------|
+| ... | ... | ... |
 
 ```python
-# example
+# short illustrative snippet — NOT production code
 ```
 
-> For runnable implementation, see: [[]]
+> Runnable: [[code/]]
 
-## Connections
+## In ML
 
-- How does this relate to [[]]?
-- Why does this matter for [[]]?
+Where this concept shows up in practice. 2–3 bold-labeled paragraphs connecting to real algorithms or systems.
 
-## Sources
+**Connection 1** — ...
 
-- [Source](url)
+**Connection 2** — ...
+
+## Exercises
+
+**Basic** — Direct application. Can you compute it by hand?
+
+**Intermediate** — Combine with another concept. Solve a non-trivial problem.
+
+**Advanced** — Edge case, proof, or "what breaks when..."

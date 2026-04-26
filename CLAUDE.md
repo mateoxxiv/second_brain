@@ -85,44 +85,64 @@ second_brain/
 
 ### Atomic Note Rules
 
-- **One idea per note**. If a note covers two concepts, split it.
+- **One idea per note**. If a note covers two concepts, split it. Max ~70 lines.
 - **Write in your own words**. Never copy-paste without rephrasing.
-- **Link aggressively**. Every note should link to at least 1-2 related notes using `[[wikilinks]]`.
-- **Use tags sparingly**. Prefer links over tags for organization. Tags are for status only: `#status/seed`, `#status/growing`, `#status/evergreen`.
+- **Link aggressively**. Use `[[wikilinks]]` — never plain text like "see X" or "Forward link: X".
+- **All metadata in YAML**. Tags, related notes, sources, and domain go in the frontmatter block. The note body is content only.
+- **Status tags**: `status/seed` (just started) → `status/growing` (in development) → `status/evergreen` (mature).
 - **Title = clear concept name**. E.g., "Gradient Descent", "Bias-Variance Tradeoff", "Attention Mechanism".
 
 ### Note Template (Permanent Notes)
 
 ```markdown
-**Related**: [[note1]], [[note2]]
-**Tags**: #status/seed
+---
+tags:
+  - status/seed
+  - <domain>
+related:
+  - "[[note1]]"
+  - "[[note2]]"
+domain: <linear-algebra | calculus | probability | ml | deep-learning | llms>
+sources:
+  - "url"
+---
 
-## Core Idea
+> **TL;DR** — One sentence. The one thing to remember about this concept.
 
-(One paragraph explaining the concept in your own words)
+---
 
-## Details
+## Intuition
 
-(Deeper explanation, math if applicable, diagrams)
+Plain English first. Analogy before formula. Answer: what question does this solve, and why care?
 
-## Code Example
+## Mechanics
 
-(Inline snippet for illustration)
+Formal definition + derivation (show where formulas come from, don't just state them).
+
+| Property | Formula | Why it matters |
+|----------|---------|---------------|
 
 \```python
-# short example
+# short illustrative snippet (< 20 lines)
 \```
 
-> For runnable implementation, see: [[code/path/to/file.py]]
+> Runnable: [[code/path/to/file.py]]
 
-## Connections
+## In ML
 
-- How does this relate to [[other concept]]?
-- Why does this matter for [[broader topic]]?
+Where this concept appears in real algorithms or systems. 2–3 bold-labeled paragraphs.
 
-## Sources
+**Connection 1** — ...
 
-- [Source title](url)
+**Connection 2** — ...
+
+## Exercises
+
+**Basic** — Direct application. Can you compute it by hand?
+
+**Intermediate** — Combine with another concept. Solve a non-trivial problem.
+
+**Advanced** — Edge case, proof, or "what breaks when..."
 ```
 
 ## Code Practices

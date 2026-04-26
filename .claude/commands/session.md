@@ -17,10 +17,12 @@ A study session combines multiple workflows into one guided flow. This vault fol
    - Connect to concepts the user already has notes on
    - Explain the intuition AND the rigor
 
-3. **Create permanent note**:
-   - Draft an atomic note following the Zettelkasten format (no H1 title — filename is the title)
-   - Include derivations and proofs in the Details section when they build understanding
-   - Show it to the user for review before saving
+3. **Reference existing notes**:
+   - Search the vault for notes already covering this topic or prerequisites
+   - List the relevant notes found and briefly state what each covers
+   - Identify any gaps — concepts not yet in the vault that this session should eventually produce
+   - Do NOT create notes during the session; note creation happens separately via `/note`
+   - When referencing what a future note should look like, it uses the layered structure: TL;DR → Intuition → Mechanics → In ML → Exercises
 
 4. **Code implementation**:
    - Build a from-scratch implementation (raw Python/NumPy first, no library shortcuts)

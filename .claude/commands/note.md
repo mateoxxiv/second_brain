@@ -11,13 +11,15 @@ Follow these steps:
 
 3. **Write the note**: Use the permanent note template from `templates/permanent-note.md`. Follow these rules:
    - No H1 title — the filename IS the title in Obsidian
-   - One concept only
-   - Write the Core Idea section as a clear, concise explanation in your own words
-   - Include mathematical notation ($LaTeX$) with derivations where they build understanding — don't just state formulas, show where they come from
-   - Add worked examples: step-by-step mathematical calculations showing the concept in action
-   - Add a short inline code example if applicable
-   - Link to existing vault notes using [[wikilinks]]
-   - Tag as #status/seed
+   - One concept only — max ~70 lines
+   - All metadata (tags, related, sources, domain) in the YAML frontmatter block. Nothing inline.
+   - **TL;DR**: one sentence at the top — the single most important thing to remember
+   - **Intuition**: plain English and analogy before any math
+   - **Mechanics**: formal definition + derivation (show where formulas come from) + properties table + short code snippet (< 20 lines)
+   - **In ML**: 2–3 bold-labeled paragraphs connecting to real algorithms or systems
+   - **Exercises**: basic / intermediate / advanced — required, not optional
+   - Link to existing vault notes using `[[wikilinks]]` — never plain text references
+   - Tag as `status/seed`
    - Place in the correct subfolder based on the topic
 
 4. **Code file**: If the concept benefits from a runnable implementation, create a `.py` file in the corresponding `code/` subfolder with progressive exercises (basic → intermediate → advanced). Link it from the note.
