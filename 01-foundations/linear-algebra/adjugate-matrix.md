@@ -75,7 +75,7 @@ print(np.allclose(adj / det, np.linalg.inv(A)))  # True
 
 **Gradient of the determinant** — differentiating $\det(A)$ with respect to $A$ gives $\frac{\partial\,\det(A)}{\partial A} = \text{adj}(A)^T$. This gradient appears when optimising log-likelihoods of multivariate Gaussians, where the normalization term contains $\det(\Sigma)$.
 
-**Cramer's rule** — solves $A\mathbf{x}=\mathbf{b}$ analytically: $x_j = \det(A_j)/\det(A)$, where $A_j$ replaces column $j$ with $\mathbf{b}$. Equivalent to $\mathbf{x} = \text{adj}(A)\,\mathbf{b}\,/\,\det(A)$. Conceptually clean, computationally impractical ($O(n^4)$).
+**[[cramer-rule]]** — solves $A\mathbf{x}=\mathbf{b}$ analytically: $x_j = \det(A_j)/\det(A)$, where $A_j$ replaces column $j$ with $\mathbf{b}$. Equivalent to $\mathbf{x} = \text{adj}(A)\,\mathbf{b}\,/\,\det(A)$. Conceptually clean, computationally impractical ($O(n^4)$).
 
 **Why [[gaussian-elimination]] wins** — the adjugate requires computing $n^2$ cofactors, each an $(n-1)\times(n-1)$ determinant. Total cost: $O(n^4)$. Gaussian elimination solves $Ax=b$ in $O(n^3)$. Use the adjugate to *understand* the inverse; use `np.linalg.solve` to *compute* it.
 
