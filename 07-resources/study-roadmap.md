@@ -1,7 +1,7 @@
 # Study Roadmap
 
 **Created**: 2026-02-24
-**Last updated**: 2026-04-08
+**Last updated**: 2026-05-02
 **Goal**: Become an expert AI architect and engineer — design, implement, and orchestrate intelligent systems end-to-end.
 
 ---
@@ -31,49 +31,27 @@ Both together = architect.
 
 ## Progress Overview
 
-| Area | Notes | Code | Status |
-|------|-------|------|--------|
-| 01-foundations/linear-algebra | 19 | 3 | Near complete (8 evergreen, 9 growing, 2 seed) |
-| 01-foundations/calculus | 6 | 0 | Core complete — matrix calculus remaining |
-| 01-foundations/probability | 10 | 1 | Strong progress — distributions done, MLE/entropy next (9 growing, 1 seed) |
-| 01-foundations/algorithms | 0 | 0 | Not started |
-| 01-foundations/databases | 0 | 0 | Not started |
-| 02-machine-learning | 0 | 0 | Not started |
-| 03-deep-learning | 0 | 0 | Not started |
-| 04-llms-and-agents | 8 | 2 | In progress (Anthropic + OpenAI ecosystems done) |
-| 05-mlops | 0 | 0 | Not started |
-| 06-projects | 0 | 0 | Not started |
+| Area | Notes | Status |
+|------|-------|--------|
+| 01-foundations/linear-algebra | 25 | Strong — determinants cluster complete, dot/cross product added |
+| 01-foundations/calculus | 6 | Core complete — matrix calculus remaining |
+| 01-foundations/probability | 10 | Distributions done — MLE, entropy, multivariate Normal next |
+| 01-foundations/algorithms | 0 | Not started |
+| 01-foundations/databases | 0 | Not started |
+| 02-machine-learning | 0 | Not started |
+| 03-deep-learning | 0 | Not started |
+| 04-llms-and-agents | 8 | Anthropic + OpenAI ecosystems covered |
+| 05-mlops | 0 | Not started |
 
-### Linear Algebra Notes Completed
+**Total notes**: 49 | **8 evergreen** | **25 growing** | **16 seed**
 
-- [x] Vectors and Vector Spaces
-- [x] Vector Operations
-- [x] Vector Norms
-- [x] Cosine Similarity
-- [x] Linear Combination
-- [x] Linear Independence
-- [x] Basis and Dimension
-- [x] Projection
-- [x] Projection onto Subspaces
-- [x] Gaussian Elimination
-- [x] Determinant
-- [x] Matrix Operations (transpose, multiply, identity)
-- [x] Matrix Inverse
-- [x] Special Matrices (symmetric, orthogonal, diagonal, singular, positive definite)
-- [x] Eigenvalues and Eigenvectors
-- [x] Spectral Decomposition
-- [x] Singular Value Decomposition (SVD)
-- [x] Orthonormal Basis and Gram-Schmidt
-- [x] Linear Transformations
-- [ ] Matrix Calculus (Jacobians, Hessians)
+**All 49 notes** are on the new layered structure (TL;DR → Intuition → Mechanics → In ML → Exercises).
 
 ---
 
 ## THEORY TRACK
 
-Deep understanding. Derive, don't memorize. Implement from scratch.
-
-### T1: Linear Algebra (Weeks 1-3) — NEAR COMPLETE
+### T1: Linear Algebra — NEAR COMPLETE (25/~28 notes)
 
 > *Why*: Every ML algorithm is a matrix operation. You can't understand neural nets, PCA, or embeddings without this.
 
@@ -81,6 +59,8 @@ Deep understanding. Derive, don't memorize. Implement from scratch.
 - [x] Vectors and Vector Spaces
 - [x] Vector Operations
 - [x] Vector Norms
+- [x] Dot Product ← new
+- [x] Cross Product + Lagrange Identity ← new
 - [x] Cosine Similarity
 - [x] Linear Combination
 - [x] Linear Independence
@@ -89,155 +69,116 @@ Deep understanding. Derive, don't memorize. Implement from scratch.
 - [x] Projection onto Subspaces
 - [x] Gaussian Elimination
 - [x] Determinant
-
-**Recently completed:**
-- [x] Gram-Schmidt — #status/growing, session done (projection connection, worked examples)
-- [x] Linear Transformations — #status/growing, session done (kernel, image, rank-nullity)
-- [x] SVD — #status/seed, session done (recipe, worked example, low-rank approx)
-- [x] Spectral Decomposition — #status/growing (knowledge check done)
-- [x] Eigenvalues and Eigenvectors — #status/evergreen (8 total)
+- [x] Cofactor ← new
+- [x] Adjugate Matrix ← new
+- [x] Sarrus' Rule ← new
+- [x] Cramer's Rule ← new
+- [x] Matrix Operations
+- [x] Matrix Inverse
+- [x] Special Matrices
+- [x] Eigenvalues and Eigenvectors
+- [x] Spectral Decomposition
+- [x] Singular Value Decomposition
+- [x] Gram-Schmidt
+- [x] Linear Transformations
 
 **Remaining:**
-- [ ] Matrix Calculus (Jacobians, Hessians) — needs calculus track first
-- [ ] Pseudoinverse (Moore-Penrose) — via SVD, for least-squares regression
-- [ ] Matrix Norms and Condition Number — numerical stability, gradient health
-- [ ] Tensor Operations — 3D+ arrays for deep learning (batches of matrices)
-- [ ] **Code**: SVD for image compression
+- [ ] Matrix Calculus (Jacobians, Hessians, dL/dW) — needs calculus track first, CRITICAL for backprop
+- [ ] Pseudoinverse (Moore-Penrose) — via SVD, for least-squares
+- [ ] Matrix Norms and Condition Number — numerical stability
 
-**Estimated remaining**: ~4 notes, 1 code file
+**Estimated remaining**: ~3 notes
 
-### T2: Calculus (Weeks 3-4) — CORE COMPLETE
+---
+
+### T2: Calculus — CORE COMPLETE (6/~9 notes)
 
 > *Why*: Optimization IS calculus. Gradient descent, backpropagation, loss functions — all calculus.
 
 **Done:**
 - [x] Derivatives and Partial Derivatives
-- [x] Derivative Rules (power, product, quotient, exponential, logarithm)
-- [x] Chain Rule (critical for backprop)
-- [x] Polynomial Factorization (quadratic formula, inspection, special patterns)
-- [x] Gradient Descent (algorithm, learning rate, batch/stochastic/mini-batch)
-- [x] Optimization (minima, maxima, saddle points, convexity, second derivative test)
+- [x] Derivative Rules
+- [x] Chain Rule
+- [x] Polynomial Factorization
+- [x] Gradient Descent
+- [x] Optimization (convexity, second derivative test, saddle points)
 
-**Remaining (do later — not blocking time series):**
-- [ ] Matrix Calculus (Jacobians, Hessians, dL/dW) — CRITICAL for backprop
-- [ ] Integration Basics — needed for probability distributions
+**Remaining:**
+- [ ] Matrix Calculus (Jacobians, Hessians) — CRITICAL before deep learning
 - [ ] Taylor Series and Approximations — explains why gradient descent works
-- [ ] **Code**: Gradient descent from scratch
+- [ ] Integration Basics — needed for probability density derivations
 
-**Estimated remaining**: ~3 notes, 1 code file
+**Estimated remaining**: ~3 notes
 
-### T3: Probability and Statistics (Weeks 5-7) — IN PROGRESS
+---
+
+### T3: Probability and Statistics — IN PROGRESS (10/~18 notes)
 
 > *Why*: ML is applied statistics. Bayesian thinking, distributions, hypothesis testing.
 
 **Done:**
-- [x] Probability Fundamentals (Bayes, conditional, independence, total probability)
+- [x] Probability Fundamentals (Bayes, conditional, independence)
 - [x] Probability Distributions (overview + selection guide)
-- [x] Normal Distribution (CLT, standardization, MSE derivation)
-- [x] Bernoulli Distribution (binary outcomes, cross-entropy from MLE)
-- [x] Binomial Distribution (PMF from scratch, CLT connection)
-- [x] Poisson Distribution (derived from Binomial, overdispersion check)
-- [x] Exponential Distribution (memoryless property, queue simulation)
+- [x] Bernoulli Distribution
+- [x] Binomial Distribution
+- [x] Normal Distribution (CLT, MSE derivation)
+- [x] Poisson Distribution
+- [x] Exponential Distribution (memoryless property)
 - [x] Beta Distribution (conjugate prior, Bayesian A/B testing)
-- [x] Dirichlet Distribution (LDA connection, concentration parameter)
-- [x] CDF and Quantile Function (inverse transform sampling, confidence intervals)
+- [x] Dirichlet Distribution (LDA connection)
+- [x] CDF and Quantile Function
 
-**Distributions — atomic notes needed (Tier 1, do first):**
-- [x] Normal Distribution — CLT, standardization, MSE derivation
-- [x] Bernoulli Distribution — binary outcomes, cross-entropy connection
-- [x] Binomial Distribution — n Bernoulli trials
-- [x] Poisson Distribution — count data, NLP word frequencies
-- [x] Exponential Distribution — queues, inter-arrival times, memoryless property
-- [x] Beta Distribution — conjugate prior for Bernoulli, Bayesian A/B testing
-- [x] Dirichlet Distribution — LDA topic models, multinomial prior
-
-**Distributions — atomic notes needed (Tier 2, defer until Bayesian section):**
-- [ ] Gamma Distribution — conjugate prior for Poisson/Exponential
-- [ ] Chi-Squared Distribution — hypothesis testing, feature selection
-- [ ] Student's t Distribution — small-sample inference
-- [ ] Log-Normal Distribution — finance, right-skewed positive data
-- [ ] Empirical Distributions — bootstrap, permutation tests
-
-**Remaining critical topics:**
+**Remaining (priority order):**
+- [ ] Maximum Likelihood Estimation (MLE) ← NEXT — derives ALL loss functions from distributions
+- [ ] Cross-Entropy and KL Divergence — information theory, classification losses
 - [ ] Joint, Marginal, and Conditional Distributions
-- [ ] Multivariate Normal Distribution (used everywhere in ML)
-- [ ] Maximum Likelihood Estimation (MLE)
-- [ ] Cross-Entropy and Information Theory (Entropy, KL Divergence)
-- [x] **Code**: Distribution sampling, diagnostics, MLE→loss connection (`code/foundations/probability_distributions.py`)
-- [ ] **Code**: MLE from scratch
-
-**Remaining (important — can defer):**
+- [ ] Multivariate Normal Distribution — used in VAEs, Gaussian processes
 - [ ] Maximum A Posteriori (MAP)
 - [ ] Hypothesis Testing and p-values
-- [ ] Sampling, Bootstrapping, Monte Carlo
-- [ ] Density Estimation
-- [ ] Quantiles and Robust Statistics
+- [ ] Bootstrap and Empirical Distributions
+- [ ] Tier 2 distributions: Gamma, Chi-Squared, Student's t, Log-Normal
 
-**Estimated**: ~18 notes, 2 code files
+**Estimated remaining**: ~8 notes
 
-### T4: Supervised ML (Weeks 7-10)
+---
+
+### T4: Supervised ML — NOT STARTED (0/~8 notes)
 
 > *Why*: The core of predictive modeling. Build from scratch before using libraries.
 
-- [ ] Linear Regression (closed-form + gradient descent)
+- [ ] Linear Regression (closed-form + gradient descent, normal equations)
 - [ ] Logistic Regression
 - [ ] Decision Trees
-- [ ] Support Vector Machines (SVM)
-- [ ] K-Nearest Neighbors (KNN)
+- [ ] Support Vector Machines
+- [ ] K-Nearest Neighbors
 - [ ] Naive Bayes
 - [ ] Bias-Variance Tradeoff
-- [ ] Regularization (L1/L2, Ridge, Lasso, ElasticNet)
-- [ ] **Code**: Linear regression from scratch
-- [ ] **Code**: Logistic regression from scratch
-- [ ] **Code**: Decision tree from scratch
+- [ ] Regularization (L1/L2, Ridge, Lasso)
 
 **Estimated**: ~8 notes, 3 code files
 
-### T5: Time Series Analysis and Forecasting (Weeks 10-12) — HIGH PRIORITY
+---
 
-> *Why*: Time-dependent data is everywhere — stock prices, sensor data, demand forecasting, user behavior. Most real-world production ML involves time series. This is a critical skill gap.
-
-- [ ] Time Series Fundamentals (trend, seasonality, stationarity, autocorrelation)
-- [ ] Decomposition (additive vs multiplicative, STL decomposition)
-- [ ] Classical Methods (ARIMA, SARIMA, exponential smoothing)
-- [ ] Feature Engineering for Time Series (lags, rolling stats, calendar features)
-- [ ] Evaluation (walk-forward validation, MAPE, RMSE, time-aware splits)
-- [ ] ML for Time Series (XGBoost on time features, Prophet)
-- [ ] Deep Learning for Time Series (LSTM, Temporal Fusion Transformer, N-BEATS)
-- [ ] Multivariate Time Series and Forecasting at Scale
-- [ ] **Code**: ARIMA from scratch
-- [ ] **Code**: LSTM forecaster in PyTorch
-- [ ] **Code**: Feature engineering pipeline for time series
-
-**Estimated**: ~8 notes, 3 code files
-
-### T6: Unsupervised ML (Weeks 12-14)
-
-> *Why*: Clustering, dimensionality reduction, anomaly detection.
+### T5: Unsupervised ML — NOT STARTED (0/~5 notes)
 
 - [ ] K-Means Clustering
 - [ ] Hierarchical Clustering and DBSCAN
 - [ ] Principal Component Analysis (PCA)
 - [ ] t-SNE and UMAP
 - [ ] Anomaly Detection
-- [ ] **Code**: K-Means from scratch
-- [ ] **Code**: PCA from scratch + visualization
 
-**Estimated**: ~5 notes, 2 code files
+---
 
-### T7: Ensemble Methods (Weeks 14-15)
-
-> *Why*: Random forests, XGBoost — dominate tabular data.
+### T6: Ensemble Methods — NOT STARTED (0/~4 notes)
 
 - [ ] Bagging, Bootstrap, Random Forests
 - [ ] Boosting (AdaBoost, Gradient Boosting)
 - [ ] XGBoost / LightGBM / CatBoost
 - [ ] Stacking and Blending
-- [ ] **Code**: Random forest from scratch
 
-**Estimated**: ~4 notes, 1 code file
+---
 
-### T8: Deep Learning Fundamentals (Weeks 16-19)
+### T7: Deep Learning Fundamentals — NOT STARTED (0/~7 notes)
 
 > *Why*: Build neural networks from scratch before using frameworks.
 
@@ -245,29 +186,23 @@ Deep understanding. Derive, don't memorize. Implement from scratch.
 - [ ] Activation Functions (ReLU, Sigmoid, Tanh, GELU)
 - [ ] Forward and Backpropagation
 - [ ] Loss Functions (MSE, Cross-Entropy, Focal Loss)
-- [ ] Gradient Descent Variants and Optimizers (SGD, Adam)
+- [ ] Optimizers (SGD, Adam, AdaGrad)
 - [ ] Batch Normalization, Dropout, Weight Init
 - [ ] Vanishing/Exploding Gradients
-- [ ] **Code**: Neural network from scratch (NumPy only)
-- [ ] **Code**: Same network in PyTorch
 
-**Estimated**: ~7 notes, 2 code files
+---
 
-### T9: CNNs and RNNs (Weeks 19-22)
-
-> *Why*: Vision and sequences. Understanding these makes transformers click.
+### T8: CNNs and RNNs — NOT STARTED (0/~5 notes)
 
 - [ ] Convolution Operation and Pooling
 - [ ] CNN Architectures (LeNet → ResNet)
 - [ ] Transfer Learning
 - [ ] Vanilla RNN, LSTM, GRU
 - [ ] Sequence-to-Sequence Models
-- [ ] **Code**: CNN image classifier (PyTorch)
-- [ ] **Code**: LSTM text generator (PyTorch)
 
-**Estimated**: ~5 notes, 2 code files
+---
 
-### T10: Transformers and Attention (Weeks 22-25)
+### T9: Transformers and Attention — NOT STARTED (0/~6 notes)
 
 > *Why*: THE architecture behind modern AI. Everything leads here.
 
@@ -277,14 +212,10 @@ Deep understanding. Derive, don't memorize. Implement from scratch.
 - [ ] Transformer Architecture (Encoder-Decoder)
 - [ ] BERT, GPT, and the Encoder/Decoder Split
 - [ ] Vision Transformers (ViT)
-- [ ] **Code**: Attention from scratch
-- [ ] **Code**: Minimal transformer in PyTorch
 
-**Estimated**: ~6 notes, 2 code files
+---
 
-### T11: LLM Internals (Weeks 25-27)
-
-> *Why*: Understand what's inside GPT, Claude, LLaMA — not just how to call them.
+### T10: LLM Internals — NOT STARTED (0/~6 notes)
 
 - [ ] Language Modeling (autoregressive vs masked)
 - [ ] Tokenization (BPE, WordPiece, SentencePiece)
@@ -292,256 +223,86 @@ Deep understanding. Derive, don't memorize. Implement from scratch.
 - [ ] Context Windows and KV-Cache
 - [ ] RLHF and DPO (alignment)
 - [ ] Fine-Tuning: Full vs LoRA/QLoRA
-- [ ] **Code**: BPE tokenizer from scratch
-- [ ] **Code**: LoRA fine-tuning with HuggingFace
-
-**Estimated**: ~6 notes, 2 code files
 
 ---
 
 ## BUILDER TRACK
 
-Learn by doing. Use real tools. Ship things. Runs in parallel with Theory.
+### B1: LLM APIs — DONE
 
-### B1: Environment & First API Calls (Start: Week 1)
+- [x] Anthropic Claude API
+- [x] OpenAI API
+- [x] Claude Code
+- [x] Claude Code Agent Teams
+- [x] Model Context Protocol
+- [x] Claude Agent SDK
+- [x] OpenAI Codex
+- [x] OpenAI Agents SDK
 
-> *Start here on day 1.* You can call an API without understanding transformers.
-> **Theory link**: None needed yet — just get your hands dirty.
-
-- [ ] Python Development Setup (venv, pip, project structure)
-- [x] LLM API Basics: Anthropic Claude API
-- [x] LLM API Basics: OpenAI API
-- [ ] API Key Management and .env Best Practices
-- [ ] **MUST: [Anthropic Courses (Skilljar)](https://anthropic.skilljar.com/)** — official guided courses on Claude API, prompt engineering, and AI development. Complete before moving to B2.
-- [ ] **Project**: Simple chatbot CLI that calls Claude API
-
-**Estimated**: ~3 notes, 1 project
-
-### Anthropic Ecosystem Notes Completed
-
-- [x] Anthropic Claude API (`04-llms-and-agents/apis-and-services/`)
-- [x] Claude Code — full feature docs (`04-llms-and-agents/tooling-ecosystem/`)
-- [x] Claude Code Agent Teams (`04-llms-and-agents/tooling-ecosystem/`)
-- [x] Model Context Protocol (`04-llms-and-agents/integration-patterns/`)
-- [x] Claude Agent SDK (`04-llms-and-agents/agent-frameworks/`)
-- [x] `code/llms/anthropic_api.py` — 8 demos + 9 exercises
-
-### OpenAI Ecosystem Notes Completed
-
-- [x] OpenAI API (`04-llms-and-agents/apis-and-services/`)
-- [x] OpenAI Codex (`04-llms-and-agents/tooling-ecosystem/`)
-- [x] OpenAI Agents SDK (`04-llms-and-agents/agent-frameworks/`)
-- [x] `code/llms/openai_api.py` — 8 demos + 9 exercises
-
-### B2: Prompt Engineering in Practice (Start: Week 2)
-
-> Build reliable AI outputs through prompt design.
-> **Theory link**: None needed yet — learn patterns by experimentation.
+### B2: Prompt Engineering — NOT STARTED
 
 - [ ] Prompt Design Patterns (zero-shot, few-shot, chain-of-thought)
 - [ ] Structured Output (JSON mode, function calling)
 - [ ] System Prompts and Guardrails
-- [ ] Prompt Testing and Iteration
-- [ ] **Project**: Structured data extractor (PDF/text → JSON)
+- [ ] **Project**: Structured data extractor
 
-**Estimated**: ~4 notes, 1 project
+### B3: LLM Providers Landscape — NOT STARTED
 
-### B3: LLM Providers Landscape (Start: Week 3)
+- [ ] Provider Comparison (Claude vs GPT vs Gemini vs Mistral vs LLaMA)
+- [ ] Pricing and Cost Optimization
+- [ ] Model Selection Framework
+- [ ] **Project**: Multi-provider router
 
-> Know the playing field. Each provider has different strengths, pricing, and features.
-> **Theory link**: None needed — this is practical market knowledge.
-
-- [ ] Provider Comparison: Claude vs GPT vs Gemini vs DeepSeek vs Mistral vs Llama
-- [ ] Key Features by Provider (tool use, vision, code gen, context window, structured output, streaming, batch)
-- [ ] Pricing Models and Cost Optimization (tokens, caching, batching, model tiers)
-- [ ] Open-Source vs Closed-Source Tradeoffs (control, cost, latency, privacy)
-- [ ] Model Selection Framework (when to pick which model for which task)
-- [ ] Multi-Provider Strategy (fallbacks, routing by task type, cost/quality balance)
-- [ ] **Project**: Multi-provider CLI tool that routes prompts to the best model per task
-
-**Estimated**: ~5 notes, 1 project
-
-### B4: Embeddings & Vector Search (Start: Week 4-5)
-
-> Your first real connection between theory and practice.
-> **Theory link**: [[cosine-similarity]], [[vector-norms]], [[vectors-and-vector-spaces]] — NOW you see why vectors matter.
+### B4: Embeddings & Vector Search — NOT STARTED
 
 - [ ] Embedding Models (OpenAI, Cohere, open-source)
-- [ ] What Embeddings Actually Represent (connecting to vector theory)
-- [ ] Vector Databases: Chroma (local, simple)
-- [ ] Vector Databases: Pinecone / Qdrant (cloud, production)
-- [ ] Similarity Search in Practice
-- [ ] **Project**: Semantic search over your own documents
+- [ ] Vector Databases (Chroma, Pinecone, Qdrant)
+- [ ] **Project**: Semantic search over your own vault
 
-**Estimated**: ~4 notes, 1 project
+### B5: RAG Pipeline — NOT STARTED
 
-### B5: Build a RAG Pipeline (Start: Week 6-7)
+- [ ] RAG Architecture
+- [ ] Chunking Strategies
+- [ ] Retrieval (dense, sparse, hybrid)
+- [ ] Reranking and Evaluation
+- [ ] **Project**: RAG chatbot over this vault
 
-> The most common production LLM pattern.
-> **Theory link**: [[projection]] (finding closest match), cosine similarity, embeddings.
-
-- [ ] RAG Architecture Overview
-- [ ] Chunking Strategies (size, overlap, semantic)
-- [ ] Retrieval Techniques (dense, sparse, hybrid)
-- [ ] Reranking
-- [ ] RAG Evaluation (faithfulness, relevance, recall)
-- [ ] **Project**: RAG chatbot over a knowledge base (your vault!)
-
-**Estimated**: ~5 notes, 1 project
-
-### B6: Tool Use & Function Calling (Start: Week 8-9)
-
-> Give LLMs the ability to take actions.
-> **Theory link**: Connects to agent architectures later.
-
-- [ ] Function Calling (OpenAI, Anthropic tool use)
-- [ ] Designing Good Tool Schemas
-- [ ] Error Handling and Retries
-- [ ] **Project**: AI assistant that can search the web, read files, run code
-
-**Estimated**: ~3 notes, 1 project
-
-### B7: Agent Frameworks (Start: Week 10-12)
-
-> Autonomous AI systems that reason, plan, and act.
-> **Theory link**: T9 (attention/transformers) helps understand WHY agents work.
-
-- [ ] Agent Patterns (ReAct, Plan-and-Execute)
-- [ ] Memory Systems (short-term, long-term, episodic)
-- [ ] LangChain / LangGraph Deep Dive
-- [ ] Multi-Agent Systems
-- [ ] Orchestration Tools (CrewAI, AutoGen, OpenAI Swarm)
-- [ ] **Project**: Multi-agent system for a real task
-
-**Estimated**: ~5 notes, 1 project
-
-### B8: Evaluation & Observability (Start: Week 13-14)
-
-> Measure and monitor your AI systems.
-> **Theory link**: T5 evaluation metrics (precision, recall) apply here too.
-
-- [ ] LLM Evaluation Frameworks (RAGAS, DeepEval)
-- [ ] Observability Platforms (LangFuse, LangSmith)
-- [ ] Cost Tracking and Optimization
-- [ ] Logging, Tracing, and Debugging LLM Apps
-- [ ] **Project**: Add evaluation + monitoring to your RAG app
-
-**Estimated**: ~4 notes, 1 project
-
-### B9: Production Patterns (Start: Week 15-17)
-
-> Make your AI systems reliable, fast, and cost-efficient.
-> **Theory link**: MLOps concepts from T10+.
-
-- [ ] Multi-Model Routing and Fallbacks
-- [ ] Caching Strategies for LLM Calls
-- [ ] Rate Limiting and API Gateway Design
-- [ ] Open-Source Model Serving (Ollama, vLLM, TGI)
-- [ ] Containerization with Docker
-- [ ] REST API Serving (FastAPI)
-- [ ] **Project**: Production-grade AI API with fallbacks, caching, monitoring
-
-**Estimated**: ~6 notes, 1 project
-
-### B10: MLOps & Infrastructure (Start: Week 18-21)
-
-> Taking models from notebook to production at scale.
-> **Theory link**: Everything comes together.
-
-- [ ] ML Pipeline Orchestration (Airflow, Prefect)
-- [ ] Experiment Tracking (MLflow, W&B)
-- [ ] Model Versioning (DVC, MLflow Registry)
-- [ ] Data Drift Detection
-- [ ] Cloud ML Services Overview (AWS, GCP, Azure)
-- [ ] **Project**: End-to-end ML pipeline with tracking, versioning, deployment
-
-**Estimated**: ~5 notes, 1 project
+### B6–B10: Tool Use, Agents, Evaluation, Production, MLOps — NOT STARTED
 
 ---
 
-## CAPSTONE PROJECTS (Weeks 20+)
-
-Combine both tracks into ambitious projects:
-
-- [ ] **Full-Stack RAG Application**: Production RAG with evaluation, monitoring, multi-source retrieval, and a web UI
-- [ ] **Custom Neural Network Library**: Mini PyTorch from scratch (tensors, autograd, layers)
-- [ ] **AI Agent Platform**: Multi-agent system with memory, tools, evaluation, and observability
-- [ ] **ML Pipeline Platform**: Full lifecycle — data ingestion, training, versioning, deployment, monitoring
-- [ ] **Open-Source Contribution**: Contribute to a real AI/ML project (LangChain, HuggingFace, etc.)
-
----
-
-## Parallel Schedule Overview
+## Parallel Schedule
 
 ```
-Week  | THEORY                    | BUILDER
-------+---------------------------+---------------------------
-1-2   | Linear Algebra (finish)   | B1: API setup + first calls
-3     | Calculus                  | B2: Prompt engineering + B3: LLM Providers
-4-5   | Calculus + Probability    | B4: Embeddings + vector DBs
-6-7   | Probability               | B5: RAG pipeline
-8-9   | Supervised ML             | B6: Tool use + function calling
-10-12 | Unsupervised + Ensemble   | B7: Agent frameworks
-13-14 | DL Fundamentals           | B8: Evaluation + observability
-15-17 | CNNs + RNNs               | B9: Production patterns
-18-20 | Transformers              | B10: MLOps + infrastructure
-21-23 | LLM Internals             | Capstone projects
-24+   | Advanced topics           | Capstone projects
+Weeks 1-3   | Linear Algebra (✓ done)     | B1: APIs (✓ done)
+Weeks 4-5   | Calculus (✓ done)            | B2: Prompt engineering
+Weeks 6-8   | Probability (in progress)    | B3: Providers landscape
+Weeks 9-10  | MLE + Information Theory     | B4: Embeddings + vector DBs
+Weeks 11-13 | Supervised ML                | B5: RAG pipeline
+Weeks 14-15 | Unsupervised + Ensemble      | B6: Tool use
+Weeks 16-18 | Deep Learning Fundamentals   | B7: Agent frameworks
+Weeks 19-21 | CNNs + RNNs                  | B8: Evaluation
+Weeks 22-24 | Transformers                 | B9: Production patterns
+Weeks 25+   | LLM Internals                | B10: MLOps + Capstones
 ```
-
-**Rhythm**: Alternate between tracks during each week. Example day:
-- Morning: Theory session (study, derive, implement from scratch)
-- Afternoon: Builder session (use real tools, build real things)
-
-Or alternate days: Mon/Wed/Fri = Theory, Tue/Thu = Builder.
-
----
-
-## Summary
-
-| Track | Topics | Notes | Code/Projects | Weeks |
-|-------|--------|-------|---------------|-------|
-| Theory (T1-T10) | Math → ML → DL → LLMs | ~60 | 17 code files | 1-25 |
-| Builder (B1-B10) | APIs → Providers → RAG → Agents → Prod | ~44 | 10 projects | 1-21 |
-| Capstone | Full-stack projects | ~5 | 5 projects | 20+ |
-| **Total** | | **~104** | **31+** | **~25** |
 
 ---
 
 ## What to Do Right Now
 
-**Theory (priority order)**:
-1. **Finish Probability** — MLE, cross-entropy/KL divergence, joint/marginal distributions. 3-4 notes remaining to close the core.
-2. **Regression Basics** — linear regression as first ML model. Bridges all math → ML.
-3. **Time Series** (HIGH PRIORITY) — ARIMA, Prophet, feature engineering. Work priority.
+**Immediate priorities (theory):**
 
-**Probability gaps still open:**
-- [ ] Joint, Marginal, and Conditional Distributions
-- [ ] Maximum Likelihood Estimation (MLE) — derives loss functions from distributions ← NEXT
-- [ ] Cross-Entropy and KL Divergence — information theory, connects to all classification losses
-- [ ] Multivariate Normal Distribution — used in Gaussian processes, VAEs
-- [ ] Bootstrap and Empirical Distributions — resampling, confidence intervals without assumptions
-- [ ] Hypothesis Testing and p-values
-- [ ] Tier 2 distributions: Gamma, Chi-Squared, Student's t, Log-Normal (defer to Bayesian section)
+1. `/note maximum-likelihood-estimation` — derives ALL loss functions (MSE, cross-entropy, etc.) from probability. The single most important missing concept.
+2. `/note cross-entropy-and-kl-divergence` — information theory, connects to classification losses and VAEs.
+3. `/note matrix-calculus` — Jacobians, Hessians, dL/dW. Required before any deep learning.
+4. `/session linear-regression` — first ML model, bridges all of foundations → ML.
 
-**Distribution notes — exercises still missing:**
-- [ ] Add exercises section to each distribution note (Bernoulli, Binomial, Poisson, Exponential, Beta, Dirichlet, Normal) — do after MLE session so exercises can include MLE derivations
+**Immediate priorities (builder):**
 
-**Code files missing (high value):**
-- [ ] Gradient descent from scratch
-- [ ] SVD image compression
-- [x] Distribution sampling and diagnostics — done (`probability_distributions.py`)
-- [ ] MLE from scratch
+1. Complete Anthropic Skilljar courses
+2. `/note prompt-design-patterns` — zero-shot, few-shot, CoT
+3. Start B4: embeddings project using this vault
 
-**Quality gaps to close:**
-- Promote SVD from seed to growing (add code file)
-- Promote spectral-decomposition to evergreen
-- [ ] Elementary matrix — formalizes row operations as matrix multiplications; supports gaussian-elimination and matrix-inverse notes (Tier 2, not urgent)
-
-**Deferred but important:**
-- Matrix calculus (Jacobians, Hessians) — CRITICAL for deep learning, do before T8
-- Integration basics — needed for probability PDFs
-- Taylor series — explains gradient descent convergence
-- Pseudoinverse, matrix norms — complete linear algebra
-
-**Builder**: Continue B1 — complete Anthropic Skilljar courses (MUST). Then: API key management note, chatbot project. Then B3: Provider Comparison.
+**Quality improvements:**
+- Promote `singular-value-decomposition` from seed to growing (add exercises to code file)
+- Promote `spectral-decomposition` to evergreen
