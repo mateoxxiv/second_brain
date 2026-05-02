@@ -1,243 +1,87 @@
-**Related**: [[probability-fundamentals]], [[gradient-descent]], [[linear-regression]]
-**Tags**: #status/growing
+---
+tags:
+  - status/growing
+  - probability
+related:
+  - "[[probability-fundamentals]]"
+  - "[[bernoulli-distribution]]"
+  - "[[binomial-distribution]]"
+  - "[[normal-distribution]]"
+  - "[[poisson-distribution]]"
+  - "[[exponential-distribution]]"
+  - "[[beta-distribution]]"
+  - "[[dirichlet-distribution]]"
+domain: probability
+sources:
+  - "https://www.youtube.com/watch?v=zeJD6dqJ5lo"
+  - "https://www.packtpub.com/"
+  - "https://www.khanacademy.org/math/statistics-probability"
+  - "https://mml-book.github.io/book/mml-book.pdf"
+---
 
-## Core Idea
+> **TL;DR** — A distribution describes all outcomes and their likelihoods. Expectation = weighted average. Variance = spread. The right distribution depends on what you're modeling.
 
-A probability distribution describes all possible outcomes of a random variable
-and how likely each one is. In ML, distributions are everywhere: data is assumed
-to follow a distribution, loss functions come from distributions, and weight
-initialization uses distributions. The two numbers that summarize any distribution
-are **expectation** (the center) and **variance** (the spread).
+---
 
-Distributions come in two flavors:
-- **Parametric** — defined by a formula with parameters (Normal, Bernoulli, Poisson)
-- **Empirical** — derived directly from data, no assumptions about shape. Iterative
-  methods (bootstrap, permutation tests) let you compute confidence intervals and
-  predictions without ever assuming a parametric form.
+## Intuition
 
-## Details
+A distribution is the complete answer to "what values can X take and how likely is each?" Two numbers summarize any distribution: the **expectation** (where it's centered) and the **variance** (how spread out it is).
 
-### Expectation — E[X]
+Distributions come in two flavors: **parametric** (defined by a formula — Normal, Bernoulli, Poisson) and **empirical** (derived from data, no shape assumption — bootstrap, permutation tests).
 
-The probability-weighted average of all outcomes:
+## Mechanics
 
-$$E[X] = \sum_x x \cdot P(X = x)$$
+**Expectation:**
+$$E[X] = \sum_x x \cdot P(X = x) \quad \text{(discrete)}$$
 
-If you ran the experiment infinitely many times, expectation is the long-run
-average. For a fair die: $E[X] = (1+2+3+4+5+6)/6 = 3.5$.
+**Variance:**
+$$\text{Var}(X) = E[X^2] - (E[X])^2$$
 
-### Variance — Var(X)
+**Quick reference table:**
 
-How spread out the distribution is around its mean $\mu = E[X]$:
+| Distribution | Parameters | E[X] | Var(X) | Use in ML |
+|-------------|-----------|------|--------|-----------|
+| Bernoulli | p | p | p(1−p) | Binary classification |
+| Binomial | n, p | np | np(1−p) | n trials, cross-entropy |
+| Normal | μ, σ² | μ | σ² | Noise, weight init, MSE |
+| Poisson | λ | λ | λ | Count prediction, NLP |
+| Exponential | λ | 1/λ | 1/λ² | Inter-arrival times |
+| Beta | α, β | α/(α+β) | complex | Bayesian A/B testing |
+| Dirichlet | α vector | αᵢ/Σαⱼ | complex | Topic models (LDA) |
 
-$$\text{Var}(X) = E[(X - \mu)^2] = E[X^2] - (E[X])^2$$
-
-Standard deviation $\sigma = \sqrt{\text{Var}(X)}$ — same units as X.
-
-**Computational form** (easier): $\text{Var}(X) = E[X^2] - \mu^2$
-
-### Bernoulli Distribution
-
-One trial, two outcomes: 1 (success) with probability $p$, 0 (failure) with $1-p$.
-
-$$P(X = k) = p^k (1-p)^{1-k}, \quad k \in \{0, 1\}$$
-
-$$E[X] = p \qquad \text{Var}(X) = p(1-p)$$
-
-Variance peaks at $p = 0.5$ (maximum uncertainty) and is zero at $p = 0$ or $p = 1$.
-
-**ML:** logistic regression outputs a Bernoulli parameter. Binary cross-entropy
-loss is the negative log-likelihood of a Bernoulli.
-
-See: [[bernoulli-distribution]]
-
-### Normal (Gaussian) Distribution
-
-The most important distribution. Bell-shaped, symmetric.
-
-$$f(x) = \frac{1}{\sigma\sqrt{2\pi}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)$$
-
-Written $X \sim \mathcal{N}(\mu, \sigma^2)$. Parameters: $\mu$ (center), $\sigma^2$ (spread).
-
-$$E[X] = \mu \qquad \text{Var}(X) = \sigma^2$$
-
-**Standard Normal** $Z \sim \mathcal{N}(0, 1)$: standardize with $Z = (X - \mu)/\sigma$.
-
-**Why Normal is everywhere — Central Limit Theorem:**
-The sum of many independent random variables converges to Normal, regardless
-of their original distributions. Height, noise, measurement error — all Normal.
-
-**68-95-99.7 rule:**
-
+**Decision tree:**
 ```
-mu +- 1*sigma  ->  68% of data
-mu +- 2*sigma  ->  95% of data
-mu +- 3*sigma  ->  99.7% of data
+Count (how many events)?  → mean ≈ var? Poisson. var < mean? Binomial.
+Wait time?                → Exponential
+Binary outcome?           → Bernoulli (single) or Binomial (n trials)
+Continuous measurement?   → Normal
+Uncertainty about p?      → Beta (2 categories) / Dirichlet (k categories)
 ```
-
-**ML connections:**
-- Weight initialization: $w \sim \mathcal{N}(0, \sigma^2)$
-- MSE loss assumes Gaussian noise — comes from MLE under Gaussian assumption
-- VAEs, diffusion models, Gaussian processes all rely on Normal distributions
-
-See: [[normal-distribution]]
-
-### Poisson Distribution
-
-Number of rare, independent events in a fixed interval.
-
-$$P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}, \quad k = 0, 1, 2, \ldots$$
-
-$\lambda$ = average rate. **Key property: $E[X] = \text{Var}(X) = \lambda$.**
-
-If variance >> mean in your data, it is NOT Poisson (overdispersed).
-
-**Examples:** API requests per second, word counts in documents, anomalies per day.
-
-See: [[poisson-distribution]]
-
-### Empirical Distributions
-
-When data doesn't fit a parametric form, you can use the data itself as the
-distribution. No formula — just the observed frequencies.
-
-**Iterative methods that work on empirical distributions:**
-- **Bootstrap** — resample with replacement to build a confidence interval without
-  assuming Normality
-- **Permutation tests** — shuffle labels to test significance without a t-test
-- **Monte Carlo** — simulate outcomes by sampling from empirical distributions
-
-This is the approach taken in "Statistics for Machine Learning" (Dangeti) — iterative
-and computational methods that avoid strong distributional assumptions.
-
-See: [[empirical-distributions]]
-
-### Other Key Distributions
-
-**Tier 1 — Essential for ML:**
-
-| Distribution | Parameters | $E[X]$ | $\text{Var}(X)$ | Key Use |
-|---|---|---|---|---|
-| [[binomial-distribution\|Binomial]] | $n, p$ | $np$ | $np(1-p)$ | n Bernoulli trials, cross-entropy |
-| [[exponential-distribution\|Exponential]] | $\lambda$ | $1/\lambda$ | $1/\lambda^2$ | Queue inter-arrival times, memoryless |
-| [[beta-distribution\|Beta]] | $\alpha, \beta$ | $\frac{\alpha}{\alpha+\beta}$ | complex | Conjugate prior for Bernoulli, A/B testing |
-| [[dirichlet-distribution\|Dirichlet]] | $\boldsymbol{\alpha}$ | $\alpha_i / \sum\alpha_j$ | complex | LDA topic models, multinomial prior |
-
-**Tier 2 — Important:**
-
-| Distribution | Parameters | $E[X]$ | $\text{Var}(X)$ | Key Use |
-|---|---|---|---|---|
-| [[gamma-distribution\|Gamma]] | $\alpha, \theta$ | $\alpha\theta$ | $\alpha\theta^2$ | Conjugate prior for Poisson |
-| [[chi-squared-distribution\|Chi-Squared]] | $k$ | $k$ | $2k$ | Hypothesis testing, feature selection |
-| [[students-t-distribution\|Student's t]] | $\nu$ | $0$ | $\nu/(\nu-2)$ | Small-sample inference, heavy tails |
-| [[log-normal-distribution\|Log-Normal]] | $\mu, \sigma$ | $e^{\mu+\sigma^2/2}$ | complex | Stock prices, right-skewed positive data |
-
-**Conjugate prior relationships** (critical for Bayesian ML):
-```
-Binomial likelihood  ->  Beta prior     ->  Beta posterior
-Poisson likelihood   ->  Gamma prior    ->  Gamma posterior
-Multinomial          ->  Dirichlet      ->  Dirichlet posterior
-Normal (known var)   ->  Normal prior   ->  Normal posterior
-```
-
-### Summary Table
-
-| Distribution | Parameters | $E[X]$ | $\text{Var}(X)$ | Use in ML |
-|-------------|-----------|--------|-----------------|-----------|
-| Bernoulli | $p$ | $p$ | $p(1-p)$ | Binary classification |
-| Binomial | $n, p$ | $np$ | $np(1-p)$ | n trials, cross-entropy |
-| Normal | $\mu, \sigma^2$ | $\mu$ | $\sigma^2$ | Noise, weight init, MSE |
-| Poisson | $\lambda$ | $\lambda$ | $\lambda$ | Count prediction, NLP |
-| Exponential | $\lambda$ | $1/\lambda$ | $1/\lambda^2$ | Queues, inter-arrival times |
-| Beta | $\alpha, \beta$ | $\alpha/(\alpha+\beta)$ | complex | Bayesian A/B testing |
-| Dirichlet | $\boldsymbol{\alpha}$ | $\alpha_i/\sum\alpha_j$ | complex | Topic models, multinomial prior |
-| Gamma | $\alpha, \theta$ | $\alpha\theta$ | $\alpha\theta^2$ | Bayesian priors, waiting times |
-| Chi-Squared | $k$ | $k$ | $2k$ | Hypothesis tests |
-| Student's t | $\nu$ | $0$ | $\nu/(\nu-2)$ | Small samples, outliers |
-| Log-Normal | $\mu, \sigma$ | $e^{\mu+\sigma^2/2}$ | complex | Finance, right-skewed data |
-| Empirical | none | sample mean | sample variance | Bootstrap, permutation tests |
-
-## Code Example
 
 ```python
 import numpy as np
 
-# Bernoulli
-p = 0.3
-samples = np.random.binomial(n=1, p=p, size=10000)
-print(f"Bernoulli: E[X]={samples.mean():.3f} (expected {p})")
-print(f"Bernoulli: Var(X)={samples.var():.3f} (expected {p*(1-p):.3f})")
-
-# Normal
-mu, sigma = 5, 2
-samples = np.random.normal(mu, sigma, 10000)
-print(f"Normal: E[X]={samples.mean():.3f}, Var(X)={samples.var():.3f}")
-
-# Poisson
-lam = 3
-samples = np.random.poisson(lam, 10000)
-print(f"Poisson: E[X]={samples.mean():.3f}, Var(X)={samples.var():.3f}")
-
-# Empirical bootstrap confidence interval
 data = np.array([2.1, 3.4, 2.8, 3.1, 4.0, 2.5, 3.7, 2.9])
 bootstrap_means = [np.random.choice(data, len(data), replace=True).mean()
                    for _ in range(10000)]
-ci_low, ci_high = np.percentile(bootstrap_means, [2.5, 97.5])
-print(f"Bootstrap 95% CI for mean: [{ci_low:.3f}, {ci_high:.3f}]")
+lo, hi = np.percentile(bootstrap_means, [2.5, 97.5])
+print(f"Bootstrap 95% CI: [{lo:.3f}, {hi:.3f}]")
 ```
 
-> For runnable implementation with exercises, see: [[code/foundations/probability_distributions.py]]
+> Runnable: [[code/foundations/probability_distributions.py]]
 
-## Connections
+## In ML
 
-- [[probability-fundamentals]] — distributions are built on top of basic probability rules
-- [[bernoulli-distribution]] — binary outcomes, logistic regression
-- [[binomial-distribution]] — n Bernoulli trials, cross-entropy loss foundation
-- [[normal-distribution]] — Gaussian, CLT, MSE loss derivation
-- [[poisson-distribution]] — count data, NLP word frequencies
-- [[exponential-distribution]] — queues, memoryless waiting times
-- [[beta-distribution]] — conjugate prior for Bernoulli, Bayesian A/B testing
-- [[dirichlet-distribution]] — topic models, multinomial conjugate prior
-- [[gamma-distribution]] — conjugate prior for Poisson and Exponential
-- [[empirical-distributions]] — bootstrap, permutation tests, no-assumption inference
-- Forward link: MLE — fitting distribution parameters to data
-- Forward link: Naive Bayes — Gaussian Naive Bayes assumes Normal features
-- Forward link: VAEs — encoder outputs mu and sigma of a Normal distribution
-- Forward link: LDA — uses Dirichlet prior over topic distributions
+**MSE assumes Gaussian noise.** Choosing MSE as a loss function is equivalent to assuming the residuals are normally distributed. If your target has heavy-tailed noise, MSE is the wrong loss — use MAE or Huber loss.
 
-## Distribution Selection Guide
+**Cross-entropy comes from Bernoulli MLE.** The binary cross-entropy loss is the exact negative log-likelihood of Bernoulli-distributed labels. Using the right distribution leads directly to the right loss function.
 
-Use this decision tree to identify the right distribution for your data:
+**Conjugate priors make Bayesian updates easy.** When the prior and posterior are the same family (Beta-Binomial, Dirichlet-Multinomial), Bayesian updating reduces to adding counts. This closed-form update is why these distributions dominate Bayesian ML.
 
-```
-Count data (how many events)?
-  → mean ≈ variance?          Poisson(lambda)
-  → variance < mean?          Binomial(n, p)
-  → variance >> mean?         Negative Binomial
+## Exercises
 
-Waiting time / duration?      Exponential(lambda)
+**Basic** — Identify the right distribution for: (a) number of clicks per hour, (b) coin flip outcome, (c) height of people, (d) time until next server request.
 
-Binary outcome?
-  → single trial?             Bernoulli(p)
-  → n trials?                 Binomial(n, p)
+**Intermediate** — Compute E[X] and Var(X) for Bernoulli(0.3) from the definition. Verify numerically by sampling.
 
-Continuous measurement?       Normal(mu, sigma²)
-
-Uncertainty about p itself?
-  → 2 categories?             Beta(alpha, beta)
-  → k categories?             Dirichlet([alpha_1, ..., alpha_k])
-```
-
-**Quick diagnostic:**
-- Mean = variance → Poisson
-- Variance < mean → Binomial
-- Variance >> mean → Negative Binomial (overdispersed counts)
-- Outcome in [0,1] → Beta or Dirichlet
-- Outcome is a wait time → Exponential
-
-## Sources
-
-- [3Blue1Brown — But what is the Central Limit Theorem?](https://www.youtube.com/watch?v=zeJD6dqJ5lo)
-- [Statistics for Machine Learning — Pratap Dangeti](https://www.packtpub.com/) — Chapter 2
-- [Khan Academy — Random Variables and Probability Distributions](https://www.khanacademy.org/math/statistics-probability)
-- [Mathematics for Machine Learning — Chapter 6.5](https://mml-book.github.io/book/mml-book.pdf)
+**Advanced** — Explain what happens when you use MSE loss for a target with heavy-tailed (Laplace) noise. What loss function would be correct?

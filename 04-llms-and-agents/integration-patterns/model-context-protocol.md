@@ -1,165 +1,86 @@
-**Related**: [[anthropic-claude-api]], [[claude-code]], [[claude-agent-sdk]], [[Agent Patterns]]
-**Tags**: #status/seed
+---
+tags:
+  - status/seed
+  - llms
+related:
+  - "[[anthropic-claude-api]]"
+  - "[[claude-code]]"
+  - "[[claude-agent-sdk]]"
+domain: llms
+sources:
+  - "https://www.anthropic.com/news/model-context-protocol"
+  - "https://modelcontextprotocol.io"
+  - "https://github.com/modelcontextprotocol"
+  - "https://www.helpnetsecurity.com/2026/01/27/anthropic-claude-mcp-integration/"
+---
 
-## Core Idea
+> **TL;DR** — MCP is USB for AI-to-tool connections. One open standard lets any AI client connect to any tool server. Without it: N tools = N custom integrations.
 
-MCP (Model Context Protocol) is an **open standard** for connecting AI to
-external data sources and tools. It solves the "last mile" problem: LLMs are
-powerful reasoners, but they're trapped inside their training data. MCP gives
-them a universal way to reach out and interact with the real world — databases,
-APIs, files, services.
+---
 
-**Analogy**: Think of USB. Before USB, every device had its own proprietary
-connector. USB created one standard that works for everything. MCP is USB for
-AI-to-tool connections. Instead of writing custom integrations for every tool,
-you implement one MCP server and any AI client can use it.
+## Intuition
 
-## Details
+LLMs are powerful reasoners but trapped inside their training data. MCP solves the "last mile": a universal standard for connecting AI to external data sources and tools.
 
-### The Problem MCP Solves
+Think of USB: before it, every device had its own connector. USB created one standard that works for everything. MCP does the same for AI integrations — implement one MCP server and any AI client can use it.
 
-Without MCP, connecting Claude to your tools looks like this:
+Without MCP: Claude → custom code → PostgreSQL, Claude → custom code → Slack, Claude → custom code → GitHub (N tools = N integrations). With MCP: Claude ↔ MCP ↔ any server.
 
-```
-BEFORE MCP (custom everything):
+## Mechanics
 
-Claude ──custom code──→ PostgreSQL
-Claude ──custom code──→ Slack
-Claude ──custom code──→ GitHub
-Claude ──custom code──→ Your API
-
-Every tool needs its own integration. N tools = N integrations.
-```
-
-With MCP:
-
-```
-AFTER MCP (one standard):
-
-Claude ←→ MCP ←→ PostgreSQL server
-Claude ←→ MCP ←→ Slack server
-Claude ←→ MCP ←→ GitHub server
-Claude ←→ MCP ←→ Your custom server
-
-One protocol. Each tool exposes itself as an MCP server.
-Any MCP-compatible client can connect to any server.
-```
-
-### Architecture
-
-```
-┌──────────┐     MCP Protocol     ┌──────────────┐
-│          │ ←──────────────────→  │  MCP Server   │
-│  Claude  │                      │  (your tool)  │
-│ (client) │     JSON-RPC         │              │
-│          │ ←──────────────────→  │  Exposes:     │
-└──────────┘                      │  - Tools      │
-                                  │  - Resources  │
-                                  │  - Prompts    │
-                                  └──────────────┘
-```
-
-An MCP server exposes three types of capabilities:
+**An MCP server exposes three capability types:**
 
 | Type | What it is | Example |
 |------|-----------|---------|
-| **Tools** | Functions Claude can call | `search_database(query)`, `send_slack_message(channel, text)` |
-| **Resources** | Data Claude can read | Database schemas, file contents, API docs |
-| **Prompts** | Pre-built prompt templates | "Summarize this PR", "Analyze this query" |
+| Tools | Functions AI can call | `search_database(query)` |
+| Resources | Data AI can read | Database schemas, file contents |
+| Prompts | Pre-built templates | "Summarize this PR" |
 
-### How MCP Servers Run
+**Three transport modes:**
+- **stdio (local):** server runs on your machine via stdin/stdout
+- **HTTP (remote):** server runs remotely over HTTP/SSE
+- **In-process:** server runs inside your Python app (Claude Agent SDK)
 
-Three modes:
-
-```
-1. LOCAL PROCESS (stdio)
-   Server runs on your machine, communicates via stdin/stdout.
-   Best for: local tools, file access, development.
-
-2. HTTP (SSE / Streamable HTTP)
-   Server runs remotely, communicates over HTTP.
-   Best for: shared services, team tools, cloud resources.
-
-3. IN-PROCESS
-   Server runs inside your Python/TypeScript application.
-   Best for: custom tools in the Claude Agent SDK.
-```
-
-### Available MCP Servers (Community)
-
-| Server | What it connects to |
-|--------|-------------------|
-| **postgres** | PostgreSQL databases (query, schema) |
-| **slack** | Slack workspaces (read/send messages, channels) |
-| **github** | Repos, PRs, issues, code search |
-| **filesystem** | Local file read/write |
-| **google-drive** | Google Docs, Sheets, files |
-| **brave-search** | Web search |
-| **puppeteer** | Browser automation |
-| **sqlite** | SQLite databases |
-
-Plus hundreds of community-built servers for almost any tool.
-
-### MCP Apps
-
-An extension to MCP that enables servers to supply interactive user interfaces.
-MCP servers can render UI that accepts user interactions directly inside Claude
-products — not just text responses.
-
-### Configuration
-
-In [[claude-code]], MCP servers are configured in your project's
-`.claude/settings.json` or `~/.claude/settings.json`:
-
+**Configuring in [[claude-code]]** (`.claude/settings.json`):
 ```json
 {
   "mcpServers": {
     "postgres": {
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-postgres"],
-      "env": {
-        "DATABASE_URL": "postgresql://..."
-      }
+      "env": { "DATABASE_URL": "postgresql://..." }
     }
   }
 }
 ```
 
-## Code Example
-
 ```python
 # Creating a custom MCP server in Python
 from mcp.server import Server
-from mcp.types import Tool
 
 server = Server("my-custom-tools")
 
 @server.tool("search_notes")
 async def search_notes(query: str) -> str:
     """Search the Obsidian vault for notes matching a query."""
-    # Your search logic here
     results = find_matching_notes(query)
     return f"Found {len(results)} notes: {', '.join(results)}"
-
-@server.tool("get_note_content")
-async def get_note_content(path: str) -> str:
-    """Read the content of a specific note."""
-    with open(path) as f:
-        return f.read()
 ```
 
-## Connections
+> Runnable: [[code/llms/mcp_server.py]]
 
-- Used by [[claude-code]] to connect to external tools
-- [[claude-agent-sdk]] supports MCP servers natively (local, HTTP, in-process)
-- Built on the [[anthropic-claude-api]] — tool use is the underlying mechanism
-- Enables building [[RAG]] systems by connecting to vector databases
-- Connects to [[Agent Patterns]] — agents need tools, MCP provides them
-- The open standard philosophy aligns with [[Open-Source vs Closed-Source Tradeoffs]]
+## In ML
 
-## Sources
+**Tool use at scale.** MCP standardizes how agents access external tools — databases, APIs, file systems, services. Without a standard, every new tool requires custom integration code. MCP lets you add a new capability by deploying one server.
 
-- [Model Context Protocol announcement](https://www.anthropic.com/news/model-context-protocol)
-- [MCP Documentation](https://modelcontextprotocol.io)
-- [MCP GitHub — servers and SDKs](https://github.com/modelcontextprotocol)
-- [Claude expands tool connections using MCP](https://www.helpnetsecurity.com/2026/01/27/anthropic-claude-mcp-integration/)
+**RAG without the plumbing.** Connect Claude to a vector database via MCP and it can search, retrieve, and reason over your documents without you writing a retrieval pipeline. The MCP server handles the interface.
+
+**[[claude-agent-sdk]] integration.** The Agent SDK supports MCP servers natively (local, HTTP, in-process). Custom agent tools are MCP tools under the hood — you get the MCP ecosystem for free.
+
+## Exercises
+
+**Basic** — Describe the difference between an MCP Tool and an MCP Resource. Give a concrete example of each for a code search use case.
+
+**Intermediate** — Write a minimal MCP server in Python that exposes one tool: `get_file_content(path: str) -> str`. Test it by connecting to it from Claude Code.
+
+**Advanced** — Design an MCP server architecture for a multi-source RAG system (Postgres + S3 + Notion). What tools and resources would you expose? How would you handle authentication?

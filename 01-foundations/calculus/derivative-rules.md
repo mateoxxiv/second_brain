@@ -1,230 +1,77 @@
-**Related**: [[derivatives-and-partial-derivatives]], [[chain-rule]]
-**Tags**: #status/growing
+---
+tags:
+  - status/growing
+  - calculus
+related:
+  - "[[derivatives-and-partial-derivatives]]"
+  - "[[chain-rule]]"
+domain: calculus
+sources:
+  - "https://www.3blue1brown.com/topics/calculus"
+  - "https://www.khanacademy.org/math/calculus-1"
+  - "https://tutorial.math.lamar.edu/Classes/CalcI/DerivativeProofs.aspx"
+  - "https://mml-book.github.io/book/mml-book.pdf"
+---
 
-## Core Idea
+> **TL;DR** — The derivative rules are a toolbox: power, product, quotient, chain, exp, log. Master these and you can differentiate any function in ML.
 
-Derivative rules are the **toolbox** for computing derivatives. Every derivative
-you'll ever need — no matter how complex — breaks down into combinations of
-these rules. Learn them once, use them forever.
+---
 
-## Details
+## Intuition
 
-### 1. Power Rule
+Differentiation from the limit definition is always correct but tedious. The rules are shortcuts derived once, applied forever. For ML you need specifically: power rule (polynomials), chain rule (compositions), and the derivatives of exp/log/sigmoid/ReLU (for activations and loss functions).
 
-```
-f(x) = x^n   →   f'(x) = n * x^(n-1)
-```
+## Mechanics
 
-Bring the exponent down, subtract 1.
+| Rule | Formula | Example |
+|------|---------|---------|
+| Power | d/dx[xⁿ] = nxⁿ⁻¹ | d/dx[x³] = 3x² |
+| Constant | d/dx[c] = 0 | d/dx[5] = 0 |
+| Product | d/dx[f·g] = f'g + fg' | d/dx[x·eˣ] = eˣ + xeˣ |
+| Quotient | d/dx[f/g] = (f'g − fg')/g² | derives sigmoid |
+| Chain | d/dx[g(h)] = g'(h)·h' | see [[chain-rule]] |
+| Exponential | d/dx[eˣ] = eˣ | self-derivative |
+| Logarithm | d/dx[ln x] = 1/x | d/dx[ln x²] = 2/x |
 
-```
-x^2  →  2x
-x^3  →  3x^2
-x^5  →  5x^4
-x^1  →  1
-x^0  →  0        (constant)
-x^(-1) → -x^(-2)  (works for negative exponents too)
-x^(1/2) → (1/2)x^(-1/2)  (works for fractions — this is sqrt(x))
-```
-
-### 2. Constant Rule
-
-```
-f(x) = c   →   f'(x) = 0
-```
-
-A constant doesn't change — slope is zero.
-
-```
-f(x) = 7   →  f'(x) = 0
-f(x) = -3  →  f'(x) = 0
-```
-
-### 3. Constant Multiple Rule
-
-```
-f(x) = c * g(x)   →   f'(x) = c * g'(x)
-```
-
-Constants just pass through.
-
-```
-f(x) = 5x^2   →  f'(x) = 5 * 2x = 10x
-f(x) = -3x^4  →  f'(x) = -3 * 4x^3 = -12x^3
-```
-
-### 4. Sum / Difference Rule
-
-```
-f(x) = g(x) + h(x)   →   f'(x) = g'(x) + h'(x)
-f(x) = g(x) - h(x)   →   f'(x) = g'(x) - h'(x)
-```
-
-Differentiate each term separately.
-
-```
-f(x) = x^3 + 2x^2 - 5x + 1
-
-f'(x) = 3x^2 + 4x - 5
-```
-
-### 5. Product Rule
-
-```
-f(x) = g(x) * h(x)   →   f'(x) = g'(x)*h(x) + g(x)*h'(x)
-```
-
-"First times derivative of second, plus second times derivative of first."
-
-```
-f(x) = x^2 * (3x + 1)
-
-g = x^2,       g' = 2x
-h = 3x + 1,    h' = 3
-
-f'(x) = 2x*(3x+1) + x^2*3
-      = 6x^2 + 2x + 3x^2
-      = 9x^2 + 2x
-```
-
-### 6. Quotient Rule
-
-```
-f(x) = g(x) / h(x)   →   f'(x) = (g'*h - g*h') / h^2
-```
-
-"Low d-high minus high d-low, over the square of what's below."
-
-```
-f(x) = x^2 / (x + 1)
-
-g = x^2,      g' = 2x
-h = x + 1,    h' = 1
-
-f'(x) = (2x*(x+1) - x^2*1) / (x+1)^2
-      = (2x^2 + 2x - x^2) / (x+1)^2
-      = (x^2 + 2x) / (x+1)^2
-```
-
-### 7. Chain Rule
-
-See [[chain-rule]] for the full note.
-
-```
-f(x) = g(h(x))   →   f'(x) = g'(h(x)) * h'(x)
-```
-
-Derivative of outer times derivative of inner.
-
-```
-f(x) = (3x+1)^4   →   f'(x) = 4(3x+1)^3 * 3 = 12(3x+1)^3
-```
-
-### 8. Exponential Rule
-
-```
-f(x) = e^x    →   f'(x) = e^x         (e^x is its own derivative!)
-f(x) = e^(g(x)) → f'(x) = e^(g(x)) * g'(x)   (chain rule)
-f(x) = a^x    →   f'(x) = a^x * ln(a)
-```
-
-e^x is special — it's the only function that equals its own derivative. This
-is why e appears everywhere in ML (softmax, log-loss, exponential decay).
-
-```
-f(x) = e^(3x)   →  f'(x) = e^(3x) * 3 = 3e^(3x)
-f(x) = e^(x^2)  →  f'(x) = e^(x^2) * 2x = 2x*e^(x^2)
-```
-
-### 9. Logarithm Rule
-
-```
-f(x) = ln(x)     →   f'(x) = 1/x
-f(x) = ln(g(x))  →   f'(x) = g'(x) / g(x)    (chain rule)
-f(x) = log_a(x)  →   f'(x) = 1 / (x * ln(a))
-```
-
-```
-f(x) = ln(x^2 + 1)  →  f'(x) = 2x / (x^2 + 1)
-f(x) = ln(3x)       →  f'(x) = 3 / (3x) = 1/x
-```
-
-### Quick Reference Table
-
-| Rule | Formula | When to use |
-|------|---------|-------------|
-| Power | (x^n)' = nx^(n-1) | Polynomials |
-| Constant | (c)' = 0 | Standalone numbers |
-| Constant multiple | (cf)' = cf' | Coefficient in front |
-| Sum/Difference | (f+g)' = f'+g' | Adding terms |
-| Product | (fg)' = f'g + fg' | Multiplying functions |
-| Quotient | (f/g)' = (f'g-fg')/g^2 | Dividing functions |
-| Chain | (f(g))' = f'(g)*g' | Function inside function |
-| Exponential | (e^x)' = e^x | Exponential growth/decay |
-| Logarithm | (ln x)' = 1/x | Log-loss, information theory |
-
-### ML-Relevant Derivatives
-
-Functions you'll see constantly in deep learning:
-
-```
-Sigmoid:   s(x) = 1/(1+e^(-x))     →  s'(x) = s(x)*(1-s(x))
-ReLU:      r(x) = max(0,x)          →  r'(x) = 0 if x<0, 1 if x>0
-Tanh:      t(x) = tanh(x)           →  t'(x) = 1 - tanh(x)^2
-Softmax:   complex (involves Jacobian — [[derivatives-and-partial-derivatives]])
-MSE loss:  L = (y-y_hat)^2          →  dL/dy_hat = -2(y-y_hat)
-Log loss:  L = -ln(y_hat)           →  dL/dy_hat = -1/y_hat
-```
-
-Notice: sigmoid's derivative is expressed in terms of itself. This makes
-backpropagation efficient — you already computed s(x) in the forward pass.
-
-## Code Example
+**ML-critical derivatives:**
+- Sigmoid: σ'(x) = σ(x)(1 − σ(x)) — evaluate once in forward pass, reuse in backward
+- ReLU: ReLU'(x) = 1 if x > 0, else 0 — undefined at x = 0
+- tanh: tanh'(x) = 1 − tanh²(x)
+- MSE: d/dŷ[(y − ŷ)²] = −2(y − ŷ)
+- Log-loss: d/dŷ[−y·ln(ŷ)] = −y/ŷ
 
 ```python
 import numpy as np
 
-# Numerical derivative for verification
-def deriv(f, x, h=1e-7):
-    return (f(x + h) - f(x - h)) / (2 * h)
-
-# Power rule: x^3 → 3x^2
-f = lambda x: x**3
-print(deriv(f, 2.0))          # ≈ 12.0 = 3*(2^2)
-
-# Product rule: x^2 * e^x → 2x*e^x + x^2*e^x
-f = lambda x: x**2 * np.exp(x)
-analytical = lambda x: 2*x*np.exp(x) + x**2*np.exp(x)
-print(deriv(f, 1.0))          # ≈ 8.155
-print(analytical(1.0))        # ≈ 8.155
-
-# Chain rule: e^(x^2) → 2x*e^(x^2)
-f = lambda x: np.exp(x**2)
-print(deriv(f, 1.0))          # ≈ 5.437 = 2*1*e^1
-
-# Sigmoid and its derivative
 def sigmoid(x):
     return 1 / (1 + np.exp(-x))
 
-def sigmoid_deriv(x):
+def sigmoid_derivative(x):
     s = sigmoid(x)
-    return s * (1 - s)
+    return s * (1 - s)   # computed from forward-pass output — no extra work
 
-print(deriv(sigmoid, 0.0))    # ≈ 0.25
-print(sigmoid_deriv(0.0))     # 0.25
+# Numerical verification: difference should be < 1e-6
+h = 1e-5
+x = 1.5
+numerical = (sigmoid(x + h) - sigmoid(x - h)) / (2 * h)
+analytic  = sigmoid_derivative(x)
+print(f"Numerical: {numerical:.8f}, Analytic: {analytic:.8f}")
 ```
 
-## Connections
+> Runnable: [[code/foundations/derivative_rules.py]]
 
-- [[derivatives-and-partial-derivatives]] — what derivatives are and why they matter
-- [[chain-rule]] — the most important rule for ML (backpropagation)
-- Forward link: gradient descent — uses these rules to compute weight updates
-- Forward link: activation functions — sigmoid, ReLU, tanh derivatives are critical for backprop
-- Forward link: loss functions — MSE, cross-entropy derivatives drive optimization
+## In ML
 
-## Sources
+**Sigmoid derivative and backprop efficiency.** The sigmoid derivative σ(x)(1−σ(x)) is expressed in terms of σ(x), which was already computed in the forward pass. Backprop reuses it for free — this matters when differentiating millions of activations per batch.
 
-- [3Blue1Brown — Essence of Calculus, Ch. 3-4](https://www.3blue1brown.com/topics/calculus) — visual rules
-- [Khan Academy — Derivative Rules](https://www.khanacademy.org/math/calculus-1/cs1-derivatives-definition-and-basic-rules)
-- [Paul's Online Math Notes — Derivative Rules](https://tutorial.math.lamar.edu/Classes/CalcI/DerivativeProofs.aspx) — proofs of each rule
-- [Mathematics for Machine Learning — Chapter 5.1](https://mml-book.github.io/book/mml-book.pdf)
+**The dead neuron problem.** ReLU's derivative is 0 for all x < 0. If a neuron always receives negative input, its gradient is permanently zero and it never updates. Careful weight initialization and learning rate choice prevent this.
+
+**Log-loss gradient.** The derivative of −y·ln(ŷ) is −y/ŷ. When ŷ ≈ 0 and y = 1 (confidently wrong), the gradient is very large — the model gets a strong corrective signal automatically.
+
+## Exercises
+
+**Basic** — Differentiate f(x) = x³ · eˣ using the product rule. Show all steps.
+
+**Intermediate** — Derive the sigmoid derivative σ'(x) = σ(x)(1−σ(x)) from scratch using the quotient rule on σ(x) = 1/(1 + e^{−x}).
+
+**Advanced** — Find all points where the ReLU derivative is undefined and explain why this causes no problem in practice for gradient-based optimization (hint: think about measure zero and floating-point representation).

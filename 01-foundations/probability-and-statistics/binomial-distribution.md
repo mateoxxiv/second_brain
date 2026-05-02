@@ -1,121 +1,78 @@
-**Related**: [[probability-distributions]], [[bernoulli-distribution]], [[normal-distribution]]
-**Tags**: #status/growing
+---
+tags:
+  - status/growing
+  - probability
+related:
+  - "[[probability-distributions]]"
+  - "[[bernoulli-distribution]]"
+  - "[[normal-distribution]]"
+  - "[[poisson-distribution]]"
+domain: probability
+sources:
+  - "https://mml-book.github.io/book/mml-book.pdf"
+  - "https://www.packtpub.com/"
+  - "https://www.khanacademy.org/math/statistics-probability"
+---
 
-## Core Idea
+> **TL;DR** — Counts successes in n independent Bernoulli trials. PMF = C(n,k)·p^k·(1−p)^(n−k). Converges to Normal for large n via CLT.
 
-The Binomial distribution counts the number of successes in $n$ independent
-Bernoulli trials, each with success probability $p$. It is the natural generalization
-of [[bernoulli-distribution]]: Bernoulli is one flip, Binomial is $n$ flips.
-For large $n$, it converges to Normal via the Central Limit Theorem.
+---
 
-## Details
+## Intuition
 
-### Parameters
+Binomial is the answer to: "I flip a coin n times, each with probability p of heads. How likely am I to get exactly k heads?" It's n independent Bernoulli trials bundled into one distribution.
 
-- $n$ — number of trials
-- $p$ — probability of success on each trial
-- $k$ — the outcome: number of successes (takes values $0, 1, \ldots, n$)
+The PMF has two parts: the probability of one specific sequence with k successes, times the number of such sequences (combinations). Multiplied together they give the probability of getting *any* sequence with k successes.
 
-### PMF — Building it from scratch
+## Mechanics
 
-The probability of exactly $k$ successes in $n$ trials comes from two parts:
+**PMF derivation:**
+- One sequence with k successes: p^k · (1−p)^(n−k)
+- Number of such sequences: C(n,k) = n! / (k!(n−k)!)
 
-**Part 1 — probability of one specific sequence with $k$ successes:**
+$$P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}$$
 
-Any sequence with $k$ successes and $n-k$ failures has probability:
-
-$$p^k (1-p)^{n-k}$$
-
-**Part 2 — how many such sequences exist:**
-
-The binomial coefficient counts the number of ways to place $k$ successes
-in $n$ positions:
-
-$$\binom{n}{k} = \frac{n!}{k!\,(n-k)!}$$
-
-Multiply both:
-
-$$\boxed{P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}}$$
-
-### Expectation and Variance
-
-Binomial is the sum of $n$ independent Bernoulli($p$) variables. Using linearity
-of expectation and variance additivity for independent variables:
-
+**Expectation and variance** (from linearity — Binomial = sum of n Bernoullis):
 $$E[X] = np \qquad \text{Var}(X) = np(1-p)$$
 
-Intuition: 100 trials with $p=0.3$ → expect 30 successes.
-
-### Connection to Normal (CLT)
-
-For large $n$, the Binomial converges to Normal:
-
-$$\text{Binomial}(n, p) \approx \mathcal{N}(np,\; np(1-p))$$
-
-Rule of thumb: approximation is good when $np \geq 5$ and $n(1-p) \geq 5$.
-
-### Relationship to Bernoulli
-
-$$\text{Bernoulli}(p) = \text{Binomial}(n=1, p)$$
-
-Bernoulli is a special case — one trial only.
-
-### ML Connections
-
-| Use case | How Binomial appears |
-|---|---|
-| Classifier evaluation | Correct predictions ~ Binomial(n, accuracy) |
-| A/B testing | Conversions per group ~ Binomial(n, p) |
-| Naive Bayes | Word presence counted as Binomial trials |
-
-## Code Example
+**CLT approximation** — for large n: Binomial(n,p) ≈ N(np, np(1−p))
+Rule of thumb: approximation valid when np ≥ 5 and n(1−p) ≥ 5.
 
 ```python
 import numpy as np
 from math import comb
 
-def binomial_pmf(k: int, n: int, p: float) -> float:
-    """P(X=k) for Binomial(n, p) from scratch.
-    k: number of successes
-    n: number of trials
-    p: success probability per trial
-    """
+def binomial_pmf(k, n, p):
     return comb(n, k) * (p**k) * ((1-p)**(n-k))
 
 # P(exactly 3 successes in 10 trials, p=0.3)
 print(f"P(X=3) = {binomial_pmf(3, 10, 0.3):.4f}")  # ~0.2668
 
-# Full distribution
+# Verify probabilities sum to 1
 n, p = 10, 0.3
-probs = [binomial_pmf(k, n, p) for k in range(n+1)]
-print(f"Sum of all probs: {sum(probs):.6f}")  # must be 1.0
+total = sum(binomial_pmf(k, n, p) for k in range(n+1))
+print(f"Sum of all probs: {total:.6f}")  # must be 1.0
 
-# Verify E[X] and Var(X)
+# Verify E[X] and Var(X) by simulation
 samples = np.random.binomial(n=n, p=p, size=100000)
 print(f"E[X]   = {samples.mean():.4f}  (expected {n*p})")
 print(f"Var(X) = {samples.var():.4f}  (expected {n*p*(1-p):.4f})")
-
-# CLT approximation
-import scipy.stats as stats
-k = 35
-exact = binomial_pmf(k, 100, 0.3)
-normal_approx = stats.norm.pdf(k, loc=100*0.3, scale=np.sqrt(100*0.3*0.7))
-print(f"Exact P(X=35): {exact:.6f}")
-print(f"Normal approx: {normal_approx:.6f}")
 ```
 
-> For runnable implementation with exercises, see: [[code/foundations/binomial_distribution.py]]
+> Runnable: [[code/foundations/binomial_distribution.py]]
 
-## Connections
+## In ML
 
-- [[bernoulli-distribution]] — Binomial is n repeated Bernoulli trials
-- [[normal-distribution]] — Binomial converges to Normal for large n (CLT)
-- [[poisson-distribution]] — Binomial with large n and small p converges to Poisson
-- Forward link: logistic regression — predicts Bernoulli p, evaluated over Binomial
-- Forward link: hypothesis testing — exact Binomial test for proportions
+**Classifier accuracy follows Binomial.** If a model has true accuracy p and you test it on n examples, the number of correct predictions is Binomial(n, p). This is the basis for exact Binomial confidence intervals on accuracy.
 
-## Sources
+**A/B testing.** Conversions in each group follow Binomial(n, p). Testing whether two groups have the same p is the classic two-sample proportion test, derived from the Binomial likelihood.
 
-- [Mathematics for Machine Learning — Chapter 6.2](https://mml-book.github.io/book/mml-book.pdf)
-- [Statistics for Machine Learning — Pratap Dangeti](https://www.packtpub.com/) — Chapter 2
-- [Khan Academy — Binomial distribution](https://www.khanacademy.org/math/statistics-probability/random-variables-stats-library/binomial-random-variables/a/binomial-probability-article)
+**Relationship to Bernoulli and Poisson.** Bernoulli(p) = Binomial(1, p) — one trial only. As n → ∞ and p → 0 with np = λ fixed, Binomial converges to Poisson(λ). Both special cases clarify when to use each model.
+
+## Exercises
+
+**Basic** — Compute P(X=3) for Binomial(10, 0.3) step by step. Identify the two multiplicative parts.
+
+**Intermediate** — Verify numerically that Bernoulli(p) = Binomial(1, p) for p = 0.4. Check that E and Var match.
+
+**Advanced** — At what n does the Normal approximation become good for p=0.3? Check numerically by comparing exact PMF with Normal PDF at several points.
