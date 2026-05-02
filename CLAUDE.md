@@ -83,6 +83,18 @@ second_brain/
 3. **Permanent notes** (folders `01` through `05`) — Atomic, self-contained knowledge units. One concept per note.
 4. **Project notes** (`06-projects/`) — Implementation logs, design decisions, lessons learned.
 
+### Knowledge Flow (preferred order)
+
+Reading a book or resource is the preferred source of knowledge. The flow is:
+
+```
+Read a chapter/resource
+  → /literature  (capture the source: summary, key takeaways, your thoughts)
+  → /note topic  (extract atomic permanent notes from what you read)
+```
+
+When no literature source exists yet, `/note` may generate content directly — but book-derived notes are always deeper. When writing a permanent note and a literature note exists for the topic, derive from it instead of generating from scratch.
+
 ### Atomic Note Rules
 
 - **One idea per note**. If a note covers two concepts, split it. Max ~70 lines.

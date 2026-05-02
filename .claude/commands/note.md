@@ -2,7 +2,7 @@ Create an atomic permanent note on the topic: $ARGUMENTS
 
 Follow these steps:
 
-1. **Research**: Search the vault for existing related notes using Glob and Grep. Understand what already exists to avoid duplication and to find linking opportunities.
+1. **Research**: Search the vault for existing related notes using Glob and Grep. Understand what already exists to avoid duplication and to find linking opportunities. Also check `07-resources/` for any literature note on this topic — if one exists, derive the permanent note from it rather than generating from scratch.
 
 2. **Scope check**: Ensure the topic is truly atomic (one concept). If it's too broad, tell the user and suggest how to split it. Examples of good splits:
    - "Vectors" is too broad → split into: "Vectors and Vector Spaces" (theory), "Vector Operations" (operations + worked examples), "Vectors in ML" (applications)
