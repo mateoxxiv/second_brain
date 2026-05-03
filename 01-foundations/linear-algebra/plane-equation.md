@@ -50,7 +50,16 @@ The normal vector can be read directly from the coefficients: **n = [a, b, c]**.
 
 $$\mathbf{n} = \mathbf{u} \times \mathbf{v}$$
 
-**Distance from a point P to the plane**:
+**The normal vector and its norm** — n points perpendicular to every vector in the plane. Its *direction* defines the plane's orientation; its *magnitude* ||n|| is free — any scalar multiple kn defines the exact same plane. This matters because:
+
+- The distance formula divides by ||n|| to cancel out the arbitrary scaling
+- If you normalize first — **unit normal** n̂ = n / ||n|| — the formula simplifies to just the dot product:
+
+$$\hat{\mathbf{n}} = \frac{\mathbf{n}}{\|\mathbf{n}\|} \qquad \text{dist}(P) = |\hat{\mathbf{n}} \cdot (\mathbf{P} - \mathbf{r_0})|$$
+
+- In the general form ax + by + cz + D = 0, **if** n = [a,b,c] is already a unit vector, then |D| equals the distance from the origin to the plane directly.
+
+**Distance from a point P to the plane** (general case):
 
 $$\text{dist}(P, \text{plane}) = \frac{|\mathbf{n} \cdot (\mathbf{P} - \mathbf{r_0})|}{\|\mathbf{n}\|}$$
 
@@ -60,9 +69,11 @@ $$\text{dist}(P, \text{plane}) = \frac{|\mathbf{n} \cdot (\mathbf{P} - \mathbf{r
 | Scalar form | ax + by + cz = d |
 | General form | ax + by + cz + D = 0, where D = −d |
 | Normal from general form | n = [a, b, c] (read directly from coefficients) |
+| Unit normal | n̂ = n / \|\|n\|\| |
 | Normal from two plane vectors | n = u × v |
 | Plane through origin | D = 0, so ax + by + cz = 0 |
-| Distance point → plane | \|n · (P − r₀)\| / \|\|n\|\| |
+| Distance point → plane | \|n · (P − r₀)\| / \|\|n\|\| = \|n̂ · (P − r₀)\| |
+| Distance from origin (unit n) | \|D\| when \|\|n\|\| = 1 |
 
 ```python
 import numpy as np
