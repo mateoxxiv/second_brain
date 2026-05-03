@@ -49,6 +49,7 @@ $$\|\mathbf{a}\times\mathbf{b}\|^2 + (\mathbf{a}\cdot\mathbf{b})^2 = \|\mathbf{a
 | Anti-commutative | $\mathbf{a}\times\mathbf{b} = -(\mathbf{b}\times\mathbf{a})$ |
 | Parallel vectors | $\mathbf{a}\times\mathbf{b} = \mathbf{0}$ when $\theta=0$ or $\pi$ |
 | Perpendicular result | $(\mathbf{a}\times\mathbf{b})\perp\mathbf{a}$ and $\perp\mathbf{b}$ |
+| Orthogonality (dot form) | $\mathbf{u}\cdot(\mathbf{u}\times\mathbf{v}) = 0$ and $\mathbf{v}\cdot(\mathbf{u}\times\mathbf{v}) = 0$ |
 | Self cross product | $\mathbf{a}\times\mathbf{a} = \mathbf{0}$ |
 
 ```python
