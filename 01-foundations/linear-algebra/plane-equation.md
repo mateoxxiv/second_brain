@@ -6,8 +6,9 @@ related:
   - "[[dot-product]]"
   - "[[cross-product]]"
   - "[[vectors-and-vector-spaces]]"
-  - "[[projection-onto-subspaces]]"
   - "[[vector-norms]]"
+  - "[[line-equation-3d]]"
+  - "[[point-to-plane-distance]]"
 domain: linear-algebra
 sources:
   - "Anton, Howard. Introducción al Álgebra Lineal. Ch. 3 — Euclidean Vector Spaces."
@@ -28,13 +29,13 @@ That single condition — dot product with the normal equals zero — defines ev
 
 **Setup**: given a known point r₀ on the plane and a normal vector n perpendicular to it.
 
-For any point r on the plane, the vector (r − r₀) lies *in* the plane and so must be perpendicular to n:
+For any point r on the plane, the vector (r − r₀) lies *in* the plane and must be perpendicular to n:
 
 $$\mathbf{n} \cdot (\mathbf{r} - \mathbf{r_0}) = 0$$
 
 **Expanding** (let n = [a, b, c], r = [x, y, z], r₀ = [x₀, y₀, z₀]):
 
-$$a(x - x_0) + b(y - y_0) + c(z - z_0) = 0$$
+$$a(x - x_0) + b(y - y_0) + c(z - z_0) = 0 \quad \textbf{(punto-normal form)}$$
 
 Setting d = ax₀ + by₀ + cz₀ gives the **scalar form**:
 
@@ -42,68 +43,56 @@ $$ax + by + cz = d$$
 
 Moving all terms left gives the **general form**:
 
-$$ax + by + cz + D = 0 \quad \text{where } D = -d = -(ax_0 + by_0 + cz_0)$$
+$$ax + by + cz + D = 0 \quad \text{where } D = -d$$
 
-The normal vector can be read directly from the coefficients: **n = [a, b, c]**. No reference point needed — just look at the equation.
+The normal vector is read directly from coefficients: **n = [a, b, c]**.
 
-**Finding n from two vectors in the plane** — if u and v are two non-parallel vectors lying in the plane, the [[cross-product]] gives the normal:
+**Normal vector and unit normal** — direction defines the plane; magnitude is free (kn gives the same plane). Normalizing gives the unit normal used in distance calculations (see [[point-to-plane-distance]]):
+
+$$\hat{\mathbf{n}} = \frac{\mathbf{n}}{\|\mathbf{n}\|}$$
+
+**Finding n from two vectors in the plane** — if u and v lie in the plane, [[cross-product]] gives the normal:
 
 $$\mathbf{n} = \mathbf{u} \times \mathbf{v}$$
-
-**The normal vector and its norm** — n points perpendicular to every vector in the plane. Its *direction* defines the plane's orientation; its *magnitude* ||n|| is free — any scalar multiple kn defines the exact same plane. This matters because:
-
-- The distance formula divides by ||n|| to cancel out the arbitrary scaling
-- If you normalize first — **unit normal** n̂ = n / ||n|| — the formula simplifies to just the dot product:
-
-$$\hat{\mathbf{n}} = \frac{\mathbf{n}}{\|\mathbf{n}\|} \qquad \text{dist}(P) = |\hat{\mathbf{n}} \cdot (\mathbf{P} - \mathbf{r_0})|$$
-
-- In the general form ax + by + cz + D = 0, **if** n = [a,b,c] is already a unit vector, then |D| equals the distance from the origin to the plane directly.
-
-**Distance from a point P to the plane** (general case):
-
-$$\text{dist}(P, \text{plane}) = \frac{|\mathbf{n} \cdot (\mathbf{P} - \mathbf{r_0})|}{\|\mathbf{n}\|}$$
 
 | Property | Formula |
 |---|---|
 | Dot-normal form | n · (r − r₀) = 0 |
 | Scalar form | ax + by + cz = d |
-| General form | ax + by + cz + D = 0, where D = −d |
-| Normal from general form | n = [a, b, c] (read directly from coefficients) |
+| General form | ax + by + cz + D = 0, D = −d |
+| Normal from general form | n = [a, b, c] (read from coefficients) |
 | Unit normal | n̂ = n / \|\|n\|\| |
 | Normal from two plane vectors | n = u × v |
-| Plane through origin | D = 0, so ax + by + cz = 0 |
-| Distance point → plane | \|n · (P − r₀)\| / \|\|n\|\| = \|n̂ · (P − r₀)\| |
-| Distance from origin (unit n) | \|D\| when \|\|n\|\| = 1 |
+| Plane through origin | D = 0 |
 
 ```python
 import numpy as np
 
-r0 = np.array([1, 0, 0])   # point on plane
-u  = np.array([0, 1, 0])   # vector in plane
-v  = np.array([0, 0, 1])   # another vector in plane
+r0 = np.array([1., 0., 0.])
+u  = np.array([0., 1., 0.])
+v  = np.array([0., 0., 1.])
 
-n = np.cross(u, v)         # normal via cross product: [1, 0, 0]
-d = np.dot(n, r0)          # d = 1
-
-P = np.array([3, 2, 1])    # test point
-dist = abs(np.dot(n, P - r0)) / np.linalg.norm(n)
-print(dist)                # 2.0
+n = np.cross(u, v)          # [1, 0, 0]
+d = np.dot(n, r0)           # 1.0
+n_hat = n / np.linalg.norm(n)
+print(n, d, n_hat)
 ```
 
 > Runnable: [[code/foundations/plane_equation.py]]
 
+→ Line perpendicular to this plane: [[line-equation-3d]]
+→ Distance from a point to this plane: [[point-to-plane-distance]]
+
 ## In ML
 
-**Support Vector Machines (SVMs)** — the decision boundary of a linear SVM is a hyperplane w · x = b, where w is the normal vector. This is the dot-normal form generalized from 3D to n dimensions. The entire SVM algorithm is about finding the optimal n (w) that maximizes the margin to the two classes.
+**Support Vector Machines** — the SVM decision boundary is a hyperplane w · x = b where w is the normal. The same dot-normal form, generalized from 3D to n dimensions.
 
-**Neuron decision boundary** — a single neuron computes z = w · x + b. Setting z = 0 defines the boundary between "fires" and "doesn't fire" — a hyperplane with normal w. Every linear classifier is geometrically a hyperplane, derived from the same dot-normal idea.
-
-**Signed distance and margin** — the distance formula (n · (P − r₀) / ||n||) gives a *signed* distance: positive on one side, negative on the other. This signed distance is exactly the margin quantity in SVMs and the raw logit before sigmoid in logistic regression.
+**Neuron decision boundary** — a neuron computes z = w · x + b. Setting z = 0 gives the hyperplane separating "fires" from "doesn't fire" — normal vector w, read directly from the weights.
 
 ## Exercises
 
-**Basic** — Find the equation of the plane that passes through point (1, 2, 3) with normal vector [2, −1, 4]. Write it in dot-normal form, scalar form ax + by + cz = d, and general form ax + by + cz + D = 0. What is D?
+**Basic** — Find the equation of the plane through point (1, 2, 3) with normal [2, −1, 4]. Write it in punto-normal, scalar, and general form. What is D?
 
-**Intermediate** — Three points: A = (1, 0, 0), B = (0, 2, 0), C = (0, 0, 3). Find the normal vector using the [[cross-product]] of AB and AC. Then write the plane equation and compute the distance from point P = (1, 1, 1) to the plane.
+**Intermediate** — Three points: A = (1, 0, 0), B = (0, 2, 0), C = (0, 0, 3). Use [[cross-product]] of AB and AC to find the normal. Write the plane equation in general form.
 
-**Advanced** — Show that the distance formula dist = |n · (P − r₀)| / ||n|| is equivalent to projecting the vector (P − r₀) onto the unit normal n̂. Connect this to [[projection-onto-subspaces]] and explain why it gives the *shortest* distance from P to any point on the plane.
+**Advanced** — Prove that any scalar multiple kn defines the same plane as n. Show that the set of points satisfying n · (r − r₀) = 0 is unchanged when n is replaced by kn.
