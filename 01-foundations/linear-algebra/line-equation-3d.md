@@ -42,11 +42,15 @@ $$x = x_0 + at \qquad y = y_0 + bt \qquad z = z_0 + ct$$
 
 where d = (a, b, c) is the direction vector.
 
-**Symmetric (Cartesian) form** — eliminate t by equating the three ratios:
+**Symmetric (Cartesian) form** — derived by solving each parametric equation for t and equating, since all three must give the same t for any point on the line:
+
+$$x = x_0 + at \;\Rightarrow\; t = \frac{x-x_0}{a} \qquad y = y_0 + bt \;\Rightarrow\; t = \frac{y-y_0}{b} \qquad z = z_0 + ct \;\Rightarrow\; t = \frac{z-z_0}{c}$$
 
 $$\frac{x - x_0}{a} = \frac{y - y_0}{b} = \frac{z - z_0}{c}$$
 
-*(Undefined if any of a, b, c = 0 — handle those axes separately.)*
+**Use: checking if a point lies on the line** — plug (x, y, z) into all three ratios. If they all agree, the point is on the line (there exists a valid t). If any ratio differs, no single t can produce it — the point is off the line.
+
+*(Undefined when any of a, b, c = 0 — that axis has no freedom, handle it with an equality instead: e.g. if c = 0 then z = z₀ must hold exactly.)*
 
 **Connection to [[plane-equation]]** — when d = n = [a, b, c] (the plane's normal), the line is perpendicular to the plane ax + by + cz + D = 0. This is the line used to drop a perpendicular from any point to the plane (see [[point-to-plane-distance]]).
 
