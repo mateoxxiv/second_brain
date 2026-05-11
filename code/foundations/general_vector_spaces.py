@@ -37,6 +37,18 @@ print(f"A + (-A) = 0?  {np.allclose(A + (-A), zero_mat)}") # True  (axiom 5)
 
 # ---------------------------------------------------------------------------
 # Advanced: verify ALL 10 axioms on a general vector space (polynomial)
+#
+# Axiom meanings in plain English:
+#   1  Closure (add)      — adding two vectors always stays inside the space
+#   2  Commutativity      — order of addition doesn't matter: u+v = v+u
+#   3  Associativity      — grouping of addition doesn't matter: (u+v)+w = u+(v+w)
+#   4  Zero vector        — there is a neutral element: adding it changes nothing
+#   5  Negatives          — every vector has an opposite that cancels it to zero
+#   6  Closure (scalar)   — scaling a vector always stays inside the space
+#   7  Distributivity I   — scaling distributes over vector addition: k(u+v) = ku+kv
+#   8  Distributivity II  — adding scalars distributes over the vector: (k+l)u = ku+lu
+#   9  Scalar assoc.      — chaining two scalings equals one combined scaling: k(lu)=(kl)u
+#  10  Scalar identity    — scaling by 1 leaves the vector unchanged: 1u = u
 # ---------------------------------------------------------------------------
 r = np.array([0., 1., -1.])  # x - x²
 k, l = 3.0, -2.0
