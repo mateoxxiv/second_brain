@@ -32,18 +32,18 @@ Polynomials, matrices, and continuous functions are all vector spaces. R^n is ju
 
 V is a **vector space** (and its objects are called **vectors**) if all 10 axioms hold for all u, v, w ∈ V and scalars k, l:
 
-| # | Axiom | Name |
+| # | Axiom | Plain English |
 |---|---|---|
-| 1 | u + v ∈ V | Closure (addition) |
-| 2 | u + v = v + u | Commutativity |
-| 3 | u + (v + w) = (u + v) + w | Associativity |
-| 4 | ∃ **0** ∈ V : **0** + u = u | Zero vector |
-| 5 | ∃ (−u) ∈ V : u + (−u) = **0** | Negatives |
-| 6 | ku ∈ V | Closure (scalar mult.) |
-| 7 | k(u + v) = ku + kv | Distributivity I |
-| 8 | (k + l)u = ku + lu | Distributivity II |
-| 9 | k(lu) = (kl)u | Scalar associativity |
-| 10 | 1u = u | Scalar identity |
+| 1 | u + v ∈ V | Adding two vectors always stays inside the space |
+| 2 | u + v = v + u | Order of addition doesn't matter |
+| 3 | u + (v + w) = (u + v) + w | Grouping of addition doesn't matter |
+| 4 | ∃ **0** ∈ V : **0** + u = u | There is a neutral element — adding it changes nothing |
+| 5 | ∃ (−u) ∈ V : u + (−u) = **0** | Every vector has an opposite that cancels it to zero |
+| 6 | ku ∈ V | Scaling a vector always stays inside the space |
+| 7 | k(u + v) = ku + kv | Scaling distributes over vector addition |
+| 8 | (k + l)u = ku + lu | Adding scalars distributes over the vector |
+| 9 | k(lu) = (kl)u | Chaining two scalings equals one combined scaling |
+| 10 | 1u = u | Scaling by 1 leaves the vector unchanged |
 
 **Three vector spaces beyond R^n:**
 
