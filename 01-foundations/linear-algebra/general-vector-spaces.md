@@ -24,6 +24,8 @@ In R^n, vectors are lists of numbers and the operations are obvious. But the 10 
 
 Polynomials, matrices, and continuous functions are all vector spaces. R^n is just the most concrete instance.
 
+The key leverage: the 10 axioms are a **certification**. Verify them once for any set of objects → the entire linear algebra toolkit (linear combinations, basis, dimension, projections, Gram-Schmidt, eigendecomposition) applies automatically, regardless of what those objects physically are. One proof covers infinite cases — that's why the abstract definition exists.
+
 ## Mechanics
 
 **Definition (Anton §4.2)** — Let V be an arbitrary set with two operations:
