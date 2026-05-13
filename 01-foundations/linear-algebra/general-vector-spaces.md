@@ -9,6 +9,8 @@ related:
   - "[[basis-and-dimension]]"
   - "[[linear-independence]]"
   - "[[inner-product-spaces]]"
+  - "[[gram-schmidt]]"
+  - "[[algebraic-operation-properties]]"
 domain: linear-algebra
 sources:
   - "Anton, Howard. Introducción al Álgebra Lineal. §4.2 — Espacios Vectoriales Generales."
@@ -46,6 +48,16 @@ V is a **vector space** (and its objects are called **vectors**) if all 10 axiom
 | 8 | (k + l)u = ku + lu | Adding scalars distributes over the vector |
 | 9 | k(lu) = (kl)u | Chaining two scalings equals one combined scaling |
 | 10 | 1u = u | Scaling by 1 leaves the vector unchanged |
+
+**What the certification unlocks — three layers:**
+
+| Layer | Requires | Tools you gain |
+|---|---|---|
+| Algebra | 10 axioms | Linear combinations, span, independence, basis, dimension, subspaces |
+| Geometry | + [[inner-product-spaces\|inner product]] (4 axioms) | Length, distance, angle, orthogonality, projection, [[gram-schmidt\|Gram-Schmidt]] |
+| Analysis | + linear maps | Kernel, image, eigenvalues, SVD, PCA |
+
+Each layer is built on the previous. You cannot do geometry without algebra, and you cannot do analysis without geometry.
 
 **Three vector spaces beyond R^n:**
 
