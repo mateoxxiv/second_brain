@@ -1,7 +1,7 @@
 # Study Roadmap
 
 **Created**: 2026-02-24
-**Last updated**: 2026-05-02
+**Last updated**: 2026-05-14
 **Goal**: Become an expert AI architect and engineer — design, implement, and orchestrate intelligent systems end-to-end.
 
 ---
@@ -21,6 +21,10 @@ Supervised ML ────────────────── → Scikit-
 Neural Networks ──────────────── → PyTorch, HuggingFace models
 Transformers ─────────────────── → LLM APIs (OpenAI, Anthropic, Gemini)
 Attention Mechanism ──────────── → RAG, prompt engineering, agents
+                                    ↓
+                              Cloud Deployment
+                         AWS / Azure / GCP / Fabric
+                         ETL pipelines + model serving
 
 Theory explains WHY things work.
 Building shows HOW they work in practice.
@@ -33,25 +37,23 @@ Both together = architect.
 
 | Area | Notes | Status |
 |------|-------|--------|
-| 01-foundations/linear-algebra | 25 | Strong — determinants cluster complete, dot/cross product added |
-| 01-foundations/calculus | 6 | Core complete — matrix calculus remaining |
+| 01-foundations/linear-algebra | 32 | Strong — abstract spaces (general, inner product, euclidean) added |
+| 01-foundations/calculus | 8 | Core complete — algebraic + exponent/log properties added |
 | 01-foundations/probability | 10 | Distributions done — MLE, entropy, multivariate Normal next |
 | 01-foundations/algorithms | 0 | Not started |
 | 01-foundations/databases | 0 | Not started |
 | 02-machine-learning | 0 | Not started |
 | 03-deep-learning | 0 | Not started |
 | 04-llms-and-agents | 8 | Anthropic + OpenAI ecosystems covered |
-| 05-mlops | 0 | Not started |
+| 05-mlops/cloud | 0 | Not started — **newly added track** |
 
-**Total notes**: 49 | **8 evergreen** | **25 growing** | **16 seed**
-
-**All 49 notes** are on the new layered structure (TL;DR → Intuition → Mechanics → In ML → Exercises).
+**Total notes**: 58 | **~8 evergreen** | **~25 growing** | **~25 seed**
 
 ---
 
 ## THEORY TRACK
 
-### T1: Linear Algebra — NEAR COMPLETE (25/~28 notes)
+### T1: Linear Algebra — STRONG (32/~35 notes)
 
 > *Why*: Every ML algorithm is a matrix operation. You can't understand neural nets, PCA, or embeddings without this.
 
@@ -59,8 +61,8 @@ Both together = architect.
 - [x] Vectors and Vector Spaces
 - [x] Vector Operations
 - [x] Vector Norms
-- [x] Dot Product ← new
-- [x] Cross Product + Lagrange Identity ← new
+- [x] Dot Product
+- [x] Cross Product + Lagrange Identity
 - [x] Cosine Similarity
 - [x] Linear Combination
 - [x] Linear Independence
@@ -69,11 +71,11 @@ Both together = architect.
 - [x] Projection onto Subspaces
 - [x] Gaussian Elimination
 - [x] Determinant
-- [x] Cofactor ← new
-- [x] Adjugate Matrix ← new
-- [x] Sarrus' Rule ← new
-- [x] Cramer's Rule ← new
-- [x] Matrix Operations
+- [x] Cofactor
+- [x] Adjugate Matrix
+- [x] Sarrus' Rule
+- [x] Cramer's Rule
+- [x] Matrix Operations (+ scalar multiplication)
 - [x] Matrix Inverse
 - [x] Special Matrices
 - [x] Eigenvalues and Eigenvectors
@@ -81,6 +83,13 @@ Both together = architect.
 - [x] Singular Value Decomposition
 - [x] Gram-Schmidt
 - [x] Linear Transformations
+- [x] Planes as Linear Systems
+- [x] Plane Equation
+- [x] Point-to-Plane Distance
+- [x] Line Equation in 3D
+- [x] Euclidean N-Space ← new
+- [x] General Vector Spaces (10 axioms, certification → toolkit) ← new
+- [x] Inner Product Spaces ← new
 
 **Remaining:**
 - [ ] Matrix Calculus (Jacobians, Hessians, dL/dW) — needs calculus track first, CRITICAL for backprop
@@ -91,7 +100,7 @@ Both together = architect.
 
 ---
 
-### T2: Calculus — CORE COMPLETE (6/~9 notes)
+### T2: Calculus — IN PROGRESS (8/~11 notes)
 
 > *Why*: Optimization IS calculus. Gradient descent, backpropagation, loss functions — all calculus.
 
@@ -102,6 +111,8 @@ Both together = architect.
 - [x] Polynomial Factorization
 - [x] Gradient Descent
 - [x] Optimization (convexity, second derivative test, saddle points)
+- [x] Algebraic Operation Properties (commutativity, associativity, distributivity) ← new
+- [x] Exponent, Log, and Root Properties ← new
 
 **Remaining:**
 - [ ] Matrix Calculus (Jacobians, Hessians) — CRITICAL before deep learning
@@ -154,8 +165,6 @@ Both together = architect.
 - [ ] Naive Bayes
 - [ ] Bias-Variance Tradeoff
 - [ ] Regularization (L1/L2, Ridge, Lasso)
-
-**Estimated**: ~8 notes, 3 code files
 
 ---
 
@@ -239,12 +248,16 @@ Both together = architect.
 - [x] OpenAI Codex
 - [x] OpenAI Agents SDK
 
+---
+
 ### B2: Prompt Engineering — NOT STARTED
 
 - [ ] Prompt Design Patterns (zero-shot, few-shot, chain-of-thought)
 - [ ] Structured Output (JSON mode, function calling)
 - [ ] System Prompts and Guardrails
 - [ ] **Project**: Structured data extractor
+
+---
 
 ### B3: LLM Providers Landscape — NOT STARTED
 
@@ -253,11 +266,15 @@ Both together = architect.
 - [ ] Model Selection Framework
 - [ ] **Project**: Multi-provider router
 
+---
+
 ### B4: Embeddings & Vector Search — NOT STARTED
 
 - [ ] Embedding Models (OpenAI, Cohere, open-source)
 - [ ] Vector Databases (Chroma, Pinecone, Qdrant)
 - [ ] **Project**: Semantic search over your own vault
+
+---
 
 ### B5: RAG Pipeline — NOT STARTED
 
@@ -267,7 +284,50 @@ Both together = architect.
 - [ ] Reranking and Evaluation
 - [ ] **Project**: RAG chatbot over this vault
 
-### B6–B10: Tool Use, Agents, Evaluation, Production, MLOps — NOT STARTED
+---
+
+### B6: Cloud Infrastructure for AI & Data — NOT STARTED ← NEW
+
+> *Why*: Knowing the math and code is not enough — you need to ship. Cloud platforms are where ETL pipelines run, models get served, and AI systems live in production.
+
+#### AWS
+- [ ] Core services overview (S3, EC2, IAM, VPC)
+- [ ] AWS Glue — managed ETL, PySpark, crawlers, data catalog
+- [ ] AWS Lambda — serverless functions, event-driven ETL triggers
+- [ ] AWS SageMaker — training jobs, endpoints, model registry, pipelines
+- [ ] Amazon Bedrock — managed LLM APIs (Claude, Llama, Titan) in AWS
+- [ ] Amazon Redshift + Athena — data warehousing and S3 querying
+- [ ] AWS Step Functions — orchestrating multi-step ML workflows
+- [ ] ECR + ECS / EKS — containerized model serving
+- [ ] **Project**: Deploy a FastAPI model endpoint on SageMaker
+
+#### Microsoft Azure / Fabric
+- [ ] Microsoft Fabric overview — unified analytics: Data Engineering, Data Science, Data Warehouse, Real-Time Analytics
+- [ ] Fabric Lakehouses and OneLake — Delta Lake-based unified storage
+- [ ] Fabric Pipelines and Dataflows — ETL/ELT with drag-and-drop + PySpark
+- [ ] Azure Machine Learning — experiment tracking, model registry, endpoints
+- [ ] Azure OpenAI Service — GPT-4, embeddings, DALL-E on Azure
+- [ ] Azure Data Factory — enterprise ETL orchestration
+- [ ] **Project**: Build an ETL pipeline in Microsoft Fabric from raw data to gold layer
+
+#### GCP (Google Cloud)
+- [ ] BigQuery — serverless data warehouse, SQL + ML
+- [ ] BigQuery ML — train models directly in SQL
+- [ ] Vertex AI — unified ML platform (training, tuning, serving, pipelines)
+- [ ] Cloud Functions + Pub/Sub — event-driven data pipelines
+- [ ] **Project**: Train and serve a model on Vertex AI
+
+#### Cross-Platform Tools
+- [ ] Docker — containerize ML models and ETL jobs
+- [ ] Apache Airflow — workflow orchestration for data pipelines
+- [ ] dbt (data build tool) — SQL transformations, testing, lineage
+- [ ] MLflow — experiment tracking, model registry (works on any cloud)
+- [ ] Terraform — infrastructure as code (provision cloud resources)
+- [ ] **Project**: Containerize a model + Airflow DAG for automated retraining
+
+---
+
+### B7–B10: Tool Use, Agents, Evaluation, MLOps — NOT STARTED
 
 ---
 
@@ -279,11 +339,11 @@ Weeks 4-5   | Calculus (✓ done)            | B2: Prompt engineering
 Weeks 6-8   | Probability (in progress)    | B3: Providers landscape
 Weeks 9-10  | MLE + Information Theory     | B4: Embeddings + vector DBs
 Weeks 11-13 | Supervised ML                | B5: RAG pipeline
-Weeks 14-15 | Unsupervised + Ensemble      | B6: Tool use
-Weeks 16-18 | Deep Learning Fundamentals   | B7: Agent frameworks
-Weeks 19-21 | CNNs + RNNs                  | B8: Evaluation
-Weeks 22-24 | Transformers                 | B9: Production patterns
-Weeks 25+   | LLM Internals                | B10: MLOps + Capstones
+Weeks 14-15 | Unsupervised + Ensemble      | B6: Cloud infra (AWS + Fabric)
+Weeks 16-18 | Deep Learning Fundamentals   | B6 cont: Docker + Airflow + dbt
+Weeks 19-21 | CNNs + RNNs                  | B7: Agent frameworks
+Weeks 22-24 | Transformers                 | B8: Evaluation
+Weeks 25+   | LLM Internals                | B9: Production + MLOps capstone
 ```
 
 ---
@@ -303,6 +363,13 @@ Weeks 25+   | LLM Internals                | B10: MLOps + Capstones
 2. `/note prompt-design-patterns` — zero-shot, few-shot, CoT
 3. Start B4: embeddings project using this vault
 
+**Cloud track entry points (when ready):**
+
+1. Start with **Docker** — language-agnostic, needed for all cloud platforms
+2. Then **AWS Glue + S3** or **Microsoft Fabric Pipelines** depending on your job target
+3. Then **SageMaker** or **Azure ML** for model deployment
+
 **Quality improvements:**
 - Promote `singular-value-decomposition` from seed to growing (add exercises to code file)
 - Promote `spectral-decomposition` to evergreen
+- Commit the two new notes: `algebraic-operation-properties` + `exponent-log-root-properties`
