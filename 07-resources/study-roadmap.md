@@ -1,7 +1,7 @@
 # Study Roadmap
 
 **Created**: 2026-02-24
-**Last updated**: 2026-05-14
+**Last updated**: 2026-05-14 (added data engineering + C++ tracks)
 **Goal**: Become an expert AI architect and engineer — design, implement, and orchestrate intelligent systems end-to-end.
 
 ---
@@ -14,21 +14,26 @@ Two parallel tracks that reinforce each other:
 THEORY TRACK (left)              BUILDER TRACK (right)
 Deep understanding               Real tools, real projects
 
-Linear Algebra ──────────────── → Embeddings & Vector Search use vectors
+Linear Algebra ──────────────── → Embeddings & Vector Search
 Calculus ─────────────────────── → Gradient Descent in practice
-Probability ──────────────────── → Evaluation metrics, A/B testing
-Supervised ML ────────────────── → Scikit-learn pipelines, Kaggle
-Neural Networks ──────────────── → PyTorch, HuggingFace models
-Transformers ─────────────────── → LLM APIs (OpenAI, Anthropic, Gemini)
-Attention Mechanism ──────────── → RAG, prompt engineering, agents
+Probability ──────────────────── → Evaluation, A/B testing
+Supervised ML ────────────────── → Scikit-learn, Kaggle
+Neural Networks ──────────────── → PyTorch, HuggingFace
+Transformers ─────────────────── → LLM APIs (OpenAI, Anthropic)
+Attention Mechanism ──────────── → RAG, agents
                                     ↓
-                              Cloud Deployment
-                         AWS / Azure / GCP / Fabric
+                         Cloud: AWS / Azure Fabric / GCP
                          ETL pipelines + model serving
+                                    ↓
+                    Data Engineering (medium-high level)
+              SQL → Spark → Kafka → dbt → Lakehouse → Streaming
+                                    ↓
+                    Low-Level ML: C++ & Systems Programming
+              Memory model → Pointers → CUDA → TensorRT → custom ops
 
 Theory explains WHY things work.
 Building shows HOW they work in practice.
-Both together = architect.
+Data Engineering + C++ = production-grade AI systems at scale.
 ```
 
 ---
@@ -327,23 +332,100 @@ Both together = architect.
 
 ---
 
-### B7–B10: Tool Use, Agents, Evaluation, MLOps — NOT STARTED
+### B7: Data Engineering — NOT STARTED ← NEW (medium-high level)
+
+> *Why*: AI systems run on data pipelines. An AI architect who can't build and debug a data pipeline is blocked at the first step. Medium-high means: beyond basic SQL, into distributed processing, real-time systems, and production-grade pipeline design.
+
+#### Foundations
+- [ ] Advanced SQL — window functions, CTEs, query optimization, execution plans
+- [ ] Data modeling — star schema, dimensional modeling, data vault 2.0
+- [ ] OLAP vs OLTP — when each applies and why
+- [ ] Columnar storage — Parquet, ORC, why they're faster for analytics
+- [ ] Medallion architecture — Bronze / Silver / Gold layers, data quality tiers
+
+#### Batch Processing
+- [ ] Apache Spark fundamentals — RDDs, DataFrames, lazy evaluation, DAG
+- [ ] PySpark — data transformations, joins, aggregations, UDFs
+- [ ] dbt (data build tool) — SQL transformations, testing, lineage, docs
+- [ ] Airflow — DAGs, operators, sensors, XComs, production scheduling
+- [ ] **Project**: Build a full Bronze→Gold pipeline with PySpark + dbt + Airflow
+
+#### Streaming & Real-Time
+- [ ] Apache Kafka fundamentals — topics, partitions, producers, consumers, offsets
+- [ ] Kafka Connect + Schema Registry — integrating data sources
+- [ ] Spark Structured Streaming — micro-batch, watermarking, stateful ops
+- [ ] Real-time vs near-real-time vs batch — design trade-offs
+- [ ] **Project**: Real-time feature store ingestion pipeline with Kafka + Spark Streaming
+
+#### Lakehouse & Storage
+- [ ] Delta Lake — ACID transactions on data lakes, time travel, schema evolution
+- [ ] Apache Iceberg — table format, partition evolution, hidden partitioning
+- [ ] Data contracts — schema agreements between producers and consumers
+- [ ] Data quality — Great Expectations, Soda, unit testing pipelines
+- [ ] **Project**: Migrate a raw S3 / ADLS lake to Delta Lake with data quality checks
+
+#### Data Warehousing
+- [ ] Snowflake architecture — virtual warehouses, clustering, micro-partitions
+- [ ] BigQuery internals — Dremel, columnar storage, slot-based billing
+- [ ] Redshift — distribution keys, sort keys, VACUUM, ANALYZE
+- [ ] Query optimization — explain plans, materialized views, partitioning
+
+---
+
+### B8: C++ and Low-Level ML — NOT STARTED ← NEW
+
+> *Why*: Python is a thin wrapper over C/C++. Understanding what happens at the machine level makes you a better ML engineer — you understand why CUDA kernels matter, what memory layout means for performance, and how to write custom ops for PyTorch or TensorFlow.
+
+#### C++ Fundamentals
+- [ ] Types, variables, functions, control flow — the basics vs Python differences
+- [ ] Pointers and references — the core of C++ memory model
+- [ ] Stack vs heap — where data lives, when to use which
+- [ ] Manual memory management — `new`/`delete`, memory leaks, valgrind
+- [ ] Smart pointers — `unique_ptr`, `shared_ptr`, `weak_ptr` (RAII pattern)
+- [ ] **Project**: Implement a dynamic array (std::vector clone) from scratch
+
+#### Intermediate C++
+- [ ] Classes and OOP — constructors, destructors, copy/move semantics
+- [ ] Templates — generic programming, type traits
+- [ ] STL containers — vector, map, unordered_map, deque — when to use each
+- [ ] Concurrency — `std::thread`, mutexes, atomics, race conditions
+- [ ] **Project**: Thread-safe matrix multiplication with manual memory layout
+
+#### Performance C++
+- [ ] Cache hierarchy — L1/L2/L3, cache lines, false sharing
+- [ ] Memory layout — row-major vs column-major, struct of arrays vs array of structs
+- [ ] SIMD intrinsics — AVX/SSE, vectorized operations
+- [ ] Profiling — perf, gprof, Valgrind/cachegrind, Instruments
+- [ ] **Project**: Hand-optimized GEMM (matrix multiply) beating naive implementation
+
+#### C++ for ML
+- [ ] ONNX Runtime — load and run model inference in C++
+- [ ] LibTorch (PyTorch C++ API) — tensors, autograd, custom ops
+- [ ] TensorRT — NVIDIA inference optimizer, layer fusion, INT8 quantization
+- [ ] Writing custom CUDA kernels — threads, blocks, shared memory, warps
+- [ ] **Project**: Custom attention kernel in CUDA faster than naive PyTorch
+
+---
+
+### B9–B11: Tool Use, Agents, Evaluation, MLOps — NOT STARTED
 
 ---
 
 ## Parallel Schedule
 
 ```
-Weeks 1-3   | Linear Algebra (✓ done)     | B1: APIs (✓ done)
-Weeks 4-5   | Calculus (✓ done)            | B2: Prompt engineering
-Weeks 6-8   | Probability (in progress)    | B3: Providers landscape
-Weeks 9-10  | MLE + Information Theory     | B4: Embeddings + vector DBs
-Weeks 11-13 | Supervised ML                | B5: RAG pipeline
-Weeks 14-15 | Unsupervised + Ensemble      | B6: Cloud infra (AWS + Fabric)
-Weeks 16-18 | Deep Learning Fundamentals   | B6 cont: Docker + Airflow + dbt
-Weeks 19-21 | CNNs + RNNs                  | B7: Agent frameworks
-Weeks 22-24 | Transformers                 | B8: Evaluation
-Weeks 25+   | LLM Internals                | B9: Production + MLOps capstone
+Weeks 1-3   | Linear Algebra (✓ done)      | B1: APIs (✓ done)
+Weeks 4-5   | Calculus (✓ done)             | B2: Prompt engineering
+Weeks 6-8   | Probability (in progress)     | B3: Providers landscape
+Weeks 9-10  | MLE + Information Theory      | B4: Embeddings + vector DBs
+Weeks 11-13 | Supervised ML                 | B5: RAG pipeline
+Weeks 14-15 | Unsupervised + Ensemble       | B6: Cloud infra (AWS + Fabric)
+Weeks 16-18 | Deep Learning Fundamentals    | B7-DE: SQL + Spark + dbt
+Weeks 19-20 | CNNs + RNNs                   | B7-DE: Kafka + streaming
+Weeks 21-22 | Transformers                  | B7-DE: Delta Lake + warehousing
+Weeks 23-24 | LLM Internals                 | B8-C++: Fundamentals + memory
+Weeks 25-27 | Fine-tuning + RLHF            | B8-C++: Performance + CUDA
+Weeks 28+   | Capstone projects             | B8-C++: ONNX + TensorRT + custom ops
 ```
 
 ---
@@ -352,10 +434,10 @@ Weeks 25+   | LLM Internals                | B9: Production + MLOps capstone
 
 **Immediate priorities (theory):**
 
-1. `/note maximum-likelihood-estimation` — derives ALL loss functions (MSE, cross-entropy, etc.) from probability. The single most important missing concept.
+1. `/note maximum-likelihood-estimation` — derives ALL loss functions from probability. Single most important missing concept.
 2. `/note cross-entropy-and-kl-divergence` — information theory, connects to classification losses and VAEs.
 3. `/note matrix-calculus` — Jacobians, Hessians, dL/dW. Required before any deep learning.
-4. `/session linear-regression` — first ML model, bridges all of foundations → ML.
+4. `/session linear-regression` — first ML model, bridges foundations → ML.
 
 **Immediate priorities (builder):**
 
@@ -363,13 +445,28 @@ Weeks 25+   | LLM Internals                | B9: Production + MLOps capstone
 2. `/note prompt-design-patterns` — zero-shot, few-shot, CoT
 3. Start B4: embeddings project using this vault
 
-**Cloud track entry points (when ready):**
+**Cloud track entry points (B6):**
 
-1. Start with **Docker** — language-agnostic, needed for all cloud platforms
-2. Then **AWS Glue + S3** or **Microsoft Fabric Pipelines** depending on your job target
-3. Then **SageMaker** or **Azure ML** for model deployment
+1. **Docker** first — language-agnostic container skill needed everywhere
+2. **AWS Glue + S3** or **Microsoft Fabric Pipelines** depending on job target
+3. **SageMaker** or **Azure ML** for model deployment
+
+**Data engineering entry points (B7):**
+
+1. **Advanced SQL** — window functions, CTEs, execution plans (1-2 weeks)
+2. **PySpark** — distributed data processing (2-3 weeks, run locally with Docker)
+3. **dbt** — SQL transformations and testing on top of any warehouse (1 week)
+4. **Apache Kafka** — streaming fundamentals (2 weeks)
+5. **Delta Lake** — lakehouse storage layer (1 week)
+
+**C++ entry points (B8):**
+
+1. **Pointers and memory** — start here, everything else depends on it
+2. **Smart pointers + RAII** — modern C++ memory safety
+3. **Cache and memory layout** — why matrix layout affects ML speed
+4. **LibTorch / ONNX Runtime** — run ML models in C++ before writing CUDA
+5. **CUDA basics** — GPU threads, blocks, shared memory
 
 **Quality improvements:**
-- Promote `singular-value-decomposition` from seed to growing (add exercises to code file)
+- Promote `singular-value-decomposition` from seed to growing
 - Promote `spectral-decomposition` to evergreen
-- Commit the two new notes: `algebraic-operation-properties` + `exponent-log-root-properties`
