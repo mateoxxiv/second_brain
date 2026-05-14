@@ -22,6 +22,8 @@ sources:
 
 **Addition** — element-wise, same rules as scalar arithmetic. Matrices must have the same shape.
 
+**Scalar multiplication** — multiply every entry by k: $(kA)_{ij} = k \cdot A_{ij}$. This is the vector space "scaling" operation for $M_{m \times n}$ — the result always stays in the same shape (axiom 6), and $1 \cdot A = A$ (axiom 10).
+
 **Transpose** — flip over the main diagonal: rows become columns. The "socks and shoes" rule: $(AB)^T = B^TA^T$. To undo "put on socks then shoes," remove shoes first.
 
 **Multiplication** — applying transformation $B$ then $A$, read right-to-left like function composition $f(g(x))$. Each output entry is a dot product of a row from $A$ with a column from $B$.
@@ -32,12 +34,17 @@ Why NOT commutative: rotating then shearing ≠ shearing then rotating. Order of
 
 **Addition:** $(A+B)_{ij} = A_{ij} + B_{ij}$ (same dimensions required)
 
+**Scalar multiplication:** $(kA)_{ij} = k \cdot A_{ij}$ (every entry scaled)
+
 **Transpose:** $(A^T)_{ij} = A_{ji}$; shape flips from $m\times n$ to $n\times m$
 
 **Multiplication:** $(AB)_{ij} = \sum_k A_{ik}B_{kj}$ (inner dimensions must match)
 
 | Property | Rule |
 |---|---|
+| Scalar closure | $kA$ has same shape as $A$ |
+| Scalar identity | $1 \cdot A = A$ |
+| Scalar distributivity | $k(A+B) = kA + kB$ |
 | Not commutative | $AB \neq BA$ in general |
 | Associative | $(AB)C = A(BC)$ |
 | Transpose of product | $(AB)^T = B^TA^T$ |
@@ -50,6 +57,7 @@ A = np.array([[1,2],[3,4]])
 B = np.array([[5,6],[7,8]])
 
 print(A + B)         # [[6,8],[10,12]] — element-wise
+print(3 * A)         # [[3,6],[9,12]]  — scalar multiplication
 print(A.T)           # [[1,3],[2,4]]   — transposed
 print(A @ B)         # [[19,22],[43,50]]
 print(B @ A)         # [[23,34],[31,46]] — different!

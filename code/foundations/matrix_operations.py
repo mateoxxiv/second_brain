@@ -56,6 +56,18 @@ def mat_mult(A: np.ndarray, B: np.ndarray) -> np.ndarray:
     return result
 
 
+def scalar_mult(k: float, A: np.ndarray) -> np.ndarray:
+    """Scalar multiplication: multiply every entry of A by scalar k.
+    This is the vector space 'scaling' operation for M_mxn.
+    """
+    rows, cols = A.shape
+    result = np.zeros((rows, cols))
+    for i in range(rows):
+        for j in range(cols):
+            result[i][j] = k * A[i][j]
+    return result
+
+
 def det_2x2(A: np.ndarray) -> float:
     """Determinant of a 2x2 matrix: ad - bc."""
     return A[0][0] * A[1][1] - A[0][1] * A[1][0]
@@ -254,6 +266,13 @@ def demo_special_matrices():
     """Symmetric, diagonal, orthogonal — each with special powers."""
     print("=== Special Matrices ===\n")
 
+    # Scalar multiplication (vector space operation)
+    A = np.array([[1., 2.], [3., 4.]])
+    print(f"Scalar multiplication (axiom 6 — closure):")
+    print(f"  3·A =\n{scalar_mult(3, A)}")
+    print(f"  1·A = A?  {np.allclose(scalar_mult(1, A), A)}")       # axiom 10
+    print(f"  A + (-1)·A = 0?  {np.allclose(A + scalar_mult(-1, A), np.zeros((2,2)))}")  # axiom 5
+
     # Symmetric
     S = np.array([[2, 1],
                   [1, 3]])
@@ -376,6 +395,14 @@ def exercises():
     I = np.eye(3)
     v = np.array([1, 2, 3])
     check("I @ v = v", I @ v, v)
+
+    # 7b. Scalar multiplication (vector space axiom 6)
+    print("\nExercise 7b: Scalar multiplication")
+    A = np.array([[1., 2.], [3., 4.]])
+    check("3·A",            scalar_mult(3, A),  np.array([[3., 6.], [9., 12.]]))
+    check("axiom 10: 1·A=A", scalar_mult(1, A),  A)
+    check("axiom 5: (-1)·A", scalar_mult(-1, A), np.array([[-1., -2.], [-3., -4.]]))
+    check("k·A same shape",  scalar_mult(5, A).shape, A.shape)   # axiom 6: closure
 
     # --- INTERMEDIATE (8-13) ---
     print("\n--- INTERMEDIATE ---\n")
