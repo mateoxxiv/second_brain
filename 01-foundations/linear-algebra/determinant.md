@@ -37,12 +37,17 @@ $$\det = a(ei-fh) - b(di-fg) + c(dh-eg)$$
 
 **Triangular matrices:** $\det$ = product of diagonal entries (no expansion needed).
 
-| Property | Effect |
-|----------|--------|
-| Scale a row by $k$ | $\det$ multiplies by $k$ |
-| Swap two rows | $\det$ flips sign |
-| Two equal rows | $\det = 0$ |
-| $\det(AB) = \det(A)\cdot\det(B)$ | Chaining scales volumes |
+| Property | Formula | Why it matters |
+|----------|---------|----------------|
+| Scale one row by k | det multiplies by k | Row operations change det predictably |
+| Scale whole matrix by k | det(kA) = k^n · det(A) | Each of n rows gets scaled → k applied n times |
+| Swap two rows | det flips sign | Orientation reverses |
+| Two equal rows | det = 0 | Columns dependent → volume collapses |
+| Add k × row i to row j | det unchanged | Gaussian elimination preserves det |
+| Transpose | det(A^T) = det(A) | Rows and columns are symmetric for det |
+| Inverse | det(A^{-1}) = 1 / det(A) | From det(A · A^{-1}) = det(I) = 1 |
+| Product | det(AB) = det(A) · det(B) | Chaining scales volumes |
+| Addition | det(A+B) ≠ det(A) + det(B) | det is non-linear — this is NOT an equality |
 
 **Equivalence chain** — all of these mean the same thing:
 $\det(A) = 0 \iff$ not invertible $\iff$ columns dependent $\iff$ rank $< n \iff Ax=b$ has no unique solution.
@@ -59,6 +64,17 @@ print(np.linalg.det(A))      # -2.0
 # Independence test
 dep = np.array([[1,2],[2,4]])
 print(np.linalg.det(dep))    # 0.0 → dependent
+
+# New properties
+k = 3
+print(np.linalg.det(k * A))                          # k^2 * det(A) = 9 * -2 = -18
+print(np.isclose(np.linalg.det(k*A), k**2 * det_2x2(A)))  # True
+print(np.linalg.det(A.T))                            # same as det(A) = -2
+print(np.linalg.det(np.linalg.inv(A)))               # 1/det(A) = -0.5
+
+B = np.array([[5,6],[7,8]])
+print(np.linalg.det(A+B))                            # NOT det(A)+det(B) — non-linear
+print(np.linalg.det(A) + np.linalg.det(B))           # different value
 ```
 
 > Runnable: [[code/foundations/matrix_operations.py]]
