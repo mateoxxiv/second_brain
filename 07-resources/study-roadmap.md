@@ -1,7 +1,7 @@
 # Study Roadmap
 
 **Created**: 2026-02-24
-**Last updated**: 2026-05-14 (added data engineering + C++ tracks)
+**Last updated**: 2026-05-17 (added data engineering, C++, software engineering + system design tracks)
 **Goal**: Become an expert AI architect and engineer — design, implement, and orchestrate intelligent systems end-to-end.
 
 ---
@@ -30,10 +30,13 @@ Attention Mechanism ──────────── → RAG, agents
                                     ↓
                     Low-Level ML: C++ & Systems Programming
               Memory model → Pointers → CUDA → TensorRT → custom ops
+                                    ↓
+              Software Engineering & System Design for DS/AI
+         Clean code → Testing → APIs → Distributed systems → ML design
 
 Theory explains WHY things work.
 Building shows HOW they work in practice.
-Data Engineering + C++ = production-grade AI systems at scale.
+DE + C++ + SWE + System Design = production-grade AI architect.
 ```
 
 ---
@@ -407,7 +410,41 @@ Data Engineering + C++ = production-grade AI systems at scale.
 
 ---
 
-### B9–B11: Tool Use, Agents, Evaluation, MLOps — NOT STARTED
+### B9: Software Engineering & System Design for DS/AI — NOT STARTED ← NEW
+
+> *Why*: Knowing the math and the tools is not enough — you need to write production-quality code and design systems that scale. This track covers the engineering practices that separate a data scientist who can prototype from one who can build and own a production AI system.
+
+#### Software Engineering for DS/AI
+- [ ] Python best practices — type hints, dataclasses, virtual environments, packaging (`pyproject.toml`)
+- [ ] Clean code for data science — naming, modularity, avoiding notebook anti-patterns
+- [ ] Testing ML code — unit tests (pytest), data validation tests, model behavior tests
+- [ ] API design with FastAPI — REST endpoints, request/response schemas, async handlers
+- [ ] Design patterns for ML — pipeline pattern, strategy pattern, factory pattern applied to models
+- [ ] Git workflows for ML — branching, versioning models + data, PR practices
+- [ ] Documentation — docstrings, mkdocs, auto-generated API docs
+- [ ] **Project**: Refactor a notebook-based ML project into a clean, tested Python package
+
+#### System Design for AI/ML
+- [ ] Distributed systems basics — CAP theorem, consistency vs availability, partitioning
+- [ ] Database selection — SQL vs NoSQL vs Vector DB — when to use each
+- [ ] Caching strategies — Redis, cache invalidation, TTL, write-through vs write-back
+- [ ] Message queues — Kafka vs RabbitMQ vs SQS — event-driven architectures
+- [ ] Microservices vs monolith — trade-offs for AI systems, service boundaries
+- [ ] Load balancing and horizontal scaling — stateless services, session management
+- [ ] **Project**: Design a scalable ML prediction service — handle 10K requests/second
+
+#### ML System Design (interviews + production)
+- [ ] Feature stores — online vs offline, point-in-time correctness (Feast, Tecton, Hopsworks)
+- [ ] Model serving architectures — REST vs gRPC, batch vs real-time, shadow mode
+- [ ] A/B testing infrastructure — traffic splitting, experiment tracking, statistical significance
+- [ ] Data versioning — DVC, Delta Lake time travel, reproducible pipelines
+- [ ] Experiment tracking — MLflow, Weights & Biases, managing runs at scale
+- [ ] ML system design interview framework — requirements → data → model → serving → monitoring
+- [ ] **Project**: Design an end-to-end recommendation system (design doc + implementation skeleton)
+
+---
+
+### B10–B12: Tool Use, Agents, Evaluation, MLOps — NOT STARTED
 
 ---
 
