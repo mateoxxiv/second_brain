@@ -37,6 +37,14 @@ $$\det = a(ei-fh) - b(di-fg) + c(dh-eg)$$
 
 **Triangular matrices:** $\det$ = product of diagonal entries (no expansion needed).
 
+**Leibniz formula (tree method)** — the general definition behind all methods:
+
+$$\det(A) = \sum_{\sigma} \text{sgn}(\sigma)\; a_{1\sigma(1)}\cdot a_{2\sigma(2)}\cdots a_{n\sigma(n)}$$
+
+Pick one element from each row, never repeating a column. Multiply them. Repeat for every possible column ordering (permutation). Add with sign +1 (even permutation) or −1 (odd permutation).
+
+For 3×3 the tree has 3! = 6 paths — 3 positive, 3 negative. This is exactly what [[sarrus-rule]] encodes visually. [[cofactor]] expansion reorganizes the same sum into a recursive structure. For n×n there are n! paths — impractical beyond 3×3, which is why [[gaussian-elimination]] (O(n³)) is used in practice.
+
 | Property | Formula | Why it matters |
 |----------|---------|----------------|
 | Scale one row by k | det multiplies by k | Row operations change det predictably |
