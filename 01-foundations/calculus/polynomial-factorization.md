@@ -34,11 +34,23 @@ $$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
 - = 0: one repeated root
 - < 0: no real roots (complex eigenvalues — rotation matrices)
 
+**Notable products (expand ↔ factor both ways):**
+
+| Expanded | Factored |
+|---|---|
+| a² + 2ab + b² | (a+b)² |
+| a² − 2ab + b² | (a−b)² |
+| a² − b² | (a+b)(a−b) |
+| a³ + 3a²b + 3ab² + b³ | (a+b)³ |
+| a³ − 3a²b + 3ab² − b³ | (a−b)³ |
+| a³ + b³ | (a+b)(a²−ab+b²) |
+| a³ − b³ | (a−b)(a²+ab+b²) |
+
 **Other methods (in order of preference):**
 
 1. Pull out common factor: 6x² + 9x = 3x(2x + 3)
 2. Inspect: find two numbers that multiply to c and add to b
-3. Difference of squares: a² − b² = (a+b)(a−b)
+3. Notable products — recognize the pattern from the table above
 4. Completing the square: x² + bx + c = (x + b/2)² − (b/2)² + c
 
 ```python
