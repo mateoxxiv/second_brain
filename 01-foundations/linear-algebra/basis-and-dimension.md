@@ -10,6 +10,7 @@ related:
   - "[[eigenvalues-and-eigenvectors]]"
 domain: linear-algebra
 sources:
+  - "Anton, Howard. Introducción al Álgebra Lineal. §4.5"
   - "https://www.youtube.com/watch?v=P2LTAUO1TdA"
   - "https://mml-book.github.io/book/mml-book.pdf"
 ---
@@ -28,17 +29,38 @@ A **basis** is like compass directions. N and E give you the full 2D plane — m
 
 ## Mechanics
 
-A set of vectors is a **basis** for space $V$ iff it:
-1. **Spans** $V$ — you can reach every point
-2. Is **linearly independent** — no redundancy
+**Definition (Anton §4.5):** S = {v₁, v₂, ..., vᵣ} is a **basis** for V iff:
+1. S is **linearly independent** — no redundancy
+2. S **spans** V — every vector in V is a linear combination of S
 
-**Dimension** = number of vectors in any basis of $V$. All bases of the same space have the same size — the dimension is unique.
+Both conditions are required. Independent but not spanning = incomplete. Spanning but dependent = wasteful.
 
-| Space | Dim | Meaning |
+**Standard bases:**
+
+| Space | Standard basis | Dimension |
 |---|---|---|
-| A line through origin | 1 | One free direction |
-| A plane through origin | 2 | Two free directions |
-| $\mathbb{R}^{784}$ | 784 | 784 independent pixel dimensions |
+| Rⁿ | {e₁, e₂, ..., eₙ} — unit vectors | n |
+| P₂ | {1, x, x²} | 3 |
+| P₃ | {1, x, x², x³} | 4 |
+| A line through origin | any one non-zero vector on it | 1 |
+| A plane through origin | any two independent vectors on it | 2 |
+
+**Why {1, x, x²} is a basis for P₂:** every polynomial a + bx + cx² is uniquely determined by three numbers (a, b, c) — the coefficients. These are exactly the coordinates in this basis. The dimension of P₂ is 3, not because it has 3 terms, but because you need exactly 3 independent functions to span it.
+
+**Dimension** = number of vectors in any basis of V. All bases of the same space have the same size — dimension is an intrinsic property of V, not of any particular basis. The zero vector space has dimension 0.
+
+**Theorem 8 (Anton §4.5):** Any two bases for a finite-dimensional vector space have the same number of vectors. This is why dimension is well-defined — it doesn't matter which basis you pick, the count is always the same.
+
+**General rule:** Rⁿ has dimension n. Pₙ has dimension **n+1** (the standard basis {1, x, ..., xⁿ} has n+1 vectors, not n).
+
+**Theorem 9 — the shortcut:** If dim(V) = n and S has exactly n vectors, you only need to check ONE condition:
+- (a) S independent → S is automatically a basis (spanning follows for free)
+- (b) S spans V → S is automatically a basis (independence follows for free)
+- (c) S independent with r < n vectors → S can always be extended to a full basis
+
+**Example (Theorem 9a):** v₁=(-3,7), v₂=(5,5) in R². Neither is a scalar multiple of the other → independent. R² has dim 2 and S has 2 vectors → S is a basis. Done — no need to verify spanning.
+
+**Basis for null space (Example 35):** The solution space of a homogeneous system Ax=0 has a basis formed by the free-variable vectors from Gaussian elimination. Dimension = number of free variables.
 
 To find coordinates in a new basis $B = [\mathbf{b}_1 \mid \mathbf{b}_2]$, solve $B\boldsymbol{\alpha} = \mathbf{v}$.
 
