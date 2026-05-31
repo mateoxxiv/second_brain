@@ -32,8 +32,20 @@ People Analytics is a direct application of the probability and statistics track
 
 The AI-assisted qualitative analysis section is particularly relevant — it's essentially a RAG/embedding use case applied to HR data, which connects to B5 (RAG Pipeline) and B4 (Embeddings & Vector Search).
 
+## Class Notes
+
+### Class 1 — Introduction to People Analytics
+See [[people-analytics]]
+
+### Class 2 — Employee Lifecycle
+See [[people-analytics-employee-lifecycle]]
+
+### Class 3 — Data-Driven Culture in People Analytics
+See [[data-driven-culture]]
+
 ## Permanent Notes Created
 
 - [[people-analytics]] — what it is, how it connects to DS/AI
+- [[people-analytics-employee-lifecycle]] — 5-stage lifecycle framework
 - [[kpi-design]] — defining measurable metrics before building dashboards
 - [[hr-data-ethics]] — data classification, bias, privacy in people data
