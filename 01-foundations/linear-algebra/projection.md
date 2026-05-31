@@ -28,6 +28,28 @@ This note covers projection onto a **single vector** (a line). For projection on
 
 ## Mechanics
 
+**Derivation — where the formula comes from:**
+
+The projection must lie on the line defined by a, so it has the form t·a for some scalar t. The residual e = b - t·a must be perpendicular to a (that's what makes it the shortest path):
+
+```
+Step 1 — the projection is some scalar multiple of a:
+         proj = t·a
+
+Step 2 — perpendicularity condition (the constraint that fixes t):
+         e · a = 0
+         (b - t·a) · a = 0
+
+Step 3 — expand and solve for t:
+         b·a - t(a·a) = 0
+         t = (b·a) / (a·a)
+
+Step 4 — substitute back:
+         proj = t·a = [ (b·a) / (a·a) ] · a
+```
+
+The perpendicularity condition is the entire engine — it uniquely determines t.
+
 **Scalar projection** (the signed length of the shadow):
 $$\text{comp}_\mathbf{a}\mathbf{b} = \frac{\mathbf{b}\cdot\mathbf{a}}{\|\mathbf{a}\|}$$
 
