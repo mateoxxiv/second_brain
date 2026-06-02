@@ -23,16 +23,16 @@ abstract (general vector spaces, inner product spaces), with applications woven 
 
 **Chapter map → vault coverage:**
 
-| Chapter | Topic | Vault status |
-|---|---|---|
-| 1 | Systems of equations, matrices | ✓ [[gaussian-elimination]], [[matrix-operations]] |
-| 2 | Determinants | ✓ [[determinant]], [[cofactor]], [[adjugate-matrix]], [[sarrus-rule]], [[cramer-rule]] |
-| 3 | Euclidean vector spaces (dot, cross, lines, planes) | ✓ [[dot-product]], [[cross-product]], [[vector-norms]] |
-| 4 | General vector spaces, subspaces, basis | ✓ [[vectors-and-vector-spaces]], [[basis-and-dimension]], [[linear-independence]] |
-| 5 | Eigenvalues and eigenvectors | ✓ [[eigenvalues-and-eigenvectors]], [[spectral-decomposition]], [[singular-value-decomposition]] |
-| 6 | Inner product spaces, Gram-Schmidt, QR | gap → [[inner-product-spaces]] (to create) |
-| 7 | Diagonalization, quadratic forms, Cholesky | gap → [[quadratic-forms]] (to create) |
-| 8 | Linear transformations, kernel, range | ✓ [[linear-transformations]], [[projection]] |
+| Chapter | Topic                                               | Vault status                                                                                     |
+| ------- | --------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| 1       | Systems of equations, matrices                      | ✓ [[gaussian-elimination]], [[matrix-operations]]                                                |
+| 2       | Determinants                                        | ✓ [[determinant]], [[cofactor]], [[adjugate-matrix]], [[sarrus-rule]], [[cramer-rule]]           |
+| 3       | Euclidean vector spaces (dot, cross, lines, planes) | ✓ [[dot-product]], [[cross-product]], [[vector-norms]]                                           |
+| 4       | General vector spaces, subspaces, basis, row/col spaces, rank | ✓ [[vectors-and-vector-spaces]], [[basis-and-dimension]], [[linear-independence]], [[row-and-column-spaces]] |
+| 5       | Eigenvalues and eigenvectors                        | ✓ [[eigenvalues-and-eigenvectors]], [[spectral-decomposition]], [[singular-value-decomposition]] |
+| 6       | Inner product spaces, Gram-Schmidt, QR              | gap → [[inner-product-spaces]] (to create)                                                       |
+| 7       | Diagonalization, quadratic forms, Cholesky          | gap → [[quadratic-forms]] (to create)                                                            |
+| 8       | Linear transformations, kernel, range               | ✓ [[linear-transformations]], [[projection]]                                                     |
 
 ## Key Takeaways
 

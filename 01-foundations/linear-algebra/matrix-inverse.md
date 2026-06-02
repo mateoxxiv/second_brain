@@ -8,16 +8,18 @@ related:
   - "[[linear-independence]]"
   - "[[eigenvalues-and-eigenvectors]]"
   - "[[special-matrices]]"
+  - "[[row-and-column-spaces]]"
 domain: linear-algebra
 sources:
   - "https://www.youtube.com/watch?v=uQhTuRlWMxw"
   - "https://gregorygundersen.com/blog/2020/12/09/matrix-inversion/"
+  - "Anton, Howard. Introducción al Álgebra Lineal. §4.6 — Theorem 13"
 ---
+
 
 > **TL;DR** — $A^{-1}$ undoes what $A$ does. It exists only when $A$ doesn't collapse any dimension ($\det A \neq 0$). In practice: never compute the inverse explicitly — use `np.linalg.solve` instead.
 
 ---
-
 ## Intuition
 
 If $A$ stretches space, $A^{-1}$ un-stretches it. The key insight: when $\det(A) = 0$, the transformation destroys information — multiple inputs map to the same output. You can't reverse it. It's like trying to un-blend a smoothie back into separate fruits.
@@ -32,11 +34,14 @@ $$A = \begin{bmatrix}a&b\\c&d\end{bmatrix} \implies A^{-1} = \frac{1}{ad-bc}\beg
 
 **Larger matrices:** apply [[gaussian-elimination]] on the augmented matrix $[A\mid I] \to [I\mid A^{-1}]$.
 
-| Equivalent statements | All mean: $A$ is invertible |
+| Equivalent statements (Theorem 13, Anton §1.7 + §4.6) | All mean: $A$ is invertible |
 |-----------------------|----------------------------|
 | $\det(A) \neq 0$ | No dimension collapses |
-| Columns are independent | No redundant directions |
-| Full rank | No information lost |
+| $A\mathbf{x} = \mathbf{0}$ has only the trivial solution | No vectors are erased |
+| $A\mathbf{x} = \mathbf{b}$ is consistent for every $\mathbf{b} \in \mathbb{R}^n$ | [[row-and-column-spaces\|Column space]] = all of $\mathbb{R}^n$ |
+| Column vectors are linearly independent | No redundant output directions |
+| Row vectors are linearly independent | No redundant input directions |
+| $\text{rank}(A) = n$ | No information lost |
 | No zero [[eigenvalues-and-eigenvectors\|eigenvalues]] | No "null" directions |
 
 **Key properties:** $(AB)^{-1} = B^{-1}A^{-1}$ (socks-and-shoes), $(A^T)^{-1} = (A^{-1})^T$, $(A^{-1})^{-1} = A$.

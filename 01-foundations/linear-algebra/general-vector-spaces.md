@@ -15,7 +15,7 @@ domain: linear-algebra
 sources:
   - "Anton, Howard. Introducción al Álgebra Lineal. §4.2 — Espacios Vectoriales Generales."
 ---
-
+ 
 > **TL;DR** — A vector space is any set V where objects can be added and scaled by real numbers under 10 axioms; "vector" means any object in such a space — not just arrows or number tuples.
 
 ---
@@ -36,18 +36,18 @@ The key leverage: the 10 axioms are a **certification**. Verify them once for an
 
 V is a **vector space** (and its objects are called **vectors**) if all 10 axioms hold for all u, v, w ∈ V and scalars k, l:
 
-| # | Axiom | Plain English |
-|---|---|---|
-| 1 | u + v ∈ V | Adding two vectors always stays inside the space |
-| 2 | u + v = v + u | Order of addition doesn't matter |
-| 3 | u + (v + w) = (u + v) + w | Grouping of addition doesn't matter |
-| 4 | ∃ **0** ∈ V : **0** + u = u | There is a neutral element — adding it changes nothing |
-| 5 | ∃ (−u) ∈ V : u + (−u) = **0** | Every vector has an opposite that cancels it to zero |
-| 6 | ku ∈ V | Scaling a vector always stays inside the space |
-| 7 | k(u + v) = ku + kv | Scaling distributes over vector addition |
-| 8 | (k + l)u = ku + lu | Adding scalars distributes over the vector |
-| 9 | k(lu) = (kl)u | Chaining two scalings equals one combined scaling |
-| 10 | 1u = u | Scaling by 1 leaves the vector unchanged |
+| #   | Axiom                         | Plain English                                          |
+| --- | ----------------------------- | ------------------------------------------------------ |
+| 1   | u + v ∈ V                     | Adding two vectors always stays inside the space       |
+| 2   | u + v = v + u                 | Order of addition doesn't matter                       |
+| 3   | u + (v + w) = (u + v) + w     | Grouping of addition doesn't matter                    |
+| 4   | ∃ **0** ∈ V : **0** + u = u   | There is a neutral element — adding it changes nothing |
+| 5   | ∃ (−u) ∈ V : u + (−u) = **0** | Every vector has an opposite that cancels it to zero   |
+| 6   | ku ∈ V                        | Scaling a vector always stays inside the space         |
+| 7   | k(u + v) = ku + kv            | Scaling distributes over vector addition               |
+| 8   | (k + l)u = ku + lu            | Adding scalars distributes over the vector             |
+| 9   | k(lu) = (kl)u                 | Chaining two scalings equals one combined scaling      |
+| 10  | 1u = u                        | Scaling by 1 leaves the vector unchanged               |
 
 **What the certification unlocks — three layers:**
 
