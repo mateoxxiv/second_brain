@@ -78,7 +78,6 @@ n_hat = n / np.linalg.norm(n)
 print(n, d, n_hat)
 ```
 
-> Runnable: [[code/foundations/plane_equation.py]]
 
 → Line perpendicular to this plane: [[line-equation-3d]]
 → Distance from a point to this plane: [[point-to-plane-distance]]

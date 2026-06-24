@@ -69,7 +69,6 @@ top = np.argmax(eigenvalues)
 A_approx = eigenvalues[top] * np.outer(Q[:,top], Q[:,top])
 ```
 
-> Runnable: [[code/foundations/eigenvalues_and_eigenvectors.py]]
 
 ## In ML
 

@@ -52,7 +52,6 @@ print(np.dot(u, u))   # 13.0 — squared L2 norm
 print(np.dot([1,0], [0,1]))  # 0.0 — orthogonal
 ```
 
-> Runnable: [[code/foundations/vectors_and_spaces.py]]
 
 ## In ML
 

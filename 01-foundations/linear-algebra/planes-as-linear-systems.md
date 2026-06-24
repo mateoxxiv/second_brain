@@ -72,7 +72,6 @@ b = np.array([1.,2.,3.])
 print(classify_system(A, b))   # unique solution
 ```
 
-> Runnable: [[code/foundations/planes_as_linear_systems.py]]
 
 ## In ML
 

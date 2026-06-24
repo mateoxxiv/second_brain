@@ -57,7 +57,6 @@ print(np.isclose(algebraic, geometric))               # True
 print(np.dot(a, a), np.linalg.norm(a)**2)             # 14  14.0
 ```
 
-> Runnable: [[code/foundations/vectors_and_spaces.py]]
 
 ## In ML
 

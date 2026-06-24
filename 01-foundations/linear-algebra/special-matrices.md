@@ -53,7 +53,6 @@ print(np.linalg.norm(Q @ [3,4]))        # 5.0 — lengths preserved
 print(all(np.linalg.eigvalsh(A) > 0))   # True — positive definite
 ```
 
-> Runnable: [[code/foundations/matrix_operations.py]]
 
 ## In ML
 

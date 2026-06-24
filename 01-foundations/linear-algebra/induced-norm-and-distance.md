@@ -62,7 +62,6 @@ p = lambda x: x          # polynomial p = x
 norm_p = np.sqrt(integrate.quad(lambda x: p(x)**2, -1, 1)[0])  # sqrt(2/3)
 ```
 
-> Runnable: [[code/foundations/induced_norm_distance.py]]
 
 ## In ML
 

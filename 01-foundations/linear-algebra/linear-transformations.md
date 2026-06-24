@@ -61,7 +61,6 @@ print(T @ (u+v))       # same as T@u + T@v
 print(T @ u + T @ v)   # ✓
 ```
 
-> Runnable: [[code/foundations/matrix_operations.py]]
 
 ## In ML
 

@@ -60,7 +60,6 @@ k = 1
 A_approx = s[0] * np.outer(U[:,0], Vt[0,:])
 ```
 
-> Runnable: [[code/foundations/eigenvalues_and_eigenvectors.py]]
 
 ## In ML
 

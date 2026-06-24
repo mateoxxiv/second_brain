@@ -85,7 +85,6 @@ print(signed_distance(P, n, D))           # 3.0 (same side as n)
 print(foot_of_perpendicular(P, n, D))     # [1. 2. 3.]
 ```
 
-> Runnable: [[code/foundations/point_to_plane_distance.py]]
 
 ## In ML
 

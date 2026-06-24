@@ -80,7 +80,6 @@ print(p + (-p))    # [ 0.  0.  0.]  →  zero polynomial   (axiom 5 ✓)
 print(1 * p)       # [ 1.  0.  1.]  →  same p            (axiom 10 ✓)
 ```
 
-> Runnable: [[code/foundations/general_vector_spaces.py]]
 
 ## In ML
 

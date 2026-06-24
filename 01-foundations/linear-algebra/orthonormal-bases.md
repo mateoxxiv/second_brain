@@ -111,7 +111,6 @@ v_reconstructed = Q @ coords
 print(np.allclose(v, v_reconstructed))   # True ✓
 ```
 
-> Runnable: [[code/foundations/orthonormal_bases.py]]
 
 ## In ML
 

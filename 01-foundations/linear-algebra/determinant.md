@@ -85,7 +85,6 @@ print(np.linalg.det(A+B))                            # NOT det(A)+det(B) — non
 print(np.linalg.det(A) + np.linalg.det(B))           # different value
 ```
 
-> Runnable: [[code/foundations/matrix_operations.py]]
 
 ## In ML
 

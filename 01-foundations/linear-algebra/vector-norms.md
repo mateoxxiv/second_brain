@@ -52,7 +52,6 @@ print(f"{linf} ≤ {l2} ≤ {l1}") # 4.0 ≤ 5.0 ≤ 7.0
 v_unit = v / l2  # unit vector for cosine similarity
 ```
 
-> Runnable: [[code/foundations/vectors_and_spaces.py]]
 
 ## In ML
 

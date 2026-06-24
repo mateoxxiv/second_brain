@@ -77,7 +77,6 @@ alpha = np.linalg.solve(B, v)    # [2., 1.]
 v_check = alpha[0]*B[:,0] + alpha[1]*B[:,1]  # [3., 1.] ✓
 ```
 
-> Runnable: [[code/foundations/vectors_and_spaces.py]]
 
 ## In ML
 

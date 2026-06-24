@@ -52,7 +52,6 @@ print(cosine_similarity(a, c))   # 0.0   — orthogonal
 print(cosine_similarity(a, -a))  # -1.0  — opposite
 ```
 
-> Runnable: [[code/foundations/vectors_and_spaces.py]]
 
 ## In ML
 

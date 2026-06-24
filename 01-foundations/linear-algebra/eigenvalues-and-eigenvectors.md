@@ -60,7 +60,6 @@ v = eigenvectors[:, 1]   # second eigenvector
 print(np.allclose(A @ v, eigenvalues[1] * v))  # True
 ```
 
-> Runnable: [[code/foundations/eigenvalues_and_eigenvectors.py]]
 
 ## In ML
 

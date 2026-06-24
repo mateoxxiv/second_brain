@@ -61,7 +61,6 @@ x = np.linalg.solve(A, b)      # [0.8, -0.2]
 print(A @ np.linalg.inv(A))    # identity (verify)
 ```
 
-> Runnable: [[code/foundations/matrix_operations.py]]
 
 ## In ML
 

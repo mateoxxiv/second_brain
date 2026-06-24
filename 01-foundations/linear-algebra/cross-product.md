@@ -71,7 +71,6 @@ rhs = np.linalg.norm(a2)**2 * np.linalg.norm(b2)**2
 print(np.isclose(lhs, rhs))                    # True — Lagrange identity
 ```
 
-> Runnable: [[code/foundations/vectors_and_spaces.py]]
 
 ## In ML
 

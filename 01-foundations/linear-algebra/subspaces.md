@@ -81,7 +81,6 @@ print(f"u + v on line? {np.allclose((u+v), np.array([1,2,3]) * 3.5)}")  # True �
 print(f"-2·u on line?  {np.allclose(-2*u, np.array([1,2,3]) * -2)}")   # True ✓
 ```
 
-> Runnable: [[code/foundations/subspaces.py]]
 
 ## In ML
 

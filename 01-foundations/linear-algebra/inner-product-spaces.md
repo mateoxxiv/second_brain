@@ -67,7 +67,6 @@ print(weighted_ip(u, v, w))                     # 42.0
 print(function_ip(np.sin, np.cos, 0, 2*np.pi)) # ≈ 0.0  (sin ⊥ cos)
 ```
 
-> Runnable: [[code/foundations/inner_product_spaces.py]]
 
 ## In ML
 

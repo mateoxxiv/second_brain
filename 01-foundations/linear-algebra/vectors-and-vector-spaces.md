@@ -59,7 +59,6 @@ v2 = np.array([1.0, -2.0, 0.0])  # z = 0
 print((v1 + v2)[2] == 0)          # True — closure holds
 ```
 
-> Runnable: [[code/foundations/vectors_and_spaces.py]]
 
 ## In ML
 

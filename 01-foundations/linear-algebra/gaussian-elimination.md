@@ -68,7 +68,6 @@ A_dep = np.array([[1,2,3],[2,4,6],[0,1,1]], dtype=float)
 print(np.linalg.matrix_rank(A_dep)) # 2 — rank-deficient
 ```
 
-> Runnable: [[code/foundations/matrix_operations.py]]
 
 ## In ML
 

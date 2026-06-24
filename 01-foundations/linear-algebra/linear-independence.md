@@ -61,7 +61,6 @@ print(np.linalg.det(B))         # 0.0  → dependent
 print(np.linalg.matrix_rank(B)) # 1    < 2 → redundant
 ```
 
-> Runnable: [[code/foundations/vectors_and_spaces.py]]
 
 ## In ML
 

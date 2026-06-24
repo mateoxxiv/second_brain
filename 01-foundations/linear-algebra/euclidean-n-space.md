@@ -69,7 +69,6 @@ print(cs_lhs <= cs_rhs)                          # True — Cauchy-Schwarz
 print(np.linalg.norm(u + v) <= cs_rhs)           # True — triangle inequality
 ```
 
-> Runnable: [[code/foundations/euclidean_n_space.py]]
 
 ## In ML
 

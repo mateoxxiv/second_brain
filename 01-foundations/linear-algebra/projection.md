@@ -70,7 +70,6 @@ residual = b - proj                          # [-0.6, 1.2]
 print(np.dot(residual, a))  # ≈ 0.0 — perpendicular ✓
 ```
 
-> Runnable: [[code/foundations/vectors_and_spaces.py]]
 
 ## In ML
 

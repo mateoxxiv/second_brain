@@ -62,7 +62,6 @@ print(cramer(A, b))            # [5. -6.]
 print(np.linalg.solve(A, b))   # [5. -6.] ✓
 ```
 
-> Runnable: [[code/foundations/matrix_operations.py]]
 
 ## In ML
 

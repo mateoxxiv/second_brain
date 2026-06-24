@@ -67,7 +67,6 @@ print(f"||u||·||v|| = {rhs:.4f}")  # 5 · sqrt(5) ≈ 11.180
 print(f"CS holds: {lhs <= rhs}")   # True
 ```
 
-> Runnable: [[code/foundations/cauchy_schwarz.py]]
 
 ## In ML
 

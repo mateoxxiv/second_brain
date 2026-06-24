@@ -85,7 +85,6 @@ def in_column_space(A: np.ndarray, b: np.ndarray) -> bool:
     return np.linalg.matrix_rank(A) == np.linalg.matrix_rank(np.column_stack([A, b]))
 ```
 
-> Runnable: [[code/foundations/row_column_spaces.py]]
 
 ## In ML
 

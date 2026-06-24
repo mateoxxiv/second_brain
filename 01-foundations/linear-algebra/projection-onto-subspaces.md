@@ -53,7 +53,6 @@ e = b - p              # residual
 print(A.T @ e)         # ≈ [0, 0] — residual ⊥ columns ✓
 ```
 
-> Runnable: [[code/foundations/matrix_operations.py]]
 
 ---
 

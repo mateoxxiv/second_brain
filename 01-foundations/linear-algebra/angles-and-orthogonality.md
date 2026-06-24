@@ -64,7 +64,6 @@ ip = lambda f, g: integrate.quad(lambda x: f(x)*g(x), -1, 1)[0]
 print(ip(lambda x: x, lambda x: x**2))  # 0.0  → orthogonal
 ```
 
-> Runnable: [[code/foundations/angles_and_orthogonality.py]]
 
 ## In ML
 

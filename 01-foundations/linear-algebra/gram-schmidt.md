@@ -86,7 +86,6 @@ Q = np.column_stack(gram_schmidt(basis))
 print(np.allclose(Q.T @ Q, np.eye(3)))   # True — orthonormal ✓
 ```
 
-> Runnable: [[code/foundations/gram_schmidt.py]]
 
 ## In ML
 

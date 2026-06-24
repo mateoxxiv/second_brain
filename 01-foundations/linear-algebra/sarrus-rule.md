@@ -61,7 +61,6 @@ print(sarrus(A))             # 22.0
 print(np.linalg.det(A))      # 22.0 ✓
 ```
 
-> Runnable: [[code/foundations/matrix_operations.py]]
 
 ## In ML
 

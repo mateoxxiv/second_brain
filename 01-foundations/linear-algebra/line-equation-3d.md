@@ -78,7 +78,6 @@ print(line(1))    # [3. 1. -1.] — one step forward
 print(line(-1))   # [-1. -1. 1.] — one step backward
 ```
 
-> Runnable: [[code/foundations/line_equation_3d.py]]
 
 ## In ML
 

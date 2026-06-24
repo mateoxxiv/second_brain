@@ -69,7 +69,6 @@ print(np.allclose(A @ adj, det * np.eye(3)))  # True
 print(np.allclose(adj / det, np.linalg.inv(A)))  # True
 ```
 
-> Runnable: [[code/foundations/matrix_operations.py]]
 
 ## In ML
 

@@ -48,7 +48,6 @@ x = np.array([1.0, 2.0, 0.5])
 z = np.dot(w, x)             # 0.3 — weighted sum of inputs
 ```
 
-> Runnable: [[code/foundations/vectors_and_spaces.py]]
 
 ## In ML
 
