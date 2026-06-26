@@ -65,6 +65,9 @@ claude -p "explain the architecture" --output-format json
 
 # Start in a git worktree (isolated branch)
 claude -w "implement feature X"
+
+# Add a trusted directory for this session
+claude --add-dir C:\Users\mquiceno\mateo\second_brain
 ```
 
 > Runnable: [[code/llms/claude_code_examples.sh]]
