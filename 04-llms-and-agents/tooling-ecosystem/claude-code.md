@@ -35,6 +35,16 @@ What makes it powerful is composability: subagents for parallelism, worktrees fo
 - `--permission-mode auto-edit` — read/edit without asking, Bash still asks
 - `--permission-mode full-auto` — everything without asking
 
+**Trusted directories** — by default Claude Code only operates in the current working directory. Add extra directories permanently in `~/.claude/settings.json`:
+```json
+{
+  "permissions": {
+    "additionalDirectories": ["C:\\Users\\mquiceno\\mateo\\second_brain"]
+  }
+}
+```
+Or per-session only with the `--add-dir /path/to/dir` CLI flag.
+
 **Hooks system** — deterministic execution at 14 lifecycle events (PreToolUse, PostToolUse, Stop, SubagentStop, WorktreeCreate...):
 ```json
 {
