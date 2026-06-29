@@ -46,6 +46,9 @@ See [[data-driven-culture]]
 ### Class 4 — HR Data Types
 See [[hr-data-types]]
 
+### Class 5 — Structuring a People Analytics Project
+See [[people-analytics-project-framework]]
+
 ## Permanent Notes Created
 
 - [[people-analytics]] — what it is, how it connects to DS/AI
@@ -53,4 +56,4 @@ See [[hr-data-types]]
 - [[kpi-design]] — defining measurable metrics before building dashboards
 - [[hr-data-ethics]] — data classification, bias, privacy in people data
 - [[hr-data-types]] — taxonomy of HR data types and categories for people analytics
-- [[hr-data-ethics]] — data classification, access control, bias, and consent in people analytics
+- [[people-analytics-project-framework]] — 8-step framework, 4 analytics levels, knowledge map methodology
