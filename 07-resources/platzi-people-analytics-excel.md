@@ -43,9 +43,13 @@ See [[people-analytics-employee-lifecycle]]
 ### Class 3 — Data-Driven Culture in People Analytics
 See [[data-driven-culture]]
 
+### Class 4 — HR Data Types
+See [[hr-data-types]]
+
 ## Permanent Notes Created
 
 - [[people-analytics]] — what it is, how it connects to DS/AI
 - [[people-analytics-employee-lifecycle]] — 5-stage lifecycle framework
 - [[kpi-design]] — defining measurable metrics before building dashboards
 - [[hr-data-ethics]] — data classification, bias, privacy in people data
+- [[hr-data-types]] — taxonomy of HR data types and categories for people analytics
