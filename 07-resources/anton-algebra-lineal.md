@@ -18,45 +18,115 @@ spaces, and linear transformations. Derives every result from first principles w
 worked examples at each step. The Spanish edition is widely used across Latin America
 as the standard introduction to the subject.
 
-Structure: 8 core chapters progressing from concrete (matrices, determinants) to
-abstract (general vector spaces, inner product spaces), with applications woven in.
+Structure: 7 core chapters progressing from concrete (matrices, determinants) to
+abstract (general vector spaces, inner product spaces, linear transformations), with
+applications woven in.
 
-**Chapter map → vault coverage:**
+---
 
-| Chapter | Topic                                               | Vault status                                                                                     |
-| ------- | --------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| 1       | Systems of equations, matrices                      | ✓ [[gaussian-elimination]], [[matrix-operations]]                                                |
-| 2       | Determinants                                        | ✓ [[determinant]], [[cofactor]], [[adjugate-matrix]], [[sarrus-rule]], [[cramer-rule]]           |
-| 3       | Euclidean vector spaces (dot, cross, lines, planes) | ✓ [[dot-product]], [[cross-product]], [[vector-norms]]                                           |
-| 4       | General vector spaces, subspaces, basis, row/col spaces, rank | ✓ [[vectors-and-vector-spaces]], [[basis-and-dimension]], [[linear-independence]], [[row-and-column-spaces]] |
-| 5       | Eigenvalues and eigenvectors                        | ✓ [[eigenvalues-and-eigenvectors]], [[spectral-decomposition]], [[singular-value-decomposition]] |
-| 6       | Inner product spaces, Gram-Schmidt, QR              | gap → [[inner-product-spaces]] (to create)                                                       |
-| 7       | Diagonalization, quadratic forms, Cholesky          | gap → [[quadratic-forms]] (to create)                                                            |
-| 8       | Linear transformations, kernel, range               | ✓ [[linear-transformations]], [[projection]]                                                     |
+## Chapter Map → Vault Coverage
+
+| Ch | Topic | Vault notes |
+|----|-------|-------------|
+| 1  | Systems of equations, matrices, inverse | [[gaussian-elimination]], [[matrix-operations]], [[matrix-inverse]], [[special-matrices]] |
+| 2  | Determinants | [[determinant]], [[sarrus-rule]], [[cofactor]], [[adjugate-matrix]], [[cramer-rule]] |
+| 3  | Vectors in R² and R³ — geometry | [[vectors-and-vector-spaces]], [[vector-operations]], [[euclidean-n-space]], [[dot-product]], [[cross-product]], [[vector-norms]], [[line-equation-3d]], [[plane-equation]], [[planes-as-linear-systems]], [[point-to-plane-distance]] |
+| 4  | General vector spaces — abstract | [[general-vector-spaces]], [[subspaces]], [[linear-combination]], [[linear-independence]], [[basis-and-dimension]], [[row-and-column-spaces]], [[projection]], [[projection-onto-subspaces]], [[coordinate-vector]], [[change-of-basis]], [[gram-schmidt]], [[orthogonal-matrix]] |
+| 5  | Linear transformations | [[linear-transformations]] |
+| 6  | Inner product spaces | [[inner-product-spaces]], [[orthonormal-bases]], [[angles-and-orthogonality]], [[induced-norm-and-distance]], [[cauchy-schwarz-inequality]], [[cosine-similarity]] |
+| 7  | Eigenvalues and eigenvectors | [[eigenvalues-and-eigenvectors]], [[spectral-decomposition]], [[singular-value-decomposition]] |
+
+---
+
+## All Topics at a Glance
+
+**Ch 1 — Systems and Matrices**
+- [[gaussian-elimination]] — row reduction to solve Ax = b; echelon form
+- [[matrix-operations]] — addition, multiplication, transpose; rules and properties
+- [[matrix-inverse]] — when A⁻¹ exists; computation via row reduction
+- [[special-matrices]] — symmetric, diagonal, triangular, orthogonal types
+
+**Ch 2 — Determinants**
+- [[determinant]] — scalar encoding invertibility and volume scaling; cofactor expansion
+- [[sarrus-rule]] — shortcut for 3×3 determinants
+- [[cofactor]] — signed minors; building block for det and inverse
+- [[adjugate-matrix]] — transpose of cofactor matrix; used in inverse formula
+- [[cramer-rule]] — solving linear systems via ratios of determinants
+
+**Ch 3 — Euclidean Vectors and Geometry**
+- [[vectors-and-vector-spaces]] — vectors as ordered lists; 10 axioms of a vector space
+- [[vector-operations]] — addition, scaling, linear combinations by hand
+- [[euclidean-n-space]] — R^n as the concrete model; standard operations
+- [[dot-product]] — sum of element-wise products; encodes angle and projection
+- [[cross-product]] — perpendicular vector; encodes area of parallelogram
+- [[vector-norms]] — L1, L2, L-inf; how to measure vector size
+- [[line-equation-3d]] — parametric equation of a line in R³
+- [[plane-equation]] — normal-vector form of a plane
+- [[planes-as-linear-systems]] — plane intersections as systems of equations
+- [[point-to-plane-distance]] — formula for distance from a point to a plane
+
+**Ch 4 — General Vector Spaces**
+- [[general-vector-spaces]] — 10 axioms applied to polynomials, matrices, functions
+- [[subspaces]] — subsets that are themselves vector spaces; 2-condition test
+- [[linear-combination]] — expressing vectors as weighted sums
+- [[linear-independence]] — no vector in the set is redundant
+- [[basis-and-dimension]] — minimal spanning set; dimension of a space
+- [[row-and-column-spaces]] — subspaces generated by rows/columns of a matrix
+- [[projection]] — projecting one vector onto another
+- [[projection-onto-subspaces]] — projecting onto a subspace; orthogonal decomposition
+- [[coordinate-vector]] — representing a vector as coordinates in a given basis
+- [[change-of-basis]] — how coordinates transform when switching bases
+- [[gram-schmidt]] — building an orthonormal basis from any basis (§4.10)
+- [[orthogonal-matrix]] — matrices with orthonormal columns; Q^T = Q⁻¹
+
+**Ch 5 — Linear Transformations**
+- [[linear-transformations]] — 2 axioms; catalog of types; rotation derivation; superposition property
+
+**Ch 6 — Inner Product Spaces**
+- [[inner-product-spaces]] — 4 axioms; generalizes dot product to abstract spaces
+- [[orthonormal-bases]] — bases where all vectors are unit length and mutually perpendicular
+- [[angles-and-orthogonality]] — angle between vectors; perpendicularity condition
+- [[induced-norm-and-distance]] — norm and distance derived from an inner product
+- [[cauchy-schwarz-inequality]] — |<u,v>| ≤ ||u||·||v||; fundamental bound
+- [[cosine-similarity]] — angle-based similarity; normalized dot product
+
+**Ch 7 — Eigenvalues and Eigenvectors**
+- [[eigenvalues-and-eigenvectors]] — vectors a matrix only stretches; characteristic polynomial
+- [[spectral-decomposition]] — A = Q·D·Q^T for symmetric matrices
+- [[singular-value-decomposition]] — A = U·Σ·V^T; most general matrix factorization
+
+---
 
 ## Key Takeaways
 
 1. Every result is derived — Anton never just states formulas. Following his derivations builds the intuition that short study sessions skip.
-2. Chapter 6 (inner product spaces) generalizes the dot product to abstract spaces — this is the bridge from geometric vectors to kernels and Gaussian processes in ML.
-3. Chapter 7 (quadratic forms) connects directly to second-order optimization theory: Hessians, positive definite matrices, and the shape of loss surfaces.
-4. The progression from Euclidean → general → inner product spaces is exactly the abstraction ladder needed before studying kernel methods and functional analysis.
+2. The 10 axioms are a certification: verify once → entire linear algebra toolkit applies automatically to any set of objects.
+3. Chapter 4 is the pivot: abstract vector spaces unify R^n, polynomials, matrices, and functions under one framework.
+4. Chapter 6 (inner product spaces) generalizes the dot product to abstract spaces — the bridge to kernels and Gaussian processes in ML.
+5. The progression concrete → abstract → geometric → spectral is the exact abstraction ladder needed before studying kernel methods and functional analysis.
+
+---
 
 ## Quotes / Important Passages
 
 > "Un espacio con producto interior es un espacio vectorial V sobre el que se ha definido una operación llamada producto interior."
 > — Ch. 6, foundation of inner product spaces
 
+---
+
 ## My Thoughts
 
-Most vault notes were generated from sessions rather than reading — they are correct but sometimes miss the derivation depth Anton provides. Using this book as the primary source for the remaining linear algebra gaps (Ch. 6–7) will produce much stronger notes.
+Most vault notes were generated from sessions rather than reading — they are correct but sometimes miss the derivation depth Anton provides. Screenshots from the book are now feeding notes directly, which produces stronger derivations (e.g., rotation matrix proof from polar coordinates in §5.1).
 
-The chapter map shows linear algebra is nearly done. The two real gaps are:
-- **Inner product spaces** (Ch. 6) — generalizes everything already in the vault
-- **Quadratic forms** (Ch. 7) — directly supports optimization and deep learning
+The real gaps still open:
+- **Kernel and range of a linear transformation** (§5.2) — null space and image of T; rank-nullity theorem
+- **Matrix of a linear transformation** (§5.3) — finding the matrix of any T from its action on a basis
+- **Quadratic forms** (Ch. 7 extension) — x^T A x, positive definiteness, connection to Hessians
 
-After finishing Anton, transition to *Mathematics for Machine Learning* (Deisenroth) for calculus and probability — it picks up exactly where Anton leaves off.
+---
 
 ## Permanent Notes to Create
 
-- [[inner-product-spaces]] — from Ch. 6: abstract inner products, angle, orthogonality, generalized Gram-Schmidt
-- [[quadratic-forms]] — from Ch. 7: x^T A x, positive definiteness, connection to Hessians and loss surface geometry
+- [[kernel-and-range]] — from §5.2: null space of T, image of T, rank-nullity theorem
+- [[matrix-of-linear-transformation]] — from §5.3: how to find the matrix of any T
+- [[quadratic-forms]] — x^T A x, positive definiteness, connection to Hessians and loss surface geometry
