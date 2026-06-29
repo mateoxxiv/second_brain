@@ -79,7 +79,17 @@ second_brain/
 ### Note Types
 
 1. **Fleeting notes** (`00-inbox/`) — Quick captures during study. Process within 24-48 hours into permanent notes or discard.
-2. **Literature notes** (`07-resources/`) — Summaries of external sources (papers, videos, blogs). Always include source link and date.
+2. **Literature notes** (`07-resources/`) — Summaries of external sources (papers, videos, blogs, books, courses). Always include source link and date. Use the template at `templates/literature-note.md`. Structure:
+   - **Summary** — 2-4 sentences on what the resource covers and why it matters
+   - **Chapter / Class Map** *(books and courses only)* — table mapping each chapter/class to its vault notes
+   - **All Topics at a Glance** *(books and courses only)* — one bullet per vault note with a one-line description, grouped by chapter; this is the quick-review index so one read refreshes the whole resource
+   - **Key Takeaways** — 3-5 most important insights
+   - **Quotes / Important Passages** — verbatim quotes worth keeping
+   - **My Thoughts** — personal reaction, connections, what to read next
+   - **Permanent Notes Created** — links to notes already written from this source
+   - **Gaps — Notes Still to Create** — links to planned notes not yet written
+   
+   Skip "Chapter / Class Map" and "All Topics at a Glance" for papers, blog posts, and videos — use only the core sections for those.
 3. **Permanent notes** (folders `01` through `05`) — Atomic, self-contained knowledge units. One concept per note.
 4. **Project notes** (`06-projects/`) — Implementation logs, design decisions, lessons learned.
 
@@ -137,8 +147,6 @@ Formal definition + derivation (show where formulas come from, don't just state 
 \```python
 # short illustrative snippet (< 20 lines)
 \```
-
-> Runnable: [[code/path/to/file.py]]
 
 ## In ML
 
