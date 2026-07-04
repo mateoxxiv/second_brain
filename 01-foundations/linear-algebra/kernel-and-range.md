@@ -7,6 +7,7 @@ related:
   - "[[subspaces]]"
   - "[[general-vector-spaces]]"
   - "[[row-and-column-spaces]]"
+  - "[[rank-nullity-theorem]]"
 domain: linear-algebra
 sources:
   - "Anton, Howard. Introducción al Álgebra Lineal. §5.2"

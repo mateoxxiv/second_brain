@@ -32,7 +32,7 @@ applications woven in.
 | 2  | Determinants | [[determinant]], [[sarrus-rule]], [[cofactor]], [[adjugate-matrix]], [[cramer-rule]] |
 | 3  | Vectors in R² and R³ — geometry | [[vectors-and-vector-spaces]], [[vector-operations]], [[euclidean-n-space]], [[dot-product]], [[cross-product]], [[vector-norms]], [[line-equation-3d]], [[plane-equation]], [[planes-as-linear-systems]], [[point-to-plane-distance]] |
 | 4  | General vector spaces — abstract | [[general-vector-spaces]], [[subspaces]], [[linear-combination]], [[linear-independence]], [[basis-and-dimension]], [[row-and-column-spaces]], [[projection]], [[projection-onto-subspaces]], [[coordinate-vector]], [[change-of-basis]], [[gram-schmidt]], [[orthogonal-matrix]] |
-| 5  | Linear transformations | [[linear-transformations]] |
+| 5  | Linear transformations | [[linear-transformations]], [[kernel-and-range]], [[rank-nullity-theorem]] |
 | 6  | Inner product spaces | [[inner-product-spaces]], [[orthonormal-bases]], [[angles-and-orthogonality]], [[induced-norm-and-distance]], [[cauchy-schwarz-inequality]], [[cosine-similarity]] |
 | 7  | Eigenvalues and eigenvectors | [[eigenvalues-and-eigenvectors]], [[spectral-decomposition]], [[singular-value-decomposition]] |
 
@@ -81,6 +81,8 @@ applications woven in.
 
 **Ch 5 — Linear Transformations**
 - [[linear-transformations]] — 2 axioms; catalog of types; rotation derivation; superposition property
+- [[kernel-and-range]] — null space and image of T; kernel/range are always subspaces
+- [[rank-nullity-theorem]] — rank(T) + nullity(T) = dim(V); solution space of Ax=0
 
 **Ch 6 — Inner Product Spaces**
 - [[inner-product-spaces]] — 4 axioms; generalizes dot product to abstract spaces
@@ -119,14 +121,17 @@ applications woven in.
 Most vault notes were generated from sessions rather than reading — they are correct but sometimes miss the derivation depth Anton provides. Screenshots from the book are now feeding notes directly, which produces stronger derivations (e.g., rotation matrix proof from polar coordinates in §5.1).
 
 The real gaps still open:
-- **Kernel and range of a linear transformation** (§5.2) — null space and image of T; rank-nullity theorem
 - **Matrix of a linear transformation** (§5.3) — finding the matrix of any T from its action on a basis
 - **Quadratic forms** (Ch. 7 extension) — x^T A x, positive definiteness, connection to Hessians
 
 ---
 
+## Permanent Notes Created
+
+- [[kernel-and-range]] — from §5.2: kernel/range definitions, Theorem 1 (basic properties), Theorem 2 (kernel/range are subspaces)
+- [[rank-nullity-theorem]] — from §5.2: Theorem 3 (dimension theorem), Theorem 4 (solution space of Ax=0)
+
 ## Permanent Notes to Create
 
-- [[kernel-and-range]] — from §5.2: null space of T, image of T, rank-nullity theorem
 - [[matrix-of-linear-transformation]] — from §5.3: how to find the matrix of any T
 - [[quadratic-forms]] — x^T A x, positive definiteness, connection to Hessians and loss surface geometry
