@@ -60,7 +60,7 @@ Causes: compensation below market, authoritarian leadership style, unclear caree
 
 Consequences: higher recruitment cost, rising training cost per new hire, climate deterioration from overtime, sales budget risk from operational gaps.
 
-![[Pasted image 20260629153636.png]]
+![[phonomeno-map.png]]
 
 ## In Practice
 
