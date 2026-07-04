@@ -54,6 +54,22 @@ $$T(\mathbf{v}-\mathbf{w}) = T(\mathbf{v} + (-1)\mathbf{w}) = T(\mathbf{v}) + (-
 
 Part (a) of Theorem 1 guarantees $\mathbf{0} \in \ker(T)$ always — the kernel is never empty.
 
+**Theorem 2 (Anton §5.2)** — If $T: V \to W$ is a linear transformation, then $\ker(T)$ is a subspace of $V$, and $R(T)$ is a subspace of $W$.
+
+**Proof** — Apply the two-condition test from [[subspaces]] (closed under addition, closed under scalar multiplication) to each set:
+
+*(a) $\ker(T)$ is a subspace of $V$.* Let $\mathbf{v}_1, \mathbf{v}_2 \in \ker(T)$ and $k$ any scalar. Then:
+$$T(\mathbf{v}_1 + \mathbf{v}_2) = T(\mathbf{v}_1) + T(\mathbf{v}_2) = \mathbf{0} + \mathbf{0} = \mathbf{0} \implies \mathbf{v}_1+\mathbf{v}_2 \in \ker(T)$$
+$$T(k\mathbf{v}_1) = kT(\mathbf{v}_1) = k\mathbf{0} = \mathbf{0} \implies k\mathbf{v}_1 \in \ker(T)$$
+Both conditions hold, so $\ker(T)$ is a subspace.
+
+*(b) $R(T)$ is a subspace of $W$.* Let $\mathbf{w}_1, \mathbf{w}_2 \in R(T)$ and $k$ any scalar. Since $\mathbf{w}_1, \mathbf{w}_2 \in R(T)$, there exist $\mathbf{a}_1, \mathbf{a}_2 \in V$ with $T(\mathbf{a}_1) = \mathbf{w}_1$, $T(\mathbf{a}_2) = \mathbf{w}_2$. Set $\mathbf{a} = \mathbf{a}_1+\mathbf{a}_2$ and $\mathbf{b} = k\mathbf{a}_1$. Then:
+$$T(\mathbf{a}) = T(\mathbf{a}_1+\mathbf{a}_2) = T(\mathbf{a}_1)+T(\mathbf{a}_2) = \mathbf{w}_1+\mathbf{w}_2 \implies \mathbf{w}_1+\mathbf{w}_2 \in R(T)$$
+$$T(\mathbf{b}) = T(k\mathbf{a}_1) = kT(\mathbf{a}_1) = k\mathbf{w}_1 \implies k\mathbf{w}_1 \in R(T)$$
+Both conditions hold, so $R(T)$ is a subspace.
+
+**The trick to notice**: (a) works forward — you already have the vectors, apply $T$, land in $\mathbf{0}$. (b) works backward — you're only given the *outputs* $\mathbf{w}_1,\mathbf{w}_2$, so you must first assert the existence of preimages $\mathbf{a}_1,\mathbf{a}_2$ (that's what "$\in R(T)$" means) before you can combine them.
+
 ```python
 import numpy as np
 
@@ -84,4 +100,4 @@ print("range = span of columns:", A[:, 0])        # [1, 2] -- everything reachab
 
 **Intermediate** — Using Theorem 1(c), show that if $T(\mathbf{v}_1) = T(\mathbf{v}_2)$ for $\mathbf{v}_1 \neq \mathbf{v}_2$, then $\ker(T)$ contains a nonzero vector. (This is the key link to injectivity — see [[injective-and-surjective-linear-transformations]].)
 
-**Advanced** — Prove that $\ker(T)$ is always a subspace of $V$ and $R(T)$ is always a subspace of $W$, using the two-condition test from [[subspaces]] together with Theorem 1.
+**Advanced** — For $T(x,y,z) = (x-z,\ y-z,\ 0)$ on $\mathbb{R}^3$, find $\ker(T)$ and $R(T)$ explicitly, then pick two concrete vectors from each and verify the two closure conditions from Theorem 2's proof by hand.
