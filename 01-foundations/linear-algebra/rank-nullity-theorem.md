@@ -42,6 +42,12 @@ $$n - \text{rank}(A)$$
 
 where $n$ is the number of columns of $A$ (the number of unknowns).
 
+**Corollary — full row rank means onto.** If $A$ is $m \times n$ and $\text{rank}(A) = m$, then $R(T) = \mathbb{R}^m$ — every vector in the codomain is reachable, with no exceptions.
+
+**Why this is true**: $R(T)$ is always a subspace of $\mathbb{R}^m$ (Theorem 2, [[kernel-and-range]]), so $\dim(R(T)) = \text{rank}(A) \leq m$ always. When $\text{rank}(A)$ hits the maximum possible value $m$, $R(T)$ is a subspace of $\mathbb{R}^m$ with the *full* dimension $m$ — and there is no proper subspace of $\mathbb{R}^m$ with dimension $m$ (any basis of size $m$ already spans all of $\mathbb{R}^m$, by [[basis-and-dimension]]'s Theorem 8). So $R(T)$ can't be a strict subset — it must be all of $\mathbb{R}^m$.
+
+**Common mix-up to avoid**: this corollary is about *existence* (can you reach $\mathbf{w}$ at all?), which depends on $\text{rank}(A)$ vs. $m$ — **not** about *how many* solutions exist once you can, which is what nullity governs. A large nullity does not imply everything is reachable. Counterexample: $A = \begin{bmatrix}1&0&0&0\\0&1&0&0\\0&0&0&0\end{bmatrix}$ has rank 2, nullity $4-2=2$ (plenty of free variables — infinitely many solutions whenever solvable). But $\text{rank}(A)=2 < m=3$, so $R(T)$ is only a 2D subspace of $\mathbb{R}^3$; a target like $(0,0,1)$ has **zero** solutions, despite the large kernel. Existence (rank vs. $m$) and multiplicity (nullity) are independent questions.
+
 | Quantity | Formula | Meaning |
 |---|---|---|
 | rank$(T)$ | $\dim(R(T))$ | dimensions of $W$ actually reachable |
