@@ -42,8 +42,12 @@ Both conditions are required. Independent but not spanning = incomplete. Spannin
 | Rⁿ | {e₁, e₂, ..., eₙ} — unit vectors | n |
 | P₂ | {1, x, x²} | 3 |
 | P₃ | {1, x, x², x³} | 4 |
+| M₂₂ (2×2 matrices) | {E₁₁, E₁₂, E₂₁, E₂₂} — one 1 in each entry, rest 0 | 4 |
+| Mₘₙ (m×n matrices) | analogous entry-matrices, one per position | m·n |
 | A line through origin | any one non-zero vector on it | 1 |
 | A plane through origin | any two independent vectors on it | 2 |
+
+**Why matrix spaces are easy to count**: a matrix is literally a grid of independent numbers — changing one entry doesn't affect any other — so the dimension is just the entry count (rows × columns). Don't confuse this with the *shape* of an individual matrix: "M₂₂" means each element is a 2×2 grid, but the *space itself* has dimension 4, not 2 — same trap as "P₂" describing max degree 2 while the space has dimension 3.
 
 **Why {1, x, x²} is a basis for P₂:** every polynomial a + bx + cx² is uniquely determined by three numbers (a, b, c) — the coefficients. These are exactly the coordinates in this basis. The dimension of P₂ is 3, not because it has 3 terms, but because you need exactly 3 independent functions to span it.
 

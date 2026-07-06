@@ -30,7 +30,9 @@ $$\text{rank}(T) + \text{nullity}(T) = n$$
 
 where $\text{rank}(T) = \dim(R(T))$ and $\text{nullity}(T) = \dim(\ker(T))$.
 
-**Special case — $T$ is multiplication by a matrix.** Let $V = \mathbb{R}^n$, $W = \mathbb{R}^m$, and $T(\mathbf{x}) = A\mathbf{x}$ for an $m \times n$ matrix $A$. The dimension theorem becomes:
+**Why $n$ (domain) and never $\dim(W)$ (codomain)** — rank and nullity both answer the same question: *what happened to each of the input's dimensions?* Every one of the $n$ input directions either survives into the output (rank) or collapses to zero (nullity) — there's no third option, so the two must add up to exactly what you started with: $n$. The codomain's size plays no role in this budget; it only owns whatever the survivors land in, not a separate pool of directions being counted. (E.g. $T:\mathbb{R}^5\to\mathbb{R}^7$ with rank 3 has nullity $5-3=2$ — never $7-3$; the codomain's dimension 7 is irrelevant to the sum, only to whether $T$ happens to be onto.)
+
+**Special case — $T$ is multiplication by a matrix.** Let $V = \mathbb{R}^n$, $W = \mathbb{R}^m$, and $T(\mathbf{x}) = A\mathbf{x}$ for an $m \times n$ matrix $A$. **Columns = domain dimension $n$, rows = codomain dimension $m$** — forced by the mechanics of matrix-vector multiplication itself: $A\mathbf{x}$ is a weighted sum of $A$'s columns, so $\mathbf{x}$ must supply exactly one weight per column (hence $n$ columns ⟺ input lives in $\mathbb{R}^n$); each row produces one output coordinate via a dot product (hence $m$ rows ⟺ output lives in $\mathbb{R}^m$). The dimension theorem becomes:
 
 $$\text{nullity}(T) = n - \text{rank}(T) = (\text{number of columns of } A) - \text{rank}(T) \qquad (5.4)$$
 
