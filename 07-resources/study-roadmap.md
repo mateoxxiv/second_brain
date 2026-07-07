@@ -1,7 +1,7 @@
 # Study Roadmap
 
 **Created**: 2026-02-24
-**Last updated**: 2026-05-17 (added data engineering, C++, software engineering + system design tracks)
+**Last updated**: 2026-07-07 (linear algebra track nearly complete — 11 new notes on subspaces/orthogonality/kernel-range/rank-nullity; added trigonometric-identities to calculus; 3 new Claude Code tooling notes; surfaced new 08-applied-domains/people-analytics side track; flagged unresolved matrix-transpose inbox drafts)
 **Goal**: Become an expert AI architect and engineer — design, implement, and orchestrate intelligent systems end-to-end.
 
 ---
@@ -45,23 +45,26 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 
 | Area | Notes | Status |
 |------|-------|--------|
-| 01-foundations/linear-algebra | 32 | Strong — abstract spaces (general, inner product, euclidean) added |
-| 01-foundations/calculus | 8 | Core complete — algebraic + exponent/log properties added |
+| 01-foundations/linear-algebra | 43 | Near-complete — subspaces, orthogonality, kernel/range, rank-nullity added. Only matrix calculus, pseudoinverse, matrix norms remain |
+| 01-foundations/calculus | 9 | Core complete — trigonometric identities added |
 | 01-foundations/probability | 10 | Distributions done — MLE, entropy, multivariate Normal next |
 | 01-foundations/algorithms | 0 | Not started |
 | 01-foundations/databases | 0 | Not started |
 | 02-machine-learning | 0 | Not started |
 | 03-deep-learning | 0 | Not started |
-| 04-llms-and-agents | 8 | Anthropic + OpenAI ecosystems covered |
-| 05-mlops/cloud | 0 | Not started — **newly added track** |
+| 04-llms-and-agents | 11 | Anthropic + OpenAI ecosystems + Claude Code tooling (hooks, cron, chrome) covered |
+| 05-mlops/cloud | 0 | Not started |
+| 08-applied-domains/people-analytics | 6 | **Side track, outside core path** — HR/people analytics fundamentals |
 
-**Total notes**: 58 | **~8 evergreen** | **~25 growing** | **~25 seed**
+**Total notes**: 81 | **8 evergreen** | **25 growing** | **48 seed**
+
+**Vault hygiene gap**: `00-inbox/proposals/` has three unresolved template drafts for `matrix-transpose` (frontmatter/card/layered variants) — a real gap, since matrix transpose has no permanent note in `linear-algebra/` yet despite being referenced by other notes. Pick one format and promote it, or discard the drafts.
 
 ---
 
 ## THEORY TRACK
 
-### T1: Linear Algebra — STRONG (32/~35 notes)
+### T1: Linear Algebra — NEAR-COMPLETE (43/~46 notes)
 
 > *Why*: Every ML algorithm is a matrix operation. You can't understand neural nets, PCA, or embeddings without this.
 
@@ -95,20 +98,32 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 - [x] Plane Equation
 - [x] Point-to-Plane Distance
 - [x] Line Equation in 3D
-- [x] Euclidean N-Space ← new
-- [x] General Vector Spaces (10 axioms, certification → toolkit) ← new
-- [x] Inner Product Spaces ← new
+- [x] Euclidean N-Space
+- [x] General Vector Spaces (10 axioms, certification → toolkit)
+- [x] Inner Product Spaces
+- [x] Subspaces ← new
+- [x] Angles and Orthogonality ← new
+- [x] Cauchy-Schwarz Inequality ← new
+- [x] Induced Norm and Distance ← new
+- [x] Orthogonal Matrix ← new
+- [x] Orthonormal Bases ← new
+- [x] Change of Basis ← new
+- [x] Coordinate Vector ← new
+- [x] Kernel and Range ← new
+- [x] Row and Column Spaces ← new
+- [x] Rank-Nullity Theorem ← new
 
 **Remaining:**
+- [ ] Matrix Transpose — surprising gap: no permanent note exists, only 3 unresolved template drafts sitting in `00-inbox/proposals/`. Resolve before anything else in this track.
 - [ ] Matrix Calculus (Jacobians, Hessians, dL/dW) — needs calculus track first, CRITICAL for backprop
 - [ ] Pseudoinverse (Moore-Penrose) — via SVD, for least-squares
 - [ ] Matrix Norms and Condition Number — numerical stability
 
-**Estimated remaining**: ~3 notes
+**Estimated remaining**: ~4 notes — this track is essentially done. Once matrix calculus lands, move fully into T4 (Supervised ML).
 
 ---
 
-### T2: Calculus — IN PROGRESS (8/~11 notes)
+### T2: Calculus — IN PROGRESS (9/~12 notes)
 
 > *Why*: Optimization IS calculus. Gradient descent, backpropagation, loss functions — all calculus.
 
@@ -119,11 +134,12 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 - [x] Polynomial Factorization
 - [x] Gradient Descent
 - [x] Optimization (convexity, second derivative test, saddle points)
-- [x] Algebraic Operation Properties (commutativity, associativity, distributivity) ← new
-- [x] Exponent, Log, and Root Properties ← new
+- [x] Algebraic Operation Properties (commutativity, associativity, distributivity)
+- [x] Exponent, Log, and Root Properties
+- [x] Trigonometric Identities ← new
 
 **Remaining:**
-- [ ] Matrix Calculus (Jacobians, Hessians) — CRITICAL before deep learning
+- [ ] Matrix Calculus (Jacobians, Hessians) — CRITICAL before deep learning, shared gate with T1
 - [ ] Taylor Series and Approximations — explains why gradient descent works
 - [ ] Integration Basics — needed for probability density derivations
 
@@ -251,6 +267,9 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 - [x] OpenAI API
 - [x] Claude Code
 - [x] Claude Code Agent Teams
+- [x] Claude Code Hooks ← new
+- [x] Claude Code Cron Jobs ← new
+- [x] Claude Code + Chrome ← new
 - [x] Model Context Protocol
 - [x] Claude Agent SDK
 - [x] OpenAI Codex
@@ -448,6 +467,23 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 
 ---
 
+## SIDE TRACK (outside core AI architect path)
+
+### S1: Applied Domains — People Analytics (6 notes, all seed)
+
+> Not part of the theory or builder tracks above — this is domain knowledge (HR/people analytics), likely tied to a specific course (Platzi) or work context rather than the AI-architect goal. Tracked here so it doesn't get lost, but it shouldn't compete with T1–T10 for study time unless there's a specific reason (e.g., a work project applying ML to HR data).
+
+- [x] People Analytics (overview)
+- [x] People Analytics — Employee Lifecycle
+- [x] People Analytics — Project Framework
+- [x] HR Data Types
+- [x] HR Data Ethics
+- [x] Data-Driven Culture
+
+**Open question**: is this a side interest to keep growing, or should it eventually connect back to T4/T5 (e.g., attrition prediction as a supervised learning project)? Worth clarifying so the roadmap can link it in rather than treating it as orphaned.
+
+---
+
 ## Parallel Schedule
 
 ```
@@ -471,10 +507,11 @@ Weeks 28+   | Capstone projects             | B8-C++: ONNX + TensorRT + custom o
 
 **Immediate priorities (theory):**
 
-1. `/note maximum-likelihood-estimation` — derives ALL loss functions from probability. Single most important missing concept.
-2. `/note cross-entropy-and-kl-divergence` — information theory, connects to classification losses and VAEs.
-3. `/note matrix-calculus` — Jacobians, Hessians, dL/dW. Required before any deep learning.
-4. `/session linear-regression` — first ML model, bridges foundations → ML.
+1. Resolve the `matrix-transpose` inbox drafts (`00-inbox/proposals/`) — pick one of the 3 template variants and promote it to `01-foundations/linear-algebra/matrix-transpose.md`. Quick win, closes the last real gap in linear algebra.
+2. `/note maximum-likelihood-estimation` — derives ALL loss functions from probability. Single most important missing concept.
+3. `/note cross-entropy-and-kl-divergence` — information theory, connects to classification losses and VAEs.
+4. `/note matrix-calculus` — Jacobians, Hessians, dL/dW. Required before any deep learning. Linear algebra is otherwise done, so this is the last theory gate before starting T4 (Supervised ML).
+5. `/session linear-regression` — first ML model, bridges foundations → ML.
 
 **Immediate priorities (builder):**
 
@@ -505,5 +542,6 @@ Weeks 28+   | Capstone projects             | B8-C++: ONNX + TensorRT + custom o
 5. **CUDA basics** — GPU threads, blocks, shared memory
 
 **Quality improvements:**
-- Promote `singular-value-decomposition` from seed to growing
-- Promote `spectral-decomposition` to evergreen
+- Promote `singular-value-decomposition` from seed to growing — still the biggest quality gap given how central SVD is to ML (PCA, pseudoinverse, low-rank approximation)
+- `spectral-decomposition` promoted seed → growing since last update ✓
+- 48 of 81 vault notes are still `status/seed` — worth a `/review` pass on the linear-algebra seed notes (25 of them) before starting T4, since several (subspaces, kernel-and-range, rank-nullity-theorem) are load-bearing for everything downstream
