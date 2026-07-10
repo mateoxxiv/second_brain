@@ -67,6 +67,14 @@ $$y' = r\sin(\theta+\phi) = x\sin\theta + y\cos\theta$$
 
 $$A_\theta = \begin{bmatrix}\cos\theta & -\sin\theta \\ \sin\theta & \cos\theta\end{bmatrix}$$
 
+**Alternative derivation — direct triangle construction (Anton, exercise 10 worked by hand):** instead of going through $r,\phi$, drop a perpendicular straight from the rotated point and read the two right triangles it creates directly. Let $B=(B_x,B_y)$ be the original point, rotated by $\theta$ to $A=(A_x,A_y)$. The perpendicular splits $A$'s position into a horizontal run and a vertical rise, each built from a $B_x$-piece and a $B_y$-piece at complementary angles $\theta$ and $90°-\theta$:
+
+$$A_x = B_x\cos\theta - B_y\sin\theta, \qquad A_y = B_x\sin\theta + B_y\cos\theta$$
+
+$$\begin{bmatrix}A_x\\A_y\end{bmatrix} = \begin{bmatrix}\cos\theta & -\sin\theta\\ \sin\theta & \cos\theta\end{bmatrix}\begin{bmatrix}B_x\\B_y\end{bmatrix}$$
+
+Identical result to the $r,\phi$ derivation above — $(B_x,B_y)$ and $(A_x,A_y)$ are just this note's $(x,y)$ and $(x',y')$ relabeled. Useful as a cross-check: two independent geometric routes, same matrix.
+
 ```python
 import numpy as np
 
