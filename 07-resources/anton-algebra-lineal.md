@@ -32,7 +32,7 @@ applications woven in.
 | 2  | Determinants | [[determinant]], [[sarrus-rule]], [[cofactor]], [[adjugate-matrix]], [[cramer-rule]] |
 | 3  | Vectors in R² and R³ — geometry | [[vectors-and-vector-spaces]], [[vector-operations]], [[euclidean-n-space]], [[dot-product]], [[cross-product]], [[vector-norms]], [[line-equation-3d]], [[plane-equation]], [[planes-as-linear-systems]], [[point-to-plane-distance]] |
 | 4  | General vector spaces — abstract | [[general-vector-spaces]], [[subspaces]], [[linear-combination]], [[linear-independence]], [[basis-and-dimension]], [[row-and-column-spaces]], [[projection]], [[projection-onto-subspaces]], [[coordinate-vector]], [[change-of-basis]], [[gram-schmidt]], [[orthogonal-matrix]] |
-| 5  | Linear transformations | [[linear-transformations]], [[kernel-and-range]], [[rank-nullity-theorem]] |
+| 5  | Linear transformations | [[linear-transformations]], [[matrix-of-linear-transformation]], [[kernel-and-range]], [[rank-nullity-theorem]], [[geometry-of-planar-linear-transformations]], [[elementary-matrices-as-geometric-transformations]], [[inverse-linear-transformations]], [[linear-transformations-map-lines-to-lines]] |
 | 6  | Inner product spaces | [[inner-product-spaces]], [[orthonormal-bases]], [[angles-and-orthogonality]], [[induced-norm-and-distance]], [[cauchy-schwarz-inequality]], [[cosine-similarity]] |
 | 7  | Eigenvalues and eigenvectors | [[eigenvalues-and-eigenvectors]], [[spectral-decomposition]], [[singular-value-decomposition]] |
 
@@ -81,8 +81,13 @@ applications woven in.
 
 **Ch 5 — Linear Transformations**
 - [[linear-transformations]] — 2 axioms; catalog of types; rotation derivation; superposition property
+- [[matrix-of-linear-transformation]] — standard matrix theorem: T(x)=Ax with A's columns = T(e1)...T(en)
 - [[kernel-and-range]] — null space and image of T; kernel/range are always subspaces
 - [[rank-nullity-theorem]] — rank(T) + nullity(T) = dim(V); solution space of Ax=0
+- [[geometry-of-planar-linear-transformations]] — five geometric primitives in R² (rotation, reflections, scaling, shear) plus composition
+- [[elementary-matrices-as-geometric-transformations]] — elementary row operations as geometric primitives; any invertible matrix factors into them (Theorem 5)
+- [[inverse-linear-transformations]] — inverse transformations undo T; rotation's inverse is rotate by -θ, equals its transpose
+- [[linear-transformations-map-lines-to-lines]] — Theorem 6: invertible T preserves lines, parallelism, segments, collinearity
 
 **Ch 6 — Inner Product Spaces**
 - [[inner-product-spaces]] — 4 axioms; generalizes dot product to abstract spaces
@@ -121,7 +126,6 @@ applications woven in.
 Most vault notes were generated from sessions rather than reading — they are correct but sometimes miss the derivation depth Anton provides. Screenshots from the book are now feeding notes directly, which produces stronger derivations (e.g., rotation matrix proof from polar coordinates in §5.1).
 
 The real gaps still open:
-- **Matrix of a linear transformation** (§5.3) — finding the matrix of any T from its action on a basis
 - **Quadratic forms** (Ch. 7 extension) — x^T A x, positive definiteness, connection to Hessians
 
 ---
@@ -130,8 +134,12 @@ The real gaps still open:
 
 - [[kernel-and-range]] — from §5.2: kernel/range definitions, Theorem 1 (basic properties), Theorem 2 (kernel/range are subspaces)
 - [[rank-nullity-theorem]] — from §5.2: Theorem 3 (dimension theorem), Theorem 4 (solution space of Ax=0)
+- [[matrix-of-linear-transformation]] — from §5.3: standard matrix theorem, T(x)=Ax construction, proof
+- [[geometry-of-planar-linear-transformations]] — from §5.3: rotation/reflection/scaling/shear catalog, composition
+- [[elementary-matrices-as-geometric-transformations]] — from §5.3: elementary matrices as geometric primitives, Theorem 5 decomposition
+- [[inverse-linear-transformations]] — from §5.3: inverse transformations, rotation inverse = transpose
+- [[linear-transformations-map-lines-to-lines]] — from §5.3: Theorem 6, incidence preservation
 
 ## Permanent Notes to Create
 
-- [[matrix-of-linear-transformation]] — from §5.3: how to find the matrix of any T
 - [[quadratic-forms]] — x^T A x, positive definiteness, connection to Hessians and loss surface geometry
