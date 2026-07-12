@@ -32,7 +32,7 @@ applications woven in.
 | 2  | Determinants | [[determinant]], [[sarrus-rule]], [[cofactor]], [[adjugate-matrix]], [[cramer-rule]] |
 | 3  | Vectors in R² and R³ — geometry | [[vectors-and-vector-spaces]], [[vector-operations]], [[euclidean-n-space]], [[dot-product]], [[cross-product]], [[vector-norms]], [[line-equation-3d]], [[plane-equation]], [[planes-as-linear-systems]], [[point-to-plane-distance]] |
 | 4  | General vector spaces — abstract | [[general-vector-spaces]], [[subspaces]], [[linear-combination]], [[linear-independence]], [[basis-and-dimension]], [[row-and-column-spaces]], [[projection]], [[projection-onto-subspaces]], [[coordinate-vector]], [[change-of-basis]], [[gram-schmidt]], [[orthogonal-matrix]] |
-| 5  | Linear transformations | [[linear-transformations]], [[matrix-of-linear-transformation]], [[kernel-and-range]], [[rank-nullity-theorem]], [[geometry-of-planar-linear-transformations]], [[elementary-matrices-as-geometric-transformations]], [[inverse-linear-transformations]], [[linear-transformations-map-lines-to-lines]], [[matrix-of-linear-transformation-general-spaces]] |
+| 5  | Linear transformations | [[linear-transformations]], [[matrix-of-linear-transformation]], [[kernel-and-range]], [[rank-nullity-theorem]], [[geometry-of-planar-linear-transformations]], [[elementary-matrices-as-geometric-transformations]], [[inverse-linear-transformations]], [[linear-transformations-map-lines-to-lines]], [[matrix-of-linear-transformation-general-spaces]], [[matrix-similarity]] |
 | 6  | Inner product spaces | [[inner-product-spaces]], [[orthonormal-bases]], [[angles-and-orthogonality]], [[induced-norm-and-distance]], [[cauchy-schwarz-inequality]], [[cosine-similarity]] |
 | 7  | Eigenvalues and eigenvectors | [[eigenvalues-and-eigenvectors]], [[spectral-decomposition]], [[singular-value-decomposition]] |
 
@@ -89,6 +89,7 @@ applications woven in.
 - [[inverse-linear-transformations]] — inverse transformations undo T; rotation's inverse is rotate by -θ, equals its transpose
 - [[linear-transformations-map-lines-to-lines]] — Theorem 6: invertible T preserves lines, parallelism, segments, collinearity
 - [[matrix-of-linear-transformation-general-spaces]] — matrix of T:V→W between general finite-dim spaces via coordinate vectors; A[x]_B = [T(x)]_B' (§5.4)
+- [[matrix-similarity]] — B=P⁻¹AP; similar matrices represent the same operator T:V→V in different bases (Theorem 7, §5.5)
 
 **Ch 6 — Inner Product Spaces**
 - [[inner-product-spaces]] — 4 axioms; generalizes dot product to abstract spaces
@@ -141,6 +142,7 @@ The real gaps still open:
 - [[inverse-linear-transformations]] — from §5.3: inverse transformations, rotation inverse = transpose
 - [[linear-transformations-map-lines-to-lines]] — from §5.3: Theorem 6, incidence preservation
 - [[matrix-of-linear-transformation-general-spaces]] — from §5.4: matrix of T between general vector spaces via coordinates, indirect 3-step procedure, Examples 29-30
+- [[matrix-similarity]] — from §5.5: similarity definition, Theorem 7, Example 35 (standard basis to diagonal matrix)
 
 ## Permanent Notes to Create
 
