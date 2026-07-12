@@ -30,7 +30,7 @@ $$B = P^{-1}AP$$
 
 **It's a symmetric relation** — rewrite $B=P^{-1}AP$ as $A = PBP^{-1} = (P^{-1})^{-1}BP^{-1}$. Setting $Q=P^{-1}$ gives $A = Q^{-1}BQ$ — so "A is similar to B" and "B is similar to A" are the same fact. By convention, just say **A and B are similar**.
 
-**Theorem 7 — where similarity comes from** — if A is T's matrix w.r.t. basis B, and A' is T's matrix w.r.t. basis B', then $A' = P^{-1}AP$, where P is the transition matrix *from B' to B*. (Derived via the commutative square $[x]_{B'} \xrightarrow{P} [x]_B \xrightarrow{A} [T(x)]_B \xrightarrow{P^{-1}} [T(x)]_{B'}$ — see [[matrix-of-linear-transformation-general-spaces]] for the coordinate-bridge machinery this builds on.) Mnemonic for the direction, since it's easy to flip: **new matrix = P⁻¹ (initial matrix) P**.
+**Theorem 7 — where similarity comes from** — if A is T's matrix with respect to basis B, and A' is T's matrix with respect to basis B', then $A' = P^{-1}AP$, where P is the transition matrix *from B' to B*. (Derived via the commutative square $[x]_{B'} \xrightarrow{P} [x]_B \xrightarrow{A} [T(x)]_B \xrightarrow{P^{-1}} [T(x)]_{B'}$ — see [[matrix-of-linear-transformation-general-spaces]] for the coordinate-bridge machinery this builds on.) Mnemonic for the direction, since it's easy to flip: **new matrix = P⁻¹ (initial matrix) P**.
 
 **Worked example (Example 35)** — $T(x_1,x_2) = (x_1+x_2,\ -2x_1+4x_2)$. Standard matrix (basis $B=\{e_1,e_2\}$): $A=\begin{bmatrix}1&1\\-2&4\end{bmatrix}$. Switch to $B'=\{u_1,u_2\}=\{(1,1),(1,2)\}$: since $u_1=e_1+e_2$, $u_2=e_1+2e_2$, the transition matrix from B' to B is $P=\begin{bmatrix}1&1\\1&2\end{bmatrix}$, with $P^{-1}=\begin{bmatrix}2&-1\\-1&1\end{bmatrix}$. Then:
 
