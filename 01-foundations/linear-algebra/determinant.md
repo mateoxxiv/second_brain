@@ -8,6 +8,7 @@ related:
   - "[[matrix-inverse]]"
   - "[[basis-and-dimension]]"
   - "[[matrix-operations]]"
+  - "[[block-diagonal-matrices]]"
 domain: linear-algebra
 sources:
   - "https://www.youtube.com/watch?v=Ip3X9LOh2dk"
@@ -43,7 +44,7 @@ $$\det(A) = \sum_{\sigma} \text{sgn}(\sigma)\; a_{1\sigma(1)}\cdot a_{2\sigma(2)
 
 Pick one element from each row, never repeating a column. Multiply them. Repeat for every possible column ordering (permutation). Add with sign +1 (even permutation) or −1 (odd permutation).
 
-For 3×3 the tree has 3! = 6 paths — 3 positive, 3 negative. This is exactly what [[sarrus-rule]] encodes visually. [[cofactor]] expansion reorganizes the same sum into a recursive structure. For n×n there are n! paths — impractical beyond 3×3, which is why [[gaussian-elimination]] (O(n³)) is used in practice.
+For 3×3 the tree has 3! = 6 paths — 3 positive, 3 negative. This is exactly what [[sarrus-rule]] encodes visually. [[cofactor]] expansion reorganizes the same sum into a recursive structure. For n×n there are n! paths — impractical beyond 3×3, which is why [[gaussian-elimination]] (O(n³)) is used in practice. If the matrix happens to be [[block-diagonal-matrices|block diagonal or block triangular]], skip all of that — the determinant is just the product of the smaller diagonal blocks' own determinants.
 
 | Property | Formula | Why it matters |
 |----------|---------|----------------|
