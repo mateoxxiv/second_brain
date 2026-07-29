@@ -49,6 +49,9 @@ See [[hr-data-types]]
 ### Class 5 — Structuring a People Analytics Project
 See [[people-analytics-project-framework]]
 
+### Class 6 — Measuring Impact and Evaluating Bias
+See [[impact-evaluation-in-people-analytics]], [[bias-in-people-analytics]]
+
 ## Permanent Notes Created
 
 - [[people-analytics]] — what it is, how it connects to DS/AI
@@ -57,3 +60,5 @@ See [[people-analytics-project-framework]]
 - [[hr-data-ethics]] — data classification, bias, privacy in people data
 - [[hr-data-types]] — taxonomy of HR data types and categories for people analytics
 - [[people-analytics-project-framework]] — 8-step framework, 4 analytics levels, knowledge map methodology
+- [[impact-evaluation-in-people-analytics]] — aligning expectations, confirmed/refuted/inconclusive hypotheses, actionability and benchmarking gates
+- [[bias-in-people-analytics]] — data-quality homogeneity and benchmark-comparability checklist before trusting cross-population comparisons

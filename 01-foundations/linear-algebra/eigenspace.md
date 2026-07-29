@@ -9,6 +9,7 @@ related:
   - "[[basis-and-dimension]]"
   - "[[linear-independence]]"
   - "[[spectral-decomposition]]"
+  - "[[diagonalization]]"
 domain: linear-algebra
 sources:
   - "Anton, Howard. Introducción al Álgebra Lineal. §6.1 — Teorema 1, Ejemplo 5 (eigenespacios)."
@@ -64,7 +65,7 @@ print(E1.shape[1])   # 1 — matches {[1,1,0]}
 
 **PCA with repeated variance** — if two principal directions share the exact same eigenvalue (equal variance), the covariance matrix's eigenspace for that λ is 2-dimensional — there is no single "correct" choice of the two principal axes within that plane, only a choice of *some* orthonormal basis for it. This is why PCA output can rotate arbitrarily within a subspace of tied eigenvalues.
 
-**Diagonalizability** — a matrix can be written as $A=PDP^{-1}$ only if you can collect enough independent eigenvectors to fill $\mathbb{R}^n$; that requires every eigenspace's dimension to equal its root's multiplicity. [[spectral-decomposition]] guarantees this always works for symmetric matrices.
+**[[diagonalization|Diagonalizability]]** — a matrix can be written as $A=PDP^{-1}$ only if you can collect enough independent eigenvectors to fill $\mathbb{R}^n$; that requires every eigenspace's dimension to equal its root's multiplicity. [[spectral-decomposition]] guarantees this always works for symmetric matrices.
 
 ## Exercises
 

@@ -9,6 +9,7 @@ related:
   - "[[matrix-inverse]]"
   - "[[angles-and-orthogonality]]"
   - "[[singular-value-decomposition]]"
+  - "[[orthogonal-diagonalization]]"
 domain: linear-algebra
 sources:
   - "Anton, Howard. Introduccion al Algebra Lineal. S4.10 -- Theorems 27, 28, Examples 67-68."
@@ -85,6 +86,8 @@ print(np.allclose(R.T @ (R @ v), v))        # True
 **Orthogonal weight initialization** — initializing weight matrices via QR decomposition of a random Gaussian matrix produces orthogonal weights that preserve gradient norms at initialization: $\|Qx\| = \|x\|$ for all $x$.
 
 **SVD and PCA** — $A = U\Sigma V^T$ expresses any matrix as two orthogonal matrices sandwiching a diagonal. The $V$ columns are the principal directions in PCA and form an orthonormal basis by Theorem 28.
+
+**[[orthogonal-diagonalization]]** — when $A$ is square and symmetric, the same "orthonormal columns" idea lets $Q$ both diagonalize $A$ ($Q^TAQ=D$) and serve as its own inverse ($Q^{-1}=Q^T$) — the mechanism behind [[spectral-decomposition]].
 
 ## Exercises
 

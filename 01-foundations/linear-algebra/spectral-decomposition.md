@@ -8,6 +8,7 @@ related:
   - "[[projection]]"
   - "[[singular-value-decomposition]]"
   - "[[matrix-inverse]]"
+  - "[[orthogonal-diagonalization]]"
 domain: linear-algebra
 sources:
   - "https://www.youtube.com/watch?v=PFDu9oVAE-g"
@@ -28,7 +29,7 @@ A = λ₁·(q₁qᵀ₁) + λ₂·(q₂qᵀ₂) + ...
 
 Each $q_i q_i^T$ projects onto one eigenvector direction. The eigenvalue $\lambda_i$ is the weight of that direction. To compute $A^{10}$, raise each weight to the 10th power — the directions $Q$ stay the same.
 
-This only works for symmetric matrices because the Spectral Theorem guarantees real eigenvalues and orthogonal eigenvectors ($Q^T = Q^{-1}$, the free inverse).
+This only works for symmetric matrices because the Spectral Theorem guarantees real eigenvalues and orthogonal eigenvectors ($Q^T = Q^{-1}$, the free inverse) — see [[orthogonal-diagonalization]] for why that guarantee holds.
 
 ## Mechanics
 

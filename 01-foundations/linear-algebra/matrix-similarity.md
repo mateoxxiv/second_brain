@@ -9,6 +9,7 @@ related:
   - "[[spectral-decomposition]]"
   - "[[linear-transformations]]"
   - "[[determinant]]"
+  - "[[diagonalization]]"
 domain: linear-algebra
 sources:
   - "Anton, Howard. Introducción al Álgebra Lineal. §5.5 — Teorema 7, Ejemplo 35"
@@ -43,7 +44,7 @@ The standard basis gave a "messy" matrix; $B'$ gives a **diagonal** one — same
 | Symmetric | A~B ⟺ B~A |
 | Same operator | A, B similar ⟺ represent the same T in two bases |
 | Basis-invariant | similar matrices share determinant, trace, eigenvalues, rank |
-| Diagonalizable | A is diagonalizable exactly when it's similar to some diagonal D |
+| Diagonalizable | A is [[diagonalization\|diagonalizable]] exactly when it's similar to some diagonal D |
 
 ```python
 import numpy as np
@@ -60,7 +61,7 @@ print(np.allclose(sorted(np.linalg.eigvals(A)), sorted(np.linalg.eigvals(A_prime
 
 ## In ML
 
-**Diagonalization's entire payoff** — once a matrix is similar to a diagonal D (i.e. $A=PDP^{-1}$), powers become trivial: $A^k = PD^kP^{-1}$, and $D^k$ is just each diagonal entry raised to the $k$-th power. This is the mechanism behind analyzing long-run behavior of Markov chains and the stability of repeatedly-applied weight matrices in RNNs — see [[eigenvalues-and-eigenvectors]] and [[spectral-decomposition]] for the full machinery.
+**[[diagonalization|Diagonalization]]'s entire payoff** — once a matrix is similar to a diagonal D (i.e. $A=PDP^{-1}$), powers become trivial: $A^k = PD^kP^{-1}$, and $D^k$ is just each diagonal entry raised to the $k$-th power. This is the mechanism behind analyzing long-run behavior of Markov chains and the stability of repeatedly-applied weight matrices in RNNs — see [[eigenvalues-and-eigenvectors]] and [[spectral-decomposition]] for the full machinery.
 
 **Basis-invariant quantities matter precisely because of similarity** — determinant, trace, rank, and eigenvalues are all the same for any two similar matrices. That's *why* it's meaningful to talk about "the eigenvalues of a covariance matrix" as a property of the data rather than an artifact of how features happened to be ordered — the underlying operator doesn't change even if you relabel or rotate the coordinate system.
 

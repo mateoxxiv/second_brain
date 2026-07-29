@@ -9,6 +9,7 @@ related:
   - "[[orthonormal-bases]]"
   - "[[matrix-inverse]]"
   - "[[linear-transformations]]"
+  - "[[diagonalization]]"
 domain: linear-algebra
 sources:
   - "Anton, Howard. Introduccion al Algebra Lineal. S4.10 -- Theorems 26, Examples 63-66."
@@ -77,7 +78,7 @@ print(np.allclose(np.linalg.inv(P) @ v_Bp, v_B))  # True
 
 **PCA** — dimensionality reduction is a change of basis: from the standard feature basis to the eigenvectors of the covariance matrix (principal components). The transition matrix $W$ (eigenvector matrix) maps data points to principal component scores: $z = W^T x$.
 
-**Diagonalization** — $A = PDP^{-1}$ expresses a matrix in the eigenvector basis where it becomes diagonal. Change of basis makes repeated application trivial: $A^k = PD^kP^{-1}$.
+**[[diagonalization|Diagonalization]]** — $A = PDP^{-1}$ expresses a matrix in the eigenvector basis where it becomes diagonal. Change of basis makes repeated application trivial: $A^k = PD^kP^{-1}$.
 
 **RoPE (Rotary Position Embedding)** — encodes token position by applying 2D rotation matrices to pairs of query/key dimensions. Each position uses a different rotation angle — a structured, invertible change of basis.
 

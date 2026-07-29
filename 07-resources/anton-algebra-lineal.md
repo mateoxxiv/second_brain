@@ -34,7 +34,7 @@ applications woven in.
 | 4  | General vector spaces — abstract | [[general-vector-spaces]], [[subspaces]], [[linear-combination]], [[linear-independence]], [[basis-and-dimension]], [[row-and-column-spaces]], [[projection]], [[projection-onto-subspaces]], [[coordinate-vector]], [[change-of-basis]], [[gram-schmidt]], [[orthogonal-matrix]] |
 | 5  | Linear transformations | [[linear-transformations]], [[matrix-of-linear-transformation]], [[kernel-and-range]], [[rank-nullity-theorem]], [[geometry-of-planar-linear-transformations]], [[elementary-matrices-as-geometric-transformations]], [[inverse-linear-transformations]], [[linear-transformations-map-lines-to-lines]], [[matrix-of-linear-transformation-general-spaces]], [[matrix-similarity]] |
 | 6  | Inner product spaces | [[inner-product-spaces]], [[orthonormal-bases]], [[angles-and-orthogonality]], [[induced-norm-and-distance]], [[cauchy-schwarz-inequality]], [[cosine-similarity]] |
-| 7  | Eigenvalues and eigenvectors | [[eigenvalues-and-eigenvectors]], [[spectral-decomposition]], [[singular-value-decomposition]] |
+| 7  | Eigenvalues and eigenvectors | [[eigenvalues-and-eigenvectors]], [[eigenspace]], [[complex-eigenvalues]], [[synthetic-division]], [[block-diagonal-matrices]], [[diagonalization]], [[orthogonal-diagonalization]], [[spectral-decomposition]], [[singular-value-decomposition]] |
 
 ---
 
@@ -101,6 +101,12 @@ applications woven in.
 
 **Ch 7 — Eigenvalues and Eigenvectors**
 - [[eigenvalues-and-eigenvectors]] — vectors a matrix only stretches; characteristic polynomial
+- [[eigenspace]] — solution set of (λI-A)x=0; geometric vs. algebraic multiplicity
+- [[complex-eigenvalues]] — when the characteristic equation has no real roots
+- [[synthetic-division]] — fast division once a rational eigenvalue root is found
+- [[block-diagonal-matrices]] — solving each diagonal block's characteristic equation separately
+- [[diagonalization]] — A = PDP⁻¹; the n-independent-eigenvectors criterion (§6.2)
+- [[orthogonal-diagonalization]] — P orthogonal ⟺ A symmetric; guaranteed to work (§6.3)
 - [[spectral-decomposition]] — A = Q·D·Q^T for symmetric matrices
 - [[singular-value-decomposition]] — A = U·Σ·V^T; most general matrix factorization
 
@@ -143,6 +149,8 @@ The real gaps still open:
 - [[linear-transformations-map-lines-to-lines]] — from §5.3: Theorem 6, incidence preservation
 - [[matrix-of-linear-transformation-general-spaces]] — from §5.4: matrix of T between general vector spaces via coordinates, indirect 3-step procedure, Examples 29-30
 - [[matrix-similarity]] — from §5.5: similarity definition, Theorem 7, Example 35 (standard basis to diagonal matrix)
+- [[diagonalization]] — from §6.2: Theorem 2 (n independent eigenvectors), Theorems 3-4 (distinct eigenvalues shortcut), Ejemplos 7-11
+- [[orthogonal-diagonalization]] — from §6.3: Theorems 5-8 (symmetric ⟺ orthogonally diagonalizable, guaranteed real spectrum + full eigenspaces), Ejemplos 12-14
 
 ## Permanent Notes to Create
 
