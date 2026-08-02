@@ -9,6 +9,7 @@ related:
   - "[[bias-in-people-analytics]]"
   - "[[data-driven-culture]]"
   - "[[kpi-design]]"
+  - "[[data-cleaning-for-people-analytics]]"
 domain: ml
 sources:
   - "https://platzi.com/cursos/people-analytics-excel/"

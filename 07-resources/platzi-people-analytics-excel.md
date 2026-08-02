@@ -52,6 +52,9 @@ See [[people-analytics-project-framework]]
 ### Class 6 — Measuring Impact and Evaluating Bias
 See [[impact-evaluation-in-people-analytics]], [[bias-in-people-analytics]]
 
+### Class 7 — Data Cleaning in Excel for People Analytics
+See [[data-cleaning-for-people-analytics]]
+
 ## Permanent Notes Created
 
 - [[people-analytics]] — what it is, how it connects to DS/AI
@@ -62,3 +65,4 @@ See [[impact-evaluation-in-people-analytics]], [[bias-in-people-analytics]]
 - [[people-analytics-project-framework]] — 8-step framework, 4 analytics levels, knowledge map methodology
 - [[impact-evaluation-in-people-analytics]] — aligning expectations, confirmed/refuted/inconclusive hypotheses, actionability and benchmarking gates
 - [[bias-in-people-analytics]] — data-quality homogeneity and benchmark-comparability checklist before trusting cross-population comparisons
+- [[data-cleaning-for-people-analytics]] — pre-analysis checklist (duplicates, missing data, typos, formats, period completeness) and the Excel techniques to fix each

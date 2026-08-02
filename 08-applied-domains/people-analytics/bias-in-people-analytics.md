@@ -7,6 +7,7 @@ related:
   - "[[impact-evaluation-in-people-analytics]]"
   - "[[hr-data-ethics]]"
   - "[[people-analytics-project-framework]]"
+  - "[[data-cleaning-for-people-analytics]]"
 domain: ml
 sources:
   - "https://platzi.com/cursos/people-analytics-excel/"
