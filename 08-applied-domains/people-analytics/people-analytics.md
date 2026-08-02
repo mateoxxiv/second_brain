@@ -8,6 +8,8 @@ related:
   - "[[probability-distributions]]"
   - "[[cdf-and-quantiles]]"
   - "[[general-vector-spaces]]"
+  - "[[kpi-design]]"
+  - "[[hr-dashboard-in-excel]]"
 domain: ml
 sources:
   - "https://platzi.com/cursos/people-analytics-excel/"
@@ -32,7 +34,7 @@ The shift: from "I think this candidate is a good fit" to "candidates with these
 Define KPI → Collect HR data → Identify patterns → Redesign process → Measure impact
 ```
 
-**Key KPIs tracked:**
+**Key KPIs tracked** (see [[kpi-design]] for the cost/quantity/quality framework behind choosing these):
 
 | KPI | What it measures |
 |---|---|

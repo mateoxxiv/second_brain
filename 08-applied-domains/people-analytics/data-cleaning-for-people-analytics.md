@@ -9,6 +9,8 @@ related:
   - "[[hr-data-ethics]]"
   - "[[impact-evaluation-in-people-analytics]]"
   - "[[bias-in-people-analytics]]"
+  - "[[kpi-design]]"
+  - "[[hr-dashboard-in-excel]]"
 domain: ml
 sources:
   - "https://platzi.com/cursos/people-analytics-excel/"
@@ -56,7 +58,7 @@ This matters more in people analytics than in most domains: HR data is usually e
 
 ## In Practice
 
-**This is a gate, not a formality** — [[impact-evaluation-in-people-analytics]] and [[bias-in-people-analytics]] both assume the underlying data is clean and comparable before their checks even make sense. An "inconclusive" hypothesis or a spurious cross-country comparison is frequently just this checklist skipped upstream.
+**This is a gate, not a formality** — [[impact-evaluation-in-people-analytics]], [[bias-in-people-analytics]], and any [[kpi-design|KPI]] shown on a [[hr-dashboard-in-excel|dashboard]] all assume the underlying data is clean and comparable before their checks even make sense. An "inconclusive" hypothesis or a spurious cross-country comparison is frequently just this checklist skipped upstream.
 
 **No step here has an automatic answer** — finding two IDs duplicated with different names, cities, and areas doesn't resolve itself; you decide whether to delete, validate against the source system, or ignore, based on judgment, not a formula.
 

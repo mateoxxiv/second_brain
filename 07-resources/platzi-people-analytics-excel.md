@@ -55,6 +55,9 @@ See [[impact-evaluation-in-people-analytics]], [[bias-in-people-analytics]]
 ### Class 7 — Data Cleaning in Excel for People Analytics
 See [[data-cleaning-for-people-analytics]]
 
+### Class 8 — HR KPIs and Executive Dashboards in Excel
+See [[kpi-design]], [[hr-dashboard-in-excel]]
+
 ## Permanent Notes Created
 
 - [[people-analytics]] — what it is, how it connects to DS/AI
@@ -66,3 +69,5 @@ See [[data-cleaning-for-people-analytics]]
 - [[impact-evaluation-in-people-analytics]] — aligning expectations, confirmed/refuted/inconclusive hypotheses, actionability and benchmarking gates
 - [[bias-in-people-analytics]] — data-quality homogeneity and benchmark-comparability checklist before trusting cross-population comparisons
 - [[data-cleaning-for-people-analytics]] — pre-analysis checklist (duplicates, missing data, typos, formats, period completeness) and the Excel techniques to fix each
+- [[kpi-design]] — cost/quantity/quality KPI categories mapped onto the employee lifecycle, "necessary and sufficient" selection principle
+- [[hr-dashboard-in-excel]] — build sequence (table → pivot tables → charts), chart-type selection, and linking slicers for interactivity
