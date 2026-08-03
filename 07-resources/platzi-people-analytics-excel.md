@@ -58,6 +58,12 @@ See [[data-cleaning-for-people-analytics]]
 ### Class 8 — HR KPIs and Executive Dashboards in Excel
 See [[kpi-design]], [[hr-dashboard-in-excel]]
 
+### Class 9 — Integrating and Analyzing Satisfaction Survey Data
+See [[employee-satisfaction-survey-analysis]]
+
+### Class 10 — Exit Interview Analysis with NLP and Sentiment Analysis
+See [[exit-interview-nlp-analysis]]
+
 ## Permanent Notes Created
 
 - [[people-analytics]] — what it is, how it connects to DS/AI
@@ -71,3 +77,5 @@ See [[kpi-design]], [[hr-dashboard-in-excel]]
 - [[data-cleaning-for-people-analytics]] — pre-analysis checklist (duplicates, missing data, typos, formats, period completeness) and the Excel techniques to fix each
 - [[kpi-design]] — cost/quantity/quality KPI categories mapped onto the employee lifecycle, "necessary and sufficient" selection principle
 - [[hr-dashboard-in-excel]] — build sequence (table → pivot tables → charts), chart-type selection, and linking slicers for interactivity
+- [[employee-satisfaction-survey-analysis]] — VLOOKUP merging, pivot-table averages, heat maps, NPS, and external benchmarking
+- [[exit-interview-nlp-analysis]] — 4-phase pipeline (clean → quantitative exploration → NLP → sentiment analysis) with a real case-study finding

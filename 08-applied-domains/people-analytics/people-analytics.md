@@ -10,6 +10,7 @@ related:
   - "[[general-vector-spaces]]"
   - "[[kpi-design]]"
   - "[[hr-dashboard-in-excel]]"
+  - "[[exit-interview-nlp-analysis]]"
 domain: ml
 sources:
   - "https://platzi.com/cursos/people-analytics-excel/"
@@ -64,7 +65,7 @@ Define KPI → Collect HR data → Identify patterns → Redesign process → Me
 
 **Attrition prediction** — classic binary classification problem: given employee features (tenure, distance, salary, performance score, manager rating), predict P(leave within 6 months). IBM uses this at scale to proactively intervene before high-value employees quit.
 
-**Qualitative analysis with LLMs** — exit interviews and open-ended satisfaction surveys are unstructured text. Embedding + clustering (or LLM summarization) extracts patterns: which themes appear most in exit interviews from high performers? This is a direct RAG/embedding use case applied to HR data. See [[platzi-people-analytics-excel]].
+**Qualitative analysis with LLMs** — exit interviews and open-ended satisfaction surveys are unstructured text. Embedding + clustering (or LLM summarization) extracts patterns: which themes appear most in exit interviews from high performers? This is a direct RAG/embedding use case applied to HR data — see [[exit-interview-nlp-analysis]] for a worked 4-phase pipeline, and [[platzi-people-analytics-excel]].
 
 **Google Project Oxygen** — used internal data to identify which manager behaviors correlated with team performance. Result: 8 key skills that became the basis for manager training programs. This is feature importance analysis (random forest, SHAP values) applied to HR.
 

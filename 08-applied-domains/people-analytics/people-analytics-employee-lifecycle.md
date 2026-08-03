@@ -8,6 +8,7 @@ related:
   - "[[kpi-design]]"
   - "[[hr-data-ethics]]"
   - "[[platzi-people-analytics-excel]]"
+  - "[[exit-interview-nlp-analysis]]"
 domain: ml
 sources:
   - "https://platzi.com/cursos/people-analytics-excel/"
@@ -65,7 +66,7 @@ for stage, kpis in lifecycle_kpis.items():
 
 **Attrition prediction (retention stage)** — the lifecycle framework tells you *when* to intervene. A flight-risk model trained on engagement scores, tenure, and manager ratings fires at the retention stage — not at offboarding, when it's too late. See [[people-analytics]] for the classification framing.
 
-**NLP on exit interviews (offboarding stage)** — exit interviews are unstructured text. Embedding + clustering extracts the dominant themes: "manager relationship," "growth opportunities," "compensation." This converts qualitative lifecycle data into quantitative signals.
+**NLP on exit interviews (offboarding stage)** — exit interviews are unstructured text. Embedding + clustering extracts the dominant themes: "manager relationship," "growth opportunities," "compensation." This converts qualitative lifecycle data into quantitative signals — see [[exit-interview-nlp-analysis]] for the full clean → quantitative → NLP → sentiment pipeline.
 
 **Onboarding optimization** — ramp time (days to productivity) can be modeled as a regression target. Features: role complexity, manager experience, team size, remote vs. on-site. Output informs onboarding program redesign.
 
