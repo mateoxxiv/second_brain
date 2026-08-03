@@ -7,6 +7,7 @@ related:
   - "[[basis-and-dimension]]"
   - "[[row-and-column-spaces]]"
   - "[[gaussian-elimination]]"
+  - "[[injective-and-surjective-linear-transformations]]"
 domain: linear-algebra
 sources:
   - "Anton, Howard. Introducción al Álgebra Lineal. §5.2, Teoremas 3 y 4"
@@ -44,7 +45,7 @@ $$n - \text{rank}(A)$$
 
 where $n$ is the number of columns of $A$ (the number of unknowns).
 
-**Corollary — full row rank means onto.** If $A$ is $m \times n$ and $\text{rank}(A) = m$, then $R(T) = \mathbb{R}^m$ — every vector in the codomain is reachable, with no exceptions.
+**Corollary — full row rank means onto.** If $A$ is $m \times n$ and $\text{rank}(A) = m$, then $R(T) = \mathbb{R}^m$ — every vector in the codomain is reachable, with no exceptions. See [[injective-and-surjective-linear-transformations]] for the parallel condition on injectivity and how the two combine into bijectivity.
 
 **Why this is true**: $R(T)$ is always a subspace of $\mathbb{R}^m$ (Theorem 2, [[kernel-and-range]]), so $\dim(R(T)) = \text{rank}(A) \leq m$ always. When $\text{rank}(A)$ hits the maximum possible value $m$, $R(T)$ is a subspace of $\mathbb{R}^m$ with the *full* dimension $m$ — and there is no proper subspace of $\mathbb{R}^m$ with dimension $m$ (any basis of size $m$ already spans all of $\mathbb{R}^m$, by [[basis-and-dimension]]'s Theorem 8). So $R(T)$ can't be a strict subset — it must be all of $\mathbb{R}^m$.
 
