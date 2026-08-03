@@ -9,6 +9,7 @@ related:
   - "[[kpi-design]]"
   - "[[bias-in-people-analytics]]"
   - "[[people-analytics-employee-lifecycle]]"
+  - "[[likert-scale]]"
 domain: ml
 sources:
   - "https://platzi.com/cursos/people-analytics-excel/"

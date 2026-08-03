@@ -64,6 +64,15 @@ See [[employee-satisfaction-survey-analysis]]
 ### Class 10 — Exit Interview Analysis with NLP and Sentiment Analysis
 See [[exit-interview-nlp-analysis]]
 
+### Class 11 — The Likert Scale
+See [[likert-scale]]
+
+### Class 12 — Long-Term People Analytics Strategy
+See [[people-analytics-strategy-pillars]], [[ai-in-hr-applications]]
+
+### Class 13 — Getting Started and Best Practices in People Analytics
+See [[people-analytics-best-practices]]
+
 ## Permanent Notes Created
 
 - [[people-analytics]] — what it is, how it connects to DS/AI
@@ -79,3 +88,7 @@ See [[exit-interview-nlp-analysis]]
 - [[hr-dashboard-in-excel]] — build sequence (table → pivot tables → charts), chart-type selection, and linking slicers for interactivity
 - [[employee-satisfaction-survey-analysis]] — VLOOKUP merging, pivot-table averages, heat maps, NPS, and external benchmarking
 - [[exit-interview-nlp-analysis]] — 4-phase pipeline (clean → quantitative exploration → NLP → sentiment analysis) with a real case-study finding
+- [[likert-scale]] — ordinal rating scale, item vs. composite scale, ordinal-vs-interval tension, Cronbach's alpha reliability check
+- [[people-analytics-strategy-pillars]] — David Green's bases/resources/added-value framework and the team composition needed for long-term sustainability
+- [[ai-in-hr-applications]] — three AI fronts in HR (ATS, large-scale text analysis, ONA), with the ethics/policy gate that must precede deployment
+- [[people-analytics-best-practices]] — three ongoing habits (monitor peers, share methodology, solicit feedback) that compound impact across projects

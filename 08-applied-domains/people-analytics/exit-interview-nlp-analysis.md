@@ -8,6 +8,8 @@ related:
   - "[[people-analytics-employee-lifecycle]]"
   - "[[people-analytics]]"
   - "[[bias-in-people-analytics]]"
+  - "[[likert-scale]]"
+  - "[[ai-in-hr-applications]]"
 domain: ml
 sources:
   - "https://platzi.com/cursos/people-analytics-excel/"
@@ -23,7 +25,7 @@ A closed question ("rate your manager 1–5") is easy to average but limited to 
 
 ## Mechanics
 
-**Likert scale** — a rating scale (e.g. 1–5) that converts a subjective perception into a number that can be averaged and compared across people, departments, or time.
+**[[likert-scale|Likert scale]]** — a rating scale (e.g. 1–5) that converts a subjective perception into a number that can be averaged and compared across people, departments, or time.
 
 **Natural Language Processing (NLP)** — the branch of AI that lets a machine understand, classify, and extract meaning from human-written text; here, used to analyze open comments without reading every one individually.
 

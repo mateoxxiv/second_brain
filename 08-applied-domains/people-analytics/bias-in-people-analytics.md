@@ -8,6 +8,7 @@ related:
   - "[[hr-data-ethics]]"
   - "[[people-analytics-project-framework]]"
   - "[[data-cleaning-for-people-analytics]]"
+  - "[[likert-scale]]"
 domain: ml
 sources:
   - "https://platzi.com/cursos/people-analytics-excel/"

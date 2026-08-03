@@ -8,6 +8,7 @@ related:
   - "[[hr-data-types]]"
   - "[[data-driven-culture]]"
   - "[[platzi-people-analytics-excel]]"
+  - "[[ai-in-hr-applications]]"
 domain: ml
 sources:
   - "https://platzi.com/cursos/people-analytics-excel/"

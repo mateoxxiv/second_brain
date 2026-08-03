@@ -10,6 +10,8 @@ related:
   - "[[data-driven-culture]]"
   - "[[kpi-design]]"
   - "[[data-cleaning-for-people-analytics]]"
+  - "[[people-analytics-strategy-pillars]]"
+  - "[[people-analytics-best-practices]]"
 domain: ml
 sources:
   - "https://platzi.com/cursos/people-analytics-excel/"

@@ -11,6 +11,7 @@ related:
   - "[[kpi-design]]"
   - "[[hr-dashboard-in-excel]]"
   - "[[exit-interview-nlp-analysis]]"
+  - "[[people-analytics-strategy-pillars]]"
 domain: ml
 sources:
   - "https://platzi.com/cursos/people-analytics-excel/"

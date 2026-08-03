@@ -9,6 +9,8 @@ related:
   - "[[hr-data-ethics]]"
   - "[[data-driven-culture]]"
   - "[[kpi-design]]"
+  - "[[people-analytics-strategy-pillars]]"
+  - "[[people-analytics-best-practices]]"
 domain: people-analytics
 sources:
   - "https://platzi.com/cursos/people-analytics-excel/"
