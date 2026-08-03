@@ -1,7 +1,7 @@
 # Study Roadmap
 
 **Created**: 2026-02-24
-**Last updated**: 2026-07-07 (linear algebra track nearly complete — 11 new notes on subspaces/orthogonality/kernel-range/rank-nullity; added trigonometric-identities to calculus; 3 new Claude Code tooling notes; surfaced new 08-applied-domains/people-analytics side track; flagged unresolved matrix-transpose inbox drafts)
+**Last updated**: 2026-08-02 (linear algebra track now essentially complete — diagonalization, orthogonal-diagonalization, block-diagonal-matrices, eigenspace, complex-eigenvalues and other eigenvalue-chapter notes landed, 43→56 notes; people-analytics side track grew from 6→17 notes covering the full Platzi course — data cleaning, KPI/dashboard design, survey & exit-interview NLP analysis, Likert scale, long-term strategy pillars, AI-in-HR applications, best practices; matrix-transpose inbox drafts still unresolved; `code/` directory confirmed still empty — zero runnable implementations exist despite 103 notes)
 **Goal**: Become an expert AI architect and engineer — design, implement, and orchestrate intelligent systems end-to-end.
 
 ---
@@ -45,7 +45,7 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 
 | Area | Notes | Status |
 |------|-------|--------|
-| 01-foundations/linear-algebra | 43 | Near-complete — subspaces, orthogonality, kernel/range, rank-nullity added. Only matrix calculus, pseudoinverse, matrix norms remain |
+| 01-foundations/linear-algebra | 56 | **Essentially complete** — eigenvalue chapter (eigenspace, complex-eigenvalues, block-diagonal, diagonalization, orthogonal-diagonalization, synthetic-division) now fully covered. Only matrix calculus, pseudoinverse, matrix norms, and transpose remain |
 | 01-foundations/calculus | 9 | Core complete — trigonometric identities added |
 | 01-foundations/probability | 10 | Distributions done — MLE, entropy, multivariate Normal next |
 | 01-foundations/algorithms | 0 | Not started |
@@ -54,17 +54,20 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 | 03-deep-learning | 0 | Not started |
 | 04-llms-and-agents | 11 | Anthropic + OpenAI ecosystems + Claude Code tooling (hooks, cron, chrome) covered |
 | 05-mlops/cloud | 0 | Not started |
-| 08-applied-domains/people-analytics | 6 | **Side track, outside core path** — HR/people analytics fundamentals |
+| 08-applied-domains/people-analytics | 17 | **Side track, outside core path** — now spans project execution, data prep, KPIs/dashboards, survey & NLP analysis, and long-term strategy. All 17 still `status/seed` |
 
-**Total notes**: 81 | **8 evergreen** | **25 growing** | **48 seed**
+**Total notes**: 103 domain notes + 2 literature notes | **8 evergreen** | **25 growing** | **73 seed**
 
-**Vault hygiene gap**: `00-inbox/proposals/` has three unresolved template drafts for `matrix-transpose` (frontmatter/card/layered variants) — a real gap, since matrix transpose has no permanent note in `linear-algebra/` yet despite being referenced by other notes. Pick one format and promote it, or discard the drafts.
+**Vault hygiene gaps**:
+1. `00-inbox/proposals/` still has three unresolved template drafts for `matrix-transpose` (frontmatter/card/layered variants) — matrix transpose still has no permanent note in `linear-algebra/` despite being referenced by other notes. Pick one format and promote it, or discard the drafts.
+2. `code/` is entirely empty (only `.gitkeep` placeholders in each subfolder) — zero runnable `.py` implementations exist anywhere in the vault, despite CLAUDE.md's "implement from scratch" principle and 103 notes written. This is the single biggest gap between the vault's stated learning philosophy and its actual state.
+3. All 17 people-analytics notes are still `status/seed` — none has been through a `/review` pass or been battle-tested against a real dataset yet.
 
 ---
 
 ## THEORY TRACK
 
-### T1: Linear Algebra — NEAR-COMPLETE (43/~46 notes)
+### T1: Linear Algebra — ESSENTIALLY COMPLETE (56/~60 notes)
 
 > *Why*: Every ML algorithm is a matrix operation. You can't understand neural nets, PCA, or embeddings without this.
 
@@ -112,6 +115,18 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 - [x] Kernel and Range ← new
 - [x] Row and Column Spaces ← new
 - [x] Rank-Nullity Theorem ← new
+- [x] Eigenspace ← new (geometric vs. algebraic multiplicity)
+- [x] Complex Eigenvalues ← new
+- [x] Synthetic Division ← new (root-finding for characteristic polynomials)
+- [x] Block-Diagonal Matrices ← new
+- [x] Diagonalization ← new (§6.2 — Theorem 2, distinct-eigenvalues shortcut)
+- [x] Orthogonal Diagonalization ← new (§6.3 — symmetric ⟺ orthogonally diagonalizable, guaranteed spectrum)
+- [x] Matrix Similarity ← new
+- [x] Elementary Matrices as Geometric Transformations ← new
+- [x] Geometry of Planar Linear Transformations ← new
+- [x] Inverse Linear Transformations ← new
+- [x] Linear Transformations Map Lines to Lines ← new
+- [x] Matrix of Linear Transformation (+ general spaces) ← new
 
 **Remaining:**
 - [ ] Matrix Transpose — surprising gap: no permanent note exists, only 3 unresolved template drafts sitting in `00-inbox/proposals/`. Resolve before anything else in this track.
@@ -119,7 +134,7 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 - [ ] Pseudoinverse (Moore-Penrose) — via SVD, for least-squares
 - [ ] Matrix Norms and Condition Number — numerical stability
 
-**Estimated remaining**: ~4 notes — this track is essentially done. Once matrix calculus lands, move fully into T4 (Supervised ML).
+**Estimated remaining**: ~4 notes — the eigenvalue chapter (Anton §6.1-6.3) is now fully covered end-to-end. Once matrix transpose and matrix calculus land, this track is done and T4 (Supervised ML) is fully unblocked.
 
 ---
 
@@ -469,18 +484,38 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 
 ## SIDE TRACK (outside core AI architect path)
 
-### S1: Applied Domains — People Analytics (6 notes, all seed)
+### S1: Applied Domains — People Analytics (17 notes, all seed) — course complete
 
-> Not part of the theory or builder tracks above — this is domain knowledge (HR/people analytics), likely tied to a specific course (Platzi) or work context rather than the AI-architect goal. Tracked here so it doesn't get lost, but it shouldn't compete with T1–T10 for study time unless there's a specific reason (e.g., a work project applying ML to HR data).
+> Not part of the theory or builder tracks above — this is domain knowledge (HR/people analytics) tied to the Platzi "People Analytics con Excel" course. Tracked here so it doesn't get lost, but it shouldn't compete with T1–T10 for study time unless there's a specific reason (e.g., a work project applying ML to HR data). The course (13 classes) is now fully captured in [[platzi-people-analytics-excel]].
 
+**Fundamentals & culture:**
 - [x] People Analytics (overview)
 - [x] People Analytics — Employee Lifecycle
-- [x] People Analytics — Project Framework
+- [x] Data-Driven Culture
 - [x] HR Data Types
 - [x] HR Data Ethics
-- [x] Data-Driven Culture
 
-**Open question**: is this a side interest to keep growing, or should it eventually connect back to T4/T5 (e.g., attrition prediction as a supervised learning project)? Worth clarifying so the roadmap can link it in rather than treating it as orphaned.
+**Running a project:**
+- [x] People Analytics — Project Framework (8 steps, 4 analytics levels, knowledge map)
+- [x] Impact Evaluation in People Analytics
+- [x] Bias in People Analytics
+- [x] Data Cleaning for People Analytics
+
+**Data, KPIs, and dashboards (Excel-heavy):**
+- [x] KPI Design
+- [x] HR Dashboard in Excel
+
+**Qualitative & survey analysis:**
+- [x] Employee Satisfaction Survey Analysis (VLOOKUP, pivot tables, NPS)
+- [x] Likert Scale (ordinal scale, Cronbach's alpha)
+- [x] Exit Interview NLP Analysis (4-phase pipeline: clean → quantitative → NLP → sentiment)
+
+**Long-term strategy:**
+- [x] People Analytics Strategy Pillars (David Green — bases/resources/added-value)
+- [x] AI in HR Applications (ATS, text analysis, ONA)
+- [x] People Analytics Best Practices (peer monitoring, sharing, feedback)
+
+**Open question, now more concrete**: several notes already draw the bridge back to core ML — [[exit-interview-nlp-analysis]] connects to embeddings/clustering/sentiment classifiers, [[ai-in-hr-applications]]'s ONA section is applied graph theory, and [[likert-scale]]'s Cronbach's-alpha code is a real feature-reliability check. A natural next step is a **06-projects capstone**: an attrition-prediction or exit-interview-sentiment mini-project in `06-projects/` that actually implements one of these (e.g. the ONA networkx example, or a lexicon/transformer sentiment classifier on synthetic exit-interview text) — this would also start filling the empty `code/` directory (see hygiene gap above) and double as the first T4/T5 bridge project once supervised/unsupervised ML notes exist.
 
 ---
 
@@ -544,4 +579,6 @@ Weeks 28+   | Capstone projects             | B8-C++: ONNX + TensorRT + custom o
 **Quality improvements:**
 - Promote `singular-value-decomposition` from seed to growing — still the biggest quality gap given how central SVD is to ML (PCA, pseudoinverse, low-rank approximation)
 - `spectral-decomposition` promoted seed → growing since last update ✓
-- 48 of 81 vault notes are still `status/seed` — worth a `/review` pass on the linear-algebra seed notes (25 of them) before starting T4, since several (subspaces, kernel-and-range, rank-nullity-theorem) are load-bearing for everything downstream
+- 73 of 105 content notes are still `status/seed` — worth a `/review` pass on the linear-algebra seed notes (38 of them) before starting T4, since several (subspaces, kernel-and-range, rank-nullity-theorem, diagonalization) are load-bearing for everything downstream
+- All 17 people-analytics notes are `status/seed` with zero code — lowest priority for now (side track), but if a 06-projects capstone gets built from this material (see S1 above), promote the notes it exercises to `growing`
+- **Vault-wide**: write at least one runnable file in `code/` — right now every single implementation described in every note (Gauss-Jordan, Gram-Schmidt, Cronbach's alpha, ONA centrality, sentiment scoring) exists only as an inline snippet, never as an actual tested `.py` file
