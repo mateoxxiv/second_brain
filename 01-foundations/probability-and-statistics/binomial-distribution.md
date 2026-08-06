@@ -7,6 +7,7 @@ related:
   - "[[bernoulli-distribution]]"
   - "[[normal-distribution]]"
   - "[[poisson-distribution]]"
+  - "[[statistical-significance]]"
 domain: probability
 sources:
   - "https://mml-book.github.io/book/mml-book.pdf"
