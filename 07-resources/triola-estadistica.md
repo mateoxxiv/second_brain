@@ -21,20 +21,20 @@ date_read: "2026-08-02 (in progress)"
 
 > Provisional — based on this book's well-known standard structure for the 11th edition (technology update). To be confirmed/corrected chapter-by-chapter as we actually read through it.
 
-| Ch | Topic | Vault notes |
-|---|---|---|
-| 1 | Introduction to Statistics | [[population-and-sample]] |
-| 2 | Summarizing and Graphing Data | |
-| 3 | Statistics for Describing, Exploring, and Comparing Data | |
-| 4 | Probability | [[probability-fundamentals]] |
-| 5 | Discrete Probability Distributions | [[bernoulli-distribution]], [[binomial-distribution]], [[poisson-distribution]] |
-| 6 | Normal Probability Distributions | [[normal-distribution]], [[cdf-and-quantiles]] |
-| 7 | Estimates and Sample Sizes | |
-| 8 | Hypothesis Testing | |
-| 9 | Inferences from Two Samples | |
-| 10 | Correlation and Regression | |
-| 11 | Multinomial Experiments and Contingency Tables | |
-| 12 | Analysis of Variance (ANOVA) | |
+| Ch  | Topic                                                    | Vault notes                                                                     |
+| --- | -------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| 1   | Introduction to Statistics                               | [[population-and-sample]], [[parameter-vs-statistic]], [[data-types-and-levels-of-measurement]] |
+| 2   | Summarizing and Graphing Data                            |                                                                                 |
+| 3   | Statistics for Describing, Exploring, and Comparing Data |                                                                                 |
+| 4   | Probability                                              | [[probability-fundamentals]]                                                    |
+| 5   | Discrete Probability Distributions                       | [[bernoulli-distribution]], [[binomial-distribution]], [[poisson-distribution]] |
+| 6   | Normal Probability Distributions                         | [[normal-distribution]], [[cdf-and-quantiles]]                                  |
+| 7   | Estimates and Sample Sizes                               |                                                                                 |
+| 8   | Hypothesis Testing                                       |                                                                                 |
+| 9   | Inferences from Two Samples                              |                                                                                 |
+| 10  | Correlation and Regression                               |                                                                                 |
+| 11  | Multinomial Experiments and Contingency Tables           |                                                                                 |
+| 12  | Analysis of Variance (ANOVA)                             |                                                                                 |
 
 ---
 
@@ -44,6 +44,8 @@ date_read: "2026-08-02 (in progress)"
 - [[population-and-sample]] — core vocabulary (data, statistics, population, census, sample) and why sample *collection method* matters more than sample size
 - [[principles-of-statistical-thinking]] — the four factors (context, source, sampling method, conclusions) to check before trusting any statistical claim, walked through Table 1-1's "Freshman 15" study
 - [[statistical-significance]] — a result is significant when it's too unlikely to be chance; statistical vs. practical significance (Atkins diet, MicroSort examples)
+- [[parameter-vs-statistic]] — a parameter describes a whole population (μ, σ, p), a statistic describes a sample (x̄, s, p̂); the target of inference vs. the estimate you have (§1-3, senators vs. Literary Digest examples)
+- [[data-types-and-levels-of-measurement]] — categorical vs. quantitative, discrete vs. continuous, and the four measurement levels (nominal/ordinal/interval/ratio) that decide which methods are valid (§1-3)
 
 *(remaining chapters to fill in as read — see [[probability-distributions]] for the overview note this book's Ch. 4-6 will extend)*
 
@@ -77,6 +79,8 @@ This book is the natural next input for [[probability-fundamentals|T3 (Probabili
 - [[population-and-sample]] — from Ch. 1: data/statistics/population/census/sample definitions, the Literary Digest 1936 case, why collection method beats sample size
 - [[principles-of-statistical-thinking]] — from Ch. 1: the four-factor checklist (context, source, sampling method, conclusions), fully worked through Table 1-1's Rutgers "Freshman 15" study, including the Kiwi Brands and Nightline bias examples
 - [[statistical-significance]] — from Ch. 1, §1-2: statistical vs. practical significance (Atkins diet trial), the MicroSort 13/14 vs. 8/14 contrast, and the binomial-probability code reproducing both figures
+- [[parameter-vs-statistic]] — from Ch. 1, §1-3: parameter (population) vs. statistic (sample), the μ/x̄, σ/s, p/p̂ convention, and the senators-vs-Literary Digest worked examples
+- [[data-types-and-levels-of-measurement]] — from Ch. 1, §1-3: categorical/quantitative, discrete/continuous, and the nominal→ordinal→interval→ratio ladder with the "twice" test
 
 ## Gaps — Notes Still to Create
 
