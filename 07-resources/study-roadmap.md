@@ -1,7 +1,7 @@
 # Study Roadmap
 
 **Created**: 2026-02-24
-**Last updated**: 2026-08-02 (linear algebra track now essentially complete — diagonalization, orthogonal-diagonalization, block-diagonal-matrices, eigenspace, complex-eigenvalues and other eigenvalue-chapter notes landed, 43→56 notes; people-analytics side track grew from 6→17 notes covering the full Platzi course — data cleaning, KPI/dashboard design, survey & exit-interview NLP analysis, Likert scale, long-term strategy pillars, AI-in-HR applications, best practices; matrix-transpose inbox drafts still unresolved; `code/` directory confirmed still empty — zero runnable implementations exist despite 103 notes)
+**Last updated**: 2026-08-08 (T3 grew 16→23 — the full Triola §1-5 data-collection cluster landed: sampling-methods, random-sample-vs-simple-random-sample, observational-study-vs-experiment, types-of-observational-studies, experimental-design-principles, experimental-designs-for-controlling-variables, sampling-error-vs-nonsampling-error; three experimental-design textbooks added to T3 reading resources (Montgomery, Box-Hunter-Hunter, Kohavi A/B testing); previous 2026-08-07 update landed the Ch. 1 statistical-thinking cluster; matrix-transpose inbox drafts still unresolved; `code/` directory confirmed still empty — zero runnable implementations exist despite 116 notes)
 **Goal**: Become an expert AI architect and engineer — design, implement, and orchestrate intelligent systems end-to-end.
 
 ---
@@ -47,7 +47,7 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 |------|-------|--------|
 | 01-foundations/linear-algebra | 56 | **Essentially complete** — eigenvalue chapter (eigenspace, complex-eigenvalues, block-diagonal, diagonalization, orthogonal-diagonalization, synthetic-division) now fully covered. Only matrix calculus, pseudoinverse, matrix norms, and transpose remain |
 | 01-foundations/calculus | 9 | Core complete — trigonometric identities added |
-| 01-foundations/probability | 10 | Distributions done — MLE, entropy, multivariate Normal next |
+| 01-foundations/probability | 23 | Distributions done (10) + Triola Ch. 1 cluster (13: statistical thinking + full §1-5 data collection) — MLE, entropy, multivariate Normal next |
 | 01-foundations/algorithms | 0 | Not started |
 | 01-foundations/databases | 0 | Not started |
 | 02-machine-learning | 0 | Not started |
@@ -56,7 +56,7 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 | 05-mlops/cloud | 0 | Not started |
 | 08-applied-domains/people-analytics | 17 | **Side track, outside core path** — now spans project execution, data prep, KPIs/dashboards, survey & NLP analysis, and long-term strategy. All 17 still `status/seed` |
 
-**Total notes**: 103 domain notes + 2 literature notes | **8 evergreen** | **25 growing** | **73 seed**
+**Total notes**: 116 domain notes + 2 literature notes | **8 evergreen** | **26 growing** | **85 seed**
 
 **Vault hygiene gaps**:
 1. `00-inbox/proposals/` still has three unresolved template drafts for `matrix-transpose` (frontmatter/card/layered variants) — matrix transpose still has no permanent note in `linear-algebra/` despite being referenced by other notes. Pick one format and promote it, or discard the drafts.
@@ -162,11 +162,11 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 
 ---
 
-### T3: Probability and Statistics — IN PROGRESS (10/~18 notes)
+### T3: Probability and Statistics — IN PROGRESS (23/~31 notes)
 
 > *Why*: ML is applied statistics. Bayesian thinking, distributions, hypothesis testing.
 
-**Done:**
+**Done — distributions (10):**
 - [x] Probability Fundamentals (Bayes, conditional, independence)
 - [x] Probability Distributions (overview + selection guide)
 - [x] Bernoulli Distribution
@@ -177,6 +177,21 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 - [x] Beta Distribution (conjugate prior, Bayesian A/B testing)
 - [x] Dirichlet Distribution (LDA connection)
 - [x] CDF and Quantile Function
+
+**Done — statistical thinking, Triola Ch. 1 (13):**
+- [x] Population and Sample (why collection method beats sample size)
+- [x] Parameter vs. Statistic (μ/σ/p vs. x̄/s/p̂)
+- [x] Data Types and Levels of Measurement (nominal→ordinal→interval→ratio)
+- [x] Principles of Statistical Thinking (the four-factor checklist) — *growing*
+- [x] Statistical Significance (statistical vs. practical)
+- [x] Common Misuses of Statistics (§1-4 taxonomy of pitfalls)
+- [x] Sampling Methods (§1-5: SRS, systematic, convenience, stratified, cluster, multistage)
+- [x] Random Sample vs. Simple Random Sample (§1-5: the A/B/C/D example)
+- [x] Observational Study vs. Experiment (§1-5: data sources, causation)
+- [x] Types of Observational Studies (§1-5: cross-sectional / retrospective / prospective)
+- [x] Experimental Design Principles (§1-5: randomization, replication, control/blinding)
+- [x] Experimental Designs for Controlling Variables (§1-5: completely randomized, randomized block, rigorously controlled, matched pairs)
+- [x] Sampling Error vs. Nonsampling Error (§1-5: random wobble vs. fixable bias)
 
 **Remaining (priority order):**
 - [ ] Maximum Likelihood Estimation (MLE) ← NEXT — derives ALL loss functions from distributions
@@ -189,6 +204,17 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 - [ ] Tier 2 distributions: Gamma, Chi-Squared, Student's t, Log-Normal
 
 **Estimated remaining**: ~8 notes
+
+**Reading resources (optional / enrichment — not critical path):**
+- ✅ **How to Lie with Statistics** — Darrell Huff (1954). Short (~1 hr), foundational data-literacy classic; still the best "spot the misuse" primer. Pairs directly with [[common-misuses-of-statistics]]. Referenced in Triola Ch. 1 §1-4.
+- ⚠️ **Tainted Truth** — Cynthia Crossen. Good on sponsored-study / conflict-of-interest bias, but dated and journalistic. Optional. Referenced in Triola Ch. 1 §1-4.
+- *(Critical-path source for the rigorous inferential half of T3 remains Triola Ch. 7-12, then Wasserman's* All of Statistics *— these two books are literacy enrichment, not stepping stones.)*
+
+**Books to understand *experimental design* (diseño de experimentos) — deeper than Triola §1-5:**
+- 📘 **Design and Analysis of Experiments** — Douglas C. Montgomery. The standard textbook. Covers completely randomized, randomized block, factorial, and response-surface designs rigorously. Start here for [[experimental-designs-for-controlling-variables]].
+- 📗 **Statistics for Experimenters** — Box, Hunter & Hunter. Famously intuitive, hands-on treatment of design + analysis; best for *building intuition* before Montgomery's formalism.
+- 📙 **Trustworthy Online Controlled Experiments** — Kohavi, Tang & Xu ("the A/B testing book"). Bridges classical design straight to tech-industry A/B testing — the direct link from [[experimental-design-principles]] to the Builder track's evaluation/A-B-testing work.
+- 🎥 *Free*: MIT 18.05 / Khan Academy "Study design" unit, and StatQuest's design-of-experiments videos — quick visual primers before committing to Montgomery.
 
 ---
 
@@ -579,6 +605,6 @@ Weeks 28+   | Capstone projects             | B8-C++: ONNX + TensorRT + custom o
 **Quality improvements:**
 - Promote `singular-value-decomposition` from seed to growing — still the biggest quality gap given how central SVD is to ML (PCA, pseudoinverse, low-rank approximation)
 - `spectral-decomposition` promoted seed → growing since last update ✓
-- 73 of 105 content notes are still `status/seed` — worth a `/review` pass on the linear-algebra seed notes (38 of them) before starting T4, since several (subspaces, kernel-and-range, rank-nullity-theorem, diagonalization) are load-bearing for everything downstream
+- 78 of 111 content notes are still `status/seed` — worth a `/review` pass on the linear-algebra seed notes (38 of them) before starting T4, since several (subspaces, kernel-and-range, rank-nullity-theorem, diagonalization) are load-bearing for everything downstream
 - All 17 people-analytics notes are `status/seed` with zero code — lowest priority for now (side track), but if a 06-projects capstone gets built from this material (see S1 above), promote the notes it exercises to `growing`
 - **Vault-wide**: write at least one runnable file in `code/` — right now every single implementation described in every note (Gauss-Jordan, Gram-Schmidt, Cronbach's alpha, ONA centrality, sentiment scoring) exists only as an inline snippet, never as an actual tested `.py` file

@@ -86,6 +86,10 @@ This book is the natural next input for [[probability-fundamentals|T3 (Probabili
 - [[sampling-methods]] — from Ch. 1, §1-5: the random/SRS/probability-sample distinctions (senators example), the five practical methods (systematic, convenience, stratified, cluster), stratified-vs-cluster mnemonic, and multistage sampling
 - [[observational-study-vs-experiment]] — from Ch. 1, §1-5: the two data sources, why only randomized experiments support causation (hormone-therapy case), and the placebo/Hawthorne/experimenter confounding effects
 - [[random-sample-vs-simple-random-sample]] — from Ch. 1, §1-5: the individual-chance vs. group-chance distinction, worked through the 4-person A/B/C/D example (Design 1 = SRS, Design 2 = random but not SRS), plus the "simple ≠ replacement" clarification
+- [[types-of-observational-studies]] — from Ch. 1, §1-5 Part 2: cross-sectional / retrospective (case-control) / prospective (cohort), split by *when* data is observed, and the backward-from-effect vs. forward-from-cause sampling difference
+- [[experimental-design-principles]] — from Ch. 1, §1-5 Part 2: the three pillars — randomization, replication, control (blinding & double-blinding) — worked through the 1954 Salk polio trial
+- [[experimental-designs-for-controlling-variables]] — from Ch. 1, §1-5 Part 2: the four designs (completely randomized, randomized block, rigorously controlled, matched pairs) for isolating a treatment from confounding
+- [[sampling-error-vs-nonsampling-error]] — from Ch. 1, §1-5 Part 2: unavoidable random sampling error (shrinks with n) vs. fixable nonsampling error (bias/defective instrument/bad recording; n doesn't help)
 
 ## Gaps — Notes Still to Create
 

@@ -42,7 +42,7 @@ The reason the intervention matters: when subjects *choose* their own condition 
 
 Controls against them: a **placebo** for the control group, **blinding** (subjects don't know their group), and **double-blinding** (neither subjects nor the people interacting with them know).
 
-**Prospective vs. retrospective (a further split of observational studies):** a *prospective* study follows subjects forward in time (e.g. the *National Children's Study*, tracking 100,000 children from birth to age 21); a *retrospective* one looks backward at data already recorded.
+**Observational studies split further by *when* they observe** — cross-sectional (one moment), retrospective (looks backward), prospective (follows forward, e.g. the *National Children's Study* tracking 100,000 children birth→age 21). Full treatment in [[types-of-observational-studies]].
 
 ## In ML
 
