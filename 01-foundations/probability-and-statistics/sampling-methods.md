@@ -28,11 +28,11 @@ The one subtlety worth burning in early: **"random" is a family, and simple rand
 
 **The three "random" definitions — read the object each one constrains:**
 
-| Term | Equal/known chance applies to… | Key point |
-|------|-------------------------------|-----------|
-| **Random sample** | each *individual* member | every person equally likely |
+| Term                           | Equal/known chance applies to…    | Key point                                     |
+| ------------------------------ | --------------------------------- | --------------------------------------------- |
+| **Random sample**              | each *individual* member          | every person equally likely                   |
 | **Simple random sample (SRS)** | every *possible sample of size n* | strictest; every *combination* equally likely |
-| **Probability sample** | each member has a *known* chance | chances need **not** be equal |
+| **Probability sample**         | each member has a *known* chance  | chances need **not** be equal                 |
 
 The distinction is not pedantic: **most procedures later in the book require an SRS specifically**, and stratified/cluster/systematic samples do *not* qualify.
 

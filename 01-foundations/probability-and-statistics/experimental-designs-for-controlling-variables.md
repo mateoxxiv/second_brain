@@ -21,12 +21,13 @@ The [[experimental-design-principles|control pillar]] says "leave no room for co
 
 ## Mechanics
 
-| Design | How groups are made comparable | Best when |
-|--------|-------------------------------|-----------|
-| **Completely randomized** | assign subjects to treatment/control purely by chance | you trust randomization to balance everything (large *n*) — the Salk trial |
-| **Randomized block** | group similar subjects into **blocks**, then randomize *within each block* | a known variable strongly affects outcome (block by sex for a heart drug) |
-| **Rigorously controlled** | *deliberately* assign so each group has matching profiles on relevant traits | you can enumerate the relevant variables (hard, error-prone) |
-| **Matched pairs** | pair related/similar subjects; compare within the pair | natural pairs exist (twins; or same subject before/after) |
+| Design                    | How groups are made comparable                                               | Best when                                                                  |
+| ------------------------- | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| **Completely randomized** | assign subjects to treatment/control purely by chance                        | you trust randomization to balance everything (large *n*) — the Salk trial |
+| **Randomized block**      | group similar subjects into **blocks**, then randomize *within each block*   | a known variable strongly affects outcome (block by sex for a heart drug)  |
+| **Rigorously controlled** | *deliberately* assign so each group has matching profiles on relevant traits | you can enumerate the relevant variables (hard, error-prone)               |
+| **Matched pairs**         | pair related/similar subjects; compare within the pair                       | natural pairs exist (twins; or same subject before/after)                  |
+
 
 **Completely randomized** — chance alone assigns groups; the [[experimental-design-principles|randomization]] pillar does all the balancing work. Simplest and, with enough subjects, very effective.
 
