@@ -15,7 +15,7 @@ Follow these steps:
    - All metadata (tags, related, sources, domain) in the YAML frontmatter block. Nothing inline.
    - **TL;DR**: one sentence at the top — the single most important thing to remember
    - **Intuition**: plain English and analogy before any math
-   - **Mechanics**: formal definition + derivation (show where formulas come from) + properties table. Do NOT include code snippets unless the user explicitly asks — use math (LaTeX), tables, and worked examples instead.
+   - **Mechanics**: formal definition + derivation (show where formulas come from) + properties table + short inline code snippet (< 20 lines) when it illustrates the concept. Inline snippets are fine; do NOT create a separate `.py` file (see step 4).
    - **In ML**: 2–3 bold-labeled paragraphs connecting to real algorithms or systems
    - **Exercises**: basic / intermediate / advanced — required, not optional
    - Link to existing vault notes using `[[wikilinks]]` — never plain text references
