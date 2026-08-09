@@ -15,14 +15,14 @@ Follow these steps:
    - All metadata (tags, related, sources, domain) in the YAML frontmatter block. Nothing inline.
    - **TL;DR**: one sentence at the top — the single most important thing to remember
    - **Intuition**: plain English and analogy before any math
-   - **Mechanics**: formal definition + derivation (show where formulas come from) + properties table + short code snippet (< 20 lines)
+   - **Mechanics**: formal definition + derivation (show where formulas come from) + properties table. Do NOT include code snippets unless the user explicitly asks — use math (LaTeX), tables, and worked examples instead.
    - **In ML**: 2–3 bold-labeled paragraphs connecting to real algorithms or systems
    - **Exercises**: basic / intermediate / advanced — required, not optional
    - Link to existing vault notes using `[[wikilinks]]` — never plain text references
    - Tag as `status/seed`
    - Place in the correct subfolder based on the topic
 
-4. **Code file**: If the concept benefits from a runnable implementation, create a `.py` file in the corresponding `code/` subfolder with progressive exercises (basic → intermediate → advanced). Link it from the note.
+4. **Code file**: Do NOT create code files. Skip this step unless the user explicitly asks for a runnable implementation. By default notes stay code-free (conceptual + mathematical only).
 
 5. **Show the note**: Display the full note content to the user for review. Do NOT commit yet.
 

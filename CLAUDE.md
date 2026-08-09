@@ -172,6 +172,8 @@ Where this concept appears in real algorithms or systems. 2–3 bold-labeled par
 
 ## Code Practices
 
+> **Default: NO code.** Do not create runnable code files (`.py`) or write code snippets in notes unless the user **explicitly asks** for code. Notes are conceptual and mathematical by default — intuition, derivations, LaTeX, tables, diagrams. The `code/` directory and the `/code` skill exist only for when code is explicitly requested. When it *is* requested, follow the practices below. (This overrides any "implement from scratch" / "code exercises" guidance elsewhere in this file — those apply only on explicit request.)
+
 ### In Notes (inline)
 - Short illustrative snippets only (< 30 lines)
 - Focus on demonstrating the concept, not production code

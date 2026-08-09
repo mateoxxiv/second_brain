@@ -62,8 +62,6 @@ Worked: max 124, min 60, 7 classes → (124 − 60)/7 = 9.14 → **round up to 1
 - Use the **same width** for all classes where possible.
 - Sometimes an **open-ended** class is unavoidable ("65 and over").
 
-See runnable builder: [`code/foundations/frequency_distribution.py`](../../code/foundations/frequency_distribution.py).
-
 ## In ML
 
 **Frequency distributions are histograms in table form** — the same binning underlies `numpy.histogram` and every EDA histogram; the [[frequency-distributions-and-histograms|histogram]] is just this table drawn as bars, and choosing bin count/width is exactly steps 1–2.
