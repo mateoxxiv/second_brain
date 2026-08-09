@@ -1,7 +1,7 @@
 # Study Roadmap
 
 **Created**: 2026-02-24
-**Last updated**: 2026-08-08 (T3 grew 16→23 — the full Triola §1-5 data-collection cluster landed: sampling-methods, random-sample-vs-simple-random-sample, observational-study-vs-experiment, types-of-observational-studies, experimental-design-principles, experimental-designs-for-controlling-variables, sampling-error-vs-nonsampling-error; three experimental-design textbooks added to T3 reading resources (Montgomery, Box-Hunter-Hunter, Kohavi A/B testing); previous 2026-08-07 update landed the Ch. 1 statistical-thinking cluster; matrix-transpose inbox drafts still unresolved; `code/` directory confirmed still empty — zero runnable implementations exist despite 116 notes)
+**Last updated**: 2026-08-09 (added a "Data skepticism & study design" reading block under T3 — Calling Bullshit free course + book, Wikipedia misuse taxonomy, biomedical-misuse PMC article, Statistics By Jim, Columbia/IWH study-design explainers; framed as the "half the work" complement to Triola Ch. 1. Prior 2026-08-08: T3 grew 16→23 — the full Triola §1-5 data-collection cluster landed: sampling-methods, random-sample-vs-simple-random-sample, observational-study-vs-experiment, types-of-observational-studies, experimental-design-principles, experimental-designs-for-controlling-variables, sampling-error-vs-nonsampling-error; three experimental-design textbooks added to T3 reading resources (Montgomery, Box-Hunter-Hunter, Kohavi A/B testing); previous 2026-08-07 update landed the Ch. 1 statistical-thinking cluster; matrix-transpose inbox drafts still unresolved; `code/` directory confirmed still empty — zero runnable implementations exist despite 116 notes)
 **Goal**: Become an expert AI architect and engineer — design, implement, and orchestrate intelligent systems end-to-end.
 
 ---
@@ -215,6 +215,14 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 - 📗 **Statistics for Experimenters** — Box, Hunter & Hunter. Famously intuitive, hands-on treatment of design + analysis; best for *building intuition* before Montgomery's formalism.
 - 📙 **Trustworthy Online Controlled Experiments** — Kohavi, Tang & Xu ("the A/B testing book"). Bridges classical design straight to tech-industry A/B testing — the direct link from [[experimental-design-principles]] to the Builder track's evaluation/A-B-testing work.
 - 🎥 *Free*: MIT 18.05 / Khan Academy "Study design" unit, and StatQuest's design-of-experiments videos — quick visual primers before committing to Montgomery.
+
+**Data skepticism & study design (complements Ch. 1 §1-4 misuses + §1-5 collection) — "half the work" of statistics + ML:**
+- ⭐ **Calling Bullshit** — Bergstrom & West (Univ. of Washington). *The* modern companion to Triola §1-4. **Free full course** (syllabus, readings, case studies, videotaped lectures) at [callingbullshit.org](https://www.callingbullshit.org/) + [syllabus](https://www.callingbullshit.org/syllabus.html); also a 2020 book. Rigorous about *reasoning* (not a shallow technical course), so it qualifies as a real source, not just a complement. **Candidate for its own `/literature` note.** Pairs with [[common-misuses-of-statistics]].
+- 📄 [Misuse of statistics — Wikipedia](https://en.wikipedia.org/wiki/Misuse_of_statistics) — well-organized taxonomy to cross-check [[common-misuses-of-statistics]] against.
+- 📄 [The misuse and abuse of statistics in biomedical research (PMC)](https://pmc.ncbi.nlm.nih.gov/articles/PMC4401313/) — peer-reviewed examples of these errors in real published science.
+- 🌐 [Statistics By Jim — Observational Study vs Experiment](https://statisticsbyjim.com/basics/observational-study-vs-experiment/) — clearest free explainer; pairs with [[observational-study-vs-experiment]].
+- 🌐 [Columbia Irving Institute — Choosing a Study Design](https://irvinginstitute.columbia.edu/choosing-study-design) (with video) and [IWH — Observational vs. experimental](https://www.iwh.on.ca/what-researchers-mean-by/observational-vs-experimental-studies) — design-selection + why randomization licenses causal claims; pair with [[types-of-observational-studies]].
+- *Framing:* Ch. 1 (design + misuse) is **half the discipline** — it decides whether the inferential half means anything. Same law as data-centric AI: data quality beats model cleverness ("garbage in, garbage out").
 
 ---
 
