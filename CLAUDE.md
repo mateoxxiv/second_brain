@@ -105,6 +105,11 @@ Read a chapter/resource
 
 When no literature source exists yet, `/note` may generate content directly — but book-derived notes are always deeper. When writing a permanent note and a literature note exists for the topic, derive from it instead of generating from scratch.
 
+**Source hierarchy — theory vs. practical courses.** Not all literature sources are equal. Rigorous theory sources (textbooks, papers, first-principles math — e.g. Triola, ISLR/ESL) are the **source of conceptual mastery** and permanent notes are derived from them. Practical/technical courses (e.g. Platzi, most video courses) are **complements, not sources**: they teach the *how* (which library call, in what order) and deliberately lack mathematical rigor — no derivations, proofs, or "why it works." A practical course does **not** "cover" a concept. So:
+- Derive concept notes from **theory**; never take a practical course as the origin of a permanent note.
+- Use practical courses only as the **implementation companion** — the runnable `code/` layer and concrete examples that make the theory tangible.
+- In a practical course's literature note, keep a "Role in the vault" caveat and frame each class→note mapping as an implementation companion, never an origin.
+
 ### Atomic Note Rules
 
 - **One idea per note**. If a note covers two concepts, split it. Max ~70 lines.
