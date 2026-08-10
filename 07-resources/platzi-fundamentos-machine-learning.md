@@ -23,7 +23,7 @@ date_read: "2026-08-08 (in progress)"
 | Module | Class | Topic | Vault notes |
 |---|---|---|---|
 | 1 — Foundations & context | 1 | Supervised vs. unsupervised vs. reinforcement — which to choose | [[types-of-machine-learning]] |
-| | 2 | Supervised models to predict matches | [[supervised-learning]] |
+| | 2 | Supervised models to predict matches | [[supervised-learning]], [[supervised-learning-algorithms]] |
 | | 3 | Clustering and PCA on unlabeled data | [[unsupervised-learning]] |
 | | 4 | Python + Jupyter setup for analysis | |
 | 2 — Data prep & exploration | 5 | Cleaning CSV data with Pandas | |
@@ -50,6 +50,7 @@ date_read: "2026-08-08 (in progress)"
 **Module 1 — Foundations & sports context**
 - [[types-of-machine-learning]] — the supervised / unsupervised / reinforcement split and how to pick one for a problem
 - [[supervised-learning]] — learning a mapping from labeled examples (predicting match results)
+- [[supervised-learning-algorithms]] — the algorithm selection map (linear/logistic regression, trees, RF, SVM, NN) and when to use each
 - [[unsupervised-learning]] — finding structure without labels (clustering, PCA)
 
 **Module 2 — Data preparation & exploration**
@@ -92,17 +93,19 @@ date_read: "2026-08-08 (in progress)"
 
 ## My Thoughts
 
-This is a useful **Builder-track implementation companion** to run alongside the theory notes: it turns the abstract T4/T5 roadmap items (linear regression, decision trees, K-Means, PCA) into runnable `scikit-learn` code on a concrete dataset. But it is *only* that — the math rigor is absent by design, so it must not be mistaken for coverage of the concepts. The deep derivations (why least-squares minimizes squared error, what R² actually measures, the K-Means objective and its convergence) come from the **theory track**, and the permanent notes stay theory-first. The tightest connection to what we've just studied is Class 10 (`train_test_split`) — that's [[random-sample-vs-simple-random-sample]] and [[sampling-error-vs-nonsampling-error]] in practice — and Class 6 (descriptive statistics) reuses [[data-types-and-levels-of-measurement]]. Its real, concrete value: **finally populating the empty `code/` directory** — every class produces a runnable script, so theory notes can link actual tested `.py` files instead of inline snippets. Where to get the *why* it skips: ISLR (*An Introduction to Statistical Learning*, free PDF) and StatQuest videos, class by class.
+This is a useful **Builder-track implementation companion** to run alongside the theory notes: it turns the abstract T4/T5 roadmap items (linear regression, decision trees, K-Means, PCA) into runnable `scikit-learn` code on a concrete dataset. But it is *only* that — the math rigor is absent by design, so it must not be mistaken for coverage of the concepts. The deep derivations (why least-squares minimizes squared error, what R² actually measures, the K-Means objective and its convergence) come from the **theory track**, and the permanent notes stay theory-first. The tightest connection to what we've just studied is Class 10 (`train_test_split`) — that's [[random-sample-vs-simple-random-sample]] and [[sampling-error-vs-nonsampling-error]] in practice — and Class 6 (descriptive statistics) reuses [[data-types-and-levels-of-measurement]]. Its real, concrete value: **concrete, runnable examples** — every class produces working `scikit-learn` code that grounds the theory notes as short inline snippets (per vault policy, no standalone `.py` files unless explicitly requested). Where to get the *why* it skips: ISLR (*An Introduction to Statistical Learning*, free PDF) and StatQuest videos, class by class.
 
 ---
 
 ## Permanent Notes Created
 
-- *(none yet — course just started)*
+- [[types-of-machine-learning]] — from Class 1: the supervised / unsupervised / reinforcement split, organized by the feedback signal each paradigm receives (theory-first, Cebollitas as illustration)
+- [[supervised-learning]] — from Class 2: learning f: X→y from labeled pairs; regression vs. classification, overfitting, generalization as the goal
+- [[supervised-learning-algorithms]] — from Class 2: the algorithm selection map (linear/logistic regression, trees, random forest, SVM, neural nets) and when to use each
+- [[unsupervised-learning]] — from Class 3: finding structure without labels; clustering (K-Means/DBSCAN/hierarchical), dimensionality reduction (PCA/t-SNE/UMAP), and evaluation via inertia + silhouette
 
 ## Gaps — Notes Still to Create
 
-- [[types-of-machine-learning]] — supervised vs. unsupervised vs. reinforcement (the very first decision; nothing in the vault covers this yet — high priority, unblocks all of T4/T5)
 - [[linear-regression]] — the course's core model; already the #1 item in roadmap T4, derive closed-form + gradient-descent + sklearn
 - [[k-means-clustering]] — roadmap T5's first clustering algorithm, exercised on player profiles
 - [[principal-component-analysis]] — roadmap T5; note the link back to [[singular-value-decomposition]] already in the linear-algebra track
