@@ -24,7 +24,7 @@ date_read: "2026-08-02 (in progress)"
 | Ch  | Topic                                                    | Vault notes                                                                     |
 | --- | -------------------------------------------------------- | ------------------------------------------------------------------------------- |
 | 1   | Introduction to Statistics                               | [[population-and-sample]], [[parameter-vs-statistic]], [[data-types-and-levels-of-measurement]], [[principles-of-statistical-thinking]], [[statistical-significance]], [[common-misuses-of-statistics]] |
-| 2   | Summarizing and Graphing Data                            |                                                                                 |
+| 2   | Summarizing and Graphing Data                            | [[frequency-distribution]], [[relative-frequency-distribution]], [[histogram]], [[characteristics-of-data]], [[frequency-polygon]], [[ogive]], [[dot-plot]], [[stem-and-leaf-plot]], [[bar-graph]], [[pareto-chart]], [[pie-chart]], [[scatterplot]], [[time-series-graph]], [[principles-of-effective-graphs]] |
 | 3   | Statistics for Describing, Exploring, and Comparing Data |                                                                                 |
 | 4   | Probability                                              | [[probability-fundamentals]]                                                    |
 | 5   | Discrete Probability Distributions                       | [[bernoulli-distribution]], [[binomial-distribution]], [[poisson-distribution]] |
@@ -47,6 +47,22 @@ date_read: "2026-08-02 (in progress)"
 - [[parameter-vs-statistic]] — a parameter describes a whole population (μ, σ, p), a statistic describes a sample (x̄, s, p̂); the target of inference vs. the estimate you have (§1-3, senators vs. Literary Digest examples)
 - [[data-types-and-levels-of-measurement]] — categorical vs. quantitative, discrete vs. continuous, and the four measurement levels (nominal/ordinal/interval/ratio) that decide which methods are valid (§1-3)
 - [[common-misuses-of-statistics]] — §1-4's field guide to how statistics mislead: voluntary-response samples, correlation≠causation, loaded/order-biased questions, misleading percentages, small samples, nonresponse, precise≠accurate, sponsored studies
+
+**Ch 2 — Summarizing and Graphing Data**
+- [[frequency-distribution]] — §2-2: grouping raw data into non-overlapping classes and counting each; limits, boundaries, midpoints, width, and the 6-step construction
+- [[relative-frequency-distribution]] — §2-2: same table with proportions/percentages instead of counts, for fair comparison across unequal-sized datasets
+- [[histogram]] — §2-3: the graphical frequency distribution; why bars touch (boundaries), axis labeling, and reading shape (CVDOT)
+- [[characteristics-of-data]] — §2-3/§3: the CVDVT checklist (center, variation, distribution, outliers, time) for describing any dataset
+- [[frequency-polygon]] — §2-4: histogram as a line over class midpoints; relative-frequency variant overlays two datasets on one axis
+- [[ogive]] — §2-4: line graph of cumulative frequencies over class boundaries; the empirical CDF, answers "how many below X?"
+- [[dot-plot]] — §2-4: each value a dot on a number line, stacked for repeats; lossless, reconstructs the raw data
+- [[stem-and-leaf-plot]] — §2-4: split each value into stem/leaf; shape like a histogram but lossless, and sorts the data
+- [[bar-graph]] — §2-4: bars for qualitative-data frequencies (categorical histogram); multiple bar graph compares datasets
+- [[pareto-chart]] — §2-4: bar graph sorted by descending frequency to spotlight the most important categories
+- [[pie-chart]] — §2-4: circle sliced by relative frequency; parts-of-a-whole, but Tufte/Triola rate it a weak graph
+- [[scatterplot]] — §2-4: paired (x,y) quantitative data; pattern reveals relationships, and can expose hidden clusters (penny example)
+- [[time-series-graph]] — §2-4: data over time on the x-axis; reveals trends, the one feature a histogram can't show
+- [[principles-of-effective-graphs]] — §2-4: Tufte's design rules (maximize data-ink, no distortion, no chartjunk) for honest graphs
 
 *(remaining chapters to fill in as read — see [[probability-distributions]] for the overview note this book's Ch. 4-6 will extend)*
 
@@ -90,6 +106,16 @@ This book is the natural next input for [[probability-fundamentals|T3 (Probabili
 - [[experimental-design-principles]] — from Ch. 1, §1-5 Part 2: the three pillars — randomization, replication, control (blinding & double-blinding) — worked through the 1954 Salk polio trial
 - [[experimental-designs-for-controlling-variables]] — from Ch. 1, §1-5 Part 2: the four designs (completely randomized, randomized block, rigorously controlled, matched pairs) for isolating a treatment from confounding
 - [[sampling-error-vs-nonsampling-error]] — from Ch. 1, §1-5 Part 2: unavoidable random sampling error (shrinks with n) vs. fixable nonsampling error (bias/defective instrument/bad recording; n doesn't help)
+- [[frequency-polygon]] — from Ch. 2, §2-4: histogram-as-line over class midpoints; relative-frequency variant for overlaying two datasets (Figs. 2-5, 2-6)
+- [[ogive]] — from Ch. 2, §2-4: cumulative-frequency line over class boundaries; empirical CDF, "how many below X?" (Fig. 2-7)
+- [[dot-plot]] — from Ch. 2, §2-4: stacked dots on a number line; lossless, reconstructs raw data
+- [[stem-and-leaf-plot]] — from Ch. 2, §2-4: stem/leaf split; histogram shape plus full data retention and sorting
+- [[bar-graph]] — from Ch. 2, §2-4: categorical-data bars; multiple bar graph for comparison (income-by-gender example)
+- [[pareto-chart]] — from Ch. 2, §2-4: frequency-sorted bar graph spotlighting the vital few (job-search example)
+- [[pie-chart]] — from Ch. 2, §2-4: relative-frequency slices; angle = rel.freq × 360°; the weak-graph caveat
+- [[scatterplot]] — from Ch. 2, §2-4: paired (x,y) data and relationships; the penny two-cluster/Simpson's-paradox warning
+- [[time-series-graph]] — from Ch. 2, §2-4: values over time reveal trends; the "T" in CVDVT (DJIA example)
+- [[principles-of-effective-graphs]] — from Ch. 2, §2-4: Tufte's data-ink/anti-chartjunk rules and the describe/explore/compare conclusion
 
 ## Gaps — Notes Still to Create
 

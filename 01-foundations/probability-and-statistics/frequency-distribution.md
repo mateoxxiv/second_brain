@@ -5,7 +5,7 @@ tags:
 related:
   - "[[characteristics-of-data]]"
   - "[[data-types-and-levels-of-measurement]]"
-  - "[[frequency-distributions-and-histograms]]"
+  - "[[histogram]]"
   - "[[normal-distribution]]"
 domain: probability
 sources:
@@ -64,7 +64,7 @@ Worked: max 124, min 60, 7 classes → (124 − 60)/7 = 9.14 → **round up to 1
 
 ## In ML
 
-**Frequency distributions are histograms in table form** — the same binning underlies `numpy.histogram` and every EDA histogram; the [[frequency-distributions-and-histograms|histogram]] is just this table drawn as bars, and choosing bin count/width is exactly steps 1–2.
+**Frequency distributions are histograms in table form** — the same binning underlies `numpy.histogram` and every EDA histogram; the [[histogram]] is just this table drawn as bars, and choosing bin count/width is exactly steps 1–2.
 
 **Binning = feature discretization** — converting a continuous feature into ranges (`pandas.cut`) is building a frequency distribution per feature; it powers decision-tree splits, WOE/credit scorecards, and coarse categorical encodings.
 
