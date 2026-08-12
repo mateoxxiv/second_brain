@@ -28,8 +28,8 @@ When each observation carries **two** numbers — a cricket's chirp rate *and* t
 
 Triola's Example 9 (crickets): chirps/minute vs. temperature (°F) show a clear upward trend — more chirps at higher temperatures, so crickets work as thermometers.
 
-![[minitab-scatterplot-crickets-temperature.png]]
-*Placeholder — Minitab scatterplot: cricket chirps vs. temperature (add image)*
+![[scatterplot-crickets-temperature.png]]
+*Scatterplot — cricket chirps vs. temperature (illustrative): points rise together, a clear positive association.*
 
 **⚠️ Watch for clusters/gaps** — Example 10 (penny weight vs. mint year) shows **two clusters split by a gap**: pre-1983 pennies are 97% copper, post-1983 are 97% zinc. Treating them as one population fakes a weight–year relationship; split by group and *within each* there's **no** relationship. Lesson: a scatterplot can expose **hidden subpopulations** that make a spurious trend.
 

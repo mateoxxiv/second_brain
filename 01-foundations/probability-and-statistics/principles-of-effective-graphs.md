@@ -36,8 +36,8 @@ Choosing *which* graph is half the job; drawing it honestly is the other half. A
 
 **A creative counter-example** — Triola's Example 12 / Fig. 2-8 (Firebrand vs. Speedster car reliability): a compact grid of shaded cells packs *many* variables (repair categories × years × two cars) into a simple, honest display — showing that originality *serves* clarity rather than fighting it.
 
-![[fig-2-8-car-reliability.png]]
-*Placeholder — Figura 2-8: car reliability comparison grid (add image)*
+![[car-reliability-grid.png]]
+*Figura 2-8 — car reliability grid (schematic): black = poor, gray/white = good; Firebrand is cleaner than Speedster overall.*
 
 **The point of graphs (conclusion)** — graphs are tools to **describe, explore, and compare** data: describe via [[characteristics-of-data|CVDVT]], explore by hunting revealing patterns (the [[scatterplot|cricket scatterplot]]), compare via overlaid [[frequency-polygon|relative-frequency polygons]].
 

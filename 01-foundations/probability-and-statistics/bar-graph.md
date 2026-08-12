@@ -33,8 +33,8 @@ When your data are **categories** (job source, gender, brand) rather than number
 
 **Multiple bar graph** — two or more sets of bars for comparing datasets. Triola's Example 6 (Minitab): median income of men vs. women across years — men's bars are consistently taller, both rise over time, and the **shrinking height ratio** left-to-right suggests the gender income gap is narrowing.
 
-![[minitab-multiple-bar-graph-income.png]]
-*Placeholder — Minitab multiple bar graph: median income by gender and year (add image)*
+![[multiple-bar-graph-income.png]]
+*Multiple bar graph — median income by gender and year (illustrative data): men's bars consistently taller, gap narrowing left-to-right.*
 
 ## In ML
 

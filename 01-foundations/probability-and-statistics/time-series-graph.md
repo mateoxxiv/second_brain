@@ -28,8 +28,8 @@ Some data come with timestamps — a stock index each year, temperature each hou
 
 Triola's Example 11 (SPSS): yearly highs of the **Dow Jones Industrial Average** — a steady climb 1980–2007, then less consistent highs in later years.
 
-![[spss-time-series-djia.png]]
-*Placeholder — SPSS time-series graph: DJIA annual highs (add image)*
+![[time-series-djia.png]]
+*Time-series graph — DJIA annual highs, 1980–2007 (illustrative): steady climb then choppier recent years.*
 
 **CVDVT connection** — Triola's checklist for describing data is **Center, Variation, Distribution, outliers, Time**. The final **Time** element only applies to time-ordered data, and the time-series graph is the tool that exposes it — which is why the [[characteristics-of-data|histogram checklist]] drops it.
 

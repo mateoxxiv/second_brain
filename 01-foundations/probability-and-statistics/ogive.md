@@ -40,8 +40,8 @@ A [[frequency-distribution|frequency table]] tells you how many values land *in*
 | 89.5 | 37 |
 | … | … |
 
-![[fig-2-7-ogive-women-pulses.png]]
-*Placeholder — Figura 2-7: Ogive, women's pulses (add image)*
+![[ogive-women-pulses.png]]
+*Figura 2-7 — Ogive, women's pulses (Triola's data): the dashed lines read off "26 values below 79.5."*
 
 ## In ML
 

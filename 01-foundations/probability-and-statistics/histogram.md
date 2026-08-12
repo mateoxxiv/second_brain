@@ -39,6 +39,9 @@ A [[frequency-distribution|frequency table]] already tells you how many values f
 
 **Relative-frequency histogram** — identical shape and horizontal scale, but the vertical axis shows [[relative-frequency-distribution|relative frequencies]] (proportions/percentages) instead of raw counts.
 
+![[histogram-women-pulses.png]]
+*Figura 2-3 — Histogram, women's pulses (Triola's data): bars touch at class boundaries; the lone far-right bar is the 124 bpm outlier.*
+
 **Interpreting a histogram (CVDOT)** — read [[characteristics-of-data|Center, Variation, Distribution shape, Outliers]]. Triola's Fig. 2-3 (women's pulses): centered around **80**, values span roughly **60–130**, shape is **left-heavy (skewed)**, and the lone far-right bar flags a dubious **125 bpm** outlier.
 
 **Checking for normality** — a [[normal-distribution|normal distribution]] graphs as a **symmetric bell**: frequencies rise to a peak then fall, with the left half a near mirror of the right. Many statistical procedures require approximately normal data, and a histogram is the quick visual check of that assumption.

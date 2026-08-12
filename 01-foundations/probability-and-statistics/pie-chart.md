@@ -28,8 +28,8 @@ Cut a circle into wedges, one per category, each wedge's angle proportional to t
 
 $$0.61 \times 360° \approx 220°.$$
 
-![[minitab-pie-chart-job-search.png]]
-*Placeholder — Minitab pie chart: how people found jobs (add image)*
+![[pie-chart-job-search.png]]
+*Pie chart — same job-search data as the Pareto chart (illustrative): networking's 61% slice spans ≈220°.*
 
 **Same data, weaker graph** — Example 8 uses the same job-search data as the [[pareto-chart]] in Example 7. Triola's verdict: the **Pareto chart is better** for showing relative sizes, because comparing bar heights is easier than comparing wedge angles.
 

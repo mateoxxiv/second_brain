@@ -29,7 +29,7 @@ Draw a number line and drop one dot on it for every reading; when a value repeat
 Triola's Example 4 (women's pulses via Minitab): three stacked dots above 60 mean the values 60, 60, 60; four dots above 64 mean four readings of 64 bpm.
 
 ![[dot-plot-women-pulses.png]]
-*Placeholder — Dot plot (Minitab), women's pulses (add image)*
+*Dot plot, women's pulses (Triola's data): three dots over 60, four over 64, and each stack's height is that value's frequency.*
 
 **When to use** — best for **small** datasets; with many values or a wide range the stacks get unwieldy and a [[histogram]] reads better.
 

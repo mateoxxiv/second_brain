@@ -30,8 +30,8 @@ An ordinary [[bar-graph]] leaves categories in whatever order they came. A Paret
 
 Triola's Example 7 (Minitab): how people found jobs — the **networking** bar towers over job boards and newspaper ads, so the chart's takeaway is "work your network first." Same data as the [[pie-chart]] in Example 8, drawn to emphasize *rank* instead of *share*.
 
-![[minitab-pareto-chart-job-search.png]]
-*Placeholder — Minitab Pareto chart: how people found jobs (add image)*
+![[pareto-chart-job-search.png]]
+*Pareto chart — how people found jobs (illustrative, networking = 61% per Triola): bars sorted tallest-first.*
 
 ## In ML
 

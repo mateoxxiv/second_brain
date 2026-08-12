@@ -32,11 +32,11 @@ Take a histogram and, instead of bars, put a single dot over each class **midpoi
 
 **Relative-frequency polygon** — identical construction, but the vertical axis uses [[relative-frequency-distribution|relative frequencies]] (proportions/percentages). Because the scale is normalized, you can compare **two datasets of different sizes** fairly on one graph — e.g. Triola's Fig. 2-6 overlays women's and men's pulses, and the men's line sitting **to the left** instantly shows men's pulses run lower. That comparison is invisible in the raw data tables.
 
-![[fig-2-5-frequency-polygon-women-pulses.png]]
-*Placeholder — Figura 2-5: Frequency polygon, women's pulses (add image)*
+![[frequency-polygon-women-pulses.png]]
+*Figura 2-5 — Frequency polygon, women's pulses (Triola's data, reconstructed from the stem-and-leaf).*
 
-![[fig-2-6-relative-frequency-polygons.png]]
-*Placeholder — Figura 2-6: Relative-frequency polygons, women vs. men (add image)*
+![[relative-frequency-polygons-women-men.png]]
+*Figura 2-6 — Relative-frequency polygons; men's line is illustrative (Triola's raw men's data not available), shown shifted lower to demonstrate the comparison.*
 
 ## In ML
 
