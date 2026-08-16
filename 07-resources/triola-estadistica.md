@@ -25,7 +25,7 @@ date_read: "2026-08-02 (in progress)"
 | --- | -------------------------------------------------------- | ------------------------------------------------------------------------------- |
 | 1   | Introduction to Statistics                               | [[population-and-sample]], [[parameter-vs-statistic]], [[data-types-and-levels-of-measurement]], [[principles-of-statistical-thinking]], [[statistical-significance]], [[common-misuses-of-statistics]] |
 | 2   | Summarizing and Graphing Data                            | [[frequency-distribution]], [[relative-frequency-distribution]], [[histogram]], [[characteristics-of-data]], [[frequency-polygon]], [[ogive]], [[dot-plot]], [[stem-and-leaf-plot]], [[bar-graph]], [[pareto-chart]], [[pie-chart]], [[scatterplot]], [[time-series-graph]], [[principles-of-effective-graphs]] |
-| 3   | Statistics for Describing, Exploring, and Comparing Data | [[measures-of-center]]                                                          |
+| 3   | Statistics for Describing, Exploring, and Comparing Data | [[measures-of-center]], [[skewness]], [[weighted-mean]]                          |
 | 4   | Probability                                              | [[probability-fundamentals]]                                                    |
 | 5   | Discrete Probability Distributions                       | [[bernoulli-distribution]], [[binomial-distribution]], [[poisson-distribution]] |
 | 6   | Normal Probability Distributions                         | [[normal-distribution]], [[cdf-and-quantiles]]                                  |
@@ -66,6 +66,8 @@ date_read: "2026-08-02 (in progress)"
 
 **Ch 3 — Statistics for Describing, Exploring, and Comparing Data**
 - [[measures-of-center]] — §3-2: the four measures of center (mean, median, mode, midrange) and the *resistance* axis (outlier sensitivity) that separates them
+- [[skewness]] — §3-2: lopsidedness of a distribution; the mean/median/mode ordering as a shape fingerprint, and why mean-vs-median alone can't reliably identify shape
+- [[weighted-mean]] — §3-2 Part 2: values counting unequally, Σ(w·x)/Σw; the mean of a frequency distribution as its special case (frequencies as weights)
 
 *(remaining chapters to fill in as read — see [[probability-distributions]] for the overview note this book's Ch. 4-6 will extend)*
 
@@ -120,11 +122,11 @@ This book is the natural next input for [[probability-fundamentals|T3 (Probabili
 - [[time-series-graph]] — from Ch. 2, §2-4: values over time reveal trends; the "T" in CVDVT (DJIA example)
 - [[principles-of-effective-graphs]] — from Ch. 2, §2-4: Tufte's data-ink/anti-chartjunk rules and the describe/explore/compare conclusion
 - [[measures-of-center]] — from Ch. 3, §3-2: mean/median/mode/midrange, the round-off rule, and *resistance* to outliers; the L2-mean vs. L1-median link to MSE/MAE loss
+- [[skewness]] — from Ch. 3, §3-2: distribution shape and the mean/median/mode relationship (Fig. 3-2), plus Triola's counterexample showing mean-vs-median can't reliably identify shape
+- [[weighted-mean]] — from Ch. 3, §3-2 Part 2: Σ(w·x)/Σw, the GPA example, the mean-from-frequency-distribution special case, and the per-capita-income weighting trap
 
 ## Gaps — Notes Still to Create
 
-- [[skewness]] — from Ch. 3, §3-2: distribution shape and the mean/median/mode relationship on left/right-skewed data (Fig. 3-2)
-- [[weighted-mean]] — from Ch. 3, §3-2 Part 2: the weighted mean, with mean-from-a-frequency-distribution as its special case (frequencies as weights)
 - [[hypothesis-testing-and-p-values]] — already flagged in the study roadmap as T3's next priority after MLE; [[statistical-significance]] is its intuitive seed (the "how likely under no effect?" reasoning), still needs the formal null/alternative hypothesis and p-value machinery
 - [[confidence-intervals]] — estimation theory, sample size determination
 - [[correlation-and-regression]] — bridges directly to supervised ML's linear regression (T4)

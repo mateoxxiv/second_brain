@@ -40,6 +40,8 @@ For a sample of size $n$ with values $x$ (population size $N$):
 
 **Round-off rule** — carry one more decimal place than the original data; round only the **final** answer, never intermediate steps. (Mode values aren't rounded — they're actual data points.)
 
+> ⚠️ **Sanity check first: is a center even meaningful?** A mean/median is nonsense on [[data-types-and-levels-of-measurement|nominal/ordinal]] data (zip codes, party codes, stress *rankings*) — the numbers are labels, not magnitudes. And beware averaging group means without weighting by group size (the per-capita-income trap) — that's a job for the [[weighted-mean]].
+
 ```python
 import numpy as np
 from scipy import stats
