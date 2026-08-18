@@ -26,7 +26,7 @@ date_read: "2026-08-08 (in progress)"
 | | 2 | Supervised models to predict matches | [[supervised-learning]], [[supervised-learning-algorithms]] |
 | | 3 | Clustering and PCA on unlabeled data | [[unsupervised-learning]] |
 | | 4 | Python + Jupyter setup for analysis | |
-| 2 — Data prep & exploration | 5 | Cleaning CSV data with Pandas | |
+| 2 — Data prep & exploration | 5 | Cleaning CSV data with Pandas | [[one-hot-encoding]], [[missing-data-imputation]], [[data-preprocessing]] |
 | | 6 | Descriptive statistics to analyze matches | [[data-types-and-levels-of-measurement]] |
 | | 7 | MinMaxScaler and StandardScaler | [[feature-scaling]] |
 | 3 — Feature engineering | 8 | Feature engineering with pandas | [[feature-engineering]] |
@@ -54,6 +54,9 @@ date_read: "2026-08-08 (in progress)"
 - [[unsupervised-learning]] — finding structure without labels (clustering, PCA)
 
 **Module 2 — Data preparation & exploration**
+- [[one-hot-encoding]] — *(Class 5, companion)* nominal categories → k binary columns; the dummy-variable trap and `get_dummies`
+- [[missing-data-imputation]] — *(Class 5, companion, gap)* fill nulls with mean/median instead of dropping rows
+- [[data-preprocessing]] — *(Class 5, companion, gap)* the load→inspect→impute→encode→dedupe→parse cleaning pipeline
 - [[feature-scaling]] — MinMax vs. Standard scaling and why distance/gradient methods need it
 - [[data-types-and-levels-of-measurement]] — *(exists)* the descriptive-stats vocabulary reused here
 
@@ -103,9 +106,12 @@ This is a useful **Builder-track implementation companion** to run alongside the
 - [[supervised-learning]] — from Class 2: learning f: X→y from labeled pairs; regression vs. classification, overfitting, generalization as the goal
 - [[supervised-learning-algorithms]] — from Class 2: the algorithm selection map (linear/logistic regression, trees, random forest, SVM, neural nets) and when to use each
 - [[unsupervised-learning]] — from Class 3: finding structure without labels; clustering (K-Means/DBSCAN/hierarchical), dimensionality reduction (PCA/t-SNE/UMAP), and evaluation via inertia + silhouette
+- [[one-hot-encoding]] — from Class 5 (companion): theory-first (ISLR §3.3.1 dummy variables) with `get_dummies` as the implementation layer — nominal→binary columns, the dummy-variable trap, cardinality cost, and encoding alternatives
 
 ## Gaps — Notes Still to Create
 
+- [[missing-data-imputation]] — from Class 5's `fillna(mean)`; theory-first (mean/median/mode imputation, when it biases variance, MCAR/MAR/MNAR)
+- [[data-preprocessing]] — from Class 5; the umbrella cleaning pipeline note tying together imputation, encoding, deduplication, and type parsing
 - [[linear-regression]] — the course's core model; already the #1 item in roadmap T4, derive closed-form + gradient-descent + sklearn
 - [[k-means-clustering]] — roadmap T5's first clustering algorithm, exercised on player profiles
 - [[principal-component-analysis]] — roadmap T5; note the link back to [[singular-value-decomposition]] already in the linear-algebra track
