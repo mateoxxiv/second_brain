@@ -107,6 +107,7 @@ This is a useful **Builder-track implementation companion** to run alongside the
 - [[supervised-learning-algorithms]] — from Class 2: the algorithm selection map (linear/logistic regression, trees, random forest, SVM, neural nets) and when to use each
 - [[unsupervised-learning]] — from Class 3: finding structure without labels; clustering (K-Means/DBSCAN/hierarchical), dimensionality reduction (PCA/t-SNE/UMAP), and evaluation via inertia + silhouette
 - [[one-hot-encoding]] — from Class 5 (companion): theory-first (ISLR §3.3.1 dummy variables) with `get_dummies` as the implementation layer — nominal→binary columns, the dummy-variable trap, cardinality cost, and encoding alternatives
+- [[feature-scaling]] — from Class 7 (companion): theory-first (ESL §14.5.1) with `MinMaxScaler`/`StandardScaler` as the implementation layer — min-max vs. z-score, when each fits, the fit-on-train-only leakage trap, and why distance/gradient/PCA methods require it
 
 ## Gaps — Notes Still to Create
 
@@ -115,4 +116,3 @@ This is a useful **Builder-track implementation companion** to run alongside the
 - [[linear-regression]] — the course's core model; already the #1 item in roadmap T4, derive closed-form + gradient-descent + sklearn
 - [[k-means-clustering]] — roadmap T5's first clustering algorithm, exercised on player profiles
 - [[principal-component-analysis]] — roadmap T5; note the link back to [[singular-value-decomposition]] already in the linear-algebra track
-- [[feature-scaling]] — MinMax vs. Standard; small but load-bearing and reused everywhere
