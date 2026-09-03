@@ -4,6 +4,7 @@ tags:
   - linear-algebra
 related:
   - "[[vectors-and-vector-spaces]]"
+  - "[[geometric-interpretation-of-a-vector]]"
   - "[[vector-norms]]"
   - "[[cosine-similarity]]"
   - "[[projection]]"

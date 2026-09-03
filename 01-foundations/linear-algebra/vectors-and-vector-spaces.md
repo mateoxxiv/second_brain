@@ -3,6 +3,7 @@ tags:
   - status/evergreen
   - linear-algebra
 related:
+  - "[[geometric-interpretation-of-a-vector]]"
   - "[[vector-operations]]"
   - "[[vector-norms]]"
   - "[[basis-and-dimension]]"
@@ -20,7 +21,7 @@ sources:
 
 ## Intuition
 
-Forget arrows. A vector is just a list of measurements about one thing:
+Forget arrows *for now* (their geometry — point vs. arrow, direction, magnitude — is its own note: [[geometric-interpretation-of-a-vector]]). Here a vector is just a list of measurements about one thing:
 
 ```
 Patient:          [35, 72, 120, 68]   → age, weight, bp, heart rate → R^4

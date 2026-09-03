@@ -14,7 +14,7 @@ date_read: "2026-08-30 (in progress)"
 
 *Curso de Álgebra Lineal: Fundamentos y Aplicaciones* (Platzi) is a beginner, **geometry-first** tour of linear algebra in 29 short classes, motivated throughout as "the language of AI." It builds from vectors (span, dot product, norm, angle) through matrices as space transformations, linear systems (`AX=B`, column/null spaces, Gaussian elimination, Gram-Schmidt, least squares), inverses and determinants, change of basis, and finishes with eigenvectors and diagonalization. Unlike the ML-fundamentals Platzi course, it is a **math** course — no libraries, pure concept and geometric intuition.
 
-> **Role in the vault — read this before deriving notes.** This course is an **intuition/review companion, not a source of new coverage.** The vault's `01-foundations/linear-algebra/` folder already holds 60+ rigorous notes (Anton/Strang-level: proofs, derivations, general vector spaces) that cover essentially *every* class here at greater depth. So this course **originates no permanent notes** — every class below maps to an *existing* deeper note. Its real value is threefold: (1) **geometric intuition** — the "matrix as a transformation of space," 3Blue1Brown-style framing that makes the algebra visual; (2) a **fast review pass** over the whole track; (3) the explicit **"language of AI" motivation** connecting each concept forward to ML/DL. For rigor and proofs, stay with the textbook-derived notes; for *seeing* it, use this. Pair with **3Blue1Brown's *Essence of Linear Algebra*** (the definitive visual companion) and **Strang's *Linear Algebra and Its Applications*** for depth.
+> **Role in the vault — read this before deriving notes.** This course is an **intuition/review companion, not a source of new coverage.** The vault's `01-foundations/linear-algebra/` folder already holds 60+ rigorous notes (Anton/Strang-level: proofs, derivations, general vector spaces) that cover essentially *every* class here at greater depth. So it **originates almost no permanent notes** — every class below maps to an *existing* deeper note, with rare exceptions where a class exposes a genuinely missing *atomic angle* (e.g. Class 2's geometric point-vs-arrow reading, which the "forget arrows" [[vectors-and-vector-spaces]] deliberately skips). Its real value is threefold: (1) **geometric intuition** — the "matrix as a transformation of space," 3Blue1Brown-style framing that makes the algebra visual; (2) a **fast review pass** over the whole track; (3) the explicit **"language of AI" motivation** connecting each concept forward to ML/DL. For rigor and proofs, stay with the textbook-derived notes; for *seeing* it, use this. Pair with **3Blue1Brown's *Essence of Linear Algebra*** (the definitive visual companion) and **Strang's *Linear Algebra and Its Applications*** for depth.
 
 ---
 
@@ -23,7 +23,7 @@ date_read: "2026-08-30 (in progress)"
 | Module | Class | Topic | Vault notes |
 |---|---|---|---|
 | 1 — Vectores | 1 | Linear algebra as the language of AI | *(motivational)* |
-| | 2 | What a vector is; graphing it | [[vectors-and-vector-spaces]], [[vector-operations]] |
+| | 2 | What a vector is; graphing it | [[geometric-interpretation-of-a-vector]], [[vectors-and-vector-spaces]], [[vector-operations]] |
 | | 3 | Add/subtract/scale vectors geometrically | [[vector-operations]] |
 | | 4 | Linear combinations and span | [[linear-combination]] |
 | | 5 | What makes a vector redundant | [[linear-independence]] |
@@ -57,7 +57,8 @@ date_read: "2026-08-30 (in progress)"
 ## All Topics at a Glance
 
 **Module 1 — Vectors**
-- [[vectors-and-vector-spaces]] — a vector as a point/arrow and the space it lives in
+- [[geometric-interpretation-of-a-vector]] — *(created)* the point-vs-arrow dual reading, direction/magnitude, graphing in $\mathbb{R}^n$
+- [[vectors-and-vector-spaces]] — a vector as a list of data and the space it lives in (closure, axioms)
 - [[vector-operations]] — geometric add, subtract, scalar multiply
 - [[linear-combination]] — scaled sums of vectors; span as everything reachable
 - [[linear-independence]] — when a vector adds nothing new (redundancy)
@@ -116,8 +117,9 @@ The honest read: this course teaches me almost **nothing new** — the vault alr
 
 ## Permanent Notes Created
 
-- *(None — this course originates no notes; every class maps to an existing, deeper textbook-derived note above.)*
+- [[geometric-interpretation-of-a-vector]] — from Class 2: the point-vs-arrow dual reading, direction + magnitude, and graphing in $\mathbb{R}^n$ — the geometry that [[vectors-and-vector-spaces]] deliberately omits
+- [[least-squares]] — from Class 22 (`mínimos cuadrados`): the overdetermined-system framing and normal equations $A^\top A\hat{x}=A^\top b$, split out from [[projection-onto-subspaces]] (which keeps the optimality proof) and linked forward to [[linear-regression]]
 
 ## Gaps — Notes Still to Create
 
-- [[least-squares]] — Class 22's `mínimos cuadrados`; currently only implicit in [[projection-onto-subspaces]]. Deserves its own note: the normal equations $A^\top A\hat{x}=A^\top b$, projection interpretation, and the direct link forward to [[linear-regression]].
+- *(None outstanding — the two atomic angles this course exposed beyond the existing corpus are now written.)*
