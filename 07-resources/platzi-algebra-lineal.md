@@ -24,7 +24,7 @@ date_read: "2026-08-30 (in progress)"
 |---|---|---|---|
 | 1 — Vectores | 1 | Linear algebra as the language of AI | *(motivational)* |
 | | 2 | What a vector is; graphing it | [[geometric-interpretation-of-a-vector]], [[vectors-and-vector-spaces]], [[vector-operations]] |
-| | 3 | Add/subtract/scale vectors geometrically | [[vector-operations]] |
+| | 3 | Add/subtract/scale vectors geometrically | [[vector-operations]], [[linear-combination]], [[vectors-and-vector-spaces]] |
 | | 4 | Linear combinations and span | [[linear-combination]] |
 | | 5 | What makes a vector redundant | [[linear-independence]] |
 | | 6 | Dot product: measuring alignment | [[dot-product]] |
