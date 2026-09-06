@@ -25,7 +25,7 @@ date_read: "2026-08-02 (in progress)"
 | --- | -------------------------------------------------------- | ------------------------------------------------------------------------------- |
 | 1   | Introduction to Statistics                               | [[population-and-sample]], [[parameter-vs-statistic]], [[data-types-and-levels-of-measurement]], [[principles-of-statistical-thinking]], [[statistical-significance]], [[common-misuses-of-statistics]] |
 | 2   | Summarizing and Graphing Data                            | [[frequency-distribution]], [[relative-frequency-distribution]], [[histogram]], [[characteristics-of-data]], [[frequency-polygon]], [[ogive]], [[dot-plot]], [[stem-and-leaf-plot]], [[bar-graph]], [[pareto-chart]], [[pie-chart]], [[scatterplot]], [[time-series-graph]], [[principles-of-effective-graphs]] |
-| 3   | Statistics for Describing, Exploring, and Comparing Data | [[measures-of-center]], [[skewness]], [[weighted-mean]]                          |
+| 3   | Statistics for Describing, Exploring, and Comparing Data | [[measures-of-center]], [[skewness]], [[weighted-mean]], [[measures-of-variation]], [[chebyshevs-theorem]], [[coefficient-of-variation]], [[z-score]], [[percentiles]], [[quartiles-and-iqr]], [[five-number-summary-and-boxplots]] |
 | 4   | Probability                                              | [[probability-fundamentals]]                                                    |
 | 5   | Discrete Probability Distributions                       | [[bernoulli-distribution]], [[binomial-distribution]], [[poisson-distribution]] |
 | 6   | Normal Probability Distributions                         | [[normal-distribution]], [[cdf-and-quantiles]]                                  |
@@ -68,6 +68,13 @@ date_read: "2026-08-02 (in progress)"
 - [[measures-of-center]] — §3-2: the four measures of center (mean, median, mode, midrange) and the *resistance* axis (outlier sensitivity) that separates them
 - [[skewness]] — §3-2: lopsidedness of a distribution; the mean/median/mode ordering as a shape fingerprint, and why mean-vs-median alone can't reliably identify shape
 - [[weighted-mean]] — §3-2 Part 2: values counting unequally, Σ(w·x)/Σw; the mean of a frequency distribution as its special case (frequencies as weights)
+- [[measures-of-variation]] — §3-3: range, variance, and the standard deviation (both formulas, sample s vs. population σ, why n−1, why not MAD); interpreting s via the range rule (s≈range/4) and the Empirical Rule (68-95-99.7)
+- [[chebyshevs-theorem]] — §3-3: the distribution-free "at least 1−1/K²" bound (≥75% within 2 SD, ≥89% within 3); the universal but weaker cousin of the Empirical Rule
+- [[coefficient-of-variation]] — §3-3: CV = s/x̄ as a unitless %, for comparing relative spread across different units or very different means (heights vs. weights)
+- [[z-score]] — §3-4: value restated as SDs from the mean, $z=(x-\bar{x})/s$; unit-free comparison across distributions and the $|z|>2$ unusual-value rule
+- [[percentiles]] — §3-4: rank-based position ($P_k$), the value↔percentile procedures via the locator $L$, and the empirical-CDF connection
+- [[quartiles-and-iqr]] — §3-4: $Q_1/Q_2/Q_3$, the outlier-resistant $\text{IQR}=Q_3-Q_1$, and the semi-IQR/midquartile family
+- [[five-number-summary-and-boxplots]] — §3-4: min/Q1/median/Q3/max, skeletal vs. modified boxplots, and the $1.5\times\text{IQR}$ outlier fence
 
 *(remaining chapters to fill in as read — see [[probability-distributions]] for the overview note this book's Ch. 4-6 will extend)*
 
@@ -124,6 +131,13 @@ This book is the natural next input for [[probability-fundamentals|T3 (Probabili
 - [[measures-of-center]] — from Ch. 3, §3-2: mean/median/mode/midrange, the round-off rule, and *resistance* to outliers; the L2-mean vs. L1-median link to MSE/MAE loss
 - [[skewness]] — from Ch. 3, §3-2: distribution shape and the mean/median/mode relationship (Fig. 3-2), plus Triola's counterexample showing mean-vs-median can't reliably identify shape
 - [[weighted-mean]] — from Ch. 3, §3-2 Part 2: Σ(w·x)/Σw, the GPA example, the mean-from-frequency-distribution special case, and the per-capita-income weighting trap
+- [[measures-of-variation]] — from Ch. 3, §3-3: range, variance, standard deviation (Formulas 3-4/3-5, s vs. σ, the n−1 degrees-of-freedom argument, why squaring beats the MAD's absolute value); the range rule of thumb and Empirical Rule for interpreting s; links to z-score standardization and PCA in ML
+- [[chebyshevs-theorem]] — from Ch. 3, §3-3: the distribution-free "at least 1−1/K²" bound (≥75% within 2 SD, ≥89% within 3); the universal but weaker cousin of the Empirical Rule
+- [[coefficient-of-variation]] — from Ch. 3, §3-3: CV = s/x̄ (unitless %), for comparing variation across different scales/units (heights vs. weights example)
+- [[z-score]] — from Ch. 3, §3-4 (Ejemplo 1): standardized value as SDs-from-mean, the height-vs-weight comparison, the $|z|>2$ unusual rule, and the direct line to `StandardScaler` and the standard normal
+- [[percentiles]] — from Ch. 3, §3-4 (Ejemplos 2–5): rank-based position, both value↔percentile procedures via the locator $L$, the software-convention caveat, and the 85th-percentile speed-limit rule
+- [[quartiles-and-iqr]] — from Ch. 3, §3-4 (Ejemplo 6): $Q_1{=}P_{25}$ etc., IQR as resistant spread, the semi-IQR/midquartile/10–90 family, and RobustScaler in ML
+- [[five-number-summary-and-boxplots]] — from Ch. 3, §3-4 (Ejemplos 7–11): the five landmarks, skeletal vs. modified boxplots, the $1.5\times\text{IQR}$ fence, and boxplots-on-shared-scale for group comparison
 
 ## Gaps — Notes Still to Create
 
