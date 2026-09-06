@@ -23,7 +23,7 @@ date_read: "2026-09-06 (in progress)"
 
 | Module | Lesson | Topic | Vault notes |
 |--------|--------|-------|-------------|
-| Meet Claude | 1 | What is Claude? | *(product overview)* |
+| Meet Claude | 1 | What is Claude? | [[constitutional-ai]] |
 | | 2 | Your first conversation with Claude | *(product)* |
 | | 3 | Getting better results (prompting, AI Fluency) | [[prompt-engineering-fundamentals]], [[ai-fluency-framework]] |
 | | 4 | How you'll work with Claude on desktop (Chat / Cowork / Code) | [[claude-work-modes]], [[claude-code]] |
@@ -42,6 +42,7 @@ date_read: "2026-09-06 (in progress)"
 ## All Topics at a Glance
 
 **Meet Claude (1–4)**
+- [[constitutional-ai]] — *(created)* Lesson 1's one atomic concept: the HHH ("helpful, harmless, honest") alignment approach via a self-critique constitution + RLAIF
 - Product intro — what Claude is; access via web, desktop, mobile
 - [[prompt-engineering-fundamentals]] — *(gap)* the context → task → format/style prompt structure, and iterating when results miss
 - [[ai-fluency-framework]] — *(gap)* Anthropic's framework for getting better outcomes from an AI collaborator
@@ -83,7 +84,7 @@ Directly useful because I'm building on the Claude platform, but I'll keep it in
 
 ## Permanent Notes Created
 
-- *(None yet — product-reference notes below to be written as lessons are worked through.)*
+- [[constitutional-ai]] — from Lesson 1: theory-first (Bai et al. 2022) — the HHH objective and the two-stage self-critique + RLAIF training that makes Claude steerable and safe
 
 ## Gaps — Notes Still to Create
 
