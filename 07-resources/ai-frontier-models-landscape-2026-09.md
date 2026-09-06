@@ -58,7 +58,7 @@ A point-in-time review of the biggest AI providers, their **frontier models**, a
 - **Pricing:** dramatically cheaper via API, or free self-hosted.
 
 ### Second tier / open-weight field
-- **Meta Llama 4** (Scott / Maverick variants) — long-context, open-weight.
+- **Meta Llama 4** (Scout / Maverick variants) — long-context, open-weight.
 - **Mistral** (Large 3, Medium 3.5) — European, open-weight-friendly.
 - **Qwen, Kimi (K-series), GLM** — strong open-weight benchmark performers, often China-origin.
 
