@@ -1,7 +1,7 @@
 # Study Roadmap
 
 **Created**: 2026-02-24
-**Last updated**: 2026-08-09 (added a "Data skepticism & study design" reading block under T3 — Calling Bullshit free course + book, Wikipedia misuse taxonomy, biomedical-misuse PMC article, Statistics By Jim, Columbia/IWH study-design explainers; framed as the "half the work" complement to Triola Ch. 1. Prior 2026-08-08: T3 grew 16→23 — the full Triola §1-5 data-collection cluster landed: sampling-methods, random-sample-vs-simple-random-sample, observational-study-vs-experiment, types-of-observational-studies, experimental-design-principles, experimental-designs-for-controlling-variables, sampling-error-vs-nonsampling-error; three experimental-design textbooks added to T3 reading resources (Montgomery, Box-Hunter-Hunter, Kohavi A/B testing); previous 2026-08-07 update landed the Ch. 1 statistical-thinking cluster; matrix-transpose inbox drafts still unresolved; `code/` directory confirmed still empty — zero runnable implementations exist despite 116 notes)
+**Last updated**: 2026-09-10 (major re-audit. Since 2026-08-09 the vault grew 116 → 155 domain notes. **T3 Probability jumped 23 → 49**: the entire Triola Ch. 2-3 descriptive-statistics block landed — frequency distributions, all graph types (histogram, ogive, stem-and-leaf, Pareto, boxplots, etc.), measures of center/variation, z-scores, percentiles, quartiles/IQR, Chebyshev, skewness, coefficient of variation. **T4 Supervised/Unsupervised ML has actually STARTED (0 → 7 notes)** from the Platzi "Fundamentos de ML" course — types-of-machine-learning, supervised + algorithms, unsupervised, and a feature-engineering trio (feature-engineering, feature-scaling, one-hot-encoding); note these are *practical-course-derived companion notes*, not the deep theory notes T4 ultimately needs. **Constitutional AI** note added to the LLM track (04/architectures). **MLOps opened (0 → 1)**: python-and-jupyter-environment-setup. Literature notes grew 2 → 7 (Anton LA, Platzi LA, Triola, Platzi ML, Platzi People Analytics, Claude 101, AI frontier-models landscape). **Still unresolved from every prior audit**: matrix-transpose is still 3 competing drafts in `00-inbox/proposals/` with no promoted note; `code/` is still 100% empty — zero runnable `.py` files despite 155 notes. Prior 2026-08-09: added T3 "Data skepticism & study design" reading block.)
 **Goal**: Become an expert AI architect and engineer — design, implement, and orchestrate intelligent systems end-to-end.
 
 ---
@@ -45,29 +45,29 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 
 | Area | Notes | Status |
 |------|-------|--------|
-| 01-foundations/linear-algebra | 56 | **Essentially complete** — eigenvalue chapter (eigenspace, complex-eigenvalues, block-diagonal, diagonalization, orthogonal-diagonalization, synthetic-division) now fully covered. Only matrix calculus, pseudoinverse, matrix norms, and transpose remain |
-| 01-foundations/calculus | 9 | Core complete — trigonometric identities added |
-| 01-foundations/probability | 23 | Distributions done (10) + Triola Ch. 1 cluster (13: statistical thinking + full §1-5 data collection) — MLE, entropy, multivariate Normal next |
+| 01-foundations/linear-algebra | 60 | **Essentially complete** (8 evergreen / 10 growing / 42 seed). Only matrix calculus, pseudoinverse, matrix norms, and transpose remain |
+| 01-foundations/calculus | 9 | Core complete (6 growing / 3 seed) — trig identities added |
+| 01-foundations/probability | 49 | **Big jump** — distributions (10) + Triola Ch. 1 collection cluster (13) + **entire Ch. 2-3 descriptive-statistics block (26)**. Inferential half (MLE, hypothesis testing, information theory) still open |
 | 01-foundations/algorithms | 0 | Not started |
 | 01-foundations/databases | 0 | Not started |
-| 02-machine-learning | 0 | Not started |
+| 02-machine-learning | 7 | **STARTED** — types-of-ML, supervised (+algorithms), unsupervised, feature-engineering trio (all seed). ⚠️ Platzi-course companion notes, not deep theory notes yet |
 | 03-deep-learning | 0 | Not started |
-| 04-llms-and-agents | 11 | Anthropic + OpenAI ecosystems + Claude Code tooling (hooks, cron, chrome) covered |
-| 05-mlops/cloud | 0 | Not started |
-| 08-applied-domains/people-analytics | 17 | **Side track, outside core path** — now spans project execution, data prep, KPIs/dashboards, survey & NLP analysis, and long-term strategy. All 17 still `status/seed` |
+| 04-llms-and-agents | 12 | Anthropic + OpenAI ecosystems + Claude Code tooling + **Constitutional AI** (first alignment-theory note) |
+| 05-mlops | 1 | **Opened** — python-and-jupyter-environment-setup (infrastructure) |
+| 08-applied-domains/people-analytics | 17 | **Side track, outside core path** — full course captured. All 17 still `status/seed` |
 
-**Total notes**: 116 domain notes + 2 literature notes | **8 evergreen** | **26 growing** | **85 seed**
+**Total notes**: 155 domain notes + 7 literature notes | **8 evergreen** | **26 growing** | **121 seed**
 
-**Vault hygiene gaps**:
-1. `00-inbox/proposals/` still has three unresolved template drafts for `matrix-transpose` (frontmatter/card/layered variants) — matrix transpose still has no permanent note in `linear-algebra/` despite being referenced by other notes. Pick one format and promote it, or discard the drafts.
-2. `code/` is entirely empty (only `.gitkeep` placeholders in each subfolder) — zero runnable `.py` implementations exist anywhere in the vault, despite CLAUDE.md's "implement from scratch" principle and 103 notes written. This is the single biggest gap between the vault's stated learning philosophy and its actual state.
-3. All 17 people-analytics notes are still `status/seed` — none has been through a `/review` pass or been battle-tested against a real dataset yet.
+**Vault hygiene gaps** (all three carried over unresolved from prior audits):
+1. `00-inbox/proposals/` still has three unresolved template drafts for `matrix-transpose` (frontmatter/card/layered variants) — matrix transpose still has no permanent note in `linear-algebra/` despite being referenced by other notes. Pick one format and promote it, or discard the drafts. **This has been open across multiple audits — resolve it.**
+2. `code/` is entirely empty (only `.gitkeep` placeholders) — zero runnable `.py` implementations exist anywhere, despite CLAUDE.md's "implement from scratch" principle and now **155 notes**. This is the single biggest gap between the vault's stated learning philosophy and its actual state. (Note: CLAUDE.md now says standalone `.py` files are created only on *explicit request* — so this is a deliberate choice to make, not an oversight, but the "master by building" tracks below stay theoretical until at least one lands.)
+3. **121 of 155 notes are still `status/seed`** (up from 85) — the seed backlog is growing faster than notes are being matured. The new ML and probability clusters are entirely seed. A `/review` pass on load-bearing seeds is overdue.
 
 ---
 
 ## THEORY TRACK
 
-### T1: Linear Algebra — ESSENTIALLY COMPLETE (56/~60 notes)
+### T1: Linear Algebra — ESSENTIALLY COMPLETE (60/~63 notes)
 
 > *Why*: Every ML algorithm is a matrix operation. You can't understand neural nets, PCA, or embeddings without this.
 
@@ -162,7 +162,7 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 
 ---
 
-### T3: Probability and Statistics — IN PROGRESS (23/~31 notes)
+### T3: Probability and Statistics — IN PROGRESS (49/~57 notes)
 
 > *Why*: ML is applied statistics. Bayesian thinking, distributions, hypothesis testing.
 
@@ -193,7 +193,18 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 - [x] Experimental Designs for Controlling Variables (§1-5: completely randomized, randomized block, rigorously controlled, matched pairs)
 - [x] Sampling Error vs. Nonsampling Error (§1-5: random wobble vs. fixable bias)
 
-**Remaining (priority order):**
+**Done — descriptive statistics, Triola Ch. 2-3 (26) ← NEW this audit:**
+- [x] Characteristics of Data (CVDOT: center, variation, distribution, outliers, time)
+- [x] Frequency Distribution · Relative Frequency Distribution · Cumulative Frequency Distribution
+- [x] Histogram · Frequency Polygon · Ogive · Dot Plot · Stem-and-Leaf Plot
+- [x] Bar Graph · Pareto Chart · Pie Chart · Scatterplot · Time-Series Graph
+- [x] Principles of Effective Graphs · Misleading Graphs
+- [x] Measures of Center · Weighted Mean
+- [x] Measures of Variation · Coefficient of Variation · Chebyshev's Theorem
+- [x] z-Score · Percentiles · Quartiles and IQR · Five-Number Summary and Boxplots
+- [x] Skewness
+
+**Remaining (priority order) — the inferential + information-theory half:**
 - [ ] Maximum Likelihood Estimation (MLE) ← NEXT — derives ALL loss functions from distributions
 - [ ] Cross-Entropy and KL Divergence — information theory, classification losses
 - [ ] Joint, Marginal, and Conditional Distributions
@@ -226,10 +237,19 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 
 ---
 
-### T4: Supervised ML — NOT STARTED (0/~8 notes)
+### T4: Supervised ML — STARTED, ORIENTATION LAYER ONLY (5/~10 notes)
 
 > *Why*: The core of predictive modeling. Build from scratch before using libraries.
 
+> ⚠️ **Source caveat**: the notes that exist so far are derived from the **Platzi "Fundamentos de ML" course** — a *practical* course. Per CLAUDE.md's source hierarchy, a practical course is a **companion, not the origin** of a permanent note: it gives orientation and vocabulary but no derivations. So these count as scaffolding; the *deep* T4 notes (each algorithm derived + implemented from scratch) still need a rigorous source (ISLR/ESL, Bishop) and remain to be written.
+
+**Done — orientation (Platzi companion, all seed):**
+- [x] Types of Machine Learning (supervised / unsupervised / RL taxonomy)
+- [x] Supervised Learning (overview)
+- [x] Supervised Learning Algorithms (survey)
+- [x] Feature Engineering · Feature Scaling · One-Hot Encoding
+
+**Remaining — the deep, derive-and-implement notes:**
 - [ ] Linear Regression (closed-form + gradient descent, normal equations)
 - [ ] Logistic Regression
 - [ ] Decision Trees
@@ -241,7 +261,9 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 
 ---
 
-### T5: Unsupervised ML — NOT STARTED (0/~5 notes)
+### T5: Unsupervised ML — STARTED, ORIENTATION ONLY (1/~6 notes)
+
+**Done:** [x] Unsupervised Learning (overview — Platzi companion, seed)
 
 - [ ] K-Means Clustering
 - [ ] Hierarchical Clustering and DBSCAN
@@ -297,13 +319,14 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 
 ---
 
-### T10: LLM Internals — NOT STARTED (0/~6 notes)
+### T10: LLM Internals — BARELY STARTED (1/~7 notes)
 
+- [x] Constitutional AI (HHH + RLAIF) ← NEW — first alignment note, from Claude 101 Lesson 1. Lives in `04/architectures/`. ⚠️ product-course origin; a rigorous RLHF/DPO note should still be derived from the InstructGPT / DPO papers.
 - [ ] Language Modeling (autoregressive vs masked)
 - [ ] Tokenization (BPE, WordPiece, SentencePiece)
 - [ ] Scaling Laws
 - [ ] Context Windows and KV-Cache
-- [ ] RLHF and DPO (alignment)
+- [ ] RLHF and DPO (alignment) — partial via Constitutional AI; needs the paper-derived version
 - [ ] Fine-Tuning: Full vs LoRA/QLoRA
 
 ---
@@ -576,11 +599,11 @@ Weeks 28+   | Capstone projects             | B8-C++: ONNX + TensorRT + custom o
 
 **Immediate priorities (theory):**
 
-1. Resolve the `matrix-transpose` inbox drafts (`00-inbox/proposals/`) — pick one of the 3 template variants and promote it to `01-foundations/linear-algebra/matrix-transpose.md`. Quick win, closes the last real gap in linear algebra.
-2. `/note maximum-likelihood-estimation` — derives ALL loss functions from probability. Single most important missing concept.
-3. `/note cross-entropy-and-kl-divergence` — information theory, connects to classification losses and VAEs.
-4. `/note matrix-calculus` — Jacobians, Hessians, dL/dW. Required before any deep learning. Linear algebra is otherwise done, so this is the last theory gate before starting T4 (Supervised ML).
-5. `/session linear-regression` — first ML model, bridges foundations → ML.
+1. Resolve the `matrix-transpose` inbox drafts (`00-inbox/proposals/`) — pick one of the 3 template variants and promote it to `01-foundations/linear-algebra/matrix-transpose.md`. Quick win, closes the last real gap in linear algebra, and it has now been open across several audits.
+2. `/note maximum-likelihood-estimation` — **the single most important missing concept.** Descriptive statistics (Triola Ch. 2-3) is now done, so the natural next step in T3 is the inferential half, and MLE is the bridge from probability into ML: it derives every loss function. This is the highest-leverage note in the entire vault right now.
+3. `/note cross-entropy-and-kl-divergence` — information theory; connects directly to classification losses and VAEs. Pairs with MLE.
+4. `/note matrix-calculus` — Jacobians, Hessians, dL/dW. The last theory gate before deep learning; linear algebra is otherwise done.
+5. **Deepen T4, don't just extend it.** The 7 ML notes are Platzi-companion orientation. Pick the first algorithm — `/session linear-regression` — and do it *properly*: derive the normal equations, connect to least-squares (T1) and MLE/Gaussian noise (T3), and build it from scratch. That single note ties LA + calculus + probability together and converts the orientation layer into real mastery.
 
 **Immediate priorities (builder):**
 
@@ -613,6 +636,6 @@ Weeks 28+   | Capstone projects             | B8-C++: ONNX + TensorRT + custom o
 **Quality improvements:**
 - Promote `singular-value-decomposition` from seed to growing — still the biggest quality gap given how central SVD is to ML (PCA, pseudoinverse, low-rank approximation)
 - `spectral-decomposition` promoted seed → growing since last update ✓
-- 78 of 111 content notes are still `status/seed` — worth a `/review` pass on the linear-algebra seed notes (38 of them) before starting T4, since several (subspaces, kernel-and-range, rank-nullity-theorem, diagonalization) are load-bearing for everything downstream
+- **121 of 155 content notes are still `status/seed`** (was 78/111) — the seed backlog grew by 43 this cycle and nothing was promoted. Worth a `/review` pass on the load-bearing linear-algebra seeds (subspaces, kernel-and-range, rank-nullity-theorem, diagonalization) and on the new descriptive-statistics cluster before building on top of them
 - All 17 people-analytics notes are `status/seed` with zero code — lowest priority for now (side track), but if a 06-projects capstone gets built from this material (see S1 above), promote the notes it exercises to `growing`
 - **Vault-wide**: write at least one runnable file in `code/` — right now every single implementation described in every note (Gauss-Jordan, Gram-Schmidt, Cronbach's alpha, ONA centrality, sentiment scoring) exists only as an inline snippet, never as an actual tested `.py` file
