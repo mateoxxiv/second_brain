@@ -26,7 +26,7 @@ date_read: "2026-08-02 (in progress)"
 | 1   | Introduction to Statistics                               | [[population-and-sample]], [[parameter-vs-statistic]], [[data-types-and-levels-of-measurement]], [[principles-of-statistical-thinking]], [[statistical-significance]], [[common-misuses-of-statistics]] |
 | 2   | Summarizing and Graphing Data                            | [[frequency-distribution]], [[relative-frequency-distribution]], [[histogram]], [[characteristics-of-data]], [[frequency-polygon]], [[ogive]], [[dot-plot]], [[stem-and-leaf-plot]], [[bar-graph]], [[pareto-chart]], [[pie-chart]], [[scatterplot]], [[time-series-graph]], [[principles-of-effective-graphs]] |
 | 3   | Statistics for Describing, Exploring, and Comparing Data | [[measures-of-center]], [[skewness]], [[weighted-mean]], [[measures-of-variation]], [[chebyshevs-theorem]], [[coefficient-of-variation]], [[z-score]], [[percentiles]], [[quartiles-and-iqr]], [[five-number-summary-and-boxplots]] |
-| 4   | Probability                                              | [[probability-fundamentals]]                                                    |
+| 4   | Probability                                              | [[probability-fundamentals]], [[sample-space-and-events]], [[three-methods-of-assigning-probability]], [[law-of-large-numbers]], [[complementary-events]], [[odds]] |
 | 5   | Discrete Probability Distributions                       | [[bernoulli-distribution]], [[binomial-distribution]], [[poisson-distribution]] |
 | 6   | Normal Probability Distributions                         | [[normal-distribution]], [[cdf-and-quantiles]]                                  |
 | 7   | Estimates and Sample Sizes                               |                                                                                 |
@@ -75,6 +75,13 @@ date_read: "2026-08-02 (in progress)"
 - [[percentiles]] — §3-4: rank-based position ($P_k$), the value↔percentile procedures via the locator $L$, and the empirical-CDF connection
 - [[quartiles-and-iqr]] — §3-4: $Q_1/Q_2/Q_3$, the outlier-resistant $\text{IQR}=Q_3-Q_1$, and the semi-IQR/midquartile family
 - [[five-number-summary-and-boxplots]] — §3-4: min/Q1/median/Q3/max, skeletal vs. modified boxplots, and the $1.5\times\text{IQR}$ outlier fence
+
+**Ch 4 — Probability**
+- [[sample-space-and-events]] — §4-2: procedure/outcome/event/simple-event/sample-space vocabulary and the granularity trap (ffm is simple, "2 girls 1 boy" is not)
+- [[three-methods-of-assigning-probability]] — §4-2: relative frequency ($s/n$ from data), classical ($s/n$, equally-likely required), and subjective; the equal-likelihood warning and simulation as a practical stand-in
+- [[law-of-large-numbers]] — §4-2: relative-frequency estimates converge to the true probability as trials grow; the $1/\sqrt n$ shrink and the gambler's-fallacy caveat
+- [[complementary-events]] — §4-2: $\bar A$ = "$A$ doesn't happen", $P(A)+P(\bar A)=1$, and the "at least one" = $1-P(\text{none})$ shortcut (SAT-guessing example)
+- [[odds]] — §4-2 Part 2: actual odds against/in-favor vs. payoff odds, the house edge (roulette 37:1 vs. 35:1), and the logit link to logistic regression
 
 *(remaining chapters to fill in as read — see [[probability-distributions]] for the overview note this book's Ch. 4-6 will extend)*
 
@@ -138,6 +145,11 @@ This book is the natural next input for [[probability-fundamentals|T3 (Probabili
 - [[percentiles]] — from Ch. 3, §3-4 (Ejemplos 2–5): rank-based position, both value↔percentile procedures via the locator $L$, the software-convention caveat, and the 85th-percentile speed-limit rule
 - [[quartiles-and-iqr]] — from Ch. 3, §3-4 (Ejemplo 6): $Q_1{=}P_{25}$ etc., IQR as resistant spread, the semi-IQR/midquartile/10–90 family, and RobustScaler in ML
 - [[five-number-summary-and-boxplots]] — from Ch. 3, §3-4 (Ejemplos 7–11): the five landmarks, skeletal vs. modified boxplots, the $1.5\times\text{IQR}$ fence, and boxplots-on-shared-scale for group comparison
+- [[sample-space-and-events]] — from Ch. 4, §4-2 (Ejemplo 1): procedure/outcome/event/simple-event/sample-space definitions and the granularity trap; sample space as the support of a distribution
+- [[three-methods-of-assigning-probability]] — from Ch. 4, §4-2 (Ejemplos 2–9): relative-frequency / classical / subjective, the equal-likelihood warning, simulation, and the Monte-Carlo & Bayesian-prior connections
+- [[law-of-large-numbers]] — from Ch. 4, §4-2: relative frequency → true probability, the $1/\sqrt n$ error shrink, the gambler's fallacy, and why Monte Carlo / SGD mini-batches work
+- [[complementary-events]] — from Ch. 4, §4-2 (Ejemplo 10): $P(A)+P(\bar A)=1$, the "at least one" shortcut, and the binary-classification / cross-entropy link
+- [[odds]] — from Ch. 4, §4-2 Part 2 (Ejemplo 13): actual vs. payoff odds, the house edge (roulette), and the logit / logistic-regression connection
 
 ## Gaps — Notes Still to Create
 
