@@ -7,6 +7,8 @@ related:
   - "[[probability-fundamentals]]"
   - "[[binomial-distribution]]"
   - "[[normal-distribution]]"
+  - "[[complementary-events]]"
+  - "[[logistic-regression]]"
 domain: probability
 sources:
   - "https://mml-book.github.io/book/mml-book.pdf"
@@ -26,6 +28,8 @@ The Bernoulli distribution is the simplest possible random variable: one flip, t
 
 **PMF** (compact form encoding both outcomes):
 $$P(X = k) = p^k (1-p)^{1-k}, \quad k \in \{0, 1\}$$
+
+Note $P(X=0)=1-p$ is just the [[complementary-events|complement]] of success.
 
 - k=1: p¹(1−p)⁰ = p
 - k=0: p⁰(1−p)¹ = 1−p

@@ -7,6 +7,8 @@ related:
   - "[[binomial-distribution]]"
   - "[[probability-fundamentals]]"
   - "[[population-and-sample]]"
+  - "[[three-methods-of-assigning-probability]]"
+  - "[[law-of-large-numbers]]"
 domain: probability
 sources:
   - "Triola, Mario F. Estadística. 11ª edición. Pearson, 2013. Cap. 1, §1-2, Ejemplos 6-8."
@@ -22,7 +24,7 @@ Suppose a fertility technique is followed by 13 girls out of 14 births. Two expl
 
 ## Mechanics
 
-**Definition** — a result is statistically significant when its probability of occurring, *assuming the treatment or method has no real effect*, is low enough that "pure chance" is no longer a convincing explanation.
+**Definition** — a result is statistically significant when its probability of occurring, *assuming the treatment or method has no real effect*, is low enough that "pure chance" is no longer a convincing explanation. This is Triola's **rare-event rule** — the same "how likely under no effect?" reasoning that a small probability ([[three-methods-of-assigning-probability|estimated by relative frequency or the classical method]]) flags as *unusual*.
 
 **Worked contrast — the MicroSort gender-selection technique**, tested on 14 births, assuming a fair 50/50 chance per birth if the technique does nothing:
 

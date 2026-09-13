@@ -6,6 +6,7 @@ related:
   - "[[probability-fundamentals]]"
   - "[[complementary-events]]"
   - "[[three-methods-of-assigning-probability]]"
+  - "[[logistic-regression]]"
   - "[[triola-estadistica]]"
 domain: probability
 sources:
