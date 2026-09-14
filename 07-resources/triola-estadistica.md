@@ -26,7 +26,7 @@ date_read: "2026-08-02 (in progress)"
 | 1   | Introduction to Statistics                               | [[population-and-sample]], [[parameter-vs-statistic]], [[data-types-and-levels-of-measurement]], [[principles-of-statistical-thinking]], [[statistical-significance]], [[common-misuses-of-statistics]] |
 | 2   | Summarizing and Graphing Data                            | [[frequency-distribution]], [[relative-frequency-distribution]], [[histogram]], [[characteristics-of-data]], [[frequency-polygon]], [[ogive]], [[dot-plot]], [[stem-and-leaf-plot]], [[bar-graph]], [[pareto-chart]], [[pie-chart]], [[scatterplot]], [[time-series-graph]], [[principles-of-effective-graphs]] |
 | 3   | Statistics for Describing, Exploring, and Comparing Data | [[measures-of-center]], [[skewness]], [[weighted-mean]], [[measures-of-variation]], [[chebyshevs-theorem]], [[coefficient-of-variation]], [[z-score]], [[percentiles]], [[quartiles-and-iqr]], [[five-number-summary-and-boxplots]] |
-| 4   | Probability                                              | [[probability-fundamentals]], [[sample-space-and-events]], [[three-methods-of-assigning-probability]], [[law-of-large-numbers]], [[complementary-events]], [[addition-rule]], [[odds]] |
+| 4   | Probability                                              | [[probability-fundamentals]], [[sample-space-and-events]], [[three-methods-of-assigning-probability]], [[law-of-large-numbers]], [[complementary-events]], [[addition-rule]], [[multiplication-rule]], [[odds]] |
 | 5   | Discrete Probability Distributions                       | [[bernoulli-distribution]], [[binomial-distribution]], [[poisson-distribution]] |
 | 6   | Normal Probability Distributions                         | [[normal-distribution]], [[cdf-and-quantiles]]                                  |
 | 7   | Estimates and Sample Sizes                               |                                                                                 |
@@ -82,6 +82,7 @@ date_read: "2026-08-02 (in progress)"
 - [[law-of-large-numbers]] — §4-2: relative-frequency estimates converge to the true probability as trials grow; the $1/\sqrt n$ shrink and the gambler's-fallacy caveat
 - [[complementary-events]] — §4-2: $\bar A$ = "$A$ doesn't happen", $P(A)+P(\bar A)=1$, and the "at least one" = $1-P(\text{none})$ shortcut (SAT-guessing example)
 - [[addition-rule]] — §4-3: $P(A\text{ or }B)=P(A)+P(B)-P(A\cap B)$, disjoint events as the no-overlap special case, the double-counting trap, and the softmax / union-bound connections
+- [[multiplication-rule]] — §4-4: $P(A\text{ and }B)=P(A)\cdot P(B\mid A)$, independent vs. dependent events, with/without replacement, the 5% guideline, and the i.i.d.-likelihood / chain-rule (autoregressive) connections
 - [[odds]] — §4-2 Part 2: actual odds against/in-favor vs. payoff odds, the house edge (roulette 37:1 vs. 35:1), and the logit link to logistic regression
 
 *(remaining chapters to fill in as read — see [[probability-distributions]] for the overview note this book's Ch. 4-6 will extend)*
@@ -151,10 +152,12 @@ This book is the natural next input for [[probability-fundamentals|T3 (Probabili
 - [[law-of-large-numbers]] — from Ch. 4, §4-2: relative frequency → true probability, the $1/\sqrt n$ error shrink, the gambler's fallacy, and why Monte Carlo / SGD mini-batches work
 - [[complementary-events]] — from Ch. 4, §4-2 (Ejemplo 10): $P(A)+P(\bar A)=1$, the "at least one" shortcut, and the binary-classification / cross-entropy link
 - [[addition-rule]] — from Ch. 4, §4-3 (Ejemplos 1–3): $P(A\cup B)=P(A)+P(B)-P(A\cap B)$, disjoint/mutually-exclusive events, the polygraph double-counting example, and the softmax (disjoint classes) & union-bound / Bonferroni links
+- [[multiplication-rule]] — from Ch. 4, §4-4 (Ejemplos 1–6): $P(A\cap B)=P(A)\cdot P(B\mid A)$, independent vs. dependent events, with/without replacement (pacemaker example), the 5% guideline, redundancy, and the i.i.d.-factorized-likelihood & language-model chain-rule links
 - [[odds]] — from Ch. 4, §4-2 Part 2 (Ejemplo 13): actual vs. payoff odds, the house edge (roulette), and the logit / logistic-regression connection
 
 ## Gaps — Notes Still to Create
 
+- [[conditional-probability]] — Ch. 4, §4-5: $P(B\mid A)$ introduced in §4-4's multiplication rule; still needs its own note (definition, the $P(A\cap B)/P(A)$ formula, and the bridge to Bayes)
 - [[hypothesis-testing-and-p-values]] — already flagged in the study roadmap as T3's next priority after MLE; [[statistical-significance]] is its intuitive seed (the "how likely under no effect?" reasoning), still needs the formal null/alternative hypothesis and p-value machinery
 - [[confidence-intervals]] — estimation theory, sample size determination
 - [[correlation-and-regression]] — bridges directly to supervised ML's linear regression (T4)
