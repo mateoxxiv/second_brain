@@ -557,8 +557,9 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 - [ ] Technical writing — design docs, RFCs, clear PR descriptions, writing for skimmers
 - [ ] Explaining complex ideas to non-experts — the "explain it to a PM / exec" skill (analogy-first, like this vault's own notes)
 - [ ] Presenting and public speaking — structuring a talk, slides that don't distract, handling Q&A
+- [ ] **Meeting presence & speaking up** — "executive presence" (gravitas): being heard in meetings without dominating. High-leverage tactics: speak in the first 5 min, walk in with one prepared point, ask a sharp question, slow down + pause, "build on" others. *(Personal priority — flagged as a current gap.)*
 - [ ] Asynchronous communication — writing so a distributed/remote team stays unblocked without a meeting
-- [ ] **Practice**: write a one-page design doc for a real feature and get it reviewed
+- [ ] **Practice**: write a one-page design doc for a real feature and get it reviewed; commit to speaking once in the first 5 minutes of your next 3 meetings
 
 ### H2: Collaboration & Teamwork
 - [ ] Code review etiquette — giving and receiving feedback without ego (both sides of the PR)
@@ -602,6 +603,10 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 - 📘 **Radical Candor** — Kim Scott — care personally + challenge directly; feedback and management (H3, H4).
 - 📘 **The Manager's Path** — Camille Fournier — the tech IC→lead→manager progression; excellent even if you stay IC (H3).
 - 📘 **Made to Stick** — Chip & Dan Heath — why some ideas land; the communication craft (H1).
+- 📘 **Executive Presence** — Sylvia Ann Hewlett — the definitive book on *meeting presence / gravitas*: how you're perceived, how you speak, how you show up (H1). Direct fit for the "speaking up in meetings" gap.
+- 🎥 **Think Fast, Talk Smart** — Matt Abrahams (Stanford GSB podcast + videos) — speaking spontaneously under pressure; *the* resource for the meeting-presence problem (H1).
+- 🎥 **"How to Speak" — Patrick Winston (MIT, full lecture on YouTube)** — commanding a room, engineer-friendly and tactical (H1).
+- 🎥 **Amy Cuddy — "Your body language may shape who you are"** (TED) — posture/presence and confidence (H1, H4).
 - 📘 **Thinking, Fast and Slow** — Kahneman — cognitive biases; foundational for decision-making and EQ (H4, H5).
 - 📘 **The Staff Engineer's Path** — Tanya Reilly — leading and influencing as a senior IC (H3, H5).
 - 🎥 *Free*: MIT 6.UAR / "Patterns for Effective Communication"; conference talks on staff-engineering archetypes; LeadDev talks (leadership for engineers).
