@@ -4,6 +4,8 @@
 **Last updated**: 2026-09-10 (major re-audit. Since 2026-08-09 the vault grew 116 → 155 domain notes. **T3 Probability jumped 23 → 49**: the entire Triola Ch. 2-3 descriptive-statistics block landed — frequency distributions, all graph types (histogram, ogive, stem-and-leaf, Pareto, boxplots, etc.), measures of center/variation, z-scores, percentiles, quartiles/IQR, Chebyshev, skewness, coefficient of variation. **T4 Supervised/Unsupervised ML has actually STARTED (0 → 7 notes)** from the Platzi "Fundamentos de ML" course — types-of-machine-learning, supervised + algorithms, unsupervised, and a feature-engineering trio (feature-engineering, feature-scaling, one-hot-encoding); note these are *practical-course-derived companion notes*, not the deep theory notes T4 ultimately needs. **Constitutional AI** note added to the LLM track (04/architectures). **MLOps opened (0 → 1)**: python-and-jupyter-environment-setup. Literature notes grew 2 → 7 (Anton LA, Platzi LA, Triola, Platzi ML, Platzi People Analytics, Claude 101, AI frontier-models landscape). **Still unresolved from every prior audit**: matrix-transpose is still 3 competing drafts in `00-inbox/proposals/` with no promoted note; `code/` is still 100% empty — zero runnable `.py` files despite 155 notes. Prior 2026-08-09: added T3 "Data skepticism & study design" reading block.)
 **Goal**: Become an expert AI architect and engineer — design, implement, and orchestrate intelligent systems end-to-end.
 
+> **2026-09-14 addition**: Added a third **Human Skills Track (H1–H6)** — soft, social & leadership skills — as a co-equal complement to the Theory and Builder tracks. Rationale: the "architect / orchestrate end-to-end" goal is inherently a *team* role, so communication, collaboration, and leadership are load-bearing, not optional. Notes will live in a new `09-professional-skills/` folder once the first one is written.
+
 ---
 
 ## Dual-Track Approach
@@ -37,6 +39,12 @@ Attention Mechanism ──────────── → RAG, agents
 Theory explains WHY things work.
 Building shows HOW they work in practice.
 DE + C++ + SWE + System Design = production-grade AI architect.
+
+        ┌─────────────────────────────────────────────┐
+        │  HUMAN SKILLS TRACK (wraps both tracks)       │
+        │  Communication · Collaboration · Leadership   │
+        │  = how technical skill turns into team impact │
+        └─────────────────────────────────────────────┘
 ```
 
 ---
@@ -536,6 +544,67 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 ---
 
 ### B10–B12: Tool Use, Agents, Evaluation, MLOps — NOT STARTED
+
+---
+
+## HUMAN SKILLS TRACK (soft, social & leadership) — NOT STARTED ← NEW
+
+> *Why*: The title is **AI architect and engineer** — and "architect" is a role played *on a team*. The hardest part of shipping intelligent systems end-to-end is rarely the math; it's aligning people, communicating trade-offs to non-experts, earning trust, and leading without authority. These skills compound over a career the way linear algebra compounds over the theory track — and unlike a framework, they never get deprecated. This track wraps *around* Theory + Builder: every technical skill is amplified or bottlenecked by how well you can explain it, collaborate on it, and lead with it.
+>
+> *Where these notes live*: a new **`09-professional-skills/`** folder (to be created when the first note lands). These are permanent notes like any other — atomic, linked, with a TL;DR and exercises (here "exercises" = concrete practice: run a retro, give a code review, present a design). Sources will be books/talks, not textbooks. This track is **deliberately lighter-weight** than T1–T10: read, reflect, practice on the job — not derive-from-scratch.
+
+### H1: Communication
+- [ ] Technical writing — design docs, RFCs, clear PR descriptions, writing for skimmers
+- [ ] Explaining complex ideas to non-experts — the "explain it to a PM / exec" skill (analogy-first, like this vault's own notes)
+- [ ] Presenting and public speaking — structuring a talk, slides that don't distract, handling Q&A
+- [ ] Asynchronous communication — writing so a distributed/remote team stays unblocked without a meeting
+- [ ] **Practice**: write a one-page design doc for a real feature and get it reviewed
+
+### H2: Collaboration & Teamwork
+- [ ] Code review etiquette — giving and receiving feedback without ego (both sides of the PR)
+- [ ] Pair / mob programming — thinking out loud, sharing the keyboard
+- [ ] Cross-functional work — collaborating with product, design, data, and non-technical stakeholders
+- [ ] Working agreements & team norms — how healthy teams decide how they work
+- [ ] **Practice**: run or actively participate in a sprint retrospective
+
+### H3: Leadership & Influence
+- [ ] Leading without authority — influence, persuasion, building consensus as an IC
+- [ ] Technical decision-making — trade-off analysis, disagree-and-commit, documenting the "why"
+- [ ] Mentoring and coaching — growing more junior engineers, the Socratic teaching style
+- [ ] Ownership and accountability — taking responsibility for outcomes, not just tasks
+- [ ] Driving alignment — getting a group to a shared goal when opinions diverge
+- [ ] **Practice**: mentor someone on one concept from this vault; own a small project end-to-end
+
+### H4: Emotional Intelligence & Social Skills
+- [ ] Active listening — understanding before responding, asking better questions
+- [ ] Empathy and perspective-taking — reading the room, understanding others' constraints
+- [ ] Giving and receiving feedback — SBI (Situation-Behavior-Impact), radical candor
+- [ ] Conflict resolution — disagreeing productively, de-escalation, finding shared interests
+- [ ] Self-awareness & regulation — knowing your triggers, staying calm under pressure
+- [ ] **Practice**: give one piece of structured feedback using SBI this week
+
+### H5: Business & Stakeholder Acumen
+- [ ] Translating technical work into business value — outcomes and ROI, not features
+- [ ] Product thinking — user needs, MVPs, why-before-what
+- [ ] Managing expectations — scoping, estimating honestly, saying no well
+- [ ] Working with leadership — reporting up, making the ask, surfacing risk early
+- [ ] **Practice**: reframe one vault project as a business case (problem → value → cost)
+
+### H6: Personal Effectiveness
+- [ ] Time management & prioritization — deep work, Eisenhower matrix, saying no to protect focus
+- [ ] Learning how to learn — spaced repetition, deliberate practice (this vault *is* this skill)
+- [ ] Handling ambiguity — making progress without complete information
+- [ ] Growth mindset & resilience — treating failures as data, sustainable pace over burnout
+- [ ] **Practice**: run a weekly personal review; timebox one deep-work block daily
+
+**Reading resources (this track's "textbooks"):**
+- 📘 **Crucial Conversations** — Patterson et al. — the standard for high-stakes discussions (pairs with H4).
+- 📘 **Radical Candor** — Kim Scott — care personally + challenge directly; feedback and management (H3, H4).
+- 📘 **The Manager's Path** — Camille Fournier — the tech IC→lead→manager progression; excellent even if you stay IC (H3).
+- 📘 **Made to Stick** — Chip & Dan Heath — why some ideas land; the communication craft (H1).
+- 📘 **Thinking, Fast and Slow** — Kahneman — cognitive biases; foundational for decision-making and EQ (H4, H5).
+- 📘 **The Staff Engineer's Path** — Tanya Reilly — leading and influencing as a senior IC (H3, H5).
+- 🎥 *Free*: MIT 6.UAR / "Patterns for Effective Communication"; conference talks on staff-engineering archetypes; LeadDev talks (leadership for engineers).
 
 ---
 
