@@ -7,6 +7,7 @@ related:
   - "[[basis-and-dimension]]"
   - "[[linear-independence]]"
   - "[[projection-onto-subspaces]]"
+  - "[[platzi-algebra-lineal]]"
 domain: linear-algebra
 sources:
   - "https://www.youtube.com/watch?v=k7RM-ot2NWY"
