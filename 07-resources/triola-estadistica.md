@@ -26,7 +26,7 @@ date_read: "2026-08-02 (in progress)"
 | 1   | Introduction to Statistics                               | [[population-and-sample]], [[parameter-vs-statistic]], [[data-types-and-levels-of-measurement]], [[principles-of-statistical-thinking]], [[statistical-significance]], [[common-misuses-of-statistics]] |
 | 2   | Summarizing and Graphing Data                            | [[frequency-distribution]], [[relative-frequency-distribution]], [[histogram]], [[characteristics-of-data]], [[frequency-polygon]], [[ogive]], [[dot-plot]], [[stem-and-leaf-plot]], [[bar-graph]], [[pareto-chart]], [[pie-chart]], [[scatterplot]], [[time-series-graph]], [[principles-of-effective-graphs]] |
 | 3   | Statistics for Describing, Exploring, and Comparing Data | [[measures-of-center]], [[skewness]], [[weighted-mean]], [[measures-of-variation]], [[chebyshevs-theorem]], [[coefficient-of-variation]], [[z-score]], [[percentiles]], [[quartiles-and-iqr]], [[five-number-summary-and-boxplots]] |
-| 4   | Probability                                              | [[probability-fundamentals]], [[sample-space-and-events]], [[three-methods-of-assigning-probability]], [[law-of-large-numbers]], [[complementary-events]], [[addition-rule]], [[multiplication-rule]], [[odds]] |
+| 4   | Probability                                              | [[probability-fundamentals]], [[sample-space-and-events]], [[three-methods-of-assigning-probability]], [[law-of-large-numbers]], [[complementary-events]], [[addition-rule]], [[multiplication-rule]], [[conditional-probability]], [[monte-carlo-simulation]], [[counting-and-combinatorics]], [[bayes-theorem]], [[odds]] |
 | 5   | Discrete Probability Distributions                       | [[bernoulli-distribution]], [[binomial-distribution]], [[poisson-distribution]] |
 | 6   | Normal Probability Distributions                         | [[normal-distribution]], [[cdf-and-quantiles]]                                  |
 | 7   | Estimates and Sample Sizes                               |                                                                                 |
@@ -83,6 +83,10 @@ date_read: "2026-08-02 (in progress)"
 - [[complementary-events]] — §4-2: $\bar A$ = "$A$ doesn't happen", $P(A)+P(\bar A)=1$, and the "at least one" = $1-P(\text{none})$ shortcut (SAT-guessing example)
 - [[addition-rule]] — §4-3: $P(A\text{ or }B)=P(A)+P(B)-P(A\cap B)$, disjoint events as the no-overlap special case, the double-counting trap, and the softmax / union-bound connections
 - [[multiplication-rule]] — §4-4: $P(A\text{ and }B)=P(A)\cdot P(B\mid A)$, independent vs. dependent events, with/without replacement, the 5% guideline, and the i.i.d.-likelihood / chain-rule (autoregressive) connections
+- [[conditional-probability]] — §4-5: $P(B\mid A)=P(A\cap B)/P(A)$, the reduced-sample-space method, confusion of the inverse ($P(B\mid A)\ne P(A\mid B)$), and the base-rate-fallacy / precision-vs-recall connections; also §4-5's "at least one" = $1-P(\text{none})$ (covered in [[complementary-events]])
+- [[monte-carlo-simulation]] — §4-6: estimating probability by imitating a procedure with random numbers and counting (birthday problem, 6-streak in coin flips); the intractable-math escape hatch, with the MC-integration / bootstrap / MCMC connections
+- [[counting-and-combinatorics]] — §4-7: the five counting rules (fundamental, factorial, permutations, permutations-with-repeats, combinations) picked by *order?* and *repeats?*; $_nP_r$ vs. $_nC_r$, and the binomial-coefficient / combinatorial-explosion connections
+- [[bayes-theorem]] — §4-8: **independently sourced** — Triola's §4-8 defers Bayes to its companion website, so this note was written from external references (medical-test / base-rate framing); flips $P(B\mid A)\to P(A\mid B)$ via the prior, resolving §4-5's confusion of the inverse
 - [[odds]] — §4-2 Part 2: actual odds against/in-favor vs. payoff odds, the house edge (roulette 37:1 vs. 35:1), and the logit link to logistic regression
 
 *(remaining chapters to fill in as read — see [[probability-distributions]] for the overview note this book's Ch. 4-6 will extend)*
@@ -153,11 +157,14 @@ This book is the natural next input for [[probability-fundamentals|T3 (Probabili
 - [[complementary-events]] — from Ch. 4, §4-2 (Ejemplo 10): $P(A)+P(\bar A)=1$, the "at least one" shortcut, and the binary-classification / cross-entropy link
 - [[addition-rule]] — from Ch. 4, §4-3 (Ejemplos 1–3): $P(A\cup B)=P(A)+P(B)-P(A\cap B)$, disjoint/mutually-exclusive events, the polygraph double-counting example, and the softmax (disjoint classes) & union-bound / Bonferroni links
 - [[multiplication-rule]] — from Ch. 4, §4-4 (Ejemplos 1–6): $P(A\cap B)=P(A)\cdot P(B\mid A)$, independent vs. dependent events, with/without replacement (pacemaker example), the 5% guideline, redundancy, and the i.i.d.-factorized-likelihood & language-model chain-rule links
+- [[conditional-probability]] — from Ch. 4, §4-5 (Ejemplos 3–4): $P(B\mid A)=P(A\cap B)/P(A)$, the reduced-sample-space intuitive method (polygraph 42/51 vs. 42/57), confusion of the inverse / prosecutor's fallacy, and the base-rate-fallacy & precision-vs-recall links; the "at least one" complement half of §4-5 lives in [[complementary-events]]
+- [[monte-carlo-simulation]] — from Ch. 4, §4-6 (Ejemplos 1–3): estimating probability by imitating a procedure with random numbers and counting (gender/coin, birthday-problem, 6-in-a-row streak); the LLN justification and the MC-integration / bootstrap / MCMC / RL-rollout links
+- [[counting-and-combinatorics]] — from Ch. 4, §4-7 (Ejemplos 1–7): fundamental counting rule, factorial, permutations ($_nP_r$), permutations with identical items, and combinations ($_nC_r$); the *order?/repeats?* decision, exacta & lottery examples, and the binomial-coefficient (§5-3 bridge) & combinatorial-explosion / TSP links
 - [[odds]] — from Ch. 4, §4-2 Part 2 (Ejemplo 13): actual vs. payoff odds, the house edge (roulette), and the logit / logistic-regression connection
 
 ## Gaps — Notes Still to Create
 
-- [[conditional-probability]] — Ch. 4, §4-5: $P(B\mid A)$ introduced in §4-4's multiplication rule; still needs its own note (definition, the $P(A\cap B)/P(A)$ formula, and the bridge to Bayes)
+- ✅ [[bayes-theorem]] — **now written** (independently sourced, since Triola §4-8 is web-only): flips $P(B\mid A)\to P(A\mid B)$ with the prior/base rate, resolving §4-5's confusion of the inverse and the forward-links from [[conditional-probability]] / [[bernoulli-distribution]]
 - [[hypothesis-testing-and-p-values]] — already flagged in the study roadmap as T3's next priority after MLE; [[statistical-significance]] is its intuitive seed (the "how likely under no effect?" reasoning), still needs the formal null/alternative hypothesis and p-value machinery
 - [[confidence-intervals]] — estimation theory, sample size determination
 - [[correlation-and-regression]] — bridges directly to supervised ML's linear regression (T4)

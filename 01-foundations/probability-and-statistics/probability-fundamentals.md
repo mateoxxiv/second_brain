@@ -7,6 +7,8 @@ related:
   - "[[sample-space-and-events]]"
   - "[[three-methods-of-assigning-probability]]"
   - "[[complementary-events]]"
+  - "[[bayes-theorem]]"
+  - "[[law-of-total-probability]]"
 domain: probability
 sources:
   - "https://www.packtpub.com/"
@@ -40,7 +42,7 @@ Bayes' theorem is the most important formula: it flips the question. You can eas
 
 **Bayes' theorem:** P(A|B) = P(B|A) · P(A) / P(B)
 
-**Law of total probability:** P(A) = Σᵢ P(A|Bᵢ) · P(Bᵢ)
+**[[law-of-total-probability|Law of total probability]]:** P(A) = Σᵢ P(A|Bᵢ) · P(Bᵢ)
 
 **Worked example** — 200 employees: 100 engineering (70 above $5k), 100 sales (20 above $5k):
 ```
