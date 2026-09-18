@@ -27,7 +27,7 @@ date_read: "2026-08-02 (in progress)"
 | 2   | Summarizing and Graphing Data                            | [[frequency-distribution]], [[relative-frequency-distribution]], [[histogram]], [[characteristics-of-data]], [[frequency-polygon]], [[ogive]], [[dot-plot]], [[stem-and-leaf-plot]], [[bar-graph]], [[pareto-chart]], [[pie-chart]], [[scatterplot]], [[time-series-graph]], [[principles-of-effective-graphs]] |
 | 3   | Statistics for Describing, Exploring, and Comparing Data | [[measures-of-center]], [[skewness]], [[weighted-mean]], [[measures-of-variation]], [[chebyshevs-theorem]], [[coefficient-of-variation]], [[z-score]], [[percentiles]], [[quartiles-and-iqr]], [[five-number-summary-and-boxplots]] |
 | 4   | Probability                                              | [[probability-fundamentals]], [[sample-space-and-events]], [[three-methods-of-assigning-probability]], [[law-of-large-numbers]], [[complementary-events]], [[addition-rule]], [[multiplication-rule]], [[conditional-probability]], [[monte-carlo-simulation]], [[counting-and-combinatorics]], [[bayes-theorem]], [[odds]] |
-| 5   | Discrete Probability Distributions                       | [[bernoulli-distribution]], [[binomial-distribution]], [[poisson-distribution]] |
+| 5   | Discrete Probability Distributions                       | [[random-variable]], [[discrete-probability-distribution]], [[mean-and-variance-of-a-probability-distribution]], [[expected-value]], [[identifying-unusual-results]], [[bernoulli-distribution]], [[binomial-distribution]], [[poisson-distribution]] |
 | 6   | Normal Probability Distributions                         | [[normal-distribution]], [[cdf-and-quantiles]]                                  |
 | 7   | Estimates and Sample Sizes                               |                                                                                 |
 | 8   | Hypothesis Testing                                       |                                                                                 |
@@ -88,6 +88,13 @@ date_read: "2026-08-02 (in progress)"
 - [[counting-and-combinatorics]] — §4-7: the five counting rules (fundamental, factorial, permutations, permutations-with-repeats, combinations) picked by *order?* and *repeats?*; $_nP_r$ vs. $_nC_r$, and the binomial-coefficient / combinatorial-explosion connections
 - [[bayes-theorem]] — §4-8: **independently sourced** — Triola's §4-8 defers Bayes to its companion website, so this note was written from external references (medical-test / base-rate framing); flips $P(B\mid A)\to P(A\mid B)$ via the prior, resolving §4-5's confusion of the inverse
 - [[odds]] — §4-2 Part 2: actual odds against/in-favor vs. payoff odds, the house edge (roulette 37:1 vs. 35:1), and the logit link to logistic regression
+
+**Ch 5 — Discrete Probability Distributions**
+- [[random-variable]] — §5-2: a rule assigning one number to each outcome; discrete (counted, countable) vs. continuous (measured, unbroken scale)
+- [[discrete-probability-distribution]] — §5-2: the probability of each value of a random variable, the two validity requirements (ΣP(x)=1, 0≤P(x)≤1), and the area=probability histogram
+- [[mean-and-variance-of-a-probability-distribution]] — §5-2 (Formulas 5-1 to 5-4): μ, σ², σ as probability-weighted sums; derived from the frequency-table formulas by swapping f/N → P(x)
+- [[expected-value]] — §5-2: E = Σ[x·P(x)] = μ, the long-run average outcome, and its use in decision theory (roulette vs. craps bet)
+- [[identifying-unusual-results]] — §5-2: the range rule of thumb (μ±2σ) and the rare event rule (P(x or more/fewer) ≤ 0.05); the "or more", not "exactly" subtlety
 
 *(remaining chapters to fill in as read — see [[probability-distributions]] for the overview note this book's Ch. 4-6 will extend)*
 
@@ -161,6 +168,11 @@ This book is the natural next input for [[probability-fundamentals|T3 (Probabili
 - [[monte-carlo-simulation]] — from Ch. 4, §4-6 (Ejemplos 1–3): estimating probability by imitating a procedure with random numbers and counting (gender/coin, birthday-problem, 6-in-a-row streak); the LLN justification and the MC-integration / bootstrap / MCMC / RL-rollout links
 - [[counting-and-combinatorics]] — from Ch. 4, §4-7 (Ejemplos 1–7): fundamental counting rule, factorial, permutations ($_nP_r$), permutations with identical items, and combinations ($_nC_r$); the *order?/repeats?* decision, exacta & lottery examples, and the binomial-coefficient (§5-3 bridge) & combinatorial-explosion / TSP links
 - [[odds]] — from Ch. 4, §4-2 Part 2 (Ejemplo 13): actual vs. payoff odds, the house edge (roulette), and the logit / logistic-regression connection
+- [[random-variable]] — from Ch. 5, §5-2: the outcome→number rule, discrete-countable vs. continuous-measured, and why it decides classification vs. regression / sums vs. integrals
+- [[discrete-probability-distribution]] — from Ch. 5, §5-2 (Ejemplos 1–4): P(x) for each value, the two validity requirements, the probability histogram (area=probability), and the softmax/normalization link
+- [[mean-and-variance-of-a-probability-distribution]] — from Ch. 5, §5-2 (Ejemplo 5, Formulas 5-1 to 5-4): μ/σ²/σ as probability-weighted sums, the f/N→P(x) derivation, the definitional-vs-shortcut variance, and the empirical-risk / bias-variance link
+- [[expected-value]] — from Ch. 5, §5-2 (Ejemplo 8): E = Σ[x·P(x)] = μ as long-run average, the roulette-vs-craps decision, and the empirical-risk / RL-return connection
+- [[identifying-unusual-results]] — from Ch. 5, §5-2 (Ejemplos 6–7): range rule of thumb (μ±2σ) and rare event rule (tail P ≤ 0.05), the exactly-vs-or-more subtlety (501/1000 heads), and the hypothesis-testing / anomaly-detection links
 
 ## Gaps — Notes Still to Create
 
