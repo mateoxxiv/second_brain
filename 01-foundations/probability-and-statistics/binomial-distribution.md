@@ -28,7 +28,13 @@ sources:
 
 Binomial is the answer to: "I flip a coin n times, each with probability p of heads. How likely am I to get exactly k heads?" It's n independent Bernoulli trials bundled into one distribution.
 
-The PMF has two parts: the probability of one specific sequence with k successes, times the number of such sequences (combinations). Multiplied together they give the probability of getting *any* sequence with k successes.
+**The whole formula in one sentence: *probability of one way it can happen, times the number of ways it can happen.*** Those are the two factors, and here's why each exists.
+
+*One way.* Take a specific sequence of 3 flips with 2 heads, say HHT. Independent trials → [[multiplication-rule|multiply]]: $P(\text{HHT}) = p\cdot p\cdot q = p^2q$. The key realization: **order doesn't change this probability.** HTH gives $p\cdot q\cdot p = p^2q$; THH gives $q\cdot p\cdot p = p^2q$ — identical, because multiplication is commutative. Any sequence with $k$ successes is just $k$ copies of $p$ and $n-k$ copies of $q$ multiplied, so *every* such sequence has the same probability $p^k q^{n-k}$.
+
+*Number of ways.* "Exactly 2 heads" happens through several mutually exclusive orders (HHT, HTH, THH), and mutually exclusive events **add**. Since each has the same value $p^2q$, adding them = counting them and multiplying. The count is a [[counting-and-combinatorics|combination]]: $C(3,2)=3$. So $P(2\text{ heads})=3p^2q$.
+
+Put together: $P(k)=\underbrace{C(n,k)}_{\text{how many ways}}\cdot\underbrace{p^k q^{n-k}}_{\text{one way}}$. Drop the $C(n,k)$ and you undercount the arrangements (the classic mistake); drop $p^k q^{n-k}$ and you count paths without weighting how likely each is.
 
 ## Mechanics
 
