@@ -6,6 +6,7 @@ related:
   - "[[random-variable]]"
   - "[[mean-and-variance-of-a-probability-distribution]]"
   - "[[probability-distributions]]"
+  - "[[hypergeometric-distribution]]"
   - "[[relative-frequency-distribution]]"
   - "[[histogram]]"
 domain: probability

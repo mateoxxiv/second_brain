@@ -27,7 +27,7 @@ date_read: "2026-08-02 (in progress)"
 | 2   | Summarizing and Graphing Data                            | [[frequency-distribution]], [[relative-frequency-distribution]], [[histogram]], [[characteristics-of-data]], [[frequency-polygon]], [[ogive]], [[dot-plot]], [[stem-and-leaf-plot]], [[bar-graph]], [[pareto-chart]], [[pie-chart]], [[scatterplot]], [[time-series-graph]], [[principles-of-effective-graphs]] |
 | 3   | Statistics for Describing, Exploring, and Comparing Data | [[measures-of-center]], [[skewness]], [[weighted-mean]], [[measures-of-variation]], [[chebyshevs-theorem]], [[coefficient-of-variation]], [[z-score]], [[percentiles]], [[quartiles-and-iqr]], [[five-number-summary-and-boxplots]] |
 | 4   | Probability                                              | [[probability-fundamentals]], [[sample-space-and-events]], [[three-methods-of-assigning-probability]], [[law-of-large-numbers]], [[complementary-events]], [[addition-rule]], [[multiplication-rule]], [[conditional-probability]], [[monte-carlo-simulation]], [[counting-and-combinatorics]], [[bayes-theorem]], [[odds]] |
-| 5   | Discrete Probability Distributions                       | [[random-variable]], [[discrete-probability-distribution]], [[mean-and-variance-of-a-probability-distribution]], [[expected-value]], [[identifying-unusual-results]], [[bernoulli-distribution]], [[binomial-distribution]], [[poisson-distribution]] |
+| 5   | Discrete Probability Distributions                       | [[random-variable]], [[discrete-probability-distribution]], [[mean-and-variance-of-a-probability-distribution]], [[expected-value]], [[identifying-unusual-results]], [[bernoulli-distribution]], [[binomial-distribution]], [[hypergeometric-distribution]], [[poisson-distribution]] |
 | 6   | Normal Probability Distributions                         | [[normal-distribution]], [[cdf-and-quantiles]]                                  |
 | 7   | Estimates and Sample Sizes                               |                                                                                 |
 | 8   | Hypothesis Testing                                       |                                                                                 |
@@ -95,6 +95,7 @@ date_read: "2026-08-02 (in progress)"
 - [[mean-and-variance-of-a-probability-distribution]] — §5-2 (Formulas 5-1 to 5-4): μ, σ², σ as probability-weighted sums; derived from the frequency-table formulas by swapping f/N → P(x)
 - [[expected-value]] — §5-2: E = Σ[x·P(x)] = μ, the long-run average outcome, and its use in decision theory (roulette vs. craps bet)
 - [[identifying-unusual-results]] — §5-2: the range rule of thumb (μ±2σ) and the rare event rule (P(x or more/fewer) ≤ 0.05); the "or more", not "exactly" subtlety
+- [[hypergeometric-distribution]] — §5-4 (& §5-2 Ex. 32): counting successes in n draws *without replacement*, P(x)=C(K,x)C(N−K,n−x)/C(N,n); the without-replacement cousin of the binomial, worked on the Sky Ranch altimeters
 
 *(remaining chapters to fill in as read — see [[probability-distributions]] for the overview note this book's Ch. 4-6 will extend)*
 
@@ -173,6 +174,7 @@ This book is the natural next input for [[probability-fundamentals|T3 (Probabili
 - [[mean-and-variance-of-a-probability-distribution]] — from Ch. 5, §5-2 (Ejemplo 5, Formulas 5-1 to 5-4): μ/σ²/σ as probability-weighted sums, the f/N→P(x) derivation, the definitional-vs-shortcut variance, and the empirical-risk / bias-variance link
 - [[expected-value]] — from Ch. 5, §5-2 (Ejemplo 8): E = Σ[x·P(x)] = μ as long-run average, the roulette-vs-craps decision, and the empirical-risk / RL-return connection
 - [[identifying-unusual-results]] — from Ch. 5, §5-2 (Ejemplos 6–7): range rule of thumb (μ±2σ) and rare event rule (tail P ≤ 0.05), the exactly-vs-or-more subtlety (501/1000 heads), and the hypothesis-testing / anomaly-detection links
+- [[hypergeometric-distribution]] — from Ch. 5, §5-4 (worked on §5-2 Ex. 32, Sky Ranch altimeters): without-replacement success count, C(K,x)C(N−K,n−x)/C(N,n), μ=nK/N and the finite population correction; the binomial cousin and the Fisher's-exact-test link
 
 ## Gaps — Notes Still to Create
 

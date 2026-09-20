@@ -9,6 +9,7 @@ related:
   - "[[probability-fundamentals]]"
   - "[[conditional-probability]]"
   - "[[bernoulli-distribution]]"
+  - "[[hypergeometric-distribution]]"
   - "[[triola-estadistica]]"
 domain: probability
 sources:

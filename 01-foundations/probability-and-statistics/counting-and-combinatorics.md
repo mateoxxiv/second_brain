@@ -6,6 +6,7 @@ related:
   - "[[sample-space-and-events]]"
   - "[[three-methods-of-assigning-probability]]"
   - "[[binomial-distribution]]"
+  - "[[hypergeometric-distribution]]"
   - "[[probability-fundamentals]]"
   - "[[triola-estadistica]]"
 domain: probability

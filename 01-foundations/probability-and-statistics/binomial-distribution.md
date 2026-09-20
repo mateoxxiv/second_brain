@@ -3,6 +3,7 @@ tags:
   - status/growing
   - probability
 related:
+  - "[[hypergeometric-distribution]]"
   - "[[probability-distributions]]"
   - "[[bernoulli-distribution]]"
   - "[[normal-distribution]]"
