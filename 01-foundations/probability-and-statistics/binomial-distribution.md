@@ -3,6 +3,9 @@ tags:
   - status/growing
   - probability
 related:
+  - "[[binomial-distribution-requirements]]"
+  - "[[multiplication-rule]]"
+  - "[[counting-and-combinatorics]]"
   - "[[hypergeometric-distribution]]"
   - "[[probability-distributions]]"
   - "[[bernoulli-distribution]]"
@@ -11,6 +14,7 @@ related:
   - "[[statistical-significance]]"
 domain: probability
 sources:
+  - "Triola, Estadística 11e, §5-3 (Fórmula 5-5)"
   - "https://mml-book.github.io/book/mml-book.pdf"
   - "https://www.packtpub.com/"
   - "https://www.khanacademy.org/math/statistics-probability"
@@ -28,11 +32,13 @@ The PMF has two parts: the probability of one specific sequence with k successes
 
 ## Mechanics
 
-**PMF derivation:**
-- One sequence with k successes: p^k · (1−p)^(n−k)
-- Number of such sequences: C(n,k) = n! / (k!(n−k)!)
+**Prerequisite:** the procedure must first pass the four [[binomial-distribution-requirements|binomial requirements]] (fixed n, independent trials, two categories, constant p). Only then does the formula apply.
 
-$$P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}$$
+**PMF derivation** — the formula is *multiplication rule × counting rule* (Triola §5-3):
+- One *specific* sequence with k successes: by the [[multiplication-rule]], $p^k(1-p)^{n-k}$. E.g. 3 green then 2 non-green pods: $0.75^3\cdot0.25^2 = 0.0264$.
+- But "exactly k successes" ignores order, so multiply by the number of arrangements — the [[counting-and-combinatorics|combination]] $C(n,k)$. For 3 of 5: $\tfrac{5!}{2!\,3!}=10$ arrangements, each with prob 0.0264 → $10\times0.0264 = 0.264$.
+
+$$P(X = k) = \underbrace{\binom{n}{k}}_{\text{# arrangements}} \underbrace{p^k (1-p)^{n-k}}_{\text{prob. of one such sequence}}$$
 
 **Expectation and variance** (from linearity — Binomial = sum of n Bernoullis):
 $$E[X] = np \qquad \text{Var}(X) = np(1-p)$$
