@@ -34,6 +34,8 @@ Binomial is the answer to: "I flip a coin n times, each with probability p of he
 
 *Number of ways.* "Exactly 2 heads" happens through several mutually exclusive orders (HHT, HTH, THH), and mutually exclusive events **add**. Since each has the same value $p^2q$, adding them = counting them and multiplying. The count is a [[counting-and-combinatorics|combination]]: $C(3,2)=3$. So $P(2\text{ heads})=3p^2q$.
 
+**What $C(n,k)$ really asks: "how many *distinct* ways can I arrange $k$ successes and $n-k$ failures in a row?"** (SSF, SFS, FSS → 3). This *is* an ordering question — so why a combination, not a permutation? Because the successes are **identical to each other**: swapping two S's gives the same row. Starting from all $n!$ orderings and dividing out the $k!$ reorderings of identical successes and $(n-k)!$ of identical failures gives $\tfrac{n!}{k!(n-k)!}=C(n,k)$. Equivalently: "choose *which* $k$ of the $n$ positions are successes." Same number, two lenses.
+
 Put together: $P(k)=\underbrace{C(n,k)}_{\text{how many ways}}\cdot\underbrace{p^k q^{n-k}}_{\text{one way}}$. Drop the $C(n,k)$ and you undercount the arrangements (the classic mistake); drop $p^k q^{n-k}$ and you count paths without weighting how likely each is.
 
 ## Mechanics
