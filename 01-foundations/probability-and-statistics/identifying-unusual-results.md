@@ -4,6 +4,7 @@ tags:
   - probability
 related:
   - "[[mean-and-variance-of-a-probability-distribution]]"
+  - "[[binomial-mean-and-variance]]"
   - "[[discrete-probability-distribution]]"
   - "[[statistical-significance]]"
   - "[[measures-of-variation]]"

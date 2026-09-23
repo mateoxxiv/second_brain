@@ -5,6 +5,7 @@ tags:
 related:
   - "[[discrete-probability-distribution]]"
   - "[[expected-value]]"
+  - "[[binomial-mean-and-variance]]"
   - "[[measures-of-center]]"
   - "[[measures-of-variation]]"
   - "[[weighted-mean]]"

@@ -4,6 +4,7 @@ tags:
   - probability
 related:
   - "[[binomial-distribution-requirements]]"
+  - "[[binomial-mean-and-variance]]"
   - "[[multiplication-rule]]"
   - "[[counting-and-combinatorics]]"
   - "[[hypergeometric-distribution]]"
@@ -48,8 +49,7 @@ Put together: $P(k)=\underbrace{C(n,k)}_{\text{how many ways}}\cdot\underbrace{p
 
 $$P(X = k) = \underbrace{\binom{n}{k}}_{\text{# arrangements}} \underbrace{p^k (1-p)^{n-k}}_{\text{prob. of one such sequence}}$$
 
-**Expectation and variance** (from linearity — Binomial = sum of n Bernoullis):
-$$E[X] = np \qquad \text{Var}(X) = np(1-p)$$
+**Expectation and variance:** $E[X] = np$, $\text{Var}(X) = np(1-p)$ — derived (Binomial = sum of n Bernoullis) and interpreted via the range rule in [[binomial-mean-and-variance]].
 
 **CLT approximation** — for large n: Binomial(n,p) ≈ N(np, np(1−p))
 Rule of thumb: approximation valid when np ≥ 5 and n(1−p) ≥ 5.
