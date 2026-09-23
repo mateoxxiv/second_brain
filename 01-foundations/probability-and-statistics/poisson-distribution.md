@@ -5,9 +5,11 @@ tags:
 related:
   - "[[probability-distributions]]"
   - "[[binomial-distribution]]"
+  - "[[poisson-approximation-to-binomial]]"
   - "[[exponential-distribution]]"
 domain: probability
 sources:
+  - "Triola, Estadística 11e, §5-5 (Distribución de Poisson)"
   - "https://mml-book.github.io/book/mml-book.pdf"
   - "https://www.packtpub.com/"
   - "https://www.khanacademy.org/math/statistics-probability"
@@ -19,7 +21,7 @@ sources:
 
 ## Intuition
 
-Poisson answers: "I know events arrive at an average rate of λ per hour. How likely am I to see exactly k arrivals in the next hour?" It's the limiting case of Binomial when you chop the interval into infinitely many tiny sub-intervals.
+Poisson answers: "I know events arrive at an average rate of λ per hour. How likely am I to see exactly k arrivals in the next hour?" It's the limiting case of Binomial when you chop the interval into infinitely many tiny sub-intervals — which is also why it can serve as a [[poisson-approximation-to-binomial|shortcut for a large-n, small-p binomial]].
 
 The key diagnostic: in Poisson data, the mean should equal the variance. If your count data has variance much greater than mean (overdispersion), Poisson is the wrong model.
 
@@ -28,9 +30,17 @@ The key diagnostic: in Poisson data, the mean should equal the variance. If your
 **PMF** (derived from Binomial limit: n→∞, p→0, np=λ):
 $$P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}, \quad k = 0, 1, 2, \ldots$$
 
-$$E[X] = \lambda \qquad \text{Var}(X) = \lambda$$
+$$E[X] = \lambda \qquad \text{Var}(X) = \lambda \qquad \sigma = \sqrt{\lambda}$$
+
+(Triola §5-5 writes the rate as $\mu$; $\mu = \lambda$. The distribution has just **one** parameter — the mean — hence $\sigma=\sqrt{\mu}$.)
+
+**Four requirements.** (1) $x$ = number of occurrences in an interval (time, distance, area, volume…); (2) occurrences are random; (3) independent of each other; (4) uniformly distributed over the interval.
+
+**Contrast with the [[binomial-distribution|binomial]].** Binomial depends on *two* parameters ($n, p$) and $x$ is capped at $n$; Poisson depends on *one* ($\mu$) and $x$ has **no upper bound** ($0,1,2,\dots$).
 
 **Overdispersion diagnostic:** if Var(X) >> E[X], data is not Poisson (use Negative Binomial).
+
+**Goodness of fit.** To test whether counts are Poisson, compare *observed* frequencies to *expected* ones, $N\cdot P(x)$. Triola's earthquake data (93 quakes in 100 years → $\mu=0.93$) matches its Poisson expected frequencies closely, so Poisson is a good model there.
 
 ```python
 import numpy as np
