@@ -24,7 +24,7 @@ date_read: "2026-09-25 (in progress)"
 
 | Module | Topic | Vault notes |
 |---|---|---|
-| 1 | Intro to Fabric + free access (personal/pro account) | |
+| 1 | Intro to Fabric + free access (personal/pro account) | [[microsoft-fabric]] |
 | 2 | Core concepts: workspaces, OneLake, capacities, item types | |
 | 3 | Data Factory: pipelines & Dataflows Gen2 (ingestion/ETL) | |
 | 4 | Data Engineering: Lakehouse + Spark Notebooks (PySpark, Spark SQL) | |
@@ -38,7 +38,8 @@ date_read: "2026-09-25 (in progress)"
 
 ## All Topics at a Glance
 
-> To be filled in as permanent notes are created (see Gaps). No vault notes exist yet for this domain.
+**Module 1 — Intro**
+- [[microsoft-fabric]] — one SaaS platform where every workload shares one copy of the data (OneLake, Delta/Parquet)
 
 ---
 
@@ -63,7 +64,7 @@ This sits in a different lane from the current probability/stats track, but it's
 
 ## Permanent Notes Created
 
-- *(none yet — course in progress)*
+- [[microsoft-fabric]] — what Fabric is: unified SaaS platform on OneLake, its three layers, and collaboration by role (Module 1–2 companion)
 
 ## Gaps — Notes Still to Create
 
