@@ -28,7 +28,7 @@ date_read: "2026-08-02 (in progress)"
 | 3   | Statistics for Describing, Exploring, and Comparing Data | [[measures-of-center]], [[skewness]], [[weighted-mean]], [[measures-of-variation]], [[chebyshevs-theorem]], [[coefficient-of-variation]], [[z-score]], [[percentiles]], [[quartiles-and-iqr]], [[five-number-summary-and-boxplots]] |
 | 4   | Probability                                              | [[probability-fundamentals]], [[sample-space-and-events]], [[three-methods-of-assigning-probability]], [[law-of-large-numbers]], [[complementary-events]], [[addition-rule]], [[multiplication-rule]], [[conditional-probability]], [[monte-carlo-simulation]], [[counting-and-combinatorics]], [[bayes-theorem]], [[odds]] |
 | 5   | Discrete Probability Distributions                       | [[random-variable]], [[discrete-probability-distribution]], [[mean-and-variance-of-a-probability-distribution]], [[expected-value]], [[identifying-unusual-results]], [[bernoulli-distribution]], [[binomial-distribution-requirements]], [[binomial-distribution]], [[binomial-mean-and-variance]], [[hypergeometric-distribution]], [[poisson-distribution]], [[poisson-approximation-to-binomial]] |
-| 6   | Normal Probability Distributions                         | [[normal-distribution]], [[cdf-and-quantiles]]                                  |
+| 6   | Normal Probability Distributions                         | [[normal-distribution]], [[probability-density-function]], [[uniform-distribution]], [[standard-normal-distribution]], [[critical-values-and-z-alpha]], [[cdf-and-quantiles]] |
 | 7   | Estimates and Sample Sizes                               |                                                                                 |
 | 8   | Hypothesis Testing                                       |                                                                                 |
 | 9   | Inferences from Two Samples                              |                                                                                 |
@@ -101,6 +101,12 @@ date_read: "2026-08-02 (in progress)"
 - [[binomial-mean-and-variance]] — §5-4 (Formulas 5-6 to 5-8): the shortcuts μ=np, σ²=npq, σ=√npq (derived as a sum of n Bernoullis), and interpreting them with the range rule np±2√npq to judge unusual counts (Mendel's 428/580 is consistent with 75%)
 - [[poisson-distribution]] — §5-5: counts of rare events in an interval, P(x)=μˣe⁻ᵘ/x!, the four requirements, μ and σ=√μ (one parameter), the binomial contrast (no upper bound on x); earthquake goodness-of-fit
 - [[poisson-approximation-to-binomial]] — §5-5: when n≥100 and np≤10, approximate a large-n/small-p binomial by Poisson(μ=np); Illinois Pick 3 (0.253 ≈ binomial 0.254)
+
+**Ch 6 — Normal Probability Distributions**
+- [[probability-density-function]] — §6-1/§6-2: continuous distributions as density curves; the two requirements (area = 1, f ≥ 0), area = probability, P(X = a) = 0 so ≤ and < coincide, and height ≠ probability
+- [[uniform-distribution]] — §6-2 (Ejemplos 1–2): flat rectangle of height 1/(b−a), probability = width × height (voltage 123–125 V, P(>124.5) = 0.25)
+- [[standard-normal-distribution]] — §6-1/§6-2 (Ejemplos 3–5): N(0,1), a normal fixed by μ and σ (Fórmula 6-1), Table A-2 left-cumulative Φ(z), and the left / right (1−Φ) / between (Φ(b)−Φ(a)) area patterns (thermometers)
+- [[critical-values-and-z-alpha]] — §6-2 (Ejemplos 6–8): area → z (inverse lookup), the special cases 1.645 / 1.96 / 2.575, critical values, and z_α = area α to the right (look up 1−α)
 
 *(remaining chapters to fill in as read — see [[probability-distributions]] for the overview note this book's Ch. 4-6 will extend)*
 
@@ -185,6 +191,10 @@ This book is the natural next input for [[probability-fundamentals|T3 (Probabili
 - [[binomial-mean-and-variance]] — from Ch. 5, §5-4 (Ejemplos 1–2, Formulas 5-6 to 5-8): μ=np, σ²=npq, σ=√npq as easier shortcuts, derived cleanly as the sum of n independent Bernoullis (the derivation Triola omits), and the range-rule interpretation (Mendel 428/580 inside [414,456] → consistent with 75%); the standard-error-of-a-proportion / accuracy-CI links
 - [[poisson-distribution]] — enriched from Ch. 5, §5-5 (Ejemplo 1, earthquakes): P(x)=μˣe⁻ᵘ/x!, the four requirements, one-parameter μ with σ=√μ, the binomial contrast (x unbounded), and observed-vs-expected goodness of fit; the pre-existing E=Var=λ diagnostic and Poisson-regression / NLP links
 - [[poisson-approximation-to-binomial]] — from Ch. 5, §5-5 (Ejemplo 2, Illinois Pick 3): approximate a large-n/small-p binomial by Poisson(μ=np) when n≥100 and np≤10 (0.253 ≈ exact 0.254); the same limit that defines the Poisson, plus numerical-stability / rare-event-modeling links
+- [[probability-density-function]] — from Ch. 6, §6-1/§6-2: density requirements, area = probability, zero probability for exact values, and the continuous-likelihood / normalizing-flow links
+- [[uniform-distribution]] — from Ch. 6, §6-2 (Ejemplos 1–2): height 1/range, width × height, mean/variance, and the U(0,1)-sampling / Glorot-uniform links
+- [[standard-normal-distribution]] — from Ch. 6, §6-1/§6-2 (Ejemplos 3–5): Φ(z) and Table A-2, left/right/between areas, symmetry, and the StandardScaler / GELU = xΦ(x) links
+- [[critical-values-and-z-alpha]] — from Ch. 6, §6-2 (Ejemplos 6–8): area→z procedure, special z values, critical values, z_α = Φ⁻¹(1−α), and the CI / A/B-test / anomaly-threshold links
 
 ## Gaps — Notes Still to Create
 

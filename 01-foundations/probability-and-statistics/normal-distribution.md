@@ -8,6 +8,9 @@ related:
   - "[[optimization]]"
   - "[[gradient-descent]]"
   - "[[binomial-distribution]]"
+  - "[[standard-normal-distribution]]"
+  - "[[probability-density-function]]"
+  - "[[critical-values-and-z-alpha]]"
 domain: probability
 sources:
   - "https://www.youtube.com/watch?v=zeJD6dqJ5lo"
