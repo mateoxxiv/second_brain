@@ -42,7 +42,7 @@ A [[frequency-distribution|frequency table]] already tells you how many values f
 ![[histogram-women-pulses.png]]
 *Figura 2-3 — Histogram, women's pulses (Triola's data): bars touch at class boundaries; the lone far-right bar is the 124 bpm outlier.*
 
-**Interpreting a histogram (CVDOT)** — read [[characteristics-of-data|Center, Variation, Distribution shape, Outliers]]. Triola's Fig. 2-3 (women's pulses): centered around **80**, values span roughly **60–130**, shape is **left-heavy (skewed)**, and the lone far-right bar flags a dubious **125 bpm** outlier.
+**Interpreting a histogram (CVDOT)** — read [[characteristics-of-data|Center, Variation, Distribution shape, Outliers]]. Triola's Fig. 2-3 (women's pulses): the center is in the **70s** (the cumulative counts 12, 26 put the median in the 70–79 class), values span roughly **60–130**, the bulk sits on the left with a long tail to the right — **right-skewed** — and the lone far-right bar flags a dubious **124 bpm** outlier.
 
 **Checking for normality** — a [[normal-distribution|normal distribution]] graphs as a **symmetric bell**: frequencies rise to a peak then fall, with the left half a near mirror of the right. Many statistical procedures require approximately normal data, and a histogram is the quick visual check of that assumption.
 

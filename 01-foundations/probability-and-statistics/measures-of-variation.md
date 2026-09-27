@@ -89,7 +89,7 @@ x.var(ddof=1)   # 49.0  sample variance s²
 
 **Variance IS the signal that many models chase.** PCA keeps the directions of *maximum variance*; feature selection often drops near-zero-variance columns; the bias–variance decomposition splits error using this exact quantity. The additivity of variances underlies why independent noise sources add in quadrature.
 
-**s² and the loss are the same object.** Minimizing mean squared error is minimizing the variance of the residuals — the sum-of-squares that defines $s$ is the sum-of-squares least-squares regression drives down.
+**s² and the loss are the same object.** Minimizing mean squared error is minimizing the (population-style) variance of the residuals *when their mean is zero* — which OLS with an intercept guarantees — the sum-of-squares that defines $s$ is the sum-of-squares least-squares regression drives down.
 
 ## Exercises
 

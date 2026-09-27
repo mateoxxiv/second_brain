@@ -26,7 +26,7 @@ sources:
 
 ## Intuition
 
-A striker took 12 shots and the team held 55% possession. To a model that measures similarity by raw distance, a 1-unit change in shots looks 55× smaller than a 1-unit change in possession — purely because of the numbers' magnitudes, not their importance. The larger-ranged feature silently dominates. Scaling levels the field: it strips the units so no feature wins just for being counted in bigger numbers. Note this only matters for models that compare feature magnitudes — **distance-based** ([[k-means-clustering|K-Means]], KNN, SVM) and **gradient-based** (linear/logistic regression, neural nets); tree-based models split one feature at a time and are scale-invariant, so they don't need it.
+A striker took 12 shots (shots range roughly 3–15) and the team held 55% possession (possession ranges roughly 30–70). To a model that measures similarity by raw distance, two matches can differ by at most ~12 in shots but by ~40 in possession — so possession differences swamp shot differences purely because of the columns' **ranges**, not their importance. The larger-ranged feature silently dominates. Scaling levels the field: it strips the units so no feature wins just for being counted in bigger numbers. Note this only matters for models that compare feature magnitudes — **distance-based** ([[k-means-clustering|K-Means]], KNN, SVM) and **gradient-based** (linear/logistic regression, neural nets); tree-based models split one feature at a time and are scale-invariant, so they don't need it.
 
 ## Mechanics
 
@@ -38,17 +38,21 @@ Two dominant transforms, both fit column-by-column:
 | **Standardization (z-score)** | $x' = \dfrac{x - \bar{x}}{s}$ | mean 0, [[measures-of-variation\|std]] 1, unbounded | data ~[[normal-distribution\|normal]] or centered assumed (PCA, linear models) |
 
 - **Min-max** preserves the distribution's *shape* exactly (it's a linear rescale) but is **fragile to outliers**: one huge max squashes everyone else toward 0.
-- **Standardization** re-centers on the [[measures-of-center|mean]] and divides by the [[measures-of-variation|standard deviation]] — the [[coefficient-of-variation|z-score]] machinery — so it doesn't bound the range but is less distorted by a single extreme. For heavy outliers, `RobustScaler` (median / IQR) beats both.
+- **Standardization** re-centers on the [[measures-of-center|mean]] and divides by the [[measures-of-variation|standard deviation]] — the [[z-score]] machinery — so it doesn't bound the range but is less distorted by a single extreme. For heavy outliers, `RobustScaler` (median / IQR) beats both.
 
 **The leakage trap — fit on train only.** Scalers *learn* parameters (min/max, or mean/std) from data. Those must be learned from the **training set alone**, then applied to test/new data — otherwise test-set statistics leak into training and inflate your score. The course's `fit_transform(df)` on the whole frame is fine for a demo but wrong for real modeling; see [[train-test-split]].
 
 ```python
 from sklearn.preprocessing import MinMaxScaler, StandardScaler  # Platzi Clase 7
 # fit ONLY on train, then transform both
-norm = MinMaxScaler().fit(X_train[["tiros_local", "tiros_visitante"]])
-std  = StandardScaler().fit(X_train[["posesion_local", "posesion_visitante"]])
-X_train[cols_n] = norm.transform(X_train[["tiros_local", "tiros_visitante"]])
-X_test[cols_n]  = norm.transform(X_test[["tiros_local", "tiros_visitante"]])
+cols_n = ["tiros_local", "tiros_visitante"]
+cols_s = ["posesion_local", "posesion_visitante"]
+norm = MinMaxScaler().fit(X_train[cols_n])
+std  = StandardScaler().fit(X_train[cols_s])
+X_train[cols_n] = norm.transform(X_train[cols_n])
+X_test[cols_n]  = norm.transform(X_test[cols_n])
+X_train[cols_s] = std.transform(X_train[cols_s])
+X_test[cols_s]  = std.transform(X_test[cols_s])
 ```
 
 `fit` computes the parameters; `transform` applies the formula; `fit_transform` chains them — use it only on the training split.

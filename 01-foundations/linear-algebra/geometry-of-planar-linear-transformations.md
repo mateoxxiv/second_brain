@@ -16,7 +16,7 @@ sources:
   - "Anton, Howard. Introducción al Álgebra Lineal. §5.3"
 ---
 
-> **TL;DR** — Every geometric effect a $2\times 2$ matrix can have — rotate, mirror, stretch, or slant — is one of five named transformations, and chaining several of them in sequence is just multiplying their standard matrices in the order applied.
+> **TL;DR** — The basic geometric effects a $2\times 2$ matrix can have — rotate, mirror, flatten, stretch, or slant — form five named families (rotation, reflection, projection, expansion/compression, shear), and chaining several of them in sequence is just multiplying their standard matrices in the order applied.
 
 ---
 
@@ -34,6 +34,8 @@ Five families of $2\times 2$ linear maps, all built the same way — evaluate on
 | Reflection about $y$-axis | $\begin{bmatrix}-1&0\\0&1\end{bmatrix}$ | mirrors left/right |
 | Reflection about $x$-axis | $\begin{bmatrix}1&0\\0&-1\end{bmatrix}$ | mirrors up/down |
 | Reflection about $y=x$ | $\begin{bmatrix}0&1\\1&0\end{bmatrix}$ | swaps coordinates |
+| Orthogonal projection onto $x$-axis | $\begin{bmatrix}1&0\\0&0\end{bmatrix}$ | drops each point straight down to the $x$-axis; $\det=0$, not invertible |
+| Orthogonal projection onto $y$-axis | $\begin{bmatrix}0&0\\0&1\end{bmatrix}$ | drops each point sideways onto the $y$-axis; $\det=0$, not invertible |
 | Expansion/compression in $x$, factor $k>0$ | $\begin{bmatrix}k&0\\0&1\end{bmatrix}$ | stretches ($k>1$) or shrinks ($0<k<1$) horizontally |
 | Expansion/compression in $y$, factor $k>0$ | $\begin{bmatrix}1&0\\0&k\end{bmatrix}$ | stretches or shrinks vertically |
 | Shear in $x$, factor $k$ | $\begin{bmatrix}1&k\\0&1\end{bmatrix}$ | slides each point by $ky$ parallel to the $x$-axis; the $x$-axis itself stays fixed |
@@ -41,7 +43,7 @@ Five families of $2\times 2$ linear maps, all built the same way — evaluate on
 
 **Shears, precisely** — an $x$-shear moves $(x,y) \mapsto (x+ky, y)$: points already on $y=0$ don't move at all, and displacement grows with distance from the $x$-axis. It's linear (check both axioms), even though it looks like it "should" be an affine translation — the key is the displacement is proportional to $y$, not constant.
 
-**The identity is a degenerate case of all five families** — rotation with $\theta=0$, shear with $k=0$ (either direction), or scaling with $k=1$ all reduce to $\begin{bmatrix}1&0\\0&1\end{bmatrix}$.
+**The identity is a degenerate case of three of the families** — rotation with $\theta=0$, shear with $k=0$ (either direction), or scaling with $k=1$ all reduce to $\begin{bmatrix}1&0\\0&1\end{bmatrix}$. Reflections and projections never do — reflections flip orientation ($\det=-1$), projections collapse the plane ($\det=0$).
 
 **Composition = matrix product, order matters** — applying $T_1$ then $T_2$ then ... then $T_k$ (each $T_i(\mathbf{x})=A_i\mathbf{x}$) collapses to *one* standard matrix:
 
@@ -69,7 +71,7 @@ assert not np.allclose(shear_then_reflect, reflect_then_shear)   # order matters
 
 **Data augmentation is this table** — random rotations, shears, and scale jitter applied to training images are exactly these matrices applied to pixel coordinate grids; stacking several augmentations is the same matrix product shown above.
 
-**Spatial Transformer Networks** learn the entries of an affine matrix (rotation + shear + scale + translation) end-to-end via backprop, letting a CNN warp its own input to cancel out pose variation — the five families here are precisely the degrees of freedom it's allowed to learn.
+**Spatial Transformer Networks** learn the entries of an affine matrix (rotation + shear + scale + translation) end-to-end via backprop, letting a CNN warp its own input to cancel out pose variation — the invertible families here (rotation, reflection, scaling, shear), plus translation, are exactly the degrees of freedom it's allowed to learn.
 
 **SVD generalizes this to any matrix, any dimension** — [[singular-value-decomposition]] shows every matrix factors as rotation · scaling · rotation ($A = U\Sigma V^T$). The five planar primitives above are the $2\times 2$, axis-aligned special case of that same idea: any linear map, however complex, decomposes into rotate–stretch–rotate.
 

@@ -69,7 +69,7 @@ print(ip(lambda x: x, lambda x: x**2))  # 0.0  → orthogonal
 
 **Orthogonal features mean zero redundancy** — in PCA, eigenvectors are orthogonal under the standard inner product; each principal component captures variance the others do not. The Pythagorean theorem says their contributions to total variance add up exactly with no cross-terms.
 
-**Attention is angle-based** — [[cosine-similarity]] is the normalized inner product, i.e., $\cos\theta$. Transformer attention computes this angle between query and key vectors to score relevance. High cosine → small angle → strong attention weight.
+**Attention is partly angle-based** — [[cosine-similarity]] is the normalized inner product, i.e., $\cos\theta$. Transformer attention scores are the *unnormalized* inner product $\mathbf{q}\cdot\mathbf{k}/\sqrt{d_k} = \|\mathbf{q}\|\|\mathbf{k}\|\cos\theta/\sqrt{d_k}$: a small angle raises the score, but so do larger norms.
 
 **Orthogonal weight initialization** — initializing neural network weight matrices to be orthogonal (columns satisfy $\langle\mathbf{w}_i,\mathbf{w}_j\rangle=0$) preserves gradient norms during backpropagation. The Pythagorean theorem is why: orthogonal transformations don't stretch or shrink the norm.
 

@@ -49,6 +49,6 @@ For an event $A$ with true probability $P(A)$ (and complement $P(\bar A)$):
 
 **Basic** — An event has probability $P(A)=0.25$. Find the actual odds against $A$ and the actual odds in favor of $A$.
 
-**Intermediate** — A racetrack offers payoff odds of $4{:}1$ on a horse whose true win probability is $0.25$ (actual odds against $=3{:}1$). On a \$10 bet, how much does the track keep relative to a fair payout? Is this bet favorable to the track?
+**Intermediate** — A racetrack offers payoff odds of $2{:}1$ on a horse whose true win probability is $0.25$ (actual odds against $=3{:}1$). On a \$10 bet, how much less than a fair payout does a winner receive, and what is the bettor's expected value? Then redo it with payoff odds of $4{:}1$ — who is favored now?
 
 **Advanced** — Show that the logit $\ln\frac{p}{1-p}$ maps $p\in(0,1)$ onto all of $(-\infty,\infty)$, and that $p=0.5$ ↔ log-odds $=0$ ↔ actual odds $1{:}1$. Explain why this makes log-odds the convenient space for a *linear* model to predict a probability.

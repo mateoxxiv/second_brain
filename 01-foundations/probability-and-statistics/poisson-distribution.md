@@ -15,7 +15,7 @@ sources:
   - "https://www.khanacademy.org/math/statistics-probability"
 ---
 
-> **TL;DR** — Counts rare independent events in a fixed interval. PMF = λ^k · e^{−λ} / k!. Defining property: E[X] = Var(X) = λ. Use this equality as a diagnostic.
+> **TL;DR** — Counts rare independent events in a fixed interval. PMF = λ^k · e^{−λ} / k!. Signature property: E[X] = Var(X) = λ — a necessary check, not a definition (other distributions can share it). Use this equality as a diagnostic.
 
 ---
 

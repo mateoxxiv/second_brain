@@ -76,7 +76,7 @@ print(np.isclose(lhs, rhs))                    # True — Lagrange identity
 
 **Surface normals in 3D geometry** — cross product computes the normal vector to a surface face, used in 3D mesh processing, neural radiance fields (NeRF), and 3D point cloud models.
 
-**Lagrange identity and Cauchy-Schwarz** — rearranging: $\|\mathbf{a}\times\mathbf{b}\|^2 = \|\mathbf{a}\|^2\|\mathbf{b}\|^2 - (\mathbf{a}\cdot\mathbf{b})^2 \geq 0$ immediately proves $|\mathbf{a}\cdot\mathbf{b}| \leq \|\mathbf{a}\|\|\mathbf{b}\|$ (Cauchy-Schwarz). This bound underlies the validity of [[cosine-similarity]] as a metric.
+**Lagrange identity and Cauchy-Schwarz** — rearranging: $\|\mathbf{a}\times\mathbf{b}\|^2 = \|\mathbf{a}\|^2\|\mathbf{b}\|^2 - (\mathbf{a}\cdot\mathbf{b})^2 \geq 0$ immediately proves $|\mathbf{a}\cdot\mathbf{b}| \leq \|\mathbf{a}\|\|\mathbf{b}\|$ (Cauchy-Schwarz). This bound is what keeps [[cosine-similarity]] inside $[-1, 1]$ (note: cosine similarity is a similarity score, not a metric).
 
 **Area-based losses** — in differentiable rendering and mesh generation, triangle area computed via cross product is used as a regularization term to prevent degenerate (zero-area) triangles.
 

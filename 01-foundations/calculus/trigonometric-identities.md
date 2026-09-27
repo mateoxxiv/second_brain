@@ -77,7 +77,7 @@ assert np.allclose(np.cos(2*x), np.cos(x)**2 - np.sin(x)**2)
 
 **Linear independence of function spaces** — the Pythagorean identity is why {2, 4sin²x, cos²x} is dependent and {cos 2x, sin²x, cos²x} is dependent. See [[linear-independence]].
 
-**Positional encoding (Transformers)** — BERT and GPT encode token position using sin(pos/10000^(2i/d)) and cos(pos/10000^(2i/d)). The orthogonality of sin/cos at different frequencies guarantees these encodings are linearly independent across positions.
+**Positional encoding (Transformers)** — the original Transformer (Vaswani et al., 2017) encodes token position using sin(pos/10000^(2i/d)) and cos(pos/10000^(2i/d)). The angle-addition identities make the encoding of pos + k a fixed rotation of the encoding of pos, so relative offsets are linearly accessible. (BERT and GPT instead *learn* their position embeddings; RoPE brings the rotation idea back.)
 
 **Fourier transforms** — any signal decomposes into sin/cos components. The double angle and product formulas are the algebraic engine behind fast Fourier transforms (FFT) used in audio, image, and time-series ML.
 

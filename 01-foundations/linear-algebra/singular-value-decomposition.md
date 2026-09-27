@@ -29,7 +29,7 @@ SVD:      A = U  Σ  Vᵀ   (any matrix — different bases on each side)
 
 **Geometric interpretation:** $A$ transforms a ball into an ellipse. $V^T$ rotates the input, $\Sigma$ stretches each axis, $U$ rotates the result. Any linear transformation = rotate → stretch → rotate.
 
-The singular values $\sigma_i$ (diagonal of $\Sigma$) are always positive and sorted large to small. They measure how much each "direction pair" contributes.
+The singular values $\sigma_i$ (diagonal of $\Sigma$) are always non-negative (zero exactly where a direction is collapsed) and sorted large to small. They measure how much each "direction pair" contributes.
 
 ## Mechanics
 
@@ -63,7 +63,7 @@ A_approx = s[0] * np.outer(U[:,0], Vt[0,:])
 
 ## In ML
 
-**Dimensionality reduction (PCA via SVD)** — for data matrix $X$, the SVD gives principal components directly: $X = U\Sigma V^T$. The columns of $V$ are the principal directions; $\sigma_i^2 / n$ are the variances. More numerically stable than computing the covariance matrix eigendecomposition.
+**Dimensionality reduction (PCA via SVD)** — for a **column-centered** data matrix $X$ ($n$ samples), the SVD gives principal components directly: $X = U\Sigma V^T$. The columns of $V$ are the principal directions; $\sigma_i^2 / n$ are the variances ($\sigma_i^2/(n-1)$ for the sample covariance). More numerically stable than computing the covariance matrix eigendecomposition.
 
 **Low-rank approximation** — keep only top-$k$ singular values: $A \approx U_k\Sigma_k V_k^T$. Used in recommendation systems (matrix factorization), image compression, and NLP (LSA).
 

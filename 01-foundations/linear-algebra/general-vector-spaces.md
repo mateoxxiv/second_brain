@@ -55,9 +55,10 @@ V is a **vector space** (and its objects are called **vectors**) if all 10 axiom
 |---|---|---|
 | Algebra | 10 axioms | Linear combinations, span, independence, basis, dimension, subspaces |
 | Geometry | + [[inner-product-spaces\|inner product]] (4 axioms) | Length, distance, angle, orthogonality, projection, [[gram-schmidt\|Gram-Schmidt]] |
-| Analysis | + linear maps | Kernel, image, eigenvalues, SVD, PCA |
+| Linear maps | + linear transformations | Kernel, image, rank, eigenvalues |
+| Geometry + maps | inner product **and** linear maps | Orthogonal diagonalization, SVD, PCA |
 
-Each layer is built on the previous. You cannot do geometry without algebra, and you cannot do analysis without geometry.
+Geometry and linear maps are two *independent* extensions of the algebra layer: kernels and eigenvalues need no inner product, while SVD and PCA need both (orthogonality + a map).
 
 **Three vector spaces beyond R^n:**
 

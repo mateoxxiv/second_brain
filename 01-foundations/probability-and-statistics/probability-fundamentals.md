@@ -26,7 +26,7 @@ sources:
 
 Probability answers: "how likely is this to happen?" on a scale from 0 (impossible) to 1 (certain). It's defined over a [[sample-space-and-events|sample space]] and assigned by one of [[three-methods-of-assigning-probability|three methods]]. In ML, everything is uncertain — predictions, data, parameters — and probability is the language for reasoning about that uncertainty.
 
-Bayes' theorem is the most important formula: it flips the question. You can easily measure P(data | class) by counting. What you want is P(class | data). Bayes converts easy into hard.
+Bayes' theorem is the most important formula: it flips the question. You can easily measure P(data | class) by counting. What you want is P(class | data). Bayes computes the hard one from the easy one.
 
 ## Mechanics
 

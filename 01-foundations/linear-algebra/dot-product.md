@@ -62,7 +62,7 @@ print(np.dot(a, a), np.linalg.norm(a)**2)             # 14  14.0
 
 **Neuron computation** — every neuron computes $z = \mathbf{w}\cdot\mathbf{x} + b$. The entire forward pass of a neural network is a chain of dot products organized as matrix multiplications.
 
-**[[cosine-similarity]]** — dividing the dot product by both norms gives cosθ directly: $\cos\theta = \frac{\mathbf{a}\cdot\mathbf{b}}{\|\mathbf{a}\|\|\mathbf{b}\|}$. When vectors are already unit-normalized, dot product IS cosine similarity — this is how attention scores are computed.
+**[[cosine-similarity]]** — dividing the dot product by both norms gives cosθ directly: $\cos\theta = \frac{\mathbf{a}\cdot\mathbf{b}}{\|\mathbf{a}\|\|\mathbf{b}\|}$. When vectors are already unit-normalized, dot product IS cosine similarity. Attention scores are dot products too, but on *unnormalized* query/key vectors (divided by $\sqrt{d_k}$), so they mix angle and magnitude.
 
 **[[projection]]** — the scalar projection of $\mathbf{b}$ onto $\mathbf{a}$ is $\frac{\mathbf{a}\cdot\mathbf{b}}{\|\mathbf{a}\|}$. The dot product is the engine behind every projection operation.
 

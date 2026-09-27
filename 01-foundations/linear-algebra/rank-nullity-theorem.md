@@ -73,7 +73,7 @@ print(f"rank={rank}, nullity={nullity}, rank+nullity={rank+nullity}, n={n_cols}"
 
 ## In ML
 
-**Rank-deficient design matrices** — in linear regression $\hat{\mathbf{y}} = X\boldsymbol\beta$, if $X$ ($n$ samples $\times$ $p$ features) has rank $< p$ (redundant or collinear features), the dimension theorem says nullity $>0$: there are infinitely many $\boldsymbol\beta$ giving the exact same predictions. This is exactly why collinearity makes the normal equations unsolvable without regularization.
+**Rank-deficient design matrices** — in linear regression $\hat{\mathbf{y}} = X\boldsymbol\beta$, if $X$ ($n$ samples $\times$ $p$ features) has rank $< p$ (redundant or collinear features), the dimension theorem says nullity $>0$: there are infinitely many $\boldsymbol\beta$ giving the exact same predictions. This is exactly why collinearity makes the normal equations have infinitely many solutions (XᵀX is singular, so no unique $\boldsymbol\beta$) — regularization or the pseudoinverse is needed to pick one.
 
 **Layer capacity and bottlenecks** — a linear layer $\mathbf{z}=W\mathbf{x}$ with $W$ of shape $(m,n)$ can have rank at most $\min(m,n)$. A bottleneck layer ($m < n$) forces nullity $\geq n-m > 0$ by the theorem — information is necessarily lost, which is the entire mechanism behind autoencoder compression and low-rank adapters (LoRA).
 

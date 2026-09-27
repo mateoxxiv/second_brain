@@ -47,7 +47,7 @@ $$A = Q\Lambda Q^T$$
 | Trace | $\text{tr}(A) = \sum \lambda_i$ | Sum of eigenvalues |
 | Determinant | $\det(A) = \prod \lambda_i$ | Product of eigenvalues |
 
-**Low-rank approximation:** keep only the top-$k$ largest eigenvalue terms:
+**Low-rank approximation:** keep only the $k$ terms with the largest **$|\lambda_i|$** (for positive semidefinite $A$, e.g. a covariance matrix, that's simply the largest $\lambda_i$):
 $$A \approx \sum_{i=1}^k \lambda_i q_i q_i^T$$
 
 Variance explained: $\frac{\sum_{i=1}^k \lambda_i}{\sum_{i=1}^n \lambda_i}$
@@ -65,8 +65,8 @@ print(np.allclose(A, Q @ Lambda @ Q.T))  # True — rebuilt A
 k = 10
 A_k = Q @ np.diag(eigenvalues**k) @ Q.T
 
-# Low-rank (keep top-1 component)
-top = np.argmax(eigenvalues)
+# Low-rank (keep top-1 component by magnitude)
+top = np.argmax(np.abs(eigenvalues))
 A_approx = eigenvalues[top] * np.outer(Q[:,top], Q[:,top])
 ```
 
@@ -85,4 +85,4 @@ A_approx = eigenvalues[top] * np.outer(Q[:,top], Q[:,top])
 
 **Intermediate** — Compute $A^5$ for the same matrix using $Q\Lambda^5 Q^T$. Verify against direct multiplication.
 
-**Advanced** — The low-rank approximation $A_k = \sum_{i=1}^k \lambda_i q_i q_i^T$ minimizes the Frobenius norm $\|A - A_k\|_F$. Why? (Hint: what is $\|A - A_k\|_F^2$ in terms of eigenvalues?)
+**Advanced** — The low-rank approximation $A_k = \sum_{i=1}^k \lambda_i q_i q_i^T$ (terms ordered by $|\lambda_i|$) minimizes the Frobenius norm $\|A - A_k\|_F$. Why? (Hint: what is $\|A - A_k\|_F^2$ in terms of eigenvalues?)

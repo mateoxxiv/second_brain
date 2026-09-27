@@ -37,7 +37,7 @@ Triola's Example 9 (crickets): chirps/minute vs. temperature (°F) show a clear 
 
 **Feature–target and feature–feature relationships** — `plt.scatter` / `sns.scatterplot` is core EDA: seeing linearity/nonlinearity before fitting **[[correlation-and-regression|regression]]**, and pairwise scatter matrices for multicollinearity.
 
-**Clusters and Simpson's paradox** — the two-cluster penny example is a textbook **Simpson's paradox** / confounding warning: an aggregate trend reverses or vanishes once you condition on a hidden group — exactly what `hue=` coloring or clustering surfaces.
+**Clusters, confounding, and Simpson's paradox** — the two-cluster penny example is a **confounding / spurious-aggregate** warning: an apparent overall trend *vanishes* once you condition on a hidden group (metal composition). Its stronger cousin is **Simpson's paradox**, where the trend *reverses* within groups. Both are exactly what `hue=` coloring or clustering surfaces.
 
 ## Exercises
 

@@ -44,7 +44,8 @@ $$\text{percentile of }x=\frac{\text{number of values} < x}{\text{total number o
 import numpy as np
 data = np.sort(budgets)
 pct_of = (np.sum(data < 29) / data.size) * 100      # value → percentile
-# value at a percentile (Triola's rule ≈ numpy 'lower'/'midpoint' hybrid):
+# value at a percentile — numpy's default 'linear' interpolation, which can differ
+# slightly from Triola's locator rule (no numpy method matches it exactly):
 p90 = np.percentile(data, 90, method="linear")       # software methods vary!
 ```
 

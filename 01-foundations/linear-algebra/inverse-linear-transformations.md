@@ -18,7 +18,7 @@ sources:
 
 ## Intuition
 
-Invertibility of a matrix is usually framed algebraically ($\det A\neq0$, [[matrix-inverse]] exists). Geometrically it means something simpler: $T$ never merges two different points into one and never collapses a dimension, so there's always a well-defined way back. If $T$ sends $(x,y)\mapsto(x',y')$, then multiplication by $A^{-1}$ sends $(x',y')\mapsto(x,y)$ — undoing the shape distortion exactly. Every entry in [[geometry-of-planar-linear-transformations]]'s catalogue has an obvious "undo": unshrink what was shrunk, un-rotate by the same angle in reverse.
+Invertibility of a matrix is usually framed algebraically ($\det A\neq0$, [[matrix-inverse]] exists). Geometrically it means something simpler: $T$ never merges two different points into one and never collapses a dimension, so there's always a well-defined way back. If $T$ sends $(x,y)\mapsto(x',y')$, then multiplication by $A^{-1}$ sends $(x',y')\mapsto(x,y)$ — undoing the shape distortion exactly. Every *invertible* entry in [[geometry-of-planar-linear-transformations]]'s catalogue has an obvious "undo": unshrink what was shrunk, un-rotate by the same angle in reverse. Projections are the exception: they flatten the plane onto a line, so no undo exists.
 
 ## Mechanics
 
@@ -38,6 +38,7 @@ $$A^{-1} = \begin{bmatrix}\cos\theta&\sin\theta\\-\sin\theta&\cos\theta\end{bmat
 | Reflection (any axis or $y=x$) | Itself ($A^{-1}=A$; reflecting twice is identity) |
 | Expansion/compression by $k$ | Compression/expansion by $1/k$, same axis |
 | Shear by $k$ | Shear by $-k$, same direction |
+| Orthogonal projection onto an axis | **None** — $\det = 0$, a whole line of points lands on each image point |
 
 ```python
 import numpy as np
@@ -55,7 +56,7 @@ assert np.allclose(A_inv @ (A @ p), p)  # apply then undo -> back to start
 
 **Normalizing flows** require every layer to be invertible for exactly this reason: the model needs to map a data point forward to the base distribution *and* map a base sample back to data space, using the same transformation run in reverse — the "undo" intuition here is literally a flow's inverse pass.
 
-**Whitening and un-whitening** — standardizing features ($\mathbf{x} \mapsto \Sigma^{-1/2}\mathbf{x}$, an axis-aligned compression/expansion) is invertible precisely so predictions can be mapped back to the original feature scale — the same compression/expansion inverse shown above, generalized to $n$ dimensions.
+**Whitening and un-whitening** — whitening features ($\mathbf{x} \mapsto \Sigma^{-1/2}\mathbf{x}$) is invertible precisely so predictions can be mapped back to the original feature scale. It is axis-aligned compression/expansion only when $\Sigma$ is diagonal (plain standardization); in general it is rotate → scale each axis → rotate back, and its inverse $\Sigma^{1/2}$ undoes each step.
 
 **Cheap-to-invert weight matrices** — because a rotation's inverse is free (just transpose), architectures that constrain weight matrices to be orthogonal (e.g. some invertible ResNets, unitary RNNs) get numerically stable, easily-invertible layers for free — no matrix inversion routine needed at all.
 

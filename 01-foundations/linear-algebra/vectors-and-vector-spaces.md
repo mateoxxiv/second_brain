@@ -67,7 +67,7 @@ print((v1 + v2)[2] == 0)          # True — closure holds
 
 **Linear regression** — the prediction $\hat{\mathbf{y}}$ lives in the column space of $X$ (a subspace). The residual is always perpendicular to it.
 
-**Null space** — vectors that a matrix maps to zero. Dead neurons in a network live here.
+**Null space** — vectors that a matrix maps to zero. Input directions in a layer's null space are invisible to everything downstream. (Don't confuse this with "dead" ReLU neurons — those output 0 for *every* input because their pre-activation is always negative, a nonlinearity effect, not a null-space one.)
 
 ## Exercises
 

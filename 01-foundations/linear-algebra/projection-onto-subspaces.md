@@ -115,7 +115,7 @@ print(f"proj is closer:  {dist_proj < dist_w}")  # True
 
 **SVM margin** — the distance from the support vectors to the decision hyperplane is exactly $d(\mathbf{u}, W)$ from above. Maximizing the margin = maximizing this distance.
 
-**PCA reconstruction error** — projecting onto the top-k principal components minimizes the squared reconstruction error ||X − X̂||². Theorem 23 is the formal guarantee: no other k-dimensional subspace produces a smaller error.
+**PCA reconstruction error** — projecting onto the top-k principal components minimizes the squared reconstruction error ||X − X̂||². Two results combine here: Theorem 23 says that *within a given subspace* the orthogonal projection is the best reconstruction of each point; the **Eckart–Young theorem** says the top-k principal subspace is the best *choice* of k-dimensional subspace.
 
 **Rank-deficiency** — if columns of A are dependent, $A^TA$ is singular and the formula breaks. Fix: Ridge regression adds $\lambda I$: $\hat{\mathbf{x}} = (A^TA + \lambda I)^{-1}A^T\mathbf{b}$.
 

@@ -57,9 +57,10 @@ print(c)   # coordinate vector
 
 # ONB shortcut: coordinates = inner products
 Q, _ = np.linalg.qr(np.random.randn(4, 3))   # random ONB for 3D subspace
-u = np.random.randn(4)
-coords = Q.T @ u                              # c_i = <u, q_i>
-print(np.allclose(Q @ coords, Q @ Q.T @ u))  # True
+w = Q @ np.random.randn(3)                    # a vector that lies IN the subspace
+coords = Q.T @ w                              # c_i = <w, q_i> — no system solved
+print(np.allclose(coords, np.linalg.lstsq(Q, w, rcond=None)[0]))  # True: matches solving Qc = w
+print(np.allclose(Q @ coords, w))             # True: coordinates rebuild w exactly
 ```
 
 ## In ML

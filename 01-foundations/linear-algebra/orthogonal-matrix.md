@@ -50,7 +50,7 @@ The name comes from its rows and columns forming orthonormal sets. Think of it a
 | $+1$ | Pure rotation (orientation preserved) |
 | $-1$ | Rotation + reflection (orientation flips) |
 
-Same rule applies in $\mathbb{R}^3$: det $= +1$ is rotation around some axis; det $= -1$ involves a reflection in one coordinate plane.
+Same rule applies in $\mathbb{R}^3$: det $= +1$ is rotation around some axis; det $= -1$ involves a reflection (through some plane, possibly combined with a rotation).
 
 **Example 67:** $A = \begin{bmatrix}1/\sqrt{2} & 1/\sqrt{2} & 0 \\ 0 & 0 & 1 \\ 1/\sqrt{2} & -1/\sqrt{2} & 0\end{bmatrix}$ — rows are orthonormal, so $A$ is orthogonal and $A^{-1} = A^T$.
 
@@ -81,7 +81,7 @@ print(np.allclose(R.T @ (R @ v), v))        # True
 
 ## In ML
 
-**QR decomposition** — any full-rank matrix $A = QR$ where $Q$ is orthogonal (columns from [[gram-schmidt|Gram-Schmidt]]) and $R$ is upper-triangular. Every eigenvalue solver and least-squares algorithm builds on this.
+**QR decomposition** — any matrix with independent columns factors as $A = QR$, where $Q$ has orthonormal columns (a square orthogonal matrix when $A$ is square) (columns from [[gram-schmidt|Gram-Schmidt]]) and $R$ is upper-triangular. Every eigenvalue solver and least-squares algorithm builds on this.
 
 **Orthogonal weight initialization** — initializing weight matrices via QR decomposition of a random Gaussian matrix produces orthogonal weights that preserve gradient norms at initialization: $\|Qx\| = \|x\|$ for all $x$.
 

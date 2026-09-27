@@ -50,6 +50,8 @@ Learn the exponent rules once; the log and root rules come for free.
 | Zero | $\log_b 1 = 0$ | $b^0 = 1$ |
 | Change of base | $\log_b x = \ln x / \ln b$ | derived below |
 
+**Domains (the rules fail outside them):** $a^0=1$ needs $a\neq0$; log rules need $a,b>0$; a log base needs $b>0,\ b\neq1$; for even $n$, $\sqrt[n]{ab}=\sqrt[n]{a}\sqrt[n]{b}$ needs $a,b\ge0$ (counterexample: $\sqrt{(-1)(-1)}=1$ but $\sqrt{-1}\sqrt{-1}=-1$).
+
 **Root rules** (all follow from $\sqrt[n]{a} = a^{1/n}$):
 
 $$\sqrt[n]{ab} = \sqrt[n]{a}\cdot\sqrt[n]{b} \qquad \sqrt[n]{\frac{a}{b}} = \frac{\sqrt[n]{a}}{\sqrt[n]{b}} \qquad \sqrt[n]{a^m} = a^{m/n}$$

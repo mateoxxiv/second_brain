@@ -64,4 +64,4 @@ assert a + (-a) == 0 and a * (1/a) == 1   # inverses
 
 **Intermediate** — Check which properties matrix multiplication satisfies. For 2×2 matrices A, B, C: verify associativity A(BC) = (AB)C, verify distributivity A(B+C) = AB+AC, and find a counterexample showing AB ≠ BA.
 
-**Advanced** — Prove the additive inverse is unique using only commutativity and associativity: assume u has two inverses v and w, both satisfying u + v = 0 and u + w = 0. Derive v = w without using any other property.
+**Advanced** — Prove the additive inverse is unique using only commutativity, associativity, and the identity property (a + 0 = a): assume u has two inverses v and w, both satisfying u + v = 0 and u + w = 0. Derive v = w. (Hint: start from v = v + 0. Why can't the proof work without the identity axiom?)

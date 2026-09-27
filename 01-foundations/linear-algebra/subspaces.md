@@ -32,7 +32,7 @@ The key insight from Anton §4.3: when W sits inside a known vector space V, mos
 
 **Theorem 4 (Anton §4.3) — Two-Condition Test:**
 
-W is a subspace of V **if and only if**:
+A **nonempty** subset W of V is a subspace of V **if and only if**:
 
 | Condition | Statement |
 |---|---|
@@ -43,7 +43,7 @@ W is a subspace of V **if and only if**:
 - k = 0 → 0·u = **0** ∈ W (zero vector exists in W)
 - k = −1 → (−1)·u = −u ∈ W (additive inverse exists in W)
 
-So verifying (a) and (b) is equivalent to verifying all 10 axioms for W.
+So verifying (a) and (b) is equivalent to verifying all 10 axioms for W — **provided W is nonempty**. The k = 0 trick needs at least one u ∈ W to start from; the empty set passes (a) and (b) vacuously yet has no zero vector. In practice, check 0 ∈ W first.
 
 **Examples in R³:**
 

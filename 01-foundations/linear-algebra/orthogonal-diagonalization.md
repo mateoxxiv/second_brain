@@ -14,7 +14,7 @@ sources:
   - "Anton, Howard. Introducción al Álgebra Lineal. §6.3 — Definición, Teoremas 5-8, Ejemplos 12-14."
 ---
 
-> **TL;DR** — A matrix can be diagonalized with an *orthogonal* P exactly when it's symmetric — and symmetric matrices are the one case where diagonalization is always guaranteed to work.
+> **TL;DR** — A matrix can be diagonalized with an *orthogonal* P exactly when it's symmetric — and for symmetric matrices diagonalization is always guaranteed, with no defective or complex cases (other guaranteed classes exist, e.g. matrices with n distinct eigenvalues, but only symmetric ones get an *orthogonal* P).
 
 ---
 

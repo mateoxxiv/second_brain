@@ -48,9 +48,11 @@ R3 -= R1, R3 -= R2     | 0  0   2 |  2 |
 
 | Echelon form | Interpretation |
 |---|---|
-| All rows have pivots | Unique solution — full rank |
-| Zero row, RHS = 0 | Infinite solutions — dependent feature |
-| Zero row, RHS ≠ 0 | No solution — contradictory data |
+| Any row $[0\ \cdots\ 0 \mid c]$ with $c \neq 0$ | No solution — contradictory data |
+| Consistent, pivot in every column (rank = # unknowns) | Unique solution — full column rank |
+| Consistent, some column without a pivot (rank < # unknowns) | Infinite solutions — free variable / dependent feature |
+
+A zero row with RHS = 0 is *not* by itself a sign of infinite solutions: a 3×2 system of rank 2 has one, yet its solution is unique. What decides it is **free variables**.
 
 **Rank** = number of non-zero rows after reduction. Reveals [[linear-independence]].
 

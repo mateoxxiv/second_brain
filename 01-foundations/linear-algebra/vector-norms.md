@@ -21,7 +21,7 @@ sources:
 
 Given weights $\mathbf{w} = [0.5, 0.001, 3.2, 0.0003]$:
 - **L2** penalizes overall magnitude — all weights shrink but none reach exactly zero.
-- **L1** charges a flat cost per non-zero weight — pushes tiny weights to *exactly* zero → automatic feature selection.
+- **L1** charges a cost proportional to |w| — its gradient pull toward zero has the same strength (λ) no matter how small the weight gets, so tiny weights are pushed to *exactly* zero → automatic feature selection. (A flat cost per non-zero weight is the L0 "norm".)
 - **L-inf** only cares about 3.2 (the max) — useful when bounding the worst case.
 
 The unit ball shape explains the difference. L1's ball has **corners on the axes** — optimization is likely to hit a corner where some coordinates are zero. L2's ball is a smooth sphere — no corners, no sparsity pressure.

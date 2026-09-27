@@ -69,4 +69,4 @@ print(backward(2.0, 3.0, 4.0))
 
 **Intermediate** — Trace backprop by hand through a 3-layer network: loss = (y_pred − y_true)², y_pred = w3 · tanh(w2 · tanh(w1 · x)). Compute dL/dw1.
 
-**Advanced** — Prove that vanishing gradients are inevitable with sigmoid activations at depth n. Show that sigmoid'(x) < 0.25 everywhere, so gradient magnitude ≤ 0.25^n → 0.
+**Advanced** — Show that sigmoid'(x) ≤ 0.25 everywhere, with equality only at x = 0. Then show that for a chain of n sigmoid layers with scalar weights, the gradient magnitude is ≤ ∏|wᵢ|·0.25ⁿ, which vanishes whenever every |wᵢ| < 4. Why is vanishing *likely* but not *inevitable* (what happens with large weights)?

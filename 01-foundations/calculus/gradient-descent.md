@@ -84,4 +84,4 @@ for lr in [0.01, 0.1, 0.5, 1.0]:
 
 **Intermediate** — Explain why mini-batch GD is preferred over full-batch GD in practice. What are the tradeoffs in terms of computation, memory, and convergence?
 
-**Advanced** — Derive the update rule for 2D quadratic f(x,y) = ax² + by². Show that the optimal learning rate depends on the largest eigenvalue of the Hessian.
+**Advanced** — Derive the update rule for 2D quadratic f(x,y) = ax² + by². Show that GD converges only if lr < 2/λ_max (λ = Hessian eigenvalues 2a, 2b), and that the fastest fixed rate is lr* = 2/(λ_max + λ_min). Why does a large ratio λ_max/λ_min (the condition number) make convergence slow?

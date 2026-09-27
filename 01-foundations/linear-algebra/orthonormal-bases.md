@@ -114,7 +114,7 @@ print(np.allclose(v, v_reconstructed))   # True ✓
 
 ## In ML
 
-**PCA columns are orthonormal** — principal components are the eigenvectors of the covariance matrix, orthonormal under the standard inner product. Projecting data onto them reduces to dot products: `score = X @ components.T`. The orthonormality is why components capture independent variance with no redundancy.
+**PCA columns are orthonormal** — principal components are the eigenvectors of the covariance matrix, orthonormal under the standard inner product. Projecting data onto them reduces to dot products: `score = X @ components.T`. The orthonormality is why the component scores are *uncorrelated* (no linear redundancy) — not necessarily *independent*, which would require more than second-order structure.
 
 **Q in QR and SVD** — every QR decomposition produces an orthonormal Q (built via [[gram-schmidt]]). The U and V matrices in SVD are orthonormal bases for column and row spaces. Orthonormal structure is why $Q^{-1} = Q^T$ — matrix inversion becomes a free transpose, which is computationally critical.
 

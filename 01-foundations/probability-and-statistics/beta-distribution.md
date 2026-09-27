@@ -32,7 +32,7 @@ $$f(x; \alpha, \beta) = \frac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha, \beta)}, \q
 
 $$E[X] = \frac{\alpha}{\alpha + \beta} \qquad \text{Var}(X) = \frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}$$
 
-**Special cases:** Beta(1,1) = Uniform(0,1) — complete ignorance. α=β → symmetric peak at 0.5. α>>β → peaks near 1.
+**Special cases:** Beta(1,1) = Uniform(0,1) — complete ignorance. α=β → symmetric about 0.5: a peak at 0.5 if α=β>1, U-shaped (mass at both ends) if α=β<1. α>>β → peaks near 1.
 
 **Conjugate update rule:** Prior Beta(α, β) + observe h successes, t failures → Posterior Beta(α+h, β+t)
 

@@ -33,9 +33,9 @@ $$\text{cos\_sim}(\mathbf{u}, \mathbf{v}) = \frac{\mathbf{u}\cdot\mathbf{v}}{\|\
 | $0$ | $90°$ | No relationship (orthogonal) |
 | $-1$ | $180°$ | Opposite direction |
 
-**Distance vs similarity** — cosine *distance* = $1 - \text{cos\_sim}$. Range $[0, 2]$. Use when you need a proper metric.
+**Distance vs similarity** — cosine *distance* = $1 - \text{cos\_sim}$. Range $[0, 2]$. It is **not** a proper metric: it fails the triangle inequality (vectors at 0°, 45°, 90°: $0.29 + 0.29 < 1$). If you need a true metric, use the angle itself, $\arccos(\text{cos\_sim})$, or Euclidean distance between unit vectors.
 
-When vectors are already unit-normalized, $\text{cos\_sim} = \mathbf{u}\cdot\mathbf{v}$ — so dot product IS cosine similarity on unit vectors. This is how attention works.
+When vectors are already unit-normalized, $\text{cos\_sim} = \mathbf{u}\cdot\mathbf{v}$ — so dot product IS cosine similarity on unit vectors. (Standard attention does *not* normalize — see below.)
 
 ```python
 import numpy as np
@@ -57,7 +57,7 @@ print(cosine_similarity(a, -a))  # -1.0  — opposite
 
 **Embedding similarity** — word2vec, BERT, and all embedding models use cosine similarity to compare semantic closeness. "king" and "queen" have high cosine similarity; "king" and "bicycle" do not.
 
-**Attention mechanism** — the scaled dot-product attention computes $\frac{QK^T}{\sqrt{d_k}}$. When $Q$ and $K$ are unit-normalized, this is cosine similarity scaled by $\sqrt{d_k}$.
+**Attention mechanism** — scaled dot-product attention computes $\frac{QK^T}{\sqrt{d_k}}$ on *unnormalized* queries and keys, so vector magnitudes matter, not just angles. Only if $Q$ and $K$ were unit-normalized (as in some variants, e.g. QK-norm / cosine attention) would it become cosine similarity divided by $\sqrt{d_k}$.
 
 **Recommendation systems** — user and item embeddings are compared by cosine similarity. If your embedding for "jazz music" and a user's preference vector point in the same direction, the user gets a jazz recommendation.
 

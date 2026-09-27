@@ -33,7 +33,7 @@ Covariance matrices are symmetric. Rotation matrices are orthogonal. SVD produce
 | **Triangular** | Zeros above/below diagonal | $\det$ = product of diagonal; easy solve | LU decomposition |
 | **Orthogonal** | $Q^TQ = I$ | Preserves lengths/angles; $Q^{-1} = Q^T$ | Rotations, PCA, weight init |
 | **Singular** | $\det = 0$ | Not invertible; collapses a dimension | Indicates redundant features |
-| **Positive definite** | $\mathbf{x}^TA\mathbf{x} > 0$ | All eigenvalues positive; unique minimum | Convex optimization, Cholesky |
+| **Positive definite** | $A=A^T$ and $\mathbf{x}^TA\mathbf{x} > 0$ for all $\mathbf{x}\neq\mathbf{0}$ | All eigenvalues positive; unique minimum | Convex optimization, Cholesky |
 
 **Orthogonal matrices** — $Q^{-1} = Q^T$ means the inverse is free (just transpose). Preserves the norm $\|Q\mathbf{x}\| = \|\mathbf{x}\|$ — no stretching or shrinking.
 
@@ -56,7 +56,7 @@ print(all(np.linalg.eigvalsh(A) > 0))   # True — positive definite
 
 ## In ML
 
-**Covariance matrix** $\Sigma = \frac{1}{n}X^TX$ — always symmetric and positive semi-definite. The eigenvectors are the principal components; eigenvalues are the variances.
+**Covariance matrix** $\Sigma = \frac{1}{n}X^TX$ for **column-centered** $X$ (subtract each feature's mean first; otherwise this is the second-moment matrix) — always symmetric and positive semi-definite. The eigenvectors are the principal components; eigenvalues are the variances.
 
 **Orthogonal weight initialization** — initializing neural network weights as orthogonal matrices prevents vanishing/exploding gradients because all eigenvalues have $|\lambda| = 1$.
 

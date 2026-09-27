@@ -16,7 +16,7 @@ sources:
   - "https://mml-book.github.io/book/mml-book.pdf"
 ---
 
-> **TL;DR** — f' = 0 finds critical points. f'' > 0 means minimum. f'' < 0 means maximum. Convexity guarantees a single global minimum.
+> **TL;DR** — f' = 0 finds critical points. f'' > 0 means minimum. f'' < 0 means maximum. Convexity makes every local minimum global; *strict* convexity makes it unique (if one exists).
 
 ---
 
@@ -33,7 +33,7 @@ Convexity is the holy grail: a function that curves upward everywhere has exactl
 **Second derivative test:**
 $$f''(x) > 0 \Rightarrow \text{minimum} \quad f''(x) < 0 \Rightarrow \text{maximum} \quad f''(x) = 0 \Rightarrow \text{inconclusive}$$
 
-**Convexity check:** f''(x) ≥ 0 everywhere → convex → single global minimum.
+**Convexity check:** f''(x) ≥ 0 everywhere → convex → every local minimum is global. For a *single* global minimum you need **strict** convexity (e.g. f''(x) > 0) **and** a minimum that exists. Counterexamples: eˣ is convex with no minimum; f(x) = 0 is convex with infinitely many.
 
 **Multivariable:** replace f'' with the Hessian matrix H = [∂²f/∂xᵢ∂xⱼ]. Its eigenvalues classify the critical point: all positive → minimum; all negative → maximum; mixed → saddle.
 
