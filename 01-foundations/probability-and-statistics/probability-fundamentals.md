@@ -36,7 +36,7 @@ Bayes' theorem is the most important formula: it flips the question. You can eas
 |------|---------|
 | [[complementary-events\|Complement]] | P(not A) = 1 − P(A) |
 | OR | P(A or B) = P(A) + P(B) − P(A and B) |
-| AND | P(A and B) = P(A) · P(A\|B) |
+| AND | P(A and B) = P(A) · P(B\|A) |
 
 **Conditional probability:** P(A|B) = P(A and B) / P(B)
 

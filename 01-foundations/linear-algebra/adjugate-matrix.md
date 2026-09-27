@@ -51,7 +51,6 @@ $$A^{-1}=\frac{1}{ad-bc}\begin{bmatrix}d&-b\\-c&a\end{bmatrix}\checkmark$$
 
 ```python
 import numpy as np
-from cofactor import cofactor  # or inline the function
 
 def adjugate(A):
     n = A.shape[0]
@@ -76,7 +75,7 @@ print(np.allclose(adj / det, np.linalg.inv(A)))  # True
 
 **[[cramer-rule]]** — solves $A\mathbf{x}=\mathbf{b}$ analytically: $x_j = \det(A_j)/\det(A)$, where $A_j$ replaces column $j$ with $\mathbf{b}$. Equivalent to $\mathbf{x} = \text{adj}(A)\,\mathbf{b}\,/\,\det(A)$. Conceptually clean, computationally impractical ($O(n^4)$).
 
-**Why [[gaussian-elimination]] wins** — the adjugate requires computing $n^2$ cofactors, each an $(n-1)\times(n-1)$ determinant. Total cost: $O(n^4)$. Gaussian elimination solves $Ax=b$ in $O(n^3)$. Use the adjugate to *understand* the inverse; use `np.linalg.solve` to *compute* it.
+**Why [[gaussian-elimination]] wins** — the adjugate requires computing $n^2$ cofactors, each an $(n-1)\times(n-1)$ determinant costing $O(n^3)$ by elimination. Total cost: $O(n^5)$ (far worse if the cofactors are themselves expanded recursively). Gaussian elimination solves $Ax=b$ in $O(n^3)$. Use the adjugate to *understand* the inverse; use `np.linalg.solve` to *compute* it.
 
 ## Exercises
 

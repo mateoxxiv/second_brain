@@ -77,7 +77,7 @@ A_approx = eigenvalues[top] * np.outer(Q[:,top], Q[:,top])
 
 **Kernel methods (SVMs, Gaussian processes)** — the kernel matrix is symmetric positive semi-definite. Spectral decomposition reveals its structure and enables efficient computation.
 
-**Quadratic forms** — in optimization, $\mathbf{x}^T A \mathbf{x}$ evaluated in the eigenbasis becomes $\sum \lambda_i z_i^2$. Positive eigenvalues → bowl (convex); negative → saddle point.
+**Quadratic forms** — in optimization, $\mathbf{x}^T A \mathbf{x}$ evaluated in the eigenbasis becomes $\sum \lambda_i z_i^2$. All eigenvalues positive → bowl (convex, minimum); all negative → dome (maximum); mixed signs → saddle point.
 
 ## Exercises
 

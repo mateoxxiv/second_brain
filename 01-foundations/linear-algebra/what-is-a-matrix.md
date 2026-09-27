@@ -57,7 +57,7 @@ print(A[:, 0])       # first column as a vector: [1, 4]
 
 **Data as a matrix** — a dataset of $n$ samples and $d$ features is stored as an $n \times d$ matrix: each row is one data point, each column is one feature. This is the starting object for nearly every ML algorithm before any model is even chosen.
 
-**Weight matrices** — every linear layer in a neural network is literally a matrix; its shape (`in_features × out_features`) is a design decision that fixes how many numbers define that layer.
+**Weight matrices** — every linear layer in a neural network is literally a matrix; for $\mathbf{z} = W\mathbf{x}$ its shape is `out_features × in_features` (how PyTorch's `nn.Linear` stores it) — a design decision that fixes how many numbers define that layer.
 
 **The column-vector view enables everything downstream** — treating $A$ as a list of column vectors is exactly what [[row-and-column-spaces]], [[rank-nullity-theorem]], and [[matrix-of-linear-transformation]] build on to define rank, span, and the transformation a matrix represents.
 

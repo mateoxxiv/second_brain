@@ -38,7 +38,7 @@ By the corollary the image is guaranteed to be a **parallelogram** with these fo
 
 **Worked example — image of a line (Anton Example 29)** — find the image of the line $y=2x+1$ under invertible $A=\begin{bmatrix}3&1\\2&1\end{bmatrix}$. Since $(x,y)$ maps to $(x',y')=A(x,y)$, substitute the *inverse* map $(x,y)=A^{-1}(x',y')$ into the original equation rather than trying to solve forward:
 $$A^{-1}=\begin{bmatrix}1&-1\\-2&3\end{bmatrix} \implies x=x'-y',\quad y=-2x'+3y'$$
-Substituting into $y=2x+1$: $-2x'+3y' = 2(x'-y')+1$, which simplifies to $y' = \tfrac{4}{3}x'+\tfrac13$ — the image line.
+Substituting into $y=2x+1$: $-2x'+3y' = 2(x'-y')+1$, i.e. $5y' = 4x'+1$, which simplifies to $y' = \tfrac{4}{5}x'+\tfrac15$ — the image line.
 
 ```python
 import numpy as np
@@ -50,7 +50,7 @@ A_inv = np.linalg.inv(A)
 p1, p2 = np.array([0, 1]), np.array([1, 3])
 q1, q2 = A @ p1, A @ p2
 slope = (q2[1] - q1[1]) / (q2[0] - q1[0])
-print(slope, q1)   # slope ~ 1.333 (4/3), matching y' = (4/3)x' + 1/3
+print(slope, q1)   # slope = 0.8 (4/5), matching y' = (4/5)x' + 1/5
 ```
 
 ## In ML

@@ -36,7 +36,7 @@ The "removing" step uses the [[orthonormal-bases|projection formula]] (Theorem 2
 |---|---|---|
 | Find coordinates | Solve a linear system | Just inner products |
 | Matrix inverse | Expensive | Free — just transpose |
-| Projection | Full formula $(A^TA)^{-1}A^T$ | $QQ^T$ |
+| Projection | Full formula $A(A^TA)^{-1}A^T$ | $QQ^T$ |
 
 ## Mechanics
 

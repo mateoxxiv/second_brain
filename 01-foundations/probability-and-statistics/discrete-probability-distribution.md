@@ -40,7 +40,7 @@ A distribution can be given as a **table**, a **graph**, or a **formula**. It's 
 ```python
 P = {0:0.001, 1:0.015, 2:0.088, 3:0.264, 4:0.396, 5:0.237}  # green pods in 5
 assert all(0 <= p <= 1 for p in P.values())      # requirement 2
-assert abs(sum(P.values()) - 1) < 1e-9           # requirement 1 (≈1)
+assert abs(sum(P.values()) - 1) < 0.01           # requirement 1 (sum = 1.001 — rounding OK)
 ```
 
 ## In ML

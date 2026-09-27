@@ -53,7 +53,7 @@ for name, M in [("shear", shear), ("swap", swap), ("scale k=-2", scale)]:
 $$A = E_1^{-1}E_2^{-1}\cdots E_k^{-1} \quad (5.15)$$
 Since the inverse of an elementary matrix is itself elementary, $A$ is a product of elementary matrices — each one geometrically identified by the table above, applied in the order given by reading (5.15) right to left.
 
-**Worked example (Anton Example 27)** — $A=\begin{bmatrix}1&2\\3&4\end{bmatrix}$ row-reduces to $I$ via: add $-3\times$row 1 to row 2, scale row 2 by $-\tfrac12$, add $-2\times$row 2 to row 1. Inverting and reordering per (5.15) shows multiplying by $A$ equals: shear $x$ by factor $2$ $\to$ expand $y$ by factor $2$ $\to$ reflect about the $x$-axis $\to$ shear $x$ by factor $3$ — four primitive steps, read off directly from the elimination record.
+**Worked example (Anton Example 27)** — $A=\begin{bmatrix}1&2\\3&4\end{bmatrix}$ row-reduces to $I$ via: add $-3\times$row 1 to row 2, scale row 2 by $-\tfrac12$, add $-2\times$row 2 to row 1. Inverting and reordering per (5.15) shows multiplying by $A$ equals: shear $x$ by factor $2$ $\to$ expand $y$ by factor $2$ $\to$ reflect about the $x$-axis $\to$ shear $y$ by factor $3$ (the factor $\begin{bmatrix}1&0\\3&1\end{bmatrix}$) — four primitive steps, read off directly from the elimination record.
 
 ## In ML
 

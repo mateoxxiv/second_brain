@@ -25,7 +25,7 @@ Think about the [[dot-product]] formula $\mathbf{u}\cdot\mathbf{v} = \|\mathbf{u
 
 The remarkable fact is it holds in *any* [[inner-product-spaces|inner product space]] — polynomials, functions, infinite-dimensional spaces — even when "angle" has no direct visual meaning. The inequality is what *allows* you to define angle from the inner product, not the other way around.
 
-Equality holds exactly when u and v are parallel ($\mathbf{u} = \lambda\mathbf{v}$) — the two vectors point in the same direction, so no "angular penalty" reduces the product.
+Equality holds exactly when u and v are parallel ($\mathbf{u} = \lambda\mathbf{v}$, or $\mathbf{v}=\mathbf{0}$) — the two vectors point in the same *or opposite* direction ($\cos\theta = \pm 1$), so no "angular penalty" reduces the product's magnitude.
 
 ## Mechanics
 
@@ -45,13 +45,13 @@ Let $a = \langle\mathbf{u},\mathbf{u}\rangle$, $b = 2\langle\mathbf{u},\mathbf{v
 
 $$0 \leq \langle t\mathbf{u}+\mathbf{v},\; t\mathbf{u}+\mathbf{v} \rangle = \langle\mathbf{u},\mathbf{u}\rangle t^2 + 2\langle\mathbf{u},\mathbf{v}\rangle t + \langle\mathbf{v},\mathbf{v}\rangle = at^2 + bt + c$$
 
-This quadratic in $t$ is always $\geq 0$, so it has no real roots — its discriminant must be $\leq 0$:
+This quadratic in $t$ is always $\geq 0$, so it has at most one (repeated) real root — its discriminant must be $\leq 0$:
 
 $$b^2 - 4ac \leq 0 \implies 4\langle\mathbf{u},\mathbf{v}\rangle^2 - 4\langle\mathbf{u},\mathbf{u}\rangle\langle\mathbf{v},\mathbf{v}\rangle \leq 0 \implies \langle\mathbf{u},\mathbf{v}\rangle^2 \leq \langle\mathbf{u},\mathbf{u}\rangle\langle\mathbf{v},\mathbf{v}\rangle \quad \blacksquare$$
 
 | Form | Statement | Equality when |
 |---|---|---|
-| Euclidean | $\|\mathbf{u}\cdot\mathbf{v}\| \leq \|\mathbf{u}\|\|\mathbf{v}\|$ | $\mathbf{u} \parallel \mathbf{v}$ |
+| Euclidean | $\lvert\mathbf{u}\cdot\mathbf{v}\rvert \leq \|\mathbf{u}\|\|\mathbf{v}\|$ | $\mathbf{u} \parallel \mathbf{v}$ |
 | General IP | $\langle\mathbf{u},\mathbf{v}\rangle^2 \leq \langle\mathbf{u},\mathbf{u}\rangle\langle\mathbf{v},\mathbf{v}\rangle$ | $\mathbf{u} = \lambda\mathbf{v}$ for some scalar $\lambda$ |
 | Normalized | $-1 \leq \cos\theta \leq 1$ | angle = 0 or π |
 

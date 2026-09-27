@@ -34,7 +34,7 @@ Expected value **is** the [[mean-and-variance-of-a-probability-distribution|mean
 | Bet | Outcomes & probabilities | $E = \sum x\,P(x)$ |
 |-----|--------------------------|--------------------|
 | Roulette, #7 | $-\$5$ w.p. $37/38$; $+\$175$ w.p. $1/38$ | $\approx -26$ ¢ |
-| Craps, pass line | $-\$5$ w.p. $251/495$; $+\$5$ w.p. $244/495$ | $\approx -8$ ¢ |
+| Craps, pass line | $-\$5$ w.p. $251/495$; $+\$5$ w.p. $244/495$ | $-35/495 \approx -7$ ¢ |
 
 Both are negative (the house always wins long-run — see [[odds]]), but craps loses *less* per bet, so it's the better decision. Higher $E$ wins, even when the flashier bet offers a bigger jackpot.
 

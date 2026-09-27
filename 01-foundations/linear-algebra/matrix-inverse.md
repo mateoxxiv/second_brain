@@ -53,7 +53,7 @@ A = np.array([[4, 7], [2, 6]])
 b = np.array([1, 2])
 
 # Always prefer solve over inv — faster and more numerically stable
-x = np.linalg.solve(A, b)      # [0.8, -0.2]
+x = np.linalg.solve(A, b)      # [-0.8, 0.6]
 
 # Never do this in production:
 # x = np.linalg.inv(A) @ b

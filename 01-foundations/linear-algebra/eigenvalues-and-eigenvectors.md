@@ -92,7 +92,7 @@ import numpy as np
 A = np.array([[2, 1], [1, 2]], dtype=float)
 eigenvalues, eigenvectors = np.linalg.eig(A)
 
-print(eigenvalues)    # [1. 3.]
+print(eigenvalues)    # [3. 1.]  — eig doesn't sort; order is arbitrary
 print(eigenvectors)   # columns = eigenvectors
 
 # Verify: A @ v = lambda * v

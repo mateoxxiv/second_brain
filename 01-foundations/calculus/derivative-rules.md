@@ -35,7 +35,7 @@ Differentiation from the limit definition is always correct but tedious. The rul
 
 **ML-critical derivatives:**
 - Sigmoid: σ'(x) = σ(x)(1 − σ(x)) — evaluate once in forward pass, reuse in backward
-- ReLU: ReLU'(x) = 1 if x > 0, else 0 — undefined at x = 0
+- ReLU: ReLU'(x) = 1 if x > 0, 0 if x < 0 — undefined at x = 0 (libraries just pick 0)
 - tanh: tanh'(x) = 1 − tanh²(x)
 - MSE: d/dŷ[(y − ŷ)²] = −2(y − ŷ)
 - Log-loss: d/dŷ[−y·ln(ŷ)] = −y/ŷ

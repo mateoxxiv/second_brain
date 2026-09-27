@@ -37,7 +37,7 @@ $$\|\mathbf{u}\| = \langle \mathbf{u}, \mathbf{u} \rangle^{1/2}$$
 |---|---|---|---|
 | L1 | $\|\mathbf{u}\| \geq 0$ | D1 | $d(\mathbf{u},\mathbf{v}) \geq 0$ |
 | L2 | $\|\mathbf{u}\| = 0$ iff $\mathbf{u}=\mathbf{0}$ | D2 | $d(\mathbf{u},\mathbf{v}) = 0$ iff $\mathbf{u}=\mathbf{v}$ |
-| L3 | $\|k\mathbf{u}\| = \|k\|\,\|\mathbf{u}\|$ | D3 | $d(\mathbf{u},\mathbf{v}) = d(\mathbf{v},\mathbf{u})$ |
+| L3 | $\|k\mathbf{u}\| = \lvert k\rvert\,\|\mathbf{u}\|$ | D3 | $d(\mathbf{u},\mathbf{v}) = d(\mathbf{v},\mathbf{u})$ |
 | L4 | $\|\mathbf{u}+\mathbf{v}\| \leq \|\mathbf{u}\|+\|\mathbf{v}\|$ | D4 | $d(\mathbf{u},\mathbf{v}) \leq d(\mathbf{u},\mathbf{w})+d(\mathbf{w},\mathbf{v})$ |
 
 **Proof of L4 (triangle inequality)** — uses [[cauchy-schwarz-inequality]]:

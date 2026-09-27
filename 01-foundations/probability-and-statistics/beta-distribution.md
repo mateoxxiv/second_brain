@@ -53,14 +53,14 @@ def ab_test(ca, va, cb, vb, n=100000):
     sb = np.random.beta(1 + cb, 1 + vb - cb, n)
     print(f"P(B better than A) = {np.mean(sb > sa):.4f}")
 
-ab_test(ca=40, va=200, cb=50, vb=200)  # ~0.82
+ab_test(ca=40, va=200, cb=50, vb=200)  # ~0.88
 ```
 
 > Runnable: [[code/foundations/beta_distribution.py]]
 
 ## In ML
 
-**Bayesian A/B testing.** Sample from Beta posteriors for variant A and B. Compute P(B > A) by counting Monte Carlo samples. No p-values, no normality assumption, easy to interpret: "there is an 82% probability that B is better."
+**Bayesian A/B testing.** Sample from Beta posteriors for variant A and B. Compute P(B > A) by counting Monte Carlo samples. No p-values, no normality assumption, easy to interpret: "there is an 88% probability that B is better."
 
 **Thompson sampling.** Multi-armed bandit algorithm: maintain a Beta(α, β) for each arm's success rate, sample one value from each, pull the arm with the highest sample. As evidence accumulates, the distributions tighten and the best arm dominates.
 

@@ -66,7 +66,7 @@ dist   = np.linalg.norm(u - v)                   # sqrt(27) ≈ 5.196
 cs_lhs = abs(np.dot(u, v))                       # 32
 cs_rhs = np.linalg.norm(u) * np.linalg.norm(v)  # ≈ 32.83
 print(cs_lhs <= cs_rhs)                          # True — Cauchy-Schwarz
-print(np.linalg.norm(u + v) <= cs_rhs)           # True — triangle inequality
+print(np.linalg.norm(u + v) <= np.linalg.norm(u) + np.linalg.norm(v))  # True — triangle inequality (12.45 ≤ 12.52)
 ```
 
 

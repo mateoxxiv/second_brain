@@ -37,7 +37,7 @@ The tell is simple: **ask what the number was computed from.** Whole population 
 - **Parameter** — The 100 senators in a U.S. Congress; 55% are of one party. That 55% is a *parameter*: it's computed from *every* senator, i.e. the whole population.
 - **Statistic** — In 1936 *Literary Digest* surveyed 2.3 million adults; 57% favored Landon. That 57% is a *statistic*: it comes from a sample, not the full voting population (and — see [[population-and-sample]] — a badly-drawn one that got the election wrong).
 
-The Greek-vs-Latin convention is a memory aid: **Greek letters (μ, σ, p) for the population parameter, Roman letters (x̄, s, p̂) for the sample statistic.**
+The notation convention is a memory aid: **plain symbols (μ, σ, p) for the population parameter; Roman letters with marks (x̄, s, p̂) for the sample statistic.** (μ and σ are Greek; p is the exception — plain p for the parameter, hatted p̂ for the statistic.)
 
 ```python
 import numpy as np

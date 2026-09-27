@@ -37,7 +37,7 @@ A **subspace** is a smaller space living inside a bigger one. Must contain **0**
 
 ## Mechanics
 
-A vector $\mathbf{v} \in \mathbb{R}^n$ is an ordered tuple of $n$ real numbers. The **8 axioms** (commutativity, associativity, zero element, inverses, distributivity) guarantee all the expected arithmetic works.
+A vector $\mathbf{v} \in \mathbb{R}^n$ is an ordered tuple of $n$ real numbers. The **10 axioms** (two closures, commutativity, associativity, zero element, inverses, two distributive laws, scalar associativity, $1\mathbf{u}=\mathbf{u}$ — see [[general-vector-spaces]]) guarantee all the expected arithmetic works. (Some texts list 8 because they fold the two closure axioms into the definition of the operations.)
 
 In practice, you only need to check closure — everything else is inherited from $\mathbb{R}^n$.
 
