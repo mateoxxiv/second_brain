@@ -25,7 +25,7 @@ date_read: "2026-09-25 (in progress)"
 | Module | Topic | Vault notes |
 |---|---|---|
 | 1 | Intro to Fabric + free access (personal/pro account) | [[microsoft-fabric]], [[microsoft-fabric-access-and-trial]] |
-| 2 | Core concepts: workspaces, OneLake, capacities, item types | |
+| 2 | Core concepts: workspaces, OneLake, capacities, item types | [[microsoft-fabric-workspace]] |
 | 3 | Data Factory: pipelines & Dataflows Gen2 (ingestion/ETL) | |
 | 4 | Data Engineering: Lakehouse + Spark Notebooks (PySpark, Spark SQL) | |
 | 5 | Data Warehouse: T-SQL warehouse & SQL analytics endpoint | |
@@ -41,6 +41,9 @@ date_read: "2026-09-25 (in progress)"
 **Module 1 — Intro**
 - [[microsoft-fabric]] — one SaaS platform where every workload shares one copy of the data (OneLake, Delta/Parquet)
 - [[microsoft-fabric-access-and-trial]] — access needs an Entra ID org identity + a capacity (60-day trial or paid F-SKU); personal email goes via an Azure tenant
+
+**Module 2 — Core concepts**
+- [[microsoft-fabric-workspace]] — container for items + unit of access (workspace-wide roles) + unit of billing (license mode → capacity)
 
 ---
 
@@ -67,6 +70,7 @@ This sits in a different lane from the current probability/stats track, but it's
 
 - [[microsoft-fabric]] — what Fabric is: unified SaaS platform on OneLake, its three layers, and collaboration by role (Module 1–2 companion)
 - [[microsoft-fabric-access-and-trial]] — identity + license + capacity model; corporate vs. personal-email access paths (Module 1 companion)
+- [[microsoft-fabric-workspace]] — creating a workspace, license modes, and the four workspace roles (Module 2 companion)
 
 ## Gaps — Notes Still to Create
 
