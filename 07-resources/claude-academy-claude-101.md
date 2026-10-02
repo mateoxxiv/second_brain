@@ -24,7 +24,7 @@ date_read: "2026-09-06 (in progress)"
 | Module | Lesson | Topic | Vault notes |
 |--------|--------|-------|-------------|
 | Meet Claude | 1 | What is Claude? | [[constitutional-ai]] |
-| | 2 | Your first conversation with Claude | *(product)* |
+| | 2 | Your first conversation with Claude | [[prompt-engineering-fundamentals]], [[claude-context-layers]] |
 | | 3 | Getting better results (prompting, AI Fluency) | [[prompt-engineering-fundamentals]], [[ai-fluency-framework]] |
 | | 4 | How you'll work with Claude on desktop (Chat / Cowork / Code) | [[claude-work-modes]], [[claude-code]] |
 | Organizing work & knowledge | 5 | Introduction to Projects | [[claude-projects]] |
@@ -44,7 +44,8 @@ date_read: "2026-09-06 (in progress)"
 **Meet Claude (1–4)**
 - [[constitutional-ai]] — *(created)* Lesson 1's one atomic concept: the HHH ("helpful, harmless, honest") alignment approach via a self-critique constitution + RLAIF
 - Product intro — what Claude is; access via web, desktop, mobile
-- [[prompt-engineering-fundamentals]] — *(gap)* the context → task → format/style prompt structure, and iterating when results miss
+- [[prompt-engineering-fundamentals]] — *(created)* Lessons 2–3: the stage → task → rules prompt structure, why each part removes guesswork, and edit vs. follow-up iteration
+- [[claude-context-layers]] — *(created)* Lesson 2: the model is stateless; prompt, attachments, history, Instructions/Memory, and Skills are different scopes for injecting context
 - [[ai-fluency-framework]] — *(gap)* Anthropic's framework for getting better outcomes from an AI collaborator
 - [[claude-work-modes]] — *(gap)* the three shapes of work in the desktop app: **Chat** (turn-by-turn), **Cowork** (hand work off), **Code** (build software), and picking the right one
 - [[claude-code]] — *(exists)* the Code mode / CLI agent
@@ -85,10 +86,11 @@ Directly useful because I'm building on the Claude platform, but I'll keep it in
 ## Permanent Notes Created
 
 - [[constitutional-ai]] — from Lesson 1: theory-first (Bai et al. 2022) — the HHH objective and the two-stage self-critique + RLAIF training that makes Claude steerable and safe
+- [[prompt-engineering-fundamentals]] — from Lesson 2: stage / task / rules, the lesson's pitch-deck example dissected, and an entropy argument for why context helps
+- [[claude-context-layers]] — from Lesson 2: stateless inference and the five scopes of context (prompt → attachments → history → Instructions/Memory → Skills)
 
 ## Gaps — Notes Still to Create
 
-- [[prompt-engineering-fundamentals]] — Lesson 3: the context/task/format prompt structure and iteration loop; fills the empty `prompt-engineering/` folder
 - [[ai-fluency-framework]] — Lesson 3: Anthropic's AI-collaboration framework
 - [[claude-work-modes]] — Lesson 4: Chat vs. Cowork vs. Code and when each applies
 - [[claude-projects]] — Lesson 5: reusable context containers
