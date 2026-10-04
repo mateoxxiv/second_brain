@@ -7,6 +7,7 @@ related:
   - "[[characteristics-of-data]]"
   - "[[normal-distribution]]"
   - "[[parameter-vs-statistic]]"
+  - "[[unbiased-and-biased-estimators]]"
   - "[[skewness]]"
   - "[[coefficient-of-variation]]"
   - "[[chebyshevs-theorem]]"
@@ -55,7 +56,7 @@ $$s = \sqrt{\frac{\sum(x-\bar{x})^2}{n-1}} \quad\text{(sample)} \qquad \sigma = 
 | Variance | $s^2$ | $\sigma^2$ |
 | Divisor | $n-1$ | $N$ |
 
-**Why divide by n−1 (not n)?** Only $n-1$ deviations are *free*: once the mean is fixed, the last value is determined (**degrees of freedom**). Dividing by $n-1$ makes $s^2$ an **unbiased estimator** of $\sigma^2$; dividing by $n$ systematically *underestimates* it.
+**Why divide by n−1 (not n)?** Only $n-1$ deviations are *free*: once the mean is fixed, the last value is determined (**degrees of freedom**). Dividing by $n-1$ makes $s^2$ an **[[unbiased-and-biased-estimators|unbiased estimator]]** of $\sigma^2$; dividing by $n$ systematically *underestimates* it.
 
 ### Variance = (standard deviation)²
 $s^2$ and $\sigma^2$. It's the key quantity for inference (ANOVA, the additivity property), but its **units are squared** ("square minutes"?) — meaningless to interpret directly, which is exactly why we report the standard deviation instead.

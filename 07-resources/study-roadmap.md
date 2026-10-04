@@ -1,7 +1,7 @@
 # Study Roadmap
 
 **Created**: 2026-02-24
-**Last updated**: 2026-09-10 (major re-audit. Since 2026-08-09 the vault grew 116 → 155 domain notes. **T3 Probability jumped 23 → 49**: the entire Triola Ch. 2-3 descriptive-statistics block landed — frequency distributions, all graph types (histogram, ogive, stem-and-leaf, Pareto, boxplots, etc.), measures of center/variation, z-scores, percentiles, quartiles/IQR, Chebyshev, skewness, coefficient of variation. **T4 Supervised/Unsupervised ML has actually STARTED (0 → 7 notes)** from the Platzi "Fundamentos de ML" course — types-of-machine-learning, supervised + algorithms, unsupervised, and a feature-engineering trio (feature-engineering, feature-scaling, one-hot-encoding); note these are *practical-course-derived companion notes*, not the deep theory notes T4 ultimately needs. **Constitutional AI** note added to the LLM track (04/architectures). **MLOps opened (0 → 1)**: python-and-jupyter-environment-setup. Literature notes grew 2 → 7 (Anton LA, Platzi LA, Triola, Platzi ML, Platzi People Analytics, Claude 101, AI frontier-models landscape). **Still unresolved from every prior audit**: matrix-transpose is still 3 competing drafts in `00-inbox/proposals/` with no promoted note; `code/` is still 100% empty — zero runnable `.py` files despite 155 notes. Prior 2026-08-09: added T3 "Data skepticism & study design" reading block.)
+**Last updated**: 2026-10-03 (re-audit. Vault grew 155 → **190 domain notes** + 8 literature notes. **T3 Probability 49 → 76**: Triola Ch. 4 (probability rules, Bayes, counting, simulation), all of Ch. 5 (discrete distributions) and Ch. 6 §6-1–6-3 (PDF, uniform, standard normal, critical values, standardization, inverse normal) landed. **First theory-sourced T4 algorithm note**: logistic-regression (ISLR Ch. 4). **B2 Prompt Engineering STARTED** (3 notes, from Claude 101). **B6/B7 Fabric + Medallion STARTED** (4 notes, Udemy Fabric course). New sections this audit: **Course Progress**, **T4b Evaluation**, **T11 Reinforcement Learning**, **T12 Generative Models**, **F1 Algorithms & DS**, **F2 Databases**, **B10–B12 fleshed out**, **B13 AI Safety & Security**. Prior audit 2026-09-10: Since 2026-08-09 the vault grew 116 → 155 domain notes. **T3 Probability jumped 23 → 49**: the entire Triola Ch. 2-3 descriptive-statistics block landed — frequency distributions, all graph types (histogram, ogive, stem-and-leaf, Pareto, boxplots, etc.), measures of center/variation, z-scores, percentiles, quartiles/IQR, Chebyshev, skewness, coefficient of variation. **T4 Supervised/Unsupervised ML has actually STARTED (0 → 7 notes)** from the Platzi "Fundamentos de ML" course — types-of-machine-learning, supervised + algorithms, unsupervised, and a feature-engineering trio (feature-engineering, feature-scaling, one-hot-encoding); note these are *practical-course-derived companion notes*, not the deep theory notes T4 ultimately needs. **Constitutional AI** note added to the LLM track (04/architectures). **MLOps opened (0 → 1)**: python-and-jupyter-environment-setup. Literature notes grew 2 → 7 (Anton LA, Platzi LA, Triola, Platzi ML, Platzi People Analytics, Claude 101, AI frontier-models landscape). **Still unresolved from every prior audit**: matrix-transpose is still 3 competing drafts in `00-inbox/proposals/` with no promoted note; `code/` is still 100% empty — zero runnable `.py` files despite 155 notes. Prior 2026-08-09: added T3 "Data skepticism & study design" reading block.)
 **Goal**: Become an expert AI architect and engineer — design, implement, and orchestrate intelligent systems end-to-end.
 
 > **2026-09-14 addition**: Added a third **Human Skills Track (H1–H6)** — soft, social & leadership skills — as a co-equal complement to the Theory and Builder tracks. Rationale: the "architect / orchestrate end-to-end" goal is inherently a *team* role, so communication, collaboration, and leadership are load-bearing, not optional. Notes will live in a new `09-professional-skills/` folder once the first one is written.
@@ -53,23 +53,41 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 
 | Area | Notes | Status |
 |------|-------|--------|
-| 01-foundations/linear-algebra | 60 | **Essentially complete** (8 evergreen / 10 growing / 42 seed). Only matrix calculus, pseudoinverse, matrix norms, and transpose remain |
-| 01-foundations/calculus | 9 | Core complete (6 growing / 3 seed) — trig identities added |
-| 01-foundations/probability | 49 | **Big jump** — distributions (10) + Triola Ch. 1 collection cluster (13) + **entire Ch. 2-3 descriptive-statistics block (26)**. Inferential half (MLE, hypothesis testing, information theory) still open |
-| 01-foundations/algorithms | 0 | Not started |
-| 01-foundations/databases | 0 | Not started |
-| 02-machine-learning | 7 | **STARTED** — types-of-ML, supervised (+algorithms), unsupervised, feature-engineering trio (all seed). ⚠️ Platzi-course companion notes, not deep theory notes yet |
+| 01-foundations/linear-algebra | 60 | **Essentially complete** (8 evergreen / 10 growing / 42 seed). Transpose, matrix calculus, pseudoinverse, matrix norms, quadratic forms remain |
+| 01-foundations/calculus | 9 | Core complete (6 growing / 3 seed) — no change since last audit |
+| 01-foundations/probability | 76 | **+27** — Triola Ch. 4 (12), Ch. 5 (12), Ch. 6 §6-1–6-3 (8). Descriptive + probability + discrete/normal distributions done. **Inferential half (sampling distributions, CLT, CIs, hypothesis testing, MLE) still entirely open** |
+| 01-foundations/algorithms | 0 | Not started — now has a track (F1) |
+| 01-foundations/databases | 0 | Not started — now has a track (F2) |
+| 02-machine-learning | 8 | 7 Platzi orientation notes + **logistic-regression** (first ISLR-derived algorithm note). All seed |
 | 03-deep-learning | 0 | Not started |
-| 04-llms-and-agents | 12 | Anthropic + OpenAI ecosystems + Claude Code tooling + **Constitutional AI** (first alignment-theory note) |
-| 05-mlops | 1 | **Opened** — python-and-jupyter-environment-setup (infrastructure) |
+| 04-llms-and-agents | 15 | **+3** — prompt-engineering-fundamentals, claude-context-layers, iterative-prompt-refinement (B2 opened) |
+| 05-mlops | 5 | **+4** — microsoft-fabric, fabric-access-and-trial, fabric-workspace, medallion-architecture |
 | 08-applied-domains/people-analytics | 17 | **Side track, outside core path** — full course captured. All 17 still `status/seed` |
 
-**Total notes**: 155 domain notes + 7 literature notes | **8 evergreen** | **26 growing** | **121 seed**
+**Total notes**: 190 domain notes + 8 literature notes | **8 evergreen** | **26 growing** | **156 seed**
 
-**Vault hygiene gaps** (all three carried over unresolved from prior audits):
-1. `00-inbox/proposals/` still has three unresolved template drafts for `matrix-transpose` (frontmatter/card/layered variants) — matrix transpose still has no permanent note in `linear-algebra/` despite being referenced by other notes. Pick one format and promote it, or discard the drafts. **This has been open across multiple audits — resolve it.**
-2. `code/` is entirely empty (only `.gitkeep` placeholders) — zero runnable `.py` implementations exist anywhere, despite CLAUDE.md's "implement from scratch" principle and now **155 notes**. This is the single biggest gap between the vault's stated learning philosophy and its actual state. (Note: CLAUDE.md now says standalone `.py` files are created only on *explicit request* — so this is a deliberate choice to make, not an oversight, but the "master by building" tracks below stay theoretical until at least one lands.)
-3. **121 of 155 notes are still `status/seed`** (up from 85) — the seed backlog is growing faster than notes are being matured. The new ML and probability clusters are entirely seed. A `/review` pass on load-bearing seeds is overdue.
+**Vault hygiene gaps** (carried over unresolved from prior audits):
+1. `00-inbox/proposals/` still has three unresolved template drafts for `matrix-transpose` — **open for 4+ audits**. Promote one to `linear-algebra/matrix-transpose.md` or delete the drafts.
+2. `code/` is entirely empty. Per CLAUDE.md, `.py` files are created only on explicit request, so this is a choice, not an oversight — but no "build from scratch" item has been exercised yet.
+3. **156 of 190 notes are `status/seed`** (was 121/155). **Zero notes were promoted this cycle** — 35 new notes, 0 maturations. 82% of the vault is seed. The `/review` pass is now the single most overdue maintenance item.
+4. Literature-note gap lists drift from reality: `udemy-microsoft-fabric` still lists [[medallion-architecture]] as a gap though the note now exists; `platzi-fundamentos-machine-learning` Class 4 row doesn't link [[python-and-jupyter-environment-setup]].
+
+---
+
+## Course Progress (literature sources)
+
+| Source | Type | Progress | Notes | What's left |
+|---|---|---|---|---|
+| **Anton — Álgebra Lineal** | Theory (textbook) | ✅ Ch. 1–7 covered (~100%) | 58 | [[quadratic-forms]] (only listed gap) |
+| **Platzi — Álgebra Lineal** | Practical companion | ✅ Complete | 2 own + links | — |
+| **Triola — Estadística** | Theory (textbook) | 🟡 Ch. 1–5 done, **Ch. 6 §6-1–6-3 done** → ~5.4 / 12 ch. (**~45%**) | 76 | §6-4 sampling distributions, §6-5 **CLT**, §6-6 assessing normality, §6-7 normal approx. to binomial; then Ch. 7–12 |
+| **Platzi — Fundamentos de ML** | Practical companion | 🟡 8 / 20 classes mapped (**40%**) | 7 | Classes 9–20: feature selection, train-test split, linear regression, metrics, R², trees, K-Means, PCA, pipeline, MLP, sentiment |
+| **Platzi — People Analytics con Excel** | Practical | ✅ 13 / 13 classes | 17 | — (side track) |
+| **Claude Academy — Claude 101** | Product course | 🟡 Lessons 1–2 done, 3 partial → ~2.5 / 13 (**~20%**) | 3 | ai-fluency-framework, claude-work-modes, projects, artifacts, skills, connectors, research-mode |
+| **Udemy — Microsoft Fabric** | Practical (vendor) | 🟡 Modules 1–2 + medallion (part of 7) → ~2.5 / 9 (**~28%**) | 4 | Data Factory, Lakehouse + Spark, Warehouse, storage comparison, Power BI, DP-600/700 prep |
+| **AI Frontier Models Landscape 2026-09** | News snapshot | — | 0 | gemini-api, grok-api, deepseek-api, open-weight-vs-closed-models |
+
+**Reading:** the only *theory* source actively in progress is Triola — keep it as the main line. Anton is finished. Three practical courses (Platzi ML, Claude 101, Fabric) are open in parallel; that's fine as long as they stay companions, but **don't open a 4th practical course** until one of them closes.
 
 ---
 
@@ -141,8 +159,10 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 - [ ] Matrix Calculus (Jacobians, Hessians, dL/dW) — needs calculus track first, CRITICAL for backprop
 - [ ] Pseudoinverse (Moore-Penrose) — via SVD, for least-squares
 - [ ] Matrix Norms and Condition Number — numerical stability
+- [ ] Quadratic Forms and Positive Definiteness ← added 2026-10-03 (Anton gap) — xᵀAx, PD/PSD, the bridge to Hessians, covariance matrices, and convexity
+- [ ] Low-Rank Approximation (Eckart–Young) ← added 2026-10-03 — the theorem behind PCA, LoRA, and embedding compression
 
-**Estimated remaining**: ~4 notes — the eigenvalue chapter (Anton §6.1-6.3) is now fully covered end-to-end. Once matrix transpose and matrix calculus land, this track is done and T4 (Supervised ML) is fully unblocked.
+**Estimated remaining**: ~6 notes — the eigenvalue chapter (Anton §6.1-6.3) is now fully covered end-to-end. Once matrix transpose and matrix calculus land, this track is done and T4 (Supervised ML) is fully unblocked.
 
 ---
 
@@ -164,13 +184,15 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 **Remaining:**
 - [ ] Matrix Calculus (Jacobians, Hessians) — CRITICAL before deep learning, shared gate with T1
 - [ ] Taylor Series and Approximations — explains why gradient descent works
-- [ ] Integration Basics — needed for probability density derivations
+- [ ] Integration Basics — needed for probability density derivations (now urgent: Triola Ch. 6 PDFs already use areas-under-curves)
+- [ ] Lagrange Multipliers (constrained optimization) ← added 2026-10-03 — needed for SVM dual, PCA derivation, max-entropy
+- [ ] Multivariable Integration and Change of Variables ← added 2026-10-03 — joint densities, the Gaussian integral, normalizing flows
 
-**Estimated remaining**: ~3 notes
+**Estimated remaining**: ~5 notes
 
 ---
 
-### T3: Probability and Statistics — IN PROGRESS (49/~57 notes)
+### T3: Probability and Statistics — IN PROGRESS (76/~100 notes)
 
 > *Why*: ML is applied statistics. Bayesian thinking, distributions, hypothesis testing.
 
@@ -212,17 +234,47 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 - [x] z-Score · Percentiles · Quartiles and IQR · Five-Number Summary and Boxplots
 - [x] Skewness
 
-**Remaining (priority order) — the inferential + information-theory half:**
-- [ ] Maximum Likelihood Estimation (MLE) ← NEXT — derives ALL loss functions from distributions
-- [ ] Cross-Entropy and KL Divergence — information theory, classification losses
-- [ ] Joint, Marginal, and Conditional Distributions
-- [ ] Multivariate Normal Distribution — used in VAEs, Gaussian processes
-- [ ] Maximum A Posteriori (MAP)
-- [ ] Hypothesis Testing and p-values
-- [ ] Bootstrap and Empirical Distributions
-- [ ] Tier 2 distributions: Gamma, Chi-Squared, Student's t, Log-Normal
+**Done — probability, Triola Ch. 4 (11 new) ← NEW this audit:**
+- [x] Sample Space and Events · Three Methods of Assigning Probability · Law of Large Numbers
+- [x] Complementary Events · Addition Rule · Multiplication Rule · Conditional Probability
+- [x] Law of Total Probability · Bayes' Theorem · Odds
+- [x] Counting and Combinatorics · Monte Carlo Simulation
 
-**Estimated remaining**: ~8 notes
+**Done — discrete distributions, Triola Ch. 5 (9 new) ← NEW this audit:**
+- [x] Random Variable · Discrete Probability Distribution · Mean and Variance of a Probability Distribution · Expected Value
+- [x] Identifying Unusual Results (range rule of thumb, probability criterion)
+- [x] Binomial Distribution Requirements · Binomial Mean and Variance · Hypergeometric Distribution · Poisson Approximation to Binomial
+
+**Done — normal distributions, Triola Ch. 6 §6-1–6-3 (6 new) ← NEW this audit:**
+- [x] Probability Density Function · Uniform Distribution · Standard Normal Distribution
+- [x] Critical Values and z_α · Normal Probabilities via Standardization · Finding Values from Normal Areas
+
+**Remaining — Triola Ch. 6 rest (the gateway to inference) ← NEXT:**
+- [x] Sampling Distributions and Estimators (§6-4) — [[sampling-distribution]] + [[unbiased-and-biased-estimators]] ← done 2026-10-04
+- [ ] Central Limit Theorem (§6-5) — **the most important missing note in T3**; justifies every z/t interval and test that follows
+- [ ] Assessing Normality / Normal Quantile Plots (§6-6) — QQ plots, the residual-diagnostics tool of regression
+- [ ] Normal Approximation to the Binomial (§6-7) — continuity correction
+
+**Remaining — Triola Ch. 7–12 (the inferential half) ← added 2026-10-03 from the Triola gap list:**
+- [ ] Point Estimates and Confidence Intervals for a Proportion / Mean (Ch. 7) — margin of error, sample size determination
+- [ ] Student's t Distribution (Ch. 7) · Chi-Squared Distribution (Ch. 7, CI for σ)
+- [ ] Hypothesis Testing and p-values (Ch. 8) — H₀/H₁, Type I/II errors, power
+- [ ] Inferences from Two Samples (Ch. 9) — two-proportion z-test (= the A/B test), paired vs. independent t-test
+- [ ] Correlation and Regression (Ch. 10) — Pearson r, least-squares line, residuals; **bridge to T4 linear regression**
+- [ ] Chi-Squared Goodness-of-Fit and Contingency Tables (Ch. 11)
+- [ ] ANOVA and the F Distribution (Ch. 12)
+
+**Remaining — beyond Triola (needs Wasserman / Bishop / MacKay):**
+- [ ] Maximum Likelihood Estimation (MLE) — derives ALL loss functions from distributions
+- [ ] Cross-Entropy and KL Divergence (+ Entropy) — information theory, classification losses (logistic-regression already links [[cross-entropy]] → dangling)
+- [ ] Joint, Marginal, and Conditional Distributions · Covariance and Correlation of Random Variables
+- [ ] Multivariate Normal Distribution — VAEs, Gaussian processes
+- [ ] Maximum A Posteriori (MAP) — = regularization in disguise
+- [ ] Bootstrap and Empirical Distributions
+- [ ] Log-Normal, Gamma distributions
+- [ ] **Causal inference basics** ← added 2026-10-03 — confounding, DAGs, potential outcomes; the formal follow-up to [[observational-study-vs-experiment]] and essential for A/B testing and uplift modeling
+
+**Estimated remaining**: ~25 notes (≈ 4 Ch. 6 + 12 Triola Ch. 7–12 + 9 beyond)
 
 **Reading resources (optional / enrichment — not critical path):**
 - ✅ **How to Lie with Statistics** — Darrell Huff (1954). Short (~1 hr), foundational data-literacy classic; still the best "spot the misuse" primer. Pairs directly with [[common-misuses-of-statistics]]. Referenced in Triola Ch. 1 §1-4.
@@ -245,11 +297,11 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 
 ---
 
-### T4: Supervised ML — STARTED, ORIENTATION LAYER ONLY (5/~10 notes)
+### T4: Supervised ML — STARTED (8/~16 notes)
 
 > *Why*: The core of predictive modeling. Build from scratch before using libraries.
 
-> ⚠️ **Source caveat**: the notes that exist so far are derived from the **Platzi "Fundamentos de ML" course** — a *practical* course. Per CLAUDE.md's source hierarchy, a practical course is a **companion, not the origin** of a permanent note: it gives orientation and vocabulary but no derivations. So these count as scaffolding; the *deep* T4 notes (each algorithm derived + implemented from scratch) still need a rigorous source (ISLR/ESL, Bishop) and remain to be written.
+> ⚠️ **Source caveat**: 7 of the 8 notes come from the **Platzi "Fundamentos de ML" course** (practical companion → orientation, not mastery). [[logistic-regression]] is the first note derived from a theory source (ISLR Ch. 4). The remaining algorithm notes need ISLR/ESL/Bishop as origin.
 
 **Done — orientation (Platzi companion, all seed):**
 - [x] Types of Machine Learning (supervised / unsupervised / RL taxonomy)
@@ -257,15 +309,38 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 - [x] Supervised Learning Algorithms (survey)
 - [x] Feature Engineering · Feature Scaling · One-Hot Encoding
 
+**Done — theory-derived:**
+- [x] Logistic Regression ← NEW (ISLR Ch. 4; links forward to the not-yet-written [[cross-entropy]] and [[linear-regression]])
+
 **Remaining — the deep, derive-and-implement notes:**
-- [ ] Linear Regression (closed-form + gradient descent, normal equations)
-- [ ] Logistic Regression
-- [ ] Decision Trees
-- [ ] Support Vector Machines
-- [ ] K-Nearest Neighbors
-- [ ] Naive Bayes
+- [ ] Linear Regression (closed-form + gradient descent, normal equations) ← NEXT — [[least-squares]] already exists; [[logistic-regression]] links to it
 - [ ] Bias-Variance Tradeoff
 - [ ] Regularization (L1/L2, Ridge, Lasso)
+- [ ] Decision Trees (Gini / entropy splits)
+- [ ] K-Nearest Neighbors
+- [ ] Naive Bayes — direct application of [[bayes-theorem]]
+- [ ] Support Vector Machines (needs Lagrange multipliers from T2)
+- [ ] Generalized Linear Models ← added 2026-10-03 — unifies linear/logistic/Poisson regression under one MLE framework
+
+**Remaining — data preparation (Platzi gaps, theory-first):**
+- [ ] Missing Data Imputation (MCAR / MAR / MNAR)
+- [ ] Data Preprocessing pipeline
+- [ ] Feature Selection (filter / wrapper / embedded)
+
+---
+
+### T4b: Model Evaluation — NOT STARTED (0/~8 notes) ← NEW TRACK 2026-10-03
+
+> *Why*: The vault has a `02-machine-learning/evaluation/` folder but the roadmap never had a track for it. Evaluation is how you know whether *any* model works — and it's the direct application of T3's sampling and inference notes.
+
+- [ ] Train / Validation / Test Split — the generalization contract (ties to [[random-sample-vs-simple-random-sample]])
+- [ ] Cross-Validation (k-fold, stratified, time-series split)
+- [ ] Data Leakage — target leakage, train/test contamination (already mentioned in [[feature-scaling]] and [[feature-engineering]])
+- [ ] Regression Metrics (MAE, MSE, RMSE, R²)
+- [ ] Confusion Matrix, Precision, Recall, F1
+- [ ] ROC-AUC and PR-AUC — threshold-independent evaluation
+- [ ] Probability Calibration (reliability diagrams, Brier score)
+- [ ] Class Imbalance (resampling, class weights, threshold tuning)
 
 ---
 
@@ -275,9 +350,10 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 
 - [ ] K-Means Clustering
 - [ ] Hierarchical Clustering and DBSCAN
-- [ ] Principal Component Analysis (PCA)
+- [ ] Principal Component Analysis (PCA) — derive from [[spectral-decomposition]] / [[singular-value-decomposition]]
 - [ ] t-SNE and UMAP
 - [ ] Anomaly Detection
+- [ ] Gaussian Mixture Models and EM ← added 2026-10-03 — soft clustering; EM is a core latent-variable algorithm
 
 ---
 
@@ -287,6 +363,17 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 - [ ] Boosting (AdaBoost, Gradient Boosting)
 - [ ] XGBoost / LightGBM / CatBoost
 - [ ] Stacking and Blending
+
+---
+
+### T6b: Time Series — NOT STARTED (0/~4 notes) ← NEW TRACK 2026-10-03
+
+> *Why*: Most business data (sales, HR attrition, sensors, finance) is temporal, and the i.i.d. assumption behind T4 breaks here. [[time-series-graph]] exists, but there's no modeling yet.
+
+- [ ] Stationarity, Trend, Seasonality, Autocorrelation
+- [ ] ARIMA / Exponential Smoothing
+- [ ] Forecasting with ML (lag features, time-series CV)
+- [ ] Forecast Evaluation (MAPE, backtesting)
 
 ---
 
@@ -327,49 +414,114 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 
 ---
 
-### T10: LLM Internals — BARELY STARTED (1/~7 notes)
+### T10: LLM Internals — BARELY STARTED (1/~10 notes)
 
-- [x] Constitutional AI (HHH + RLAIF) ← NEW — first alignment note, from Claude 101 Lesson 1. Lives in `04/architectures/`. ⚠️ product-course origin; a rigorous RLHF/DPO note should still be derived from the InstructGPT / DPO papers.
+- [x] Constitutional AI (HHH + RLAIF) — from Claude 101 Lesson 1, theory-first (Bai et al. 2022)
 - [ ] Language Modeling (autoregressive vs masked)
 - [ ] Tokenization (BPE, WordPiece, SentencePiece)
+- [ ] Decoding and Sampling (temperature, top-k, top-p) ← added 2026-10-03 — what every API `temperature` parameter actually does
 - [ ] Scaling Laws
 - [ ] Context Windows and KV-Cache
-- [ ] RLHF and DPO (alignment) — partial via Constitutional AI; needs the paper-derived version
+- [ ] Mixture of Experts ← added 2026-10-03 — the frontier-models landscape note mentions MoE for Grok / DeepSeek
+- [ ] RLHF and DPO (alignment) — needs T11 RL basics for the PPO half
 - [ ] Fine-Tuning: Full vs LoRA/QLoRA
+- [ ] Quantization and Distillation ← added 2026-10-03 — how open-weight models run on real hardware
+
+---
+
+### T11: Reinforcement Learning — NOT STARTED (0/~5 notes) ← NEW TRACK 2026-10-03
+
+> *Why*: [[types-of-machine-learning]] names RL as one of the three paradigms, and RLHF / PPO / GRPO (T10) is how frontier LLMs are aligned and trained to reason — yet the roadmap had no RL track at all. Source: Sutton & Barto (free PDF).
+
+- [ ] Markov Decision Processes (states, actions, rewards, discount)
+- [ ] Value Functions and the Bellman Equation
+- [ ] Q-Learning and Exploration vs. Exploitation (multi-armed bandits)
+- [ ] Policy Gradients (REINFORCE)
+- [ ] PPO and GRPO — the algorithms behind RLHF and reasoning models
+
+---
+
+### T12: Generative Models — NOT STARTED (0/~4 notes) ← NEW TRACK 2026-10-03
+
+> *Why*: Transformers cover text generation, but image/audio/video generation runs on different math. The multivariate normal and KL divergence (T3) are the prerequisites.
+
+- [ ] Autoencoders and Variational Autoencoders (ELBO, reparameterization trick)
+- [ ] Generative Adversarial Networks
+- [ ] Diffusion Models (forward noise, reverse denoising, score matching)
+- [ ] Multimodal Models (CLIP, vision-language models)
+
+---
+
+## FOUNDATIONS GAP TRACKS ← NEW 2026-10-03
+
+> The vault structure has `01-foundations/algorithms-and-data-structures/` and `01-foundations/databases/`, but the roadmap never gave them a track. They are prerequisites for B7 (data engineering), B9 (system design), and technical interviews.
+
+### F1: Algorithms & Data Structures — NOT STARTED (0/~8 notes)
+
+- [ ] Big-O and Complexity Analysis
+- [ ] Arrays, Hash Tables, and Sets (why dict lookup is O(1))
+- [ ] Trees and Heaps (BSTs, priority queues — used in beam search, k-NN)
+- [ ] Graphs: BFS, DFS, shortest paths (knowledge graphs, agent planning, ONA)
+- [ ] Sorting and Searching (binary search)
+- [ ] Dynamic Programming (Viterbi, edit distance, sequence alignment)
+- [ ] Approximate Nearest Neighbors (HNSW, IVF, LSH) — **the algorithm inside every vector DB** (B4)
+- [ ] Recursion and Divide-and-Conquer
+
+### F2: Databases — NOT STARTED (0/~6 notes)
+
+- [ ] Relational Model and SQL Fundamentals (joins, group by)
+- [ ] Normalization (1NF → 3NF) vs. Denormalization
+- [ ] Indexes (B-trees) and Query Plans
+- [ ] Transactions and ACID
+- [ ] NoSQL Families (document, key-value, column, graph)
+- [ ] Vector Databases as a database category (bridge to B4)
 
 ---
 
 ## BUILDER TRACK
 
-### B1: LLM APIs — DONE
+### B1: LLM APIs & Claude Platform — CORE DONE, Claude 101 gaps open
 
 - [x] Anthropic Claude API
 - [x] OpenAI API
 - [x] Claude Code
 - [x] Claude Code Agent Teams
-- [x] Claude Code Hooks ← new
-- [x] Claude Code Cron Jobs ← new
-- [x] Claude Code + Chrome ← new
+- [x] Claude Code Hooks
+- [x] Claude Code Cron Jobs
+- [x] Claude Code + Chrome
 - [x] Model Context Protocol
 - [x] Claude Agent SDK
 - [x] OpenAI Codex
 - [x] OpenAI Agents SDK
 
+**Remaining — Claude 101 gaps (product-course companions):**
+- [ ] AI Fluency Framework (Lesson 3)
+- [ ] Claude Work Modes: Chat / Cowork / Code (Lesson 4)
+- [ ] Claude Projects (Lesson 5) · Claude Artifacts (Lesson 6) · Claude Skills (Lesson 7)
+- [ ] Claude Connectors + Enterprise Search (Lessons 8–9)
+- [ ] Claude Research Mode (Lesson 10)
+
 ---
 
-### B2: Prompt Engineering — NOT STARTED
+### B2: Prompt Engineering — STARTED (3/~7 notes)
 
+- [x] Prompt Engineering Fundamentals (stage → task → rules) ← NEW
+- [x] Claude Context Layers (stateless model, five context scopes) ← NEW
+- [x] Iterative Prompt Refinement ← NEW (uncommitted)
 - [ ] Prompt Design Patterns (zero-shot, few-shot, chain-of-thought)
 - [ ] Structured Output (JSON mode, function calling)
 - [ ] System Prompts and Guardrails
+- [ ] Context Engineering ← added 2026-10-03 — managing what goes in the window for long-running agents (compaction, retrieval, memory)
 - [ ] **Project**: Structured data extractor
 
 ---
 
-### B3: LLM Providers Landscape — NOT STARTED
+### B3: LLM Providers Landscape — NOT STARTED (0/~6 notes)
 
 - [ ] Provider Comparison (Claude vs GPT vs Gemini vs Mistral vs LLaMA)
-- [ ] Pricing and Cost Optimization
+- [ ] Google Gemini API · xAI Grok API · DeepSeek API ← from the frontier-models landscape gaps
+- [ ] Open-Weight vs Closed Models (cost, privacy, control vs. capability)
+- [ ] Pricing and Cost Optimization (prompt caching, batching, model tiering)
 - [ ] Model Selection Framework
 - [ ] **Project**: Multi-provider router
 
@@ -393,7 +545,7 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 
 ---
 
-### B6: Cloud Infrastructure for AI & Data — NOT STARTED ← NEW
+### B6: Cloud Infrastructure for AI & Data — STARTED via Microsoft Fabric (3 notes)
 
 > *Why*: Knowing the math and code is not enough — you need to ship. Cloud platforms are where ETL pipelines run, models get served, and AI systems live in production.
 
@@ -408,10 +560,15 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 - [ ] ECR + ECS / EKS — containerized model serving
 - [ ] **Project**: Deploy a FastAPI model endpoint on SageMaker
 
-#### Microsoft Azure / Fabric
-- [ ] Microsoft Fabric overview — unified analytics: Data Engineering, Data Science, Data Warehouse, Real-Time Analytics
+#### Microsoft Azure / Fabric (companion: Udemy *Microsoft Fabric — La formación completa*, ~28%)
+- [x] Microsoft Fabric overview — unified analytics: Data Engineering, Data Science, Data Warehouse, Real-Time Analytics ← NEW
+- [x] Fabric Access and Trial (Entra ID identity + capacity) ← NEW
+- [x] Fabric Workspace (items, roles, license modes) ← NEW
 - [ ] Fabric Lakehouses and OneLake — Delta Lake-based unified storage
-- [ ] Fabric Pipelines and Dataflows — ETL/ELT with drag-and-drop + PySpark
+- [ ] Fabric Pipelines and Dataflows Gen2 — ETL/ELT with drag-and-drop + PySpark
+- [ ] Fabric Data Warehouse + SQL analytics endpoint
+- [ ] Power BI semantic models + DirectLake
+- [ ] 🎯 **Milestone**: DP-600 (Fabric Analytics Engineer) / DP-700 (Fabric Data Engineer) certification ← added 2026-10-03
 - [ ] Azure Machine Learning — experiment tracking, model registry, endpoints
 - [ ] Azure OpenAI Service — GPT-4, embeddings, DALL-E on Azure
 - [ ] Azure Data Factory — enterprise ETL orchestration
@@ -443,7 +600,10 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 - [ ] Data modeling — star schema, dimensional modeling, data vault 2.0
 - [ ] OLAP vs OLTP — when each applies and why
 - [ ] Columnar storage — Parquet, ORC, why they're faster for analytics
-- [ ] Medallion architecture — Bronze / Silver / Gold layers, data quality tiers
+- [x] Medallion architecture — Bronze / Silver / Gold layers, data quality tiers ← NEW (uncommitted)
+- [ ] Lakehouse vs. Data Warehouse — schema-on-read vs. schema-on-write (Fabric course gap)
+- [ ] Data Lake (and OneLake as one implementation) (Fabric course gap)
+- [ ] ETL vs. ELT (Fabric course gap)
 
 #### Batch Processing
 - [ ] Apache Spark fundamentals — RDDs, DataFrames, lazy evaluation, DAG
@@ -543,7 +703,46 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 
 ---
 
-### B10–B12: Tool Use, Agents, Evaluation, MLOps — NOT STARTED
+### B10: Tool Use & Agents — NOT STARTED (0/~8 notes) ← fleshed out 2026-10-03
+
+> *Why*: This was an empty stub, yet "orchestrate intelligent systems" is the core of the stated goal. The SDK notes in B1 explain *which tool*; this track explains *how agents work and how to design them*. Sources: Anthropic's "Building Effective Agents", the ReAct paper, Lilian Weng's "LLM Powered Autonomous Agents".
+
+- [ ] Tool Use / Function Calling — the request → tool call → result loop
+- [ ] The Agent Loop (ReAct: reason → act → observe)
+- [ ] Workflow Patterns vs. Agents (prompt chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer)
+- [ ] Agent Memory (short-term context, long-term stores, summarization)
+- [ ] Planning and Task Decomposition
+- [ ] Multi-Agent Orchestration (supervisor, handoffs, shared state) — links [[claude-code-agent-teams]], [[openai-agents-sdk]]
+- [ ] LangGraph (stateful agent graphs) — named in CLAUDE.md's stack, no note yet
+- [ ] Human-in-the-Loop and Permissioning
+- [ ] **Project**: A research agent over this vault with tool use + memory
+
+### B11: LLM Evaluation & Observability — NOT STARTED (0/~5 notes)
+
+- [ ] LLM Evaluation Fundamentals (offline evals, golden datasets, regression suites)
+- [ ] LLM-as-a-Judge (and its biases)
+- [ ] RAG Evaluation (faithfulness, context precision/recall — RAGAS)
+- [ ] Agent Evaluation (task success, trajectory evals)
+- [ ] Tracing and Observability (LangSmith, Langfuse, OpenTelemetry)
+
+### B12: MLOps — STARTED (1/~6 notes)
+
+- [x] Python and Jupyter Environment Setup
+- [ ] Model Packaging and Serving (FastAPI, batch vs. online)
+- [ ] Model Monitoring (data drift, concept drift, performance decay)
+- [ ] CI/CD for ML (tests on data + model, automated retraining)
+- [ ] Model Registry and Versioning (MLflow)
+- [ ] LLMOps differences (prompt versioning, cost/latency monitoring)
+
+### B13: AI Safety, Security & Responsible AI — NOT STARTED (0/~5 notes) ← NEW TRACK 2026-10-03
+
+> *Why*: Anyone shipping agents that read untrusted input and call tools needs this — it's a design constraint, not an afterthought. [[constitutional-ai]] covers training-time alignment; this covers deploy-time risk.
+
+- [ ] Prompt Injection (direct and indirect) and Defenses
+- [ ] Jailbreaks and Guardrails (input/output filtering)
+- [ ] Hallucination — causes, detection, and mitigation (grounding, citations)
+- [ ] Fairness and Bias in ML (generalizes [[bias-in-people-analytics]])
+- [ ] Data Privacy (PII handling, GDPR basics) and the AI Regulation landscape (EU AI Act)
 
 ---
 
@@ -653,18 +852,19 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 ## Parallel Schedule
 
 ```
-Weeks 1-3   | Linear Algebra (✓ done)      | B1: APIs (✓ done)
-Weeks 4-5   | Calculus (✓ done)             | B2: Prompt engineering
-Weeks 6-8   | Probability (in progress)     | B3: Providers landscape
-Weeks 9-10  | MLE + Information Theory      | B4: Embeddings + vector DBs
-Weeks 11-13 | Supervised ML                 | B5: RAG pipeline
-Weeks 14-15 | Unsupervised + Ensemble       | B6: Cloud infra (AWS + Fabric)
-Weeks 16-18 | Deep Learning Fundamentals    | B7-DE: SQL + Spark + dbt
-Weeks 19-20 | CNNs + RNNs                   | B7-DE: Kafka + streaming
-Weeks 21-22 | Transformers                  | B7-DE: Delta Lake + warehousing
-Weeks 23-24 | LLM Internals                 | B8-C++: Fundamentals + memory
-Weeks 25-27 | Fine-tuning + RLHF            | B8-C++: Performance + CUDA
-Weeks 28+   | Capstone projects             | B8-C++: ONNX + TensorRT + custom ops
+Weeks 1-3   | Linear Algebra (✓ done)          | B1: APIs (✓ done)
+Weeks 4-5   | Calculus (✓ core done)            | B2: Prompt engineering (started)
+Weeks 6-12  | Probability: Triola Ch.1-6 (now)  | B6: Fabric course (started, ~28%)
+Weeks 13-15 | Triola Ch.6 rest + Ch.7-8 (CLT, CIs, tests) + MLE | B3: Providers landscape
+Weeks 16-17 | Info theory + Triola Ch.9-10       | B4: Embeddings + vector DBs (+F1 ANN)
+Weeks 18-20 | Supervised ML + T4b Evaluation    | B5: RAG pipeline
+Weeks 21-22 | Unsupervised + Ensemble           | B10: Tool use & agents
+Weeks 23-25 | Deep Learning Fundamentals        | B11: LLM evals + B7-DE: SQL/Spark/dbt
+Weeks 26-27 | CNNs + RNNs                       | B7-DE: Kafka + streaming
+Weeks 28-29 | Transformers                      | B12: MLOps + B13 safety
+Weeks 30-31 | LLM Internals + RL basics (T11)   | B8-C++: Fundamentals + memory
+Weeks 32-34 | Fine-tuning + RLHF + Generative   | B8-C++: Performance + CUDA
+Weeks 35+   | Capstone projects                 | B9: System design
 ```
 
 ---
@@ -673,17 +873,19 @@ Weeks 28+   | Capstone projects             | B8-C++: ONNX + TensorRT + custom o
 
 **Immediate priorities (theory):**
 
-1. Resolve the `matrix-transpose` inbox drafts (`00-inbox/proposals/`) — pick one of the 3 template variants and promote it to `01-foundations/linear-algebra/matrix-transpose.md`. Quick win, closes the last real gap in linear algebra, and it has now been open across several audits.
-2. `/note maximum-likelihood-estimation` — **the single most important missing concept.** Descriptive statistics (Triola Ch. 2-3) is now done, so the natural next step in T3 is the inferential half, and MLE is the bridge from probability into ML: it derives every loss function. This is the highest-leverage note in the entire vault right now.
-3. `/note cross-entropy-and-kl-divergence` — information theory; connects directly to classification losses and VAEs. Pairs with MLE.
-4. `/note matrix-calculus` — Jacobians, Hessians, dL/dW. The last theory gate before deep learning; linear algebra is otherwise done.
-5. **Deepen T4, don't just extend it.** The 7 ML notes are Platzi-companion orientation. Pick the first algorithm — `/session linear-regression` — and do it *properly*: derive the normal equations, connect to least-squares (T1) and MLE/Gaussian noise (T3), and build it from scratch. That single note ties LA + calculus + probability together and converts the orientation layer into real mastery.
+1. **Finish Triola Ch. 6** — `/note sampling-distributions-and-estimators` (§6-4), then `/note central-limit-theorem` (§6-5). The CLT is the single most important missing note: every confidence interval and hypothesis test in Ch. 7–12 rests on it. Then §6-6 (normal quantile plots) and §6-7 (normal approximation to the binomial). ~4 notes, closes the chapter you're in the middle of.
+2. **`/review` pass on the probability cluster** — 0 notes were promoted this cycle while 35 were added. Before building inference on top, promote the load-bearing ones (conditional-probability, bayes-theorem, random-variable, expected-value, standard-normal-distribution) from seed → growing.
+3. **Triola Ch. 7–8** — confidence intervals, t distribution, hypothesis testing and p-values. This finally gives [[statistical-significance]] its formal machinery.
+4. `/note maximum-likelihood-estimation` + `/note cross-entropy-and-kl-divergence` — the bridge from probability to ML losses. [[logistic-regression]] already links to `[[cross-entropy]]`, which doesn't exist yet.
+5. `/session linear-regression` — derive the normal equations from [[least-squares]] and the MLE/Gaussian-noise view; ideally after Triola Ch. 10 (correlation and regression).
+6. Housekeeping: resolve the `matrix-transpose` inbox drafts (open for 4+ audits); write `matrix-calculus` before T7.
 
 **Immediate priorities (builder):**
 
-1. Complete Anthropic Skilljar courses
-2. `/note prompt-design-patterns` — zero-shot, few-shot, CoT
-3. Start B4: embeddings project using this vault
+1. **Finish one open practical course before starting another** — Claude 101 (~20%) is the shortest: 7 small notes (AI fluency, work modes, projects, artifacts, skills, connectors, research).
+2. Continue the Fabric course — next: lakehouse-vs-data-warehouse and etl-vs-elt (theory-first), with DP-600/DP-700 as the milestone.
+3. `/note prompt-design-patterns` — zero-shot, few-shot, CoT (B2).
+4. Then B4 embeddings → B10 agents (the stub that's now a full track).
 
 **Cloud track entry points (B6):**
 
@@ -710,6 +912,6 @@ Weeks 28+   | Capstone projects             | B8-C++: ONNX + TensorRT + custom o
 **Quality improvements:**
 - Promote `singular-value-decomposition` from seed to growing — still the biggest quality gap given how central SVD is to ML (PCA, pseudoinverse, low-rank approximation)
 - `spectral-decomposition` promoted seed → growing since last update ✓
-- **121 of 155 content notes are still `status/seed`** (was 78/111) — the seed backlog grew by 43 this cycle and nothing was promoted. Worth a `/review` pass on the load-bearing linear-algebra seeds (subspaces, kernel-and-range, rank-nullity-theorem, diagonalization) and on the new descriptive-statistics cluster before building on top of them
+- **156 of 190 content notes are still `status/seed`** (was 121/155, before that 78/111) — the seed backlog grew by 35 this cycle and nothing was promoted. Worth a `/review` pass on the load-bearing linear-algebra seeds (subspaces, kernel-and-range, rank-nullity-theorem, diagonalization) and on the new descriptive-statistics cluster before building on top of them
 - All 17 people-analytics notes are `status/seed` with zero code — lowest priority for now (side track), but if a 06-projects capstone gets built from this material (see S1 above), promote the notes it exercises to `growing`
 - **Vault-wide**: write at least one runnable file in `code/` — right now every single implementation described in every note (Gauss-Jordan, Gram-Schmidt, Cronbach's alpha, ONA centrality, sentiment scoring) exists only as an inline snippet, never as an actual tested `.py` file

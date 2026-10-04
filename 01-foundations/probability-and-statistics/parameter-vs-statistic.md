@@ -4,6 +4,8 @@ tags:
   - probability
 related:
   - "[[population-and-sample]]"
+  - "[[sampling-distribution]]"
+  - "[[unbiased-and-biased-estimators]]"
   - "[[data-types-and-levels-of-measurement]]"
   - "[[statistical-significance]]"
 domain: probability
@@ -62,4 +64,4 @@ print(mu, x_bar)                       # ~170.0  vs  ~168.4 -- the estimate miss
 
 **Intermediate** — You compute a sample proportion p̂ = 0.62. Explain in one sentence what unknown quantity it is estimating and why two different samples would give two different values of p̂.
 
-**Advanced** — A statistic is called *unbiased* if its average over all possible samples equals the parameter. Explain why the sample mean x̄ is an unbiased estimator of μ, but dividing a sample variance by n (instead of n−1) gives a *biased* estimator of σ².
+**Advanced** — A statistic is called *[[unbiased-and-biased-estimators|unbiased]]* if its average over all possible samples equals the parameter. Explain why the sample mean x̄ is an unbiased estimator of μ, but dividing a sample variance by n (instead of n−1) gives a *biased* estimator of σ².
