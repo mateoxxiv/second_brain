@@ -30,29 +30,45 @@ Here the tool is "compute s from n = 5 values." The sugar bag is a computer-made
 
 **One estimate = truth + habit + shake.** The habit (bias) is systematic and correctable. The shake (spread of the [[sampling-distribution]]) is random and gets reported as ±.
 
-**The habit, as a ratio:**
+### Methodology — finding the habit and correcting with it
 
-$$h = \frac{E[\hat\theta]}{\theta} \;\approx\; \frac{\text{average of } \hat\theta \text{ over many simulated samples}}{\theta_{\text{fake}}}$$
+Running example: the real data is 5 student heights, which give s = 4.7 cm. We want σ.
 
-**The correction:**
+**Step 1 — Name the tool.** Which estimator (s) and which sample size (n = 5, your real n). The habit belongs to this pair, so both must match your real situation.
 
-$$\hat\theta_{\text{corrected}} = \frac{\hat\theta_{\text{real}}}{h}$$
+**Step 2 — Check the shape of your real data.** Look at its histogram. Heights are bell-shaped, so the shape is normal. This is the only real assumption in the method.
 
-**The experiment (4 steps):**
-1. **Fake population.** A random-number machine with the *shape* of your real data (here: normal), any center (170) and any spread (σ = 10). No real data is used.
-2. **Many samples.** Draw n = 5 values (your real n) and compute s. Repeat 100,000 times.
-3. **Average.** The shake cancels out ([[law-of-large-numbers]]): the average s settles at 9.41.
-4. **Habit.** h = 9.41 ÷ 10 = 0.94. Throw the fake σ away and keep only h.
-
-**Apply it:** real data gives s = 4.7, so the corrected estimate is 4.7 ÷ 0.94 ≈ 5.0.
+**Step 3 — Build the sugar bag.** A random-number machine with that shape and **any** center and spread you like: normal, center 170, σ = 10. No real data goes in. Its true value θ_fake = 10 is known because you chose it.
 
 | Machine setting | Affects h? | How to choose it |
 |---|---|---|
 | Center, spread σ | No | anything convenient |
-| **Shape** | **Yes** | match the real data's histogram |
-| **Sample size n** | **Yes** | your real n |
+| **Shape** | **Yes** | match the real data's histogram (Step 2) |
+| **Sample size n** | **Yes** | your real n (Step 1) |
 
-**Divide or subtract? Test two spreads.** If the *ratio* stays fixed (σ = 10 gives 9.41, σ = 100 gives 94.04; both are 0.94), the bias is multiplicative, so **divide**. If the *gap* stayed fixed instead (always 0.6 low), it would be additive, so you'd **subtract**. For s it's multiplicative: scaling all data by k scales s by k. Theory gives h = c₄(n) for normal data: 0.798, 0.940, 0.973, 0.991 for n = 2, 5, 10, 30.
+**Step 4 — Throw many darts.** Draw a sample of n = 5 from the machine and compute s. Repeat N = 100,000 times, giving s₁, s₂, …, s_N. Single values jump around (4.28, 15.79, …): that's the shake.
+
+**Step 5 — Average them.** The shake cancels ([[law-of-large-numbers]]) and only the habit remains:
+
+$$\bar{\hat\theta} = \frac{1}{N}\sum_{i=1}^{N}\hat\theta_i \qquad (\text{here } 9.41)$$
+
+**Step 6 — Compute the habit.**
+
+$$h = \frac{E[\hat\theta]}{\theta} \;\approx\; \frac{\bar{\hat\theta}}{\theta_{\text{fake}}} = \frac{9.41}{10} = 0.94$$
+
+So s with n = 5 lands at about 94% of the truth on average: it reads about 6% low.
+
+**Step 7 — Divide or subtract? Repeat Steps 3–6 with a different spread.** σ = 100 gives an average of 94.04, so the **ratio** stays 0.94 while the **gap** grows (0.59 → 5.96). A fixed ratio means a multiplicative habit, so you **divide**. A fixed gap would mean an additive habit, and you'd **subtract** it instead. For s it's always multiplicative, because scaling all data by k scales s by k.
+
+**Step 8 — Throw the sugar bag away.** Keep only h = 0.94. The fake σ never touches your real data.
+
+**Step 9 — Correct the real estimate.**
+
+$$\hat\theta_{\text{corrected}} = \frac{\hat\theta_{\text{real}}}{h} = \frac{4.7}{0.94} \approx 5.0 \text{ cm}$$
+
+**Step 10 — Report the shake.** The correction fixes only the habit. A single estimate still wobbles (for s with n = 5, about ±35% of σ), so report a ± or an interval, not just 5.0.
+
+**Cross-check with theory:** for normal data the habit of s is known exactly, h = c₄(n): 0.798, 0.940, 0.973, 0.991 for n = 2, 5, 10, 30. Step 6 matches c₄(5) = 0.940.
 
 ```python
 import numpy as np
