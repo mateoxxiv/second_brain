@@ -203,6 +203,7 @@ This book is the natural next input for [[probability-fundamentals|T3 (Probabili
 - [[finding-values-from-normal-areas]] — from Ch. 6, §6-3 (Ejemplos 3–4, Fig. 6-16): x = μ + zσ as the normal quantile, Triola's four warnings, rounding vs. technology, and the threshold-from-target-rate / prediction-interval links
 - [[sampling-distribution]] — from Ch. 6, §6-4: definition, the three die simulations, standard error vs. population SD, enumeration of the range example, with-replacement rationale, bootstrap / test-metric / mini-batch links
 - [[unbiased-and-biased-estimators]] — from Ch. 6, §6-4: bias = E[θ̂] − θ, the biased/unbiased table with reasons (linearity, n−1, Jensen), Example 4 recomputed, MSE = bias² + variance
+- [[bias-correction]] — from Ch. 6, §6-4 (extension): measuring an estimator's habit h = E[θ̂]/θ on a simulated population with a chosen σ ("sugar bag"), dividing real estimates by h (s with n = 5: h = 0.94 = c₄), divide-vs-subtract test, bootstrap alternative
 
 ## Gaps — Notes Still to Create
 

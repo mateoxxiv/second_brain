@@ -4,6 +4,7 @@ tags:
   - probability
 related:
   - "[[unbiased-and-biased-estimators]]"
+  - "[[bias-correction]]"
   - "[[parameter-vs-statistic]]"
   - "[[population-and-sample]]"
   - "[[measures-of-variation]]"

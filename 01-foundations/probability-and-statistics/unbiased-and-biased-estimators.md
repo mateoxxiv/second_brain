@@ -4,6 +4,7 @@ tags:
   - probability
 related:
   - "[[sampling-distribution]]"
+  - "[[bias-correction]]"
   - "[[parameter-vs-statistic]]"
   - "[[measures-of-variation]]"
   - "[[measures-of-center]]"
@@ -58,7 +59,7 @@ print(mean_of(lambda s: np.var(s, ddof=1)), np.var(pop)) # 12.67 vs 12.67 -> unb
 print(mean_of(lambda s: np.std(s, ddof=1)), np.std(pop)) # 2.51 vs 3.56  -> biased
 ```
 
-**Why s is still used.** Its bias shrinks as n grows (for normal data E[s] ≈ σ(1 − 1/(4n))), so for moderate n it's negligible, and s has the right units.
+**Why s is still used.** Its bias shrinks as n grows (for normal data E[s] ≈ σ(1 − 1/(4n))), so for moderate n it's negligible, and s has the right units. When it isn't negligible, measure the habit and divide it out: [[bias-correction]].
 
 ## In ML
 
