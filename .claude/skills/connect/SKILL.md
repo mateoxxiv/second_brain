@@ -1,3 +1,8 @@
+---
+name: connect
+description: "Analyze the vault for missing links, bridge notes, orphan notes and sparse clusters. Apply changes only after approval."
+---
+
 Analyze the vault and find missing connections between notes.
 
 Follow these steps:

@@ -1,3 +1,8 @@
+---
+name: session
+description: "Start a guided, deep-first study session on a topic: explanation, existing notes, from-scratch code, knowledge check and wrap-up. Argument: the topic."
+---
+
 Start a focused study session on: $ARGUMENTS
 
 If no topic is given, check the roadmap at `07-resources/study-roadmap.md` and suggest the next logical topic.

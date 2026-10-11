@@ -1,3 +1,8 @@
+---
+name: roadmap
+description: "Generate or update 07-resources/study-roadmap.md from the current vault state. Optional argument: focus."
+---
+
 Generate or update the study roadmap based on current vault state.
 
 Optional focus: $ARGUMENTS

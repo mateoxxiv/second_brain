@@ -1,3 +1,8 @@
+---
+name: status
+description: "Generate a dashboard of the vault's current state: note counts, status tags, orphans, code coverage and health metrics."
+---
+
 Generate a comprehensive overview of the vault's current state.
 
 Follow these steps:

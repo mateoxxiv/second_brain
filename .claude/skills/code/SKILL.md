@@ -1,3 +1,8 @@
+---
+name: code
+description: "Generate a runnable, from-scratch Python implementation with an exercises() function for a topic, placed in code/. Use only when a runnable file is explicitly requested."
+---
+
 Generate a runnable Python implementation for: $ARGUMENTS
 
 Follow these steps:

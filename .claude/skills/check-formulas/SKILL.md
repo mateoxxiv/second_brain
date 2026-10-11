@@ -1,3 +1,8 @@
+---
+name: check-formulas
+description: "Audit formulas and concepts in vault notes for rigor (derive, verify with SymPy/NumPy, check against sources). Diagnosis only until fixes are approved. Argument: note path, folder, or 'all'."
+---
+
 Audit the formulas and concepts in: $ARGUMENTS
 
 The scope can be a single note path, a folder (e.g. `01-foundations/linear-algebra`), or `all`. If no scope is given, ask the user which one.

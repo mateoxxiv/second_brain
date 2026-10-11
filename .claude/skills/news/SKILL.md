@@ -1,3 +1,8 @@
+---
+name: news
+description: "Search recent AI/ML news and releases and summarize what matters for the learning path. Optional argument: focus area."
+---
+
 Search for recent AI/ML news and developments.
 
 Optional focus area: $ARGUMENTS

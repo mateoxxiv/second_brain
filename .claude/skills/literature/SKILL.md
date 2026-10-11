@@ -1,3 +1,8 @@
+---
+name: literature
+description: "Create a literature note in 07-resources from a URL, paper title, or topic. Argument: the source."
+---
+
 Create a literature note from: $ARGUMENTS
 
 The argument can be a URL, a paper title, or a topic to search for.

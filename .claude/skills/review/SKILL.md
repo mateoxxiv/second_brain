@@ -1,3 +1,8 @@
+---
+name: review
+description: "Review a note for atomicity, clarity, depth, code quality, links and status. Argument: the note path."
+---
+
 Review the note at: $ARGUMENTS
 
 If no path is given, ask the user which note to review.

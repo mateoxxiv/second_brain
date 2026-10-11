@@ -1,3 +1,8 @@
+---
+name: quiz
+description: "Run an adaptive Socratic quiz on a topic. Optional argument: the topic; otherwise pick one from recent notes."
+---
+
 Start a quiz on: $ARGUMENTS
 
 If no topic is given, pick a topic based on recent notes or areas that need reinforcement.

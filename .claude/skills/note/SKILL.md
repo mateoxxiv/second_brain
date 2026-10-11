@@ -1,3 +1,8 @@
+---
+name: note
+description: "Create an atomic permanent note on one concept using the permanent-note template. Argument: the topic."
+---
+
 Create an atomic permanent note on the topic: $ARGUMENTS
 
 Follow these steps:
