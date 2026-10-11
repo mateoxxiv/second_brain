@@ -9,6 +9,7 @@ related:
   - "[[complementary-events]]"
   - "[[cdf-and-quantiles]]"
   - "[[critical-values-and-z-alpha]]"
+  - "[[normal-probabilities-via-standardization]]"
   - "[[triola-estadistica]]"
 domain: probability
 sources:

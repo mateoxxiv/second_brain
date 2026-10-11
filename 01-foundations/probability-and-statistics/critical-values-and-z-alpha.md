@@ -8,6 +8,7 @@ related:
   - "[[percentiles]]"
   - "[[identifying-unusual-results]]"
   - "[[statistical-significance]]"
+  - "[[finding-values-from-normal-areas]]"
   - "[[triola-estadistica]]"
 domain: probability
 sources:
