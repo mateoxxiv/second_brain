@@ -205,6 +205,9 @@ This book is the natural next input for [[probability-fundamentals|T3 (Probabili
 - [[unbiased-and-biased-estimators]] — from Ch. 6, §6-4: bias = E[θ̂] − θ, the biased/unbiased table with reasons (linearity, n−1, Jensen), Example 4 recomputed, MSE = bias² + variance
 - [[bias-correction]] — from Ch. 6, §6-4 (extension): measuring an estimator's habit h = E[θ̂]/θ on a simulated population with a chosen σ ("sugar bag"), dividing real estimates by h (s with n = 5: h = 0.94 = c₄), divide-vs-subtract test, bootstrap alternative
 
+- [[normal-approximation-to-binomial]] — from Ch. 6, §6-6: conditions np ≥ 5 and nq ≥ 5 (Triola's threshold vs. 10 in some texts), μ = np, σ = √npq, the six-step procedure, and the Viking River survey (z = −1.48, 0.9306 vs. exact 0.9313)
+- [[continuity-correction]] — from Ch. 6, §6-6: x ↔ [x − 0.5, x + 0.5], the at-least / more-than / at-most / fewer-than / exactly boundary table (Fig. 6-22), and the Pew Internet survey for "exactly 2060" (difference of two z-areas)
+
 ## Gaps — Notes Still to Create
 
 **§6-5 — The Central Limit Theorem (planned, in order)**
@@ -212,10 +215,9 @@ This book is the natural next input for [[probability-fundamentals|T3 (Probabili
 - [[standard-error-of-the-mean]] — μ_x̄ = μ and σ_x̄ = σ/√n, derived from Var(Σxᵢ/n) = nσ²/n²; the √n law (halve the SE → 4× the sample); the finite population correction √((N−n)/(N−1)) when n > 5% of N
 - [[probabilities-for-sample-means]] — applying the CLT: z = (x̄ − μ)/(σ/√n) vs. z = (x − μ)/σ, the "one individual or a mean?" trap (water-taxi/elevator weights), and interpreting results with the rare event rule from [[identifying-unusual-results]]; worked on the 3/4-in screws (z ≈ −1.84, one tail 0.0329, two tails 0.0658 → not unusual; bridge to two-tailed p-values in Ch. 8)
 
-**§6-6 — Normal approximation to the binomial (planned, in order)**
-- [[normal-approximation-to-binomial]] — when np ≥ 5 and nq ≥ 5, μ = np and σ = √npq; why it works (a binomial is a sum of n Bernoullis, so the CLT applies); Triola's 5 threshold vs. the 10 used in some textbooks (and in [[poisson-approximation-to-binomial]]); when to use the exact formula, a calculator, or Table A-1 instead
-- [[continuity-correction]] — a discrete x becomes the interval x ± 0.5; the boundary table (at least / more than / at most / fewer than / exactly → which boundary and which tail); Figure 6-22
-- [[exact-probability-via-normal-difference]] — "exactly x" as the area between x − 0.5 and x + 0.5, computed as a difference of two z-areas (Internet-usage example: 0.0009 vs. exact 0.000872); a candidate for merging into [[continuity-correction]] if it stays thin
+**§6-6 — Normal approximation to the binomial (written, see Permanent Notes Created)**
+- ✅ [[normal-approximation-to-binomial]] — when np ≥ 5 and nq ≥ 5, μ = np and σ = √npq; why it works (a binomial is a sum of n Bernoullis, so the CLT applies); Triola's 5 threshold vs. the 10 used in some textbooks (and in [[poisson-approximation-to-binomial]]); when to use the exact formula, a calculator, or Table A-1 instead
+- ✅ [[continuity-correction]] — a discrete x becomes the interval x ± 0.5; the boundary table (at least / more than / at most / fewer than / exactly → which boundary and which tail); Figure 6-22. The "exactly x" difference-of-areas method (Pew example, 0.0009 vs. exact 0.00087) was folded in here rather than split out
 - Worked examples to link from the notes, not separate notes: the Viking River survey (n = 40,000, p = 0.03, at least 1150 → z = −1.48, 0.9306) and the Pew Internet survey (n = 2822, p = 0.75, exactly 2060)
 - Link forward: "unusual" judgments use P(x or more) ≤ 0.05 from [[identifying-unusual-results]]; this is the same logic as the p-value in [[hypothesis-testing-and-p-values]]
 
