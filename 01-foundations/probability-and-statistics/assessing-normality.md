@@ -10,6 +10,7 @@ related:
   - "[[skewness]]"
   - "[[cdf-and-quantiles]]"
   - "[[sampling-distribution]]"
+  - "[[normal-quantile-plot]]"
   - "[[triola-estadistica]]"
 domain: probability
 sources:
