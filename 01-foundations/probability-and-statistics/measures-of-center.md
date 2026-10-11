@@ -64,6 +64,6 @@ stats.mode(x)       # no repeat → each value once
 
 **Basic** — For 5,638; 15,684; 25,433; 27,531; 27,997 compute mean, median, and midrange by hand. Which two are close, and which is pulled toward the low value?
 
-**Intermediate** — Add 8,077 to the list above (now $n=6$). Recompute the median. Explain why the median changed only slightly while the mean dropped, and connect this to *resistance*.
+**Intermediate** — Add 8,077 to the list above (now $n=6$). Recompute the mean and the median. The mean drops by about 2,063 and the median drops by about 4,875. Explain why the median moved more here, using the fact that it depends only on the two middle values (15,684 and 25,433), and connect this to *resistance*.
 
 **Advanced** — Show that the mean minimizes $\sum_i (x_i-c)^2$ over $c$ by differentiating and setting to zero. Then argue (no calculus needed) why the minimizer of $\sum_i |x_i-c|$ is the median. What does each result imply about outlier sensitivity?

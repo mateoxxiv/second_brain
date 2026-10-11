@@ -35,7 +35,7 @@ import numpy as np
 rng = np.random.default_rng(0)
 flips = rng.integers(0, 2, size=10_000)          # fair coin
 running = np.cumsum(flips) / np.arange(1, 10_001)
-print(running[9], running[99], running[9999])    # ~0.60, ~0.52, ~0.50
+print(running[9], running[99], running[9999])    # 0.40, 0.56, 0.503
 ```
 
 ## In ML

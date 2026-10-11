@@ -46,7 +46,7 @@ def trial(n=25):
     return len(np.unique(days)) < n              # True if any collision
 
 est = np.mean([trial() for _ in range(10_000)])
-print(round(est, 3))                             # ~0.569  (exact ≈ 0.5687)
+print(round(est, 3))                             # 0.558  (exact ≈ 0.5687)
 ```
 
 ## In ML

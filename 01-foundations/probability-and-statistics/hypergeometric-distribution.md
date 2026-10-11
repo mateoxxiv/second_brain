@@ -47,7 +47,7 @@ x=1:  C(2,1)C(8,2)/120 = 56/120 = 0.4667
 x=2:  C(2,2)C(8,1)/120 =  8/120 = 0.0667   (sum = 1 ✓)
 ```
 
-Then $\mu = 3\cdot\frac{2}{10} = 0.6$ and $\sigma \approx 0.6$ via the [[mean-and-variance-of-a-probability-distribution|distribution formulas]].
+Then $\mu = 3\cdot\frac{2}{10} = 0.6$ and $\sigma \approx 0.61$ via the [[mean-and-variance-of-a-probability-distribution|distribution formulas]].
 
 ```python
 from scipy.stats import hypergeom
