@@ -45,10 +45,20 @@ Why $\frac{2i-1}{2n}$ and not $\frac{i}{n}$: each value is the middle of its $1/
 
 ```python
 import numpy as np
+import matplotlib.pyplot as plt
 from scipy.stats import norm
-x = np.sort([110, 96, 170, 125, 119])
-p = (np.arange(1, len(x) + 1) - 0.5) / len(x)   # (2i-1)/2n
-z = norm.ppf(p)                                  # [-1.28, -0.52, 0, 0.52, 1.28]
+
+x = np.sort([110, 96, 170, 125, 119])        # step 1: sort
+n = len(x)
+p = (2 * np.arange(1, n + 1) - 1) / (2 * n)  # step 2: areas (2i-1)/2n
+z = norm.ppf(p)                              # step 3: expected z-scores
+
+plt.scatter(x, z)                            # step 4: plot (x, z)
+plt.xlabel("Data value (x)")
+plt.ylabel("Expected z-score")
+plt.title("Normal quantile plot")
+plt.grid(alpha=0.3)
+plt.show()                                   # step 5: look for a straight line
 ```
 
 ## In ML
