@@ -47,7 +47,7 @@ date_read: "2026-09-06 (in progress)"
 - [[prompt-engineering-fundamentals]] — *(created)* Lessons 2–3: the stage → task → rules prompt structure, why each part removes guesswork, and edit vs. follow-up iteration
 - [[claude-context-layers]] — *(created)* Lesson 2: the model is stateless; prompt, attachments, history, Instructions/Memory, and Skills are different scopes for injecting context
 - [[ai-fluency-framework]] — *(gap)* Anthropic's framework for getting better outcomes from an AI collaborator
-- [[claude-work-modes]] — *(gap)* the three shapes of work in the desktop app: **Chat** (turn-by-turn), **Cowork** (hand work off), **Code** (build software), and picking the right one
+- [[claude-work-modes]] — *(created)* Lesson 4: the three shapes of work in the desktop app: **Chat** (turn-by-turn), **Cowork** (hand work off), **Code** (build software), and picking the right one
 - [[claude-code]] — *(exists)* the Code mode / CLI agent
 
 **Organizing work & knowledge (5–7)**
@@ -88,11 +88,11 @@ Directly useful because I'm building on the Claude platform, but I'll keep it in
 - [[constitutional-ai]] — from Lesson 1: theory-first (Bai et al. 2022) — the HHH objective and the two-stage self-critique + RLAIF training that makes Claude steerable and safe
 - [[prompt-engineering-fundamentals]] — from Lesson 2: stage / task / rules, the lesson's pitch-deck example dissected, and an entropy argument for why context helps
 - [[claude-context-layers]] — from Lesson 2: stateless inference and the five scopes of context (prompt → attachments → history → Instructions/Memory → Skills)
+- [[claude-work-modes]] — from Lesson 4: turn-by-turn vs. delegated vs. software work, and the decision rule for choosing one
 
 ## Gaps — Notes Still to Create
 
 - [[ai-fluency-framework]] — Lesson 3: Anthropic's AI-collaboration framework
-- [[claude-work-modes]] — Lesson 4: Chat vs. Cowork vs. Code and when each applies
 - [[claude-projects]] — Lesson 5: reusable context containers
 - [[claude-artifacts]] — Lesson 6: generated, iterable documents/apps
 - [[claude-skills]] — Lesson 7: packaged reusable workflows
