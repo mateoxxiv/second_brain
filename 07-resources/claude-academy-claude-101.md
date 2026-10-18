@@ -52,7 +52,7 @@ date_read: "2026-09-06 (in progress)"
 
 **Organizing work & knowledge (5–7)**
 - [[claude-projects]] — *(created)* Lesson 5: reusable context containers for related conversations (instructions + knowledge files)
-- [[claude-artifacts]] — *(gap)* generated documents/apps rendered beside chat and iterated in place
+- [[claude-artifacts]] — *(created)* Lesson 6: generated documents/apps rendered beside chat and iterated in place
 - [[claude-skills]] — *(gap)* packaged reusable instructions/workflows Claude can invoke
 
 **Expanding Claude's reach (8–10)**
@@ -90,11 +90,11 @@ Directly useful because I'm building on the Claude platform, but I'll keep it in
 - [[claude-context-layers]] — from Lesson 2: stateless inference and the five scopes of context (prompt → attachments → history → Instructions/Memory → Skills)
 - [[claude-work-modes]] — from Lesson 4: turn-by-turn vs. delegated vs. software work, and the decision rule for choosing one
 - [[claude-projects]] — from Lesson 5: a project as a persistent context container, with knowledge-file retrieval (RAG) left for its own note
+- [[claude-artifacts]] — from Lesson 6: a finished deliverable kept outside the chat as an editable, shareable object
 
 ## Gaps — Notes Still to Create
 
 - [[ai-fluency-framework]] — Lesson 3: Anthropic's AI-collaboration framework
-- [[claude-artifacts]] — Lesson 6: generated, iterable documents/apps
 - [[claude-skills]] — Lesson 7: packaged reusable workflows
 - [[claude-connectors]] — Lessons 8–9: Connectors + Enterprise Search (relate to [[model-context-protocol]])
 - [[claude-research-mode]] — Lesson 10: multi-step research capability
