@@ -8,12 +8,12 @@ domain: probability
 sources:
   - "Triola, Mario F. Estadística. 11ª edición (technology update). Pearson Educación, México, 2013. ISBN 978-607-32-1768-2."
 author: "Mario F. Triola"
-date_read: "2026-08-02 (in progress)"
+date_read: "2026-08-02 (in progress; Ch. 7 §7-2 and §7-3 added 2026-10-17)"
 ---
 
 ## Summary
 
-*Elementary Statistics* (Spanish edition: *Estadística*) is one of the most widely used introductory statistics textbooks, known for building every technique from real, worked datasets rather than abstract formulas alone. It moves from descriptive statistics and probability through the standard inferential toolkit — estimation, hypothesis testing, regression, and ANOVA — with a strong emphasis on interpreting results, not just computing them. Only the front/copyright matter has been captured so far; the chapter-by-chapter content below will fill in as pages are shared.
+*Elementary Statistics* (Spanish edition: *Estadística*) is one of the most widely used introductory statistics textbooks, known for building every technique from real, worked datasets rather than abstract formulas alone. It moves from descriptive statistics and probability through the standard inferential toolkit — estimation, hypothesis testing, regression, and ANOVA — with a strong emphasis on interpreting results, not just computing them. Chapters 1–7 (through §7-3) are captured so far in the chapter-by-chapter map below; Chapters 8–12 will fill in as pages are shared.
 
 ---
 
@@ -29,7 +29,7 @@ date_read: "2026-08-02 (in progress)"
 | 4   | Probability                                              | [[probability-fundamentals]], [[sample-space-and-events]], [[three-methods-of-assigning-probability]], [[law-of-large-numbers]], [[complementary-events]], [[addition-rule]], [[multiplication-rule]], [[conditional-probability]], [[monte-carlo-simulation]], [[counting-and-combinatorics]], [[bayes-theorem]], [[odds]]                                                                           |
 | 5   | Discrete Probability Distributions                       | [[random-variable]], [[discrete-probability-distribution]], [[mean-and-variance-of-a-probability-distribution]], [[expected-value]], [[identifying-unusual-results]], [[bernoulli-distribution]], [[binomial-distribution-requirements]], [[binomial-distribution]], [[binomial-mean-and-variance]], [[hypergeometric-distribution]], [[poisson-distribution]], [[poisson-approximation-to-binomial]] |
 | 6   | Normal Probability Distributions                         | [[normal-distribution]], [[probability-density-function]], [[uniform-distribution]], [[standard-normal-distribution]], [[critical-values-and-z-alpha]], [[cdf-and-quantiles]], [[normal-probabilities-via-standardization]], [[finding-values-from-normal-areas]], [[sampling-distribution]], [[unbiased-and-biased-estimators]], [[bias-correction]], [[central-limit-theorem]], [[standard-error-of-the-mean]], [[probabilities-for-sample-means]], [[normal-approximation-to-binomial]], [[continuity-correction]]                                                                                                                                                                                                                |
-| 7   | Estimates and Sample Sizes                               |                                                                                                                                                                                                                                                                                                                                                                                                       |
+| 7   | Estimates and Sample Sizes                               | [[point-estimate]], [[confidence-interval]], [[confidence-interval-for-proportion]], [[margin-of-error]], [[interpreting-confidence-intervals]], [[sample-size-for-proportion]], [[adjusted-wald-and-wilson-intervals]], [[estimating-from-published-interval]], [[confidence-interval-for-mean]], [[sample-size-for-mean]], [[estimating-sigma-for-sample-size]]                                                                                                                                                                                     |
 | 8   | Hypothesis Testing                                       |                                                                                                                                                                                                                                                                                                                                                                                                       |
 | 9   | Inferences from Two Samples                              |                                                                                                                                                                                                                                                                                                                                                                                                       |
 | 10  | Correlation and Regression                               |                                                                                                                                                                                                                                                                                                                                                                                                       |
@@ -111,6 +111,19 @@ date_read: "2026-08-02 (in progress)"
 - [[finding-values-from-normal-areas]] — §6-3 (Ejemplos 3–4, Fig. 6-16): area → z → x = μ + zσ, the four warnings, and the which-direction flowchart; 95% door (73.6 in), birth-weight cutoffs 2489 / 4573 g
 - [[sampling-distribution]] — §6-4 (Ejemplos 1–5, Tablas 6-2 to 6-5): the distribution of a statistic over all samples of size n; die simulation for x̄ / s² / p̂ (centers 3.5 / 2.92 / 0.5, s² skewed right), range example {2, 3, 10}, standard error σ/√n, why sample with replacement
 - [[unbiased-and-biased-estimators]] — §6-4: E[θ̂] = θ; x̄, s², p̂ unbiased vs. range, s, median biased; Example 4 checked exactly (s² 12.67 = σ², s 2.51 < 3.56, median 5 ≠ 3); "sesgado" = biased vs. "sesgada" = skewed
+
+**Ch 7 — Estimates and Sample Sizes**
+- [[point-estimate]] — §7-2: a single best guess (p̂ for p, x̄ for μ) and why a point alone gives no accuracy information
+- [[confidence-interval]] — §7-2: range that captures the parameter at the stated rate across repeated samples; p̂ ± z·√(p̂q̂/n) worked on Ejemplo 3
+- [[confidence-interval-for-proportion]] — §7-2: requirements (SRS, np and nq ≥ 5) and the procedure for a proportion
+- [[margin-of-error]] — §7-2: E = z·√(p̂q̂/n), the half-width of the interval, and its 1/√n behavior
+- [[interpreting-confidence-intervals]] — §7-2: the 95% belongs to the method, not to any one interval; the common misreadings
+- [[sample-size-for-proportion]] — §7-2: n = z²p̂q̂/E² or 0.25z²/E² with no prior, round up
+- [[adjusted-wald-and-wilson-intervals]] — §7-2: Wilson score interval as a better-performing alternative (Triola's x = 10, n = 20 example)
+- [[estimating-from-published-interval]] — §7-2: recover p̂ and E from a published CI (midpoint and half-width)
+- [[confidence-interval-for-mean]] — §7-3: x̄ ± z·σ/√n with σ known; Ejemplo 1 (men's weights, 164.49 < μ < 180.61), rounding rule, and the plausible-values reading
+- [[sample-size-for-mean]] — §7-3: n = (zσ/E)², round up; Ejemplo 2 (IQ, E = 3, n = 97) and the four-times rule
+- [[estimating-sigma-for-sample-size]] — §7-3: range/4, pilot sample, prior study, and the conservative-error principle
 
 *(remaining chapters to fill in as read — see [[probability-distributions]] for the overview note this book's Ch. 4-6 will extend)*
 
@@ -203,6 +216,17 @@ This book is the natural next input for [[probability-fundamentals|T3 (Probabili
 - [[finding-values-from-normal-areas]] — from Ch. 6, §6-3 (Ejemplos 3–4, Fig. 6-16): x = μ + zσ as the normal quantile, Triola's four warnings, rounding vs. technology, and the threshold-from-target-rate / prediction-interval links
 - [[sampling-distribution]] — from Ch. 6, §6-4: definition, the three die simulations, standard error vs. population SD, enumeration of the range example, with-replacement rationale, bootstrap / test-metric / mini-batch links
 - [[unbiased-and-biased-estimators]] — from Ch. 6, §6-4: bias = E[θ̂] − θ, the biased/unbiased table with reasons (linearity, n−1, Jensen), Example 4 recomputed, MSE = bias² + variance
+- [[point-estimate]] — from Ch. 7, §7-2: the sample proportion/mean as the best single estimate and the unbiased/minimal-variance sense of "best"
+- [[confidence-interval]] — from Ch. 7, §7-2 (Ejemplo 3): p̂ ± E, the Why-it-works derivation, and the coverage simulation
+- [[confidence-interval-for-proportion]] — from Ch. 7, §7-2: the procedure and requirements for a proportion
+- [[margin-of-error]] — from Ch. 7, §7-2 (Ejemplos 3–4): Formula 7-1 and the margin-as-half-width reading
+- [[interpreting-confidence-intervals]] — from Ch. 7, §7-2 (Figura 7-1): correct vs. incorrect readings of a 95% CI
+- [[sample-size-for-proportion]] — from Ch. 7, §7-2 (Ejemplo 4): Formulas 7-2 and 7-3 and the worst-case p = 0.5
+- [[adjusted-wald-and-wilson-intervals]] — from Ch. 7, §7-2: Wilson score interval and its advantage at small n
+- [[estimating-from-published-interval]] — from Ch. 7, §7-2: recovering p̂ and E from a published interval
+- [[confidence-interval-for-mean]] — from Ch. 7, §7-3 (Ejemplo 1): x̄ ± z·σ/√n with σ known, the derivation from the standardized mean, requirements, and the rounding rules
+- [[sample-size-for-mean]] — from Ch. 7, §7-3 (Ejemplo 2): n = (zσ/E)², the square-root trade-off, and the finite-population note
+- [[estimating-sigma-for-sample-size]] — from Ch. 7, §7-3: the three ways to estimate σ before sampling and why errors must be conservative
 - [[bias-correction]] — from Ch. 6, §6-4 (extension): measuring an estimator's habit h = E[θ̂]/θ on a simulated population with a chosen σ ("sugar bag"), dividing real estimates by h (s with n = 5: h = 0.94 = c₄), divide-vs-subtract test, bootstrap alternative
 
 - [[normal-approximation-to-binomial]] — from Ch. 6, §6-6: conditions np ≥ 5 and nq ≥ 5 (Triola's threshold vs. 10 in some texts), μ = np, σ = √npq, the six-step procedure, and the Viking River survey (z = −1.48, 0.9306 vs. exact 0.9313)
@@ -223,7 +247,8 @@ This book is the natural next input for [[probability-fundamentals|T3 (Probabili
 
 - ✅ [[bayes-theorem]] — **now written** (independently sourced, since Triola §4-8 is web-only): flips $P(B\mid A)\to P(A\mid B)$ with the prior/base rate, resolving §4-5's confusion of the inverse and the forward-links from [[conditional-probability]] / [[bernoulli-distribution]]
 - [[hypothesis-testing-and-p-values]] — already flagged in the study roadmap as T3's next priority after MLE; [[statistical-significance]] is its intuitive seed (the "how likely under no effect?" reasoning), still needs the formal null/alternative hypothesis and p-value machinery
-- [[confidence-intervals]] — estimation theory, sample size determination
+- ✅ [[confidence-interval]] / [[confidence-interval-for-mean]] / [[sample-size-for-mean]] — §7-2 and §7-3 estimation and sample size are written (proportion and known-σ mean)
+- [[t-interval-for-mean]] — §7-4: confidence intervals for μ when σ is unknown (t distribution, n-1 degrees of freedom); the natural next step after §7-3
 - [[correlation-and-regression]] — bridges directly to supervised ML's linear regression (T4)
 - [[analysis-of-variance]] — ANOVA, comparing more than two group means
 - [[chi-squared-and-contingency-tables]] — categorical-data inference
