@@ -51,7 +51,7 @@ date_read: "2026-09-06 (in progress)"
 - [[claude-code]] — *(exists)* the Code mode / CLI agent
 
 **Organizing work & knowledge (5–7)**
-- [[claude-projects]] — *(gap)* reusable context containers for related conversations
+- [[claude-projects]] — *(created)* Lesson 5: reusable context containers for related conversations (instructions + knowledge files)
 - [[claude-artifacts]] — *(gap)* generated documents/apps rendered beside chat and iterated in place
 - [[claude-skills]] — *(gap)* packaged reusable instructions/workflows Claude can invoke
 
@@ -89,11 +89,11 @@ Directly useful because I'm building on the Claude platform, but I'll keep it in
 - [[prompt-engineering-fundamentals]] — from Lesson 2: stage / task / rules, the lesson's pitch-deck example dissected, and an entropy argument for why context helps
 - [[claude-context-layers]] — from Lesson 2: stateless inference and the five scopes of context (prompt → attachments → history → Instructions/Memory → Skills)
 - [[claude-work-modes]] — from Lesson 4: turn-by-turn vs. delegated vs. software work, and the decision rule for choosing one
+- [[claude-projects]] — from Lesson 5: a project as a persistent context container, with knowledge-file retrieval (RAG) left for its own note
 
 ## Gaps — Notes Still to Create
 
 - [[ai-fluency-framework]] — Lesson 3: Anthropic's AI-collaboration framework
-- [[claude-projects]] — Lesson 5: reusable context containers
 - [[claude-artifacts]] — Lesson 6: generated, iterable documents/apps
 - [[claude-skills]] — Lesson 7: packaged reusable workflows
 - [[claude-connectors]] — Lessons 8–9: Connectors + Enterprise Search (relate to [[model-context-protocol]])
