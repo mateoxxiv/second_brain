@@ -53,7 +53,7 @@ date_read: "2026-09-06 (in progress)"
 **Organizing work & knowledge (5–7)**
 - [[claude-projects]] — *(created)* Lesson 5: reusable context containers for related conversations (instructions + knowledge files)
 - [[claude-artifacts]] — *(created)* Lesson 6: generated documents/apps rendered beside chat and iterated in place
-- [[claude-skills]] — *(gap)* packaged reusable instructions/workflows Claude can invoke
+- [[claude-skills]] — *(created)* Lesson 7: packaged reusable procedures Claude loads when a request matches
 
 **Expanding Claude's reach (8–10)**
 - [[model-context-protocol]] — *(exists)* the open protocol underneath Connectors
@@ -92,9 +92,9 @@ Directly useful because I'm building on the Claude platform, but I'll keep it in
 - [[claude-projects]] — from Lesson 5: a project as a persistent context container, with knowledge-file retrieval (RAG) left for its own note
 - [[claude-artifacts]] — from Lesson 6: a finished deliverable kept outside the chat as an editable, shareable object
 - [[ai-fluency-framework]] — from Lesson 3: the 4D framework; iteration and troubleshooting are covered by [[iterative-prompt-refinement]]
+- [[claude-skills]] — from Lesson 7: a skill as a packaged procedure, loaded only when a request matches it
 
 ## Gaps — Notes Still to Create
 
-- [[claude-skills]] — Lesson 7: packaged reusable workflows
 - [[claude-connectors]] — Lessons 8–9: Connectors + Enterprise Search (relate to [[model-context-protocol]])
 - [[claude-research-mode]] — Lesson 10: multi-step research capability
