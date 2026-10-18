@@ -46,7 +46,7 @@ date_read: "2026-09-06 (in progress)"
 - Product intro — what Claude is; access via web, desktop, mobile
 - [[prompt-engineering-fundamentals]] — *(created)* Lessons 2–3: the stage → task → rules prompt structure, why each part removes guesswork, and edit vs. follow-up iteration
 - [[claude-context-layers]] — *(created)* Lesson 2: the model is stateless; prompt, attachments, history, Instructions/Memory, and Skills are different scopes for injecting context
-- [[ai-fluency-framework]] — *(gap)* Anthropic's framework for getting better outcomes from an AI collaborator
+- [[ai-fluency-framework]] — *(created)* Lesson 3: the 4D framework (Delegation, Description, Discernment, Diligence)
 - [[claude-work-modes]] — *(created)* Lesson 4: the three shapes of work in the desktop app: **Chat** (turn-by-turn), **Cowork** (hand work off), **Code** (build software), and picking the right one
 - [[claude-code]] — *(exists)* the Code mode / CLI agent
 
@@ -91,10 +91,10 @@ Directly useful because I'm building on the Claude platform, but I'll keep it in
 - [[claude-work-modes]] — from Lesson 4: turn-by-turn vs. delegated vs. software work, and the decision rule for choosing one
 - [[claude-projects]] — from Lesson 5: a project as a persistent context container, with knowledge-file retrieval (RAG) left for its own note
 - [[claude-artifacts]] — from Lesson 6: a finished deliverable kept outside the chat as an editable, shareable object
+- [[ai-fluency-framework]] — from Lesson 3: the 4D framework; iteration and troubleshooting are covered by [[iterative-prompt-refinement]]
 
 ## Gaps — Notes Still to Create
 
-- [[ai-fluency-framework]] — Lesson 3: Anthropic's AI-collaboration framework
 - [[claude-skills]] — Lesson 7: packaged reusable workflows
 - [[claude-connectors]] — Lessons 8–9: Connectors + Enterprise Search (relate to [[model-context-protocol]])
 - [[claude-research-mode]] — Lesson 10: multi-step research capability
