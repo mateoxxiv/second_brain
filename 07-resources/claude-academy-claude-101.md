@@ -57,7 +57,8 @@ date_read: "2026-09-06 (in progress)"
 
 **Expanding Claude's reach (8–10)**
 - [[model-context-protocol]] — *(exists)* the open protocol underneath Connectors
-- [[claude-connectors]] — *(gap)* connecting external tools + Enterprise Search over org data
+- [[enterprise-search]] — *(created)* Lesson 9: one search across connected tools that respects each user's existing access
+- [[claude-connectors]] — *(gap)* Lesson 8: connecting external tools
 - [[claude-research-mode]] — *(gap)* multi-step research/deep-dive capability
 
 **Putting it together (11–13)**
@@ -93,8 +94,9 @@ Directly useful because I'm building on the Claude platform, but I'll keep it in
 - [[claude-artifacts]] — from Lesson 6: a finished deliverable kept outside the chat as an editable, shareable object
 - [[ai-fluency-framework]] — from Lesson 3: the 4D framework; iteration and troubleshooting are covered by [[iterative-prompt-refinement]]
 - [[claude-skills]] — from Lesson 7: a skill as a packaged procedure, loaded only when a request matches it
+- [[enterprise-search]] — from Lesson 9: cross-tool answers filtered by each user's existing permissions
 
 ## Gaps — Notes Still to Create
 
-- [[claude-connectors]] — Lessons 8–9: Connectors + Enterprise Search (relate to [[model-context-protocol]])
+- [[claude-connectors]] — Lesson 8: connecting external tools (relate to [[model-context-protocol]])
 - [[claude-research-mode]] — Lesson 10: multi-step research capability
