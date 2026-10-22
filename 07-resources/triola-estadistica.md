@@ -227,6 +227,7 @@ This book is the natural next input for [[probability-fundamentals|T3 (Probabili
 - [[confidence-interval-for-mean]] — from Ch. 7, §7-3 (Ejemplo 1): x̄ ± z·σ/√n with σ known, the derivation from the standardized mean, requirements, and the rounding rules
 - [[sample-size-for-mean]] — from Ch. 7, §7-3 (Ejemplo 2): n = (zσ/E)², the square-root trade-off, and the finite-population note
 - [[estimating-sigma-for-sample-size]] — from Ch. 7, §7-3: the three ways to estimate σ before sampling and why errors must be conservative
+- [[student-t-distribution]] — from Ch. 7, §7-4: the t distribution with n − 1 degrees of freedom, why replacing σ with s fattens the tails, and the t versus z critical values
 - [[bias-correction]] — from Ch. 6, §6-4 (extension): measuring an estimator's habit h = E[θ̂]/θ on a simulated population with a chosen σ ("sugar bag"), dividing real estimates by h (s with n = 5: h = 0.94 = c₄), divide-vs-subtract test, bootstrap alternative
 
 - [[normal-approximation-to-binomial]] — from Ch. 6, §6-6: conditions np ≥ 5 and nq ≥ 5 (Triola's threshold vs. 10 in some texts), μ = np, σ = √npq, the six-step procedure, and the Viking River survey (z = −1.48, 0.9306 vs. exact 0.9313)
