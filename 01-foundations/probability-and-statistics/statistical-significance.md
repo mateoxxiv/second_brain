@@ -9,6 +9,8 @@ related:
   - "[[population-and-sample]]"
   - "[[three-methods-of-assigning-probability]]"
   - "[[law-of-large-numbers]]"
+  - "[[null-and-alternative-hypotheses]]"
+  - "[[p-value]]"
 domain: probability
 sources:
   - "Triola, Mario F. Estadística. 11ª edición. Pearson, 2013. Cap. 1, §1-2, Ejemplos 6-8."

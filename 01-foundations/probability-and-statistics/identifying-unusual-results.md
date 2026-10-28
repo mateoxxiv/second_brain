@@ -9,6 +9,8 @@ related:
   - "[[statistical-significance]]"
   - "[[measures-of-variation]]"
   - "[[z-score]]"
+  - "[[p-value]]"
+  - "[[critical-region-and-significance-level]]"
 domain: probability
 sources:
   - "Triola, Estadística 11e, §5-2 (Resultados inusuales)"

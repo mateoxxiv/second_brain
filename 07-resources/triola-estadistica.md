@@ -8,7 +8,7 @@ domain: probability
 sources:
   - "Triola, Mario F. Estadística. 11ª edición (technology update). Pearson Educación, México, 2013. ISBN 978-607-32-1768-2."
 author: "Mario F. Triola"
-date_read: "2026-08-02 (in progress; Ch. 7 §7-2 and §7-3 added 2026-10-17)"
+date_read: "2026-08-02 (in progress; Ch. 7 added 2026-10-17; Ch. 8 §8-2 added 2026-10-28)"
 ---
 
 ## Summary
@@ -30,7 +30,7 @@ date_read: "2026-08-02 (in progress; Ch. 7 §7-2 and §7-3 added 2026-10-17)"
 | 5   | Discrete Probability Distributions                       | [[random-variable]], [[discrete-probability-distribution]], [[mean-and-variance-of-a-probability-distribution]], [[expected-value]], [[identifying-unusual-results]], [[bernoulli-distribution]], [[binomial-distribution-requirements]], [[binomial-distribution]], [[binomial-mean-and-variance]], [[hypergeometric-distribution]], [[poisson-distribution]], [[poisson-approximation-to-binomial]] |
 | 6   | Normal Probability Distributions                         | [[normal-distribution]], [[probability-density-function]], [[uniform-distribution]], [[standard-normal-distribution]], [[critical-values-and-z-alpha]], [[cdf-and-quantiles]], [[normal-probabilities-via-standardization]], [[finding-values-from-normal-areas]], [[sampling-distribution]], [[unbiased-and-biased-estimators]], [[bias-correction]], [[central-limit-theorem]], [[standard-error-of-the-mean]], [[probabilities-for-sample-means]], [[normal-approximation-to-binomial]], [[continuity-correction]]                                                                                                                                                                                                                |
 | 7   | Estimates and Sample Sizes                               | [[point-estimate]], [[confidence-interval]], [[confidence-interval-for-proportion]], [[margin-of-error]], [[interpreting-confidence-intervals]], [[sample-size-for-proportion]], [[adjusted-wald-and-wilson-intervals]], [[estimating-from-published-interval]], [[confidence-interval-for-mean]], [[sample-size-for-mean]], [[estimating-sigma-for-sample-size]], [[chi-squared-distribution]], [[confidence-interval-for-variance]]                                                                                                                                                                                     |
-| 8   | Hypothesis Testing                                       |                                                                                                                                                                                                                                                                                                                                                                                                       |
+| 8   | Hypothesis Testing | [[null-and-alternative-hypotheses]], [[test-statistic]], [[critical-region-and-significance-level]], [[p-value]], [[one-tailed-vs-two-tailed-tests]], [[type-i-and-type-ii-errors]], [[statistical-power]], [[hypothesis-test-decision-methods]], [[concluding-hypothesis-tests-in-plain-language]], [[multiple-testing-problem]] |
 | 9   | Inferences from Two Samples                              |                                                                                                                                                                                                                                                                                                                                                                                                       |
 | 10  | Correlation and Regression                               |                                                                                                                                                                                                                                                                                                                                                                                                       |
 | 11  | Multinomial Experiments and Contingency Tables           |                                                                                                                                                                                                                                                                                                                                                                                                       |
@@ -126,6 +126,18 @@ date_read: "2026-08-02 (in progress; Ch. 7 §7-2 and §7-3 added 2026-10-17)"
 - [[estimating-sigma-for-sample-size]] — §7-3: range/4, pilot sample, prior study, and the conservative-error principle
 - [[chi-squared-distribution]] — §7-5: $(n-1)s^2/\sigma^2 \sim \chi^2_{n-1}$, why the distribution is skewed and non-negative, and the right-tail-only table (A-4) lookup trap
 - [[confidence-interval-for-variance]] — §7-5: the asymmetric $\sigma^2$ and $\sigma$ intervals from the chi-squared critical values, with the voltage example ($0.10 < \sigma < 0.27$ V) and the normality requirement
+
+**Ch 8 — Hypothesis Testing**
+- [[null-and-alternative-hypotheses]] — §8-2: H0 with "=", H1 with ≠, <, >; the three-step procedure (Fig. 8-2) and the rule that a claim you want to support goes in H1
+- [[test-statistic]] — §8-2: z, t and χ² computed as if H0 is true; the standard error uses the hypothesized value
+- [[critical-region-and-significance-level]] — §8-2: rejection region, α, and critical values by tail
+- [[p-value]] — §8-2: tail probability under H0, the Fig. 8-5 rules, and the "P is not p" warning
+- [[one-tailed-vs-two-tailed-tests]] — §8-2: the H1 sign sets the region (Fig. 8-6)
+- [[type-i-and-type-ii-errors]] — §8-2: α and β, RNV/NRNF, and the α–β–n trade-off
+- [[statistical-power]] — §8-2 Part 2: 1 − β, what raises power, and the n = 153 design example
+- [[hypothesis-test-decision-methods]] — §8-2: P-value, critical-region and confidence-interval routes
+- [[concluding-hypothesis-tests-in-plain-language]] — §8-2: Fig. 8-7 wording and why "accept H0" is wrong
+- [[multiple-testing-problem]] — §8-2: the Peto zodiac example and family-wise false positives
 
 *(remaining chapters to fill in as read — see [[probability-distributions]] for the overview note this book's Ch. 4-6 will extend)*
 
@@ -238,6 +250,17 @@ This book is the natural next input for [[probability-fundamentals|T3 (Probabili
 - [[normal-approximation-to-binomial]] — from Ch. 6, §6-6: conditions np ≥ 5 and nq ≥ 5 (Triola's threshold vs. 10 in some texts), μ = np, σ = √npq, the six-step procedure, and the Viking River survey (z = −1.48, 0.9306 vs. exact 0.9313)
 - [[continuity-correction]] — from Ch. 6, §6-6: x ↔ [x − 0.5, x + 0.5], the at-least / more-than / at-most / fewer-than / exactly boundary table (Fig. 6-22), and the Pew Internet survey for "exactly 2060" (difference of two z-areas)
 
+- [[null-and-alternative-hypotheses]] — from Ch. 8, §8-2: the three-step H0/H1 procedure (Fig. 8-2), the fixed-value H0, and the rule that the claim you want to support goes in H1
+- [[test-statistic]] — from Ch. 8, §8-2: z, t and χ² as standardized scores under H0; why the standard error uses the hypothesized value (XSORT z = 3.21)
+- [[critical-region-and-significance-level]] — from Ch. 8, §8-2 (Ejemplos 5–6): rejection region, α, and critical values by tail (±1.96, 1.645)
+- [[p-value]] — from Ch. 8, §8-2 (Ejemplos 7–8, Fig. 8-5): tail rules, the XSORT P-values (0.0007 / 0.0014), and the "P is not p" warning
+- [[one-tailed-vs-two-tailed-tests]] — from Ch. 8, §8-2 (Fig. 8-6): the H1 sign sets the critical region
+- [[type-i-and-type-ii-errors]] — from Ch. 8, §8-2 (Tabla 8-1, Ejemplo 10): α and β, RNV/NRNF, and the α–β–n trade-off
+- [[statistical-power]] — from Ch. 8, §8-2 Part 2 (Ejemplos 11–12): 1 − β, what raises power, the power table (not reproduced; flagged), and the n = 153 design example
+- [[hypothesis-test-decision-methods]] — from Ch. 8, §8-2 (Figs. 8-8, 8-9; Tabla 8-2): P-value, critical-region, and confidence-interval routes
+- [[concluding-hypothesis-tests-in-plain-language]] — from Ch. 8, §8-2 (Fig. 8-7, Ejemplo 9): the conclusion table and why "accept H0" is wrong
+- [[multiple-testing-problem]] — from Ch. 8, §8-2 (Peto/zodiac box): family-wise false positives; the Bonferroni line is an outside addition
+
 ## Gaps — Notes Still to Create
 
 **§6-5 — The Central Limit Theorem (planned, in order)**
@@ -249,10 +272,10 @@ This book is the natural next input for [[probability-fundamentals|T3 (Probabili
 - ✅ [[normal-approximation-to-binomial]] — when np ≥ 5 and nq ≥ 5, μ = np and σ = √npq; why it works (a binomial is a sum of n Bernoullis, so the CLT applies); Triola's 5 threshold vs. the 10 used in some textbooks (and in [[poisson-approximation-to-binomial]]); when to use the exact formula, a calculator, or Table A-1 instead
 - ✅ [[continuity-correction]] — a discrete x becomes the interval x ± 0.5; the boundary table (at least / more than / at most / fewer than / exactly → which boundary and which tail); Figure 6-22. The "exactly x" difference-of-areas method (Pew example, 0.0009 vs. exact 0.00087) was folded in here rather than split out
 - Worked examples to link from the notes, not separate notes: the Viking River survey (n = 40,000, p = 0.03, at least 1150 → z = −1.48, 0.9306) and the Pew Internet survey (n = 2822, p = 0.75, exactly 2060)
-- Link forward: "unusual" judgments use P(x or more) ≤ 0.05 from [[identifying-unusual-results]]; this is the same logic as the p-value in [[hypothesis-testing-and-p-values]]
+- Link forward: "unusual" judgments use P(x or more) ≤ 0.05 from [[identifying-unusual-results]]; this is the same logic as the p-value in [[p-value]]
 
 - ✅ [[bayes-theorem]] — **now written** (independently sourced, since Triola §4-8 is web-only): flips $P(B\mid A)\to P(A\mid B)$ with the prior/base rate, resolving §4-5's confusion of the inverse and the forward-links from [[conditional-probability]] / [[bernoulli-distribution]]
-- [[hypothesis-testing-and-p-values]] — already flagged in the study roadmap as T3's next priority after MLE; [[statistical-significance]] is its intuitive seed (the "how likely under no effect?" reasoning), still needs the formal null/alternative hypothesis and p-value machinery
+- ✅ [[hypothesis-test-decision-methods]] — §8-2 written as ten atomic notes (see Permanent Notes Created); the planned umbrella slug is replaced by this one
 - ✅ [[confidence-interval]] / [[confidence-interval-for-mean]] / [[sample-size-for-mean]] — §7-2 and §7-3 estimation and sample size are written (proportion and known-σ mean)
 - [[t-interval-for-mean]] — §7-4: confidence intervals for μ when σ is unknown (t distribution, n-1 degrees of freedom); the natural next step after §7-3
 - [[correlation-and-regression]] — bridges directly to supervised ML's linear regression (T4)
