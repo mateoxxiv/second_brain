@@ -9,6 +9,7 @@ related:
   - "[[confidence-interval-for-proportion]]"
   - "[[adjusted-wald-and-wilson-intervals]]"
   - "[[one-tailed-vs-two-tailed-tests]]"
+  - "[[one-proportion-z-test]]"
 domain: probability
 sources:
   - "Triola, Estadística 11e, §8-2 (Criterio de decisión; Figuras 8-8 y 8-9; Tabla 8-2)"
