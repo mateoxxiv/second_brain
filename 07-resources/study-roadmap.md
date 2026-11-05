@@ -1,7 +1,8 @@
 # Study Roadmap
 
 **Created**: 2026-02-24
-**Last updated**: 2026-10-03 (re-audit. Vault grew 155 → **190 domain notes** + 8 literature notes. **T3 Probability 49 → 76**: Triola Ch. 4 (probability rules, Bayes, counting, simulation), all of Ch. 5 (discrete distributions) and Ch. 6 §6-1–6-3 (PDF, uniform, standard normal, critical values, standardization, inverse normal) landed. **First theory-sourced T4 algorithm note**: logistic-regression (ISLR Ch. 4). **B2 Prompt Engineering STARTED** (3 notes, from Claude 101). **B6/B7 Fabric + Medallion STARTED** (4 notes, Udemy Fabric course). New sections this audit: **Course Progress**, **T4b Evaluation**, **T11 Reinforcement Learning**, **T12 Generative Models**, **F1 Algorithms & DS**, **F2 Databases**, **B10–B12 fleshed out**, **B13 AI Safety & Security**. Prior audit 2026-09-10: Since 2026-08-09 the vault grew 116 → 155 domain notes. **T3 Probability jumped 23 → 49**: the entire Triola Ch. 2-3 descriptive-statistics block landed — frequency distributions, all graph types (histogram, ogive, stem-and-leaf, Pareto, boxplots, etc.), measures of center/variation, z-scores, percentiles, quartiles/IQR, Chebyshev, skewness, coefficient of variation. **T4 Supervised/Unsupervised ML has actually STARTED (0 → 7 notes)** from the Platzi "Fundamentos de ML" course — types-of-machine-learning, supervised + algorithms, unsupervised, and a feature-engineering trio (feature-engineering, feature-scaling, one-hot-encoding); note these are *practical-course-derived companion notes*, not the deep theory notes T4 ultimately needs. **Constitutional AI** note added to the LLM track (04/architectures). **MLOps opened (0 → 1)**: python-and-jupyter-environment-setup. Literature notes grew 2 → 7 (Anton LA, Platzi LA, Triola, Platzi ML, Platzi People Analytics, Claude 101, AI frontier-models landscape). **Still unresolved from every prior audit**: matrix-transpose is still 3 competing drafts in `00-inbox/proposals/` with no promoted note; `code/` is still 100% empty — zero runnable `.py` files despite 155 notes. Prior 2026-08-09: added T3 "Data skepticism & study design" reading block.)
+**Last updated**: 2026-11-04 (re-audit. Vault grew 190 → **229 domain notes** + 8 literature notes. **T3 Probability 76 → 109**: Triola Ch. 6 finished except §6-5 CLT, **all of Ch. 7** (point estimates, CIs for p / μ / σ², margin of error, sample size, t and χ² distributions) and **Ch. 8 §8-1–8-3** (H₀/H₁, test statistic, critical region, p-value, tails, Type I/II errors, power, decision methods, multiple testing, one-proportion z-test, exact binomial test). **Claude 101 jumped ~20% → ~70%** (+6 notes: ai-fluency-framework, work modes, projects, artifacts, skills, enterprise-search). ⚠️ **New critical gap**: [[central-limit-theorem]], [[standard-error-of-the-mean]] and [[probabilities-for-sample-means]] are listed in the Triola chapter map but **the files do not exist** — Ch. 7–8 were built on top of a missing foundation. Still 0 promotions in the probability cluster beyond 10 growing; seed share rose to 85%.)
+**Previous update**: 2026-10-03 (re-audit. Vault grew 155 → **190 domain notes** + 8 literature notes. **T3 Probability 49 → 76**: Triola Ch. 4 (probability rules, Bayes, counting, simulation), all of Ch. 5 (discrete distributions) and Ch. 6 §6-1–6-3 (PDF, uniform, standard normal, critical values, standardization, inverse normal) landed. **First theory-sourced T4 algorithm note**: logistic-regression (ISLR Ch. 4). **B2 Prompt Engineering STARTED** (3 notes, from Claude 101). **B6/B7 Fabric + Medallion STARTED** (4 notes, Udemy Fabric course). New sections this audit: **Course Progress**, **T4b Evaluation**, **T11 Reinforcement Learning**, **T12 Generative Models**, **F1 Algorithms & DS**, **F2 Databases**, **B10–B12 fleshed out**, **B13 AI Safety & Security**. Prior audit 2026-09-10: Since 2026-08-09 the vault grew 116 → 155 domain notes. **T3 Probability jumped 23 → 49**: the entire Triola Ch. 2-3 descriptive-statistics block landed — frequency distributions, all graph types (histogram, ogive, stem-and-leaf, Pareto, boxplots, etc.), measures of center/variation, z-scores, percentiles, quartiles/IQR, Chebyshev, skewness, coefficient of variation. **T4 Supervised/Unsupervised ML has actually STARTED (0 → 7 notes)** from the Platzi "Fundamentos de ML" course — types-of-machine-learning, supervised + algorithms, unsupervised, and a feature-engineering trio (feature-engineering, feature-scaling, one-hot-encoding); note these are *practical-course-derived companion notes*, not the deep theory notes T4 ultimately needs. **Constitutional AI** note added to the LLM track (04/architectures). **MLOps opened (0 → 1)**: python-and-jupyter-environment-setup. Literature notes grew 2 → 7 (Anton LA, Platzi LA, Triola, Platzi ML, Platzi People Analytics, Claude 101, AI frontier-models landscape). **Still unresolved from every prior audit**: matrix-transpose is still 3 competing drafts in `00-inbox/proposals/` with no promoted note; `code/` is still 100% empty — zero runnable `.py` files despite 155 notes. Prior 2026-08-09: added T3 "Data skepticism & study design" reading block.)
 **Goal**: Become an expert AI architect and engineer — design, implement, and orchestrate intelligent systems end-to-end.
 
 > **2026-09-14 addition**: Added a third **Human Skills Track (H1–H6)** — soft, social & leadership skills — as a co-equal complement to the Theory and Builder tracks. Rationale: the "architect / orchestrate end-to-end" goal is inherently a *team* role, so communication, collaboration, and leadership are load-bearing, not optional. Notes will live in a new `09-professional-skills/` folder once the first one is written.
@@ -53,24 +54,43 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 
 | Area | Notes | Status |
 |------|-------|--------|
-| 01-foundations/linear-algebra | 60 | **Essentially complete** (8 evergreen / 10 growing / 42 seed). Transpose, matrix calculus, pseudoinverse, matrix norms, quadratic forms remain |
-| 01-foundations/calculus | 9 | Core complete (6 growing / 3 seed) — no change since last audit |
-| 01-foundations/probability | 76 | **+27** — Triola Ch. 4 (12), Ch. 5 (12), Ch. 6 §6-1–6-3 (8). Descriptive + probability + discrete/normal distributions done. **Inferential half (sampling distributions, CLT, CIs, hypothesis testing, MLE) still entirely open** |
-| 01-foundations/algorithms | 0 | Not started — now has a track (F1) |
-| 01-foundations/databases | 0 | Not started — now has a track (F2) |
-| 02-machine-learning | 8 | 7 Platzi orientation notes + **logistic-regression** (first ISLR-derived algorithm note). All seed |
+| 01-foundations/linear-algebra | 60 | **Essentially complete** (8 evergreen / 10 growing / 42 seed) — no change. Transpose, matrix calculus, pseudoinverse, matrix norms, quadratic forms remain |
+| 01-foundations/calculus | 9 | Core complete (6 growing / 3 seed) — no change for 2 audits |
+| 01-foundations/probability | 109 | **+33** — Triola Ch. 6 rest (sampling distributions, estimators, normal approx. + continuity correction, normality assessment), **all of Ch. 7**, **Ch. 8 §8-1–8-3**. 10 growing / 99 seed. ⚠️ **CLT trio missing** (see hygiene #1) |
+| 01-foundations/algorithms | 0 | Not started (F1) |
+| 01-foundations/databases | 0 | Not started (F2) |
+| 02-machine-learning | 8 | No change — 7 Platzi orientation notes + logistic-regression. All seed |
 | 03-deep-learning | 0 | Not started |
-| 04-llms-and-agents | 15 | **+3** — prompt-engineering-fundamentals, claude-context-layers, iterative-prompt-refinement (B2 opened) |
-| 05-mlops | 5 | **+4** — microsoft-fabric, fabric-access-and-trial, fabric-workspace, medallion-architecture |
-| 08-applied-domains/people-analytics | 17 | **Side track, outside core path** — full course captured. All 17 still `status/seed` |
+| 04-llms-and-agents | 21 | **+6** — Claude 101 Lessons 3–7, 9 (ai-fluency-framework, claude-work-modes, claude-projects, claude-artifacts, claude-skills, enterprise-search). All seed |
+| 05-mlops | 5 | No change |
+| 08-applied-domains/people-analytics | 17 | **Side track** — course complete, all seed |
 
-**Total notes**: 190 domain notes + 8 literature notes | **8 evergreen** | **26 growing** | **156 seed**
+**Total notes**: 229 domain notes + 8 literature notes | **8 evergreen** | **26 growing** | **195 seed**
 
-**Vault hygiene gaps** (carried over unresolved from prior audits):
-1. `00-inbox/proposals/` still has three unresolved template drafts for `matrix-transpose` — **open for 4+ audits**. Promote one to `linear-algebra/matrix-transpose.md` or delete the drafts.
-2. `code/` is entirely empty. Per CLAUDE.md, `.py` files are created only on explicit request, so this is a choice, not an oversight — but no "build from scratch" item has been exercised yet.
-3. **156 of 190 notes are `status/seed`** (was 121/155). **Zero notes were promoted this cycle** — 35 new notes, 0 maturations. 82% of the vault is seed. The `/review` pass is now the single most overdue maintenance item.
-4. Literature-note gap lists drift from reality: `udemy-microsoft-fabric` still lists [[medallion-architecture]] as a gap though the note now exists; `platzi-fundamentos-machine-learning` Class 4 row doesn't link [[python-and-jupyter-environment-setup]].
+### Progress at a glance (2026-11-04)
+
+| Track | Done / target | % |
+|---|---|---|
+| T1 Linear Algebra | 60 / ~66 | ~91% |
+| T2 Calculus | 9 / ~14 | ~64% |
+| T3 Probability & Statistics | 109 / ~142 | ~77% |
+| T4 Supervised ML | 8 / ~19 | ~42% |
+| T5 Unsupervised ML | 1 / ~7 | ~14% |
+| T10 LLM Internals | 1 / ~10 | ~10% |
+| T4b, T6, T6b, T7–T9, T11, T12, F1, F2 | 0 / ~77 | 0% |
+| **Theory + foundations** | **188 / ~315** | **~60% by notes · ~19% with every track weighted equally** |
+| **Builder (B1–B13)** | **~25 / ~160 items** | **~16%** |
+| **Human skills (H1–H6)** | 0 / ~30 | 0% |
+| **Whole roadmap** | **~213 / ~505** | **~42%** |
+
+> **Reading the numbers**: the note-count figure is inflated by T3 (Triola is very granular — 109 notes). The track-weighted ~19% is the more honest "how far along the journey" measure. And with 85% of notes still `seed`, *mastered* progress is lower than either.
+
+**Vault hygiene gaps**:
+1. ⚠️ **NEW — dangling CLT foundation**: [[central-limit-theorem]], [[standard-error-of-the-mean]] and [[probabilities-for-sample-means]] are mapped in `triola-estadistica.md` (Ch. 6 row) and planned in its Gaps list, but **no files exist**. Every CI (Ch. 7) and test (Ch. 8) already in the vault depends on them. Highest-priority fix in the whole vault.
+2. `00-inbox/proposals/` still has three unresolved `matrix-transpose` drafts — **open for 5 audits**. Promote one or delete them.
+3. `code/` is entirely empty (only `.gitkeep`). By CLAUDE.md this is a choice — files only on explicit request.
+4. **195 of 229 notes are `status/seed` (85%)** — was 156/190 (82%). 39 new notes, 0 promotions this cycle. The `/review` pass is overdue for a third audit running.
+5. Literature-note drift (carried over): `udemy-microsoft-fabric` still lists [[medallion-architecture]] as a gap; `platzi-fundamentos-machine-learning` Class 4 doesn't link [[python-and-jupyter-environment-setup]]. Also: [[one-proportion-z-test]] is 75 lines (over the ~70 limit).
 
 ---
 
@@ -80,10 +100,10 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 |---|---|---|---|---|
 | **Anton — Álgebra Lineal** | Theory (textbook) | ✅ Ch. 1–7 covered (~100%) | 58 | [[quadratic-forms]] (only listed gap) |
 | **Platzi — Álgebra Lineal** | Practical companion | ✅ Complete | 2 own + links | — |
-| **Triola — Estadística** | Theory (textbook) | 🟡 Ch. 1–5 done, **Ch. 6 §6-1–6-3 done** → ~5.4 / 12 ch. (**~45%**) | 76 | §6-4 sampling distributions, §6-5 **CLT**, §6-6 assessing normality, §6-7 normal approx. to binomial; then Ch. 7–12 |
+| **Triola — Estadística** | Theory (textbook) | 🟡 Ch. 1–7 done (except §6-5 CLT), **Ch. 8 §8-1–8-3 done** → ~7.4 / 12 ch. (**~62%**) | 109 | **§6-5 CLT trio (missing!)**; §7-5 sample size for variance; Ch. 8 §8-4 onward (testing a mean, then σ); Ch. 9–12 |
 | **Platzi — Fundamentos de ML** | Practical companion | 🟡 8 / 20 classes mapped (**40%**) | 7 | Classes 9–20: feature selection, train-test split, linear regression, metrics, R², trees, K-Means, PCA, pipeline, MLP, sentiment |
 | **Platzi — People Analytics con Excel** | Practical | ✅ 13 / 13 classes | 17 | — (side track) |
-| **Claude Academy — Claude 101** | Product course | 🟡 Lessons 1–2 done, 3 partial → ~2.5 / 13 (**~20%**) | 3 | ai-fluency-framework, claude-work-modes, projects, artifacts, skills, connectors, research-mode |
+| **Claude Academy — Claude 101** | Product course | 🟡 Lessons 1–7 + 9 done → ~9 / 13 (**~70%**) | 9 | claude-connectors (L8), claude-research-mode (L10), Lessons 11–13 + quiz |
 | **Udemy — Microsoft Fabric** | Practical (vendor) | 🟡 Modules 1–2 + medallion (part of 7) → ~2.5 / 9 (**~28%**) | 4 | Data Factory, Lakehouse + Spark, Warehouse, storage comparison, Power BI, DP-600/700 prep |
 | **AI Frontier Models Landscape 2026-09** | News snapshot | — | 0 | gemini-api, grok-api, deepseek-api, open-weight-vs-closed-models |
 
@@ -192,7 +212,7 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 
 ---
 
-### T3: Probability and Statistics — IN PROGRESS (76/~100 notes)
+### T3: Probability and Statistics — IN PROGRESS (109/~142 notes)
 
 > *Why*: ML is applied statistics. Bayesian thinking, distributions, hypothesis testing.
 
@@ -249,16 +269,34 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 - [x] Probability Density Function · Uniform Distribution · Standard Normal Distribution
 - [x] Critical Values and z_α · Normal Probabilities via Standardization · Finding Values from Normal Areas
 
-**Remaining — Triola Ch. 6 rest (the gateway to inference) ← NEXT:**
-- [x] Sampling Distributions and Estimators (§6-4) — [[sampling-distribution]] + [[unbiased-and-biased-estimators]] ← done 2026-10-04
-- [ ] Central Limit Theorem (§6-5) — **the most important missing note in T3**; justifies every z/t interval and test that follows
-- [ ] Assessing Normality / Normal Quantile Plots (§6-6) — QQ plots, the residual-diagnostics tool of regression
-- [ ] Normal Approximation to the Binomial (§6-7) — continuity correction
+**Done — Triola Ch. 6 rest (6 new):**
+- [x] Sampling Distribution · Unbiased and Biased Estimators · Bias Correction (§6-4)
+- [x] Normal Approximation to the Binomial · Continuity Correction
+- [x] Assessing Normality · Normal Quantile Plot
 
-**Remaining — Triola Ch. 7–12 (the inferential half) ← added 2026-10-03 from the Triola gap list:**
-- [ ] Point Estimates and Confidence Intervals for a Proportion / Mean (Ch. 7) — margin of error, sample size determination
-- [ ] Student's t Distribution (Ch. 7) · Chi-Squared Distribution (Ch. 7, CI for σ)
-- [ ] Hypothesis Testing and p-values (Ch. 8) — H₀/H₁, Type I/II errors, power
+**Done — estimation, Triola Ch. 7 (13 new):**
+- [x] Point Estimate · Confidence Interval · Interpreting Confidence Intervals · Margin of Error
+- [x] Confidence Interval for a Proportion · Adjusted Wald and Wilson Intervals · Sample Size for a Proportion · Estimating from a Published Interval
+- [x] Confidence Interval for a Mean · Sample Size for a Mean · Estimating σ for Sample Size
+- [x] Student's t Distribution · Chi-Squared Distribution · Confidence Interval for Variance
+
+**Done — hypothesis testing, Triola Ch. 8 §8-1–8-3 (12 new):**
+- [x] Null and Alternative Hypotheses · Test Statistic · Critical Region and Significance Level · p-Value
+- [x] One-Tailed vs. Two-Tailed Tests · Type I and Type II Errors · Statistical Power
+- [x] Hypothesis Test Decision Methods · Concluding Hypothesis Tests in Plain Language · Multiple Testing Problem
+- [x] One-Proportion z-Test · Exact Binomial Test (§8-3)
+
+**Remaining — ⚠️ the missing foundation (Triola §6-5) ← DO FIRST:**
+- [ ] Central Limit Theorem — **the most important missing note in the vault**; every z/t interval and test already written assumes it
+- [ ] Standard Error of the Mean — σ/√n derived from Var(Σxᵢ/n); the √n law; finite population correction
+- [ ] Probabilities for Sample Means — z for x̄ vs. z for one x (the "individual or mean?" trap)
+
+**Remaining — Triola Ch. 7–8 leftovers:**
+- [ ] Sample Size for Variance (§7-5, Table 7-2)
+- [ ] Testing a Claim About a Mean (§8-4 onward) — z with σ known, t with σ unknown; links [[student-t-distribution]]
+- [ ] Testing a Claim About a Standard Deviation or Variance — χ² test; links [[chi-squared-distribution]]
+
+**Remaining — Triola Ch. 9–12:**
 - [ ] Inferences from Two Samples (Ch. 9) — two-proportion z-test (= the A/B test), paired vs. independent t-test
 - [ ] Correlation and Regression (Ch. 10) — Pearson r, least-squares line, residuals; **bridge to T4 linear regression**
 - [ ] Chi-Squared Goodness-of-Fit and Contingency Tables (Ch. 11)
@@ -274,7 +312,7 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 - [ ] Log-Normal, Gamma distributions
 - [ ] **Causal inference basics** ← added 2026-10-03 — confounding, DAGs, potential outcomes; the formal follow-up to [[observational-study-vs-experiment]] and essential for A/B testing and uplift modeling
 
-**Estimated remaining**: ~25 notes (≈ 4 Ch. 6 + 12 Triola Ch. 7–12 + 9 beyond)
+**Estimated remaining**: ~33 notes (≈ 3 CLT trio + 3 Ch. 7–8 leftovers + ~18 Ch. 9–12 at the current granularity + 9 beyond)
 
 **Reading resources (optional / enrichment — not critical path):**
 - ✅ **How to Lie with Statistics** — Darrell Huff (1954). Short (~1 hr), foundational data-literacy classic; still the best "spot the misuse" primer. Pairs directly with [[common-misuses-of-statistics]]. Referenced in Triola Ch. 1 §1-4.
@@ -480,7 +518,7 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 
 ## BUILDER TRACK
 
-### B1: LLM APIs & Claude Platform — CORE DONE, Claude 101 gaps open
+### B1: LLM APIs & Claude Platform — NEARLY DONE (17/~19)
 
 - [x] Anthropic Claude API
 - [x] OpenAI API
@@ -494,12 +532,15 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 - [x] OpenAI Codex
 - [x] OpenAI Agents SDK
 
-**Remaining — Claude 101 gaps (product-course companions):**
-- [ ] AI Fluency Framework (Lesson 3)
-- [ ] Claude Work Modes: Chat / Cowork / Code (Lesson 4)
-- [ ] Claude Projects (Lesson 5) · Claude Artifacts (Lesson 6) · Claude Skills (Lesson 7)
-- [ ] Claude Connectors + Enterprise Search (Lessons 8–9)
-- [ ] Claude Research Mode (Lesson 10)
+**Done — Claude 101 companions (6 new):**
+- [x] AI Fluency Framework (L3) · Claude Work Modes (L4)
+- [x] Claude Projects (L5) · Claude Artifacts (L6) · Claude Skills (L7)
+- [x] Enterprise Search (L9)
+
+**Remaining — Claude 101 gaps:**
+- [ ] Claude Connectors (L8) — relate to [[model-context-protocol]]
+- [ ] Claude Research Mode (L10)
+- [ ] Lessons 11–13 + quiz
 
 ---
 
@@ -507,7 +548,7 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 
 - [x] Prompt Engineering Fundamentals (stage → task → rules) ← NEW
 - [x] Claude Context Layers (stateless model, five context scopes) ← NEW
-- [x] Iterative Prompt Refinement ← NEW (uncommitted)
+- [x] Iterative Prompt Refinement
 - [ ] Prompt Design Patterns (zero-shot, few-shot, chain-of-thought)
 - [ ] Structured Output (JSON mode, function calling)
 - [ ] System Prompts and Guardrails
@@ -600,7 +641,7 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 - [ ] Data modeling — star schema, dimensional modeling, data vault 2.0
 - [ ] OLAP vs OLTP — when each applies and why
 - [ ] Columnar storage — Parquet, ORC, why they're faster for analytics
-- [x] Medallion architecture — Bronze / Silver / Gold layers, data quality tiers ← NEW (uncommitted)
+- [x] Medallion architecture — Bronze / Silver / Gold layers, data quality tiers
 - [ ] Lakehouse vs. Data Warehouse — schema-on-read vs. schema-on-write (Fabric course gap)
 - [ ] Data Lake (and OneLake as one implementation) (Fabric course gap)
 - [ ] ETL vs. ELT (Fabric course gap)
@@ -854,8 +895,8 @@ DE + C++ + SWE + System Design = production-grade AI architect.
 ```
 Weeks 1-3   | Linear Algebra (✓ done)          | B1: APIs (✓ done)
 Weeks 4-5   | Calculus (✓ core done)            | B2: Prompt engineering (started)
-Weeks 6-12  | Probability: Triola Ch.1-6 (now)  | B6: Fabric course (started, ~28%)
-Weeks 13-15 | Triola Ch.6 rest + Ch.7-8 (CLT, CIs, tests) + MLE | B3: Providers landscape
+Weeks 6-12  | Probability: Triola Ch.1-6 (✓ done, CLT gap) | B6: Fabric course (started, ~28%)
+Weeks 13-15 | Triola Ch.7-8 (✓ Ch.7, Ch.8 in progress) + CLT trio + MLE (now) | B1: finish Claude 101 (~70%) → B3: Providers
 Weeks 16-17 | Info theory + Triola Ch.9-10       | B4: Embeddings + vector DBs (+F1 ANN)
 Weeks 18-20 | Supervised ML + T4b Evaluation    | B5: RAG pipeline
 Weeks 21-22 | Unsupervised + Ensemble           | B10: Tool use & agents
@@ -873,16 +914,17 @@ Weeks 35+   | Capstone projects                 | B9: System design
 
 **Immediate priorities (theory):**
 
-1. **Finish Triola Ch. 6** — `/note sampling-distributions-and-estimators` (§6-4), then `/note central-limit-theorem` (§6-5). The CLT is the single most important missing note: every confidence interval and hypothesis test in Ch. 7–12 rests on it. Then §6-6 (normal quantile plots) and §6-7 (normal approximation to the binomial). ~4 notes, closes the chapter you're in the middle of.
-2. **`/review` pass on the probability cluster** — 0 notes were promoted this cycle while 35 were added. Before building inference on top, promote the load-bearing ones (conditional-probability, bayes-theorem, random-variable, expected-value, standard-normal-distribution) from seed → growing.
-3. **Triola Ch. 7–8** — confidence intervals, t distribution, hypothesis testing and p-values. This finally gives [[statistical-significance]] its formal machinery.
-4. `/note maximum-likelihood-estimation` + `/note cross-entropy-and-kl-divergence` — the bridge from probability to ML losses. [[logistic-regression]] already links to `[[cross-entropy]]`, which doesn't exist yet.
-5. `/session linear-regression` — derive the normal equations from [[least-squares]] and the MLE/Gaussian-noise view; ideally after Triola Ch. 10 (correlation and regression).
-6. Housekeeping: resolve the `matrix-transpose` inbox drafts (open for 4+ audits); write `matrix-calculus` before T7.
+1. **Write the CLT trio NOW** — `/note central-limit-theorem`, `/note standard-error-of-the-mean`, `/note probabilities-for-sample-means` (Triola §6-5). They're already mapped as if they existed; Ch. 7–8 notes rest on them. 3 notes, ~1 session.
+2. **Continue Triola Ch. 8** — §8-4 testing a claim about a mean (z and t), then the test for σ/σ² (χ²). ~3–4 notes; closes the chapter you're in.
+3. **`/review` pass on the inference core** — promote seed → growing for the load-bearing notes: sampling-distribution, confidence-interval, p-value, test-statistic, type-i-and-type-ii-errors, statistical-power. 0 promotions in two audits.
+4. **Triola Ch. 9** — two-sample inference; the two-proportion z-test is the A/B test, the direct bridge to T4b evaluation and B9 experimentation.
+5. `/note maximum-likelihood-estimation` + `/note cross-entropy-and-kl-divergence` — bridge from probability to ML losses ([[logistic-regression]] still links the missing `[[cross-entropy]]`).
+6. Then Triola Ch. 10 → `/session linear-regression` (derive normal equations from [[least-squares]]).
+7. Housekeeping: resolve the `matrix-transpose` drafts (5 audits open); write `matrix-calculus` before T7.
 
 **Immediate priorities (builder):**
 
-1. **Finish one open practical course before starting another** — Claude 101 (~20%) is the shortest: 7 small notes (AI fluency, work modes, projects, artifacts, skills, connectors, research).
+1. **Close Claude 101 (~70%)** — only claude-connectors, claude-research-mode and Lessons 11–13 remain. Closing it frees a slot under the "max 3 open practical courses" rule.
 2. Continue the Fabric course — next: lakehouse-vs-data-warehouse and etl-vs-elt (theory-first), with DP-600/DP-700 as the milestone.
 3. `/note prompt-design-patterns` — zero-shot, few-shot, CoT (B2).
 4. Then B4 embeddings → B10 agents (the stub that's now a full track).
@@ -912,6 +954,6 @@ Weeks 35+   | Capstone projects                 | B9: System design
 **Quality improvements:**
 - Promote `singular-value-decomposition` from seed to growing — still the biggest quality gap given how central SVD is to ML (PCA, pseudoinverse, low-rank approximation)
 - `spectral-decomposition` promoted seed → growing since last update ✓
-- **156 of 190 content notes are still `status/seed`** (was 121/155, before that 78/111) — the seed backlog grew by 35 this cycle and nothing was promoted. Worth a `/review` pass on the load-bearing linear-algebra seeds (subspaces, kernel-and-range, rank-nullity-theorem, diagonalization) and on the new descriptive-statistics cluster before building on top of them
+- **195 of 229 content notes are still `status/seed`** (was 156/190, before that 121/155) — the seed backlog grew by 39 this cycle and nothing was promoted. Worth a `/review` pass on the load-bearing linear-algebra seeds (subspaces, kernel-and-range, rank-nullity-theorem, diagonalization) and on the new descriptive-statistics cluster before building on top of them
 - All 17 people-analytics notes are `status/seed` with zero code — lowest priority for now (side track), but if a 06-projects capstone gets built from this material (see S1 above), promote the notes it exercises to `growing`
 - **Vault-wide**: write at least one runnable file in `code/` — right now every single implementation described in every note (Gauss-Jordan, Gram-Schmidt, Cronbach's alpha, ONA centrality, sentiment scoring) exists only as an inline snippet, never as an actual tested `.py` file
