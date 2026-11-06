@@ -111,6 +111,9 @@ date_read: "2026-08-02 (in progress; Ch. 7 added 2026-10-17; Ch. 8 §8-2 added 2
 - [[finding-values-from-normal-areas]] — §6-3 (Ejemplos 3–4, Fig. 6-16): area → z → x = μ + zσ, the four warnings, and the which-direction flowchart; 95% door (73.6 in), birth-weight cutoffs 2489 / 4573 g
 - [[sampling-distribution]] — §6-4 (Ejemplos 1–5, Tablas 6-2 to 6-5): the distribution of a statistic over all samples of size n; die simulation for x̄ / s² / p̂ (centers 3.5 / 2.92 / 0.5, s² skewed right), range example {2, 3, 10}, standard error σ/√n, why sample with replacement
 - [[unbiased-and-biased-estimators]] — §6-4: E[θ̂] = θ; x̄, s², p̂ unbiased vs. range, s, median biased; Example 4 checked exactly (s² 12.67 = σ², s 2.51 < 3.56, median 5 ≠ 3); "sesgado" = biased vs. "sesgada" = skewed
+- [[central-limit-theorem]] — §6-5: x̄ from any population with finite σ tends to N(μ, σ²/n); Triola's usage rule (normal → any n; else n > 30); shape of x̄, not of the data; exponential simulation (skew of x̄ = 2/√n)
+- [[standard-error-of-the-mean]] — §6-5: μ_x̄ = μ and σ_x̄ = σ/√n derived from Var(Σxᵢ/n); the √n law; estimated SE s/√n; finite population correction when n > 5% of N
+- [[probabilities-for-sample-means]] — §6-5: z for one x vs. z for x̄, the "one individual or a mean?" trap (illustrative elevator example), and the rare-event rule as a proto-p-value
 
 **Ch 7 — Estimates and Sample Sizes**
 - [[point-estimate]] — §7-2: a single best guess (p̂ for p, x̄ for μ) and why a point alone gives no accuracy information
@@ -250,6 +253,9 @@ This book is the natural next input for [[probability-fundamentals|T3 (Probabili
 - [[chi-squared-distribution]] — from Ch. 7, §7-5: the chi-squared law of $(n-1)s^2/\sigma^2$, its mean/variance, and the table-lookup pitfall
 - [[confidence-interval-for-variance]] — from Ch. 7, §7-5 (Ejemplo 2): the asymmetric variance and SD intervals, rounding, and the normality requirement
 
+- [[central-limit-theorem]] — from Ch. 6, §6-5: statement and conditions, usage-rule table, convergence speed by skewness; examples are illustrative (book's Fig. 6-19 not yet added)
+- [[standard-error-of-the-mean]] — from Ch. 6, §6-5: derivation of σ/√n, √n law, FPC (N = 500, n = 50 → 0.950), correlated-data exercise
+- [[probabilities-for-sample-means]] — from Ch. 6, §6-5: individual-vs-mean table, elevator example (0.3694 vs. 0.0478), rare-event rule; book's water-taxi and screws examples still to add
 - [[normal-approximation-to-binomial]] — from Ch. 6, §6-6: conditions np ≥ 5 and nq ≥ 5 (Triola's threshold vs. 10 in some texts), μ = np, σ = √npq, the six-step procedure, and the Viking River survey (z = −1.48, 0.9306 vs. exact 0.9313)
 - [[continuity-correction]] — from Ch. 6, §6-6: x ↔ [x − 0.5, x + 0.5], the at-least / more-than / at-most / fewer-than / exactly boundary table (Fig. 6-22), and the Pew Internet survey for "exactly 2060" (difference of two z-areas)
 
@@ -269,10 +275,10 @@ This book is the natural next input for [[probability-fundamentals|T3 (Probabili
 
 ## Gaps — Notes Still to Create
 
-**§6-5 — The Central Limit Theorem (planned, in order)**
-- [[central-limit-theorem]] — the theorem itself: any population with μ and σ → the distribution of x̄ tends to normal as n grows; Triola's usage rule (normal population → any n; otherwise n > 30; otherwise don't use these methods); the CLT fixes the *shape* of x̄, not of the data; Fig. 6-19 uniform/skewed populations → bell-shaped x̄
-- [[standard-error-of-the-mean]] — μ_x̄ = μ and σ_x̄ = σ/√n, derived from Var(Σxᵢ/n) = nσ²/n²; the √n law (halve the SE → 4× the sample); the finite population correction √((N−n)/(N−1)) when n > 5% of N
-- [[probabilities-for-sample-means]] — applying the CLT: z = (x̄ − μ)/(σ/√n) vs. z = (x − μ)/σ, the "one individual or a mean?" trap (water-taxi/elevator weights), and interpreting results with the rare event rule from [[identifying-unusual-results]]; worked on the 3/4-in screws (z ≈ −1.84, one tail 0.0329, two tails 0.0658 → not unusual; bridge to two-tailed p-values in Ch. 8)
+**§6-5 — The Central Limit Theorem (written 2026-11-05, see Permanent Notes Created; book examples still to add)**
+- ✅ [[central-limit-theorem]] — the theorem itself: any population with μ and σ → the distribution of x̄ tends to normal as n grows; Triola's usage rule (normal population → any n; otherwise n > 30; otherwise don't use these methods); the CLT fixes the *shape* of x̄, not of the data; Fig. 6-19 uniform/skewed populations → bell-shaped x̄
+- ✅ [[standard-error-of-the-mean]] — μ_x̄ = μ and σ_x̄ = σ/√n, derived from Var(Σxᵢ/n) = nσ²/n²; the √n law (halve the SE → 4× the sample); the finite population correction √((N−n)/(N−1)) when n > 5% of N
+- ✅ [[probabilities-for-sample-means]] — applying the CLT: z = (x̄ − μ)/(σ/√n) vs. z = (x − μ)/σ, the "one individual or a mean?" trap (water-taxi/elevator weights), and interpreting results with the rare event rule from [[identifying-unusual-results]]; worked on the 3/4-in screws (z ≈ −1.84, one tail 0.0329, two tails 0.0658 → not unusual; bridge to two-tailed p-values in Ch. 8)
 
 **§6-6 — Normal approximation to the binomial (written, see Permanent Notes Created)**
 - ✅ [[normal-approximation-to-binomial]] — when np ≥ 5 and nq ≥ 5, μ = np and σ = √npq; why it works (a binomial is a sum of n Bernoullis, so the CLT applies); Triola's 5 threshold vs. the 10 used in some textbooks (and in [[poisson-approximation-to-binomial]]); when to use the exact formula, a calculator, or Table A-1 instead
