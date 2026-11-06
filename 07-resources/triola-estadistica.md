@@ -8,7 +8,7 @@ domain: probability
 sources:
   - "Triola, Mario F. Estadística. 11ª edición (technology update). Pearson Educación, México, 2013. ISBN 978-607-32-1768-2."
 author: "Mario F. Triola"
-date_read: "2026-08-02 (in progress; Ch. 7 added 2026-10-17; Ch. 8 §8-2 added 2026-10-28; §8-3 added 2026-11-03)"
+date_read: "2026-08-02 (in progress; Ch. 7 added 2026-10-17; Ch. 8 §8-2 added 2026-10-28; §8-3 added 2026-11-03; §8-4 added 2026-11-05)"
 ---
 
 ## Summary
@@ -30,7 +30,7 @@ date_read: "2026-08-02 (in progress; Ch. 7 added 2026-10-17; Ch. 8 §8-2 added 2
 | 5   | Discrete Probability Distributions                       | [[random-variable]], [[discrete-probability-distribution]], [[mean-and-variance-of-a-probability-distribution]], [[expected-value]], [[identifying-unusual-results]], [[bernoulli-distribution]], [[binomial-distribution-requirements]], [[binomial-distribution]], [[binomial-mean-and-variance]], [[hypergeometric-distribution]], [[poisson-distribution]], [[poisson-approximation-to-binomial]] |
 | 6   | Normal Probability Distributions                         | [[normal-distribution]], [[probability-density-function]], [[uniform-distribution]], [[standard-normal-distribution]], [[critical-values-and-z-alpha]], [[cdf-and-quantiles]], [[normal-probabilities-via-standardization]], [[finding-values-from-normal-areas]], [[sampling-distribution]], [[unbiased-and-biased-estimators]], [[bias-correction]], [[central-limit-theorem]], [[standard-error-of-the-mean]], [[probabilities-for-sample-means]], [[normal-approximation-to-binomial]], [[continuity-correction]]                                                                                                                                                                                                                |
 | 7   | Estimates and Sample Sizes                               | [[point-estimate]], [[confidence-interval]], [[confidence-interval-for-proportion]], [[margin-of-error]], [[interpreting-confidence-intervals]], [[sample-size-for-proportion]], [[adjusted-wald-and-wilson-intervals]], [[estimating-from-published-interval]], [[confidence-interval-for-mean]], [[sample-size-for-mean]], [[estimating-sigma-for-sample-size]], [[chi-squared-distribution]], [[confidence-interval-for-variance]]                                                                                                                                                                                     |
-| 8   | Hypothesis Testing | [[null-and-alternative-hypotheses]], [[test-statistic]], [[critical-region-and-significance-level]], [[p-value]], [[one-tailed-vs-two-tailed-tests]], [[type-i-and-type-ii-errors]], [[statistical-power]], [[hypothesis-test-decision-methods]], [[concluding-hypothesis-tests-in-plain-language]], [[multiple-testing-problem]], [[one-proportion-z-test]], [[exact-binomial-test]] |
+| 8   | Hypothesis Testing | [[null-and-alternative-hypotheses]], [[test-statistic]], [[critical-region-and-significance-level]], [[p-value]], [[one-tailed-vs-two-tailed-tests]], [[type-i-and-type-ii-errors]], [[statistical-power]], [[hypothesis-test-decision-methods]], [[concluding-hypothesis-tests-in-plain-language]], [[multiple-testing-problem]], [[one-proportion-z-test]], [[exact-binomial-test]], [[one-mean-z-test]] |
 | 9   | Inferences from Two Samples                              |                                                                                                                                                                                                                                                                                                                                                                                                       |
 | 10  | Correlation and Regression                               |                                                                                                                                                                                                                                                                                                                                                                                                       |
 | 11  | Multinomial Experiments and Contingency Tables           |                                                                                                                                                                                                                                                                                                                                                                                                       |
@@ -140,6 +140,7 @@ date_read: "2026-08-02 (in progress; Ch. 7 added 2026-10-17; Ch. 8 §8-2 added 2
 - [[multiple-testing-problem]] — §8-2: the Peto zodiac example and family-wise false positives
 - [[one-proportion-z-test]] — §8-3 Part 1: $z=(\hat p-p)/\sqrt{pq/n}$, requirements (np, nq ≥ 5 with the claimed p), XSORT 668/726 by all three methods, and why the CI is not equivalent for proportions
 - [[exact-binomial-test]] — §8-3 Part 2: P-value as a binomial tail sum, the two-tailed doubling rule, pregnancy guesses 57/104 (exact 0.3776 vs. normal 0.3268)
+- [[one-mean-z-test]] — §8-4: $z=(\bar x-\mu_0)/(\sigma/\sqrt n)$ with σ known, requirements and robustness, overloaded-boats example (z = 1.52, P = 0.0643, fail to reject) by all three methods, and why the CI *is* equivalent for means
 
 *(remaining chapters to fill in as read — see [[probability-distributions]] for the overview note this book's Ch. 4-6 will extend)*
 
@@ -264,6 +265,7 @@ This book is the natural next input for [[probability-fundamentals|T3 (Probabili
 - [[multiple-testing-problem]] — from Ch. 8, §8-2 (Peto/zodiac box): family-wise false positives; the Bonferroni line is an outside addition
 - [[one-proportion-z-test]] — from Ch. 8, §8-3 Part 1 (Ejemplos 1–3): requirements, derivation from (x − np)/√npq, getting x from a percentage, XSORT (z = 22.64; book's 22.63 uses rounded p̂) and pregnancy (z = 0.98) examples, the CI-non-equivalence warning
 - [[exact-binomial-test]] — from Ch. 8, §8-3 Part 2 (Ejemplo 4): exact tail P-values, doubling rule, 0.3776 vs. 0.3268 (gap = continuity correction), and the binomtest two-sided caveat
+- [[one-mean-z-test]] — from Ch. 8, §8-4 (Ejemplos 1–3): requirements (SRS, σ known, normal or n > 30), derivation from Var(x̄) = σ²/n, boats example via P-value / critical value / 90% CI (165.8 < μ < 179.3), the 1 − 2α CI rule, and the rare-event rule
 
 ## Gaps — Notes Still to Create
 
