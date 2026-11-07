@@ -3,6 +3,7 @@ tags:
   - status/seed
   - probability
 related:
+  - "[[one-mean-t-test]]"
   - "[[normal-distribution]]"
   - "[[standard-normal-distribution]]"
   - "[[histogram]]"

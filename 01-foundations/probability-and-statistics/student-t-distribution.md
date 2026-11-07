@@ -3,6 +3,7 @@ tags:
   - status/seed
   - probability
 related:
+  - "[[one-mean-t-test]]"
   - "[[confidence-interval-for-mean]]"
   - "[[standard-normal-distribution]]"
   - "[[critical-values-and-z-alpha]]"

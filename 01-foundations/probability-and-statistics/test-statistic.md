@@ -3,6 +3,7 @@ tags:
   - status/seed
   - probability
 related:
+  - "[[one-mean-t-test]]"
   - "[[null-and-alternative-hypotheses]]"
   - "[[z-score]]"
   - "[[student-t-distribution]]"

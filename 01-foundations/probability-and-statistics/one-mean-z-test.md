@@ -3,6 +3,7 @@ tags:
   - status/seed
   - probability
 related:
+  - "[[one-mean-t-test]]"
   - "[[test-statistic]]"
   - "[[hypothesis-test-decision-methods]]"
   - "[[p-value]]"
@@ -47,7 +48,7 @@ $$z = \frac{172.55 - 166.3}{26/\sqrt{40}} = \frac{6.25}{4.111} = 1.52$$
 
 Conclusion: there is not enough evidence that the mean weight exceeds 166.3 lb. This does **not** show that it equals 166.3 ([[concluding-hypothesis-tests-in-plain-language]]).
 
-**Knowing σ is rare.** In practice σ is unknown, you plug in $s$, and the statistic follows the [[student-t-distribution]] (§8-5). This section is the clean teaching case.
+**Knowing σ is rare.** In practice σ is unknown, you plug in $s$, and the statistic follows the [[student-t-distribution]]: that is the [[one-mean-t-test]] (§8-5). This section is the clean teaching case.
 
 ```python
 import math
