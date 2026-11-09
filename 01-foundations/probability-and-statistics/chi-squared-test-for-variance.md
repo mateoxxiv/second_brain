@@ -40,6 +40,8 @@ The question is: is the observed $s^2$ unusually far from the claimed $\sigma_0^
 | Left, H1: σ < σ0 | 0.95 | not 0.05: the table is right-tailed |
 | Two, H1: σ ≠ σ0 | 0.975 and 0.025 | two **different positive** values, not ±c |
 
+**Two-tailed P-value**: double the smaller tail, $P = \min\{1,\ 2\min[P(\chi^2_{n-1} \le x),\ P(\chi^2_{n-1} \ge x)]\}$, i.e. `2 * min(cdf, sf)`. The smaller tail is the side where the statistic falls: left if $s^2 < \sigma_0^2$, right if $s^2 > \sigma_0^2$. Triola leaves this implicit; it is the §8-2 doubling rule from [[p-value]]. Using `sf` alone halves P and overstates the evidence (tar exercise: 0.1249 instead of 0.2498).
+
 **Worked, pennies** (n = 37, s = 0.01648 g, H1: σ < 0.0230 g, α = 0.05; normality checked with a histogram and a [[normal-quantile-plot]]):
 $\chi^2 = 36(0.01648)^2/0.0230^2 = 18.483$, df = 36.
 
@@ -57,6 +59,8 @@ n, s, s0 = 37, 0.01648, 0.0230
 chi2 = (n - 1) * s**2 / s0**2
 print(round(chi2, 3), round(stats.chi2.ppf(0.05, n - 1), 3))  # 18.483 23.269
 print(round(stats.chi2.cdf(chi2, n - 1), 4))                  # 0.0069 (left tail)
+# two-tailed H1 (sigma != sigma0): double the smaller tail
+p_two = min(1, 2 * min(stats.chi2.cdf(chi2, n - 1), stats.chi2.sf(chi2, n - 1)))
 # Non-robustness: exponential data (true sigma = 1), n = 20, two-tailed alpha = 0.05
 import numpy as np
 v = 19 * np.random.default_rng(0).exponential(1, (20000, 20)).var(axis=1, ddof=1)
